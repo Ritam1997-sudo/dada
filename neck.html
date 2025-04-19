@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Expert Physiotherapy Treatment for Neck Pain in Naihati by Biswanath Chowdhury. Relieve neck pain with personalized care and advanced techniques.">
+    <meta name="keywords" content="Physiotherapy Treatment for Neck Pain in Naihati, neck pain relief, physiotherapy Naihati, Biswanath Chowdhury">
+    <meta name="author" content="Biswanath Chowdhury">
+    <title>Physiotherapy Treatment for Neck Pain in Naihati | Biswanath Chowdhury</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #00a0a0;
+            --secondary: #2563eb;
+            --accent: #0284c7;
+            --light: #f0fdfd;
+            --dark: #0f172a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .bg-primary { background-color: var(--primary); }
+        .bg-secondary { background-color: var(--secondary); }
+        .text-primary { color: var(--primary); }
+        .border-primary { border-color: var(--primary); }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #008080;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 160, 160, 0.3);
+        }
+
+        .section {
+            padding: 5rem 1rem;
+        }
+
+        .card {
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 160, 160, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 160, 160, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 160, 160, 0); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
+        }
+
+        #mobile-menu.show {
+            transform: translateX(0);
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 160, 160, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl">BC</div>
+                    <div>
+                        <h1 class="text-xl font-bold text-primary">Neck Pain Physiotherapy</h1>
+                        <p class="text-xs text-gray-600">Biswanath Chowdhury, Naihati</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-gray-800 hover:text-primary transition-colors flex items-center">
+                        <i class="fas fa-home mr-2"></i> Home
+                    </a>
+                    <a href="#about" class="text-gray-800 hover:text-primary transition-colors flex items-center">
+                        <i class="fas fa-user mr-2"></i> About
+                    </a>
+                    <a href="#treatment" class="text-gray-800 hover:text-primary transition-colors flex items-center">
+                        <i class="fas fa-hands-helping mr-2"></i> Treatment
+                    </a>
+                    <a href="#contact" class="text-gray-800 hover:text-primary transition-colors flex items-center">
+                        <i class="fas fa-envelope mr-2"></i> Contact
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 md:hidden">
+            <div class="flex justify-end p-4">
+                <button id="close-menu" class="text-gray-800 focus:outline-none">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-4 p-4">
+                <a href="#home" class="text-gray-800 hover:text-primary transition-colors flex items-center">
+                    <i class="fas fa-home w-8"></i> Home
+                </a>
+                <a href="#about" class="text-gray-800 hover:text-primary transition-colors flex items-center">
+                    <i class="fas fa-user w-8"></i> About
+                </a>
+                <a href="#treatment" class="text-gray-800 hover:text-primary transition-colors flex items-center">
+                    <i class="fas fa-hands-helping w-8"></i> Treatment
+                </a>
+                <a href="#contact" class="text-gray-800 hover:text-primary transition-colors flex items-center">
+                    <i class="fas fa-envelope w-8"></i> Contact
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-primary text-white min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 py-16">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 reveal">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Physiotherapy Treatment for Neck Pain in Naihati</h1>
+                    <p class="text-xl mb-8">Find relief from neck pain with expert physiotherapy by Biswanath Chowdhury, Naihati’s trusted specialist.</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="btn-primary pulse px-6 py-3 rounded-full font-medium text-lg shadow-lg flex items-center">
+                            <i class="fas fa-calendar-check mr-2"></i> Book Appointment
+                        </a>
+                        <a href="#treatment" class="bg-white text-primary px-6 py-3 rounded-full font-medium text-lg shadow-lg hover:bg-gray-100 transition-colors flex items-center">
+                            <i class="fas fa-list-ul mr-2"></i> Learn About Treatment
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 reveal">
+                    <div class="bg-white p-2 rounded-lg shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                        <div class="bg-gray-200 h-64 md:h-80 rounded flex items-center justify-center overflow-hidden">
+                            <img src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1744697624/FB_IMG_1744697052294_ptfjkr.jpg" 
+                                 alt="Physiotherapy Treatment for Neck Pain in Naihati" 
+                                 class="object-cover object-top h-full w-full rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Expert Neck Pain Relief in <span class="text-primary">Naihati</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 reveal">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-primary rounded-lg transform rotate-6"></div>
+                        <div class="relative bg-gray-200 h-80 w-full rounded-lg flex items-center justify-center overflow-hidden">
+                            <img src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1744697624/FB_IMG_1744697052294_ptfjkr.jpg" 
+                                 alt="Biswanath Chowdhury - Neck Pain Specialist Naihati" 
+                                 class="object-cover h-full w-full rounded-lg">
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12 reveal">
+                    <h3 class="text-2xl font-semibold mb-4 text-primary flex items-center">
+                        <i class="fas fa-heartbeat mr-3"></i> Personalized Care for Neck Pain
+                    </h3>
+                    <p class="text-gray-700 mb-4">Biswanath Chowdhury offers specialized physiotherapy treatment for neck pain in Naihati. With over 15 years of experience, he uses advanced techniques to address causes like muscle strain, poor posture, and cervical issues.</p>
+                    <p class="text-gray-700 mb-6">Serving the Naihati community, Biswanath’s patient-focused approach ensures effective pain relief and long-term recovery, helping you regain comfort and mobility.</p>
+                    <a href="#contact" class="btn-primary inline-block px-6 py-3 rounded-full font-medium shadow-lg flex items-center justify-center">
+                        <i class="fas fa-calendar-check mr-2"></i> Schedule Your Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatment Section -->
+    <section id="treatment" class="section bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Approach to <span class="text-primary">Neck Pain Treatment</span></h2>
+                <div class="w-24 h-1 bg-primary mx-auto mb-3"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Comprehensive physiotherapy solutions for neck pain, tailored to your needs in Naihati.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm card">
+                    <div class="text-primary mb-3">
+                        <i class="fas fa-hand-holding-medical text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Manual Therapy</h3>
+                    <p class="text-gray-600">Gentle hands-on techniques to relieve muscle tension and improve neck mobility.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm card">
+                    <div class="text-primary mb-3">
+                        <i class="fas fa-dumbbell text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Therapeutic Exercises</h3>
+                    <p class="text-gray-600">Customized exercises to strengthen neck muscles and enhance posture.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm card">
+                    <div class="text-primary mb-3">
+                        <i class="fas fa-user-md text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Posture Correction</h3>
+                    <p class="text-gray-600">Guidance to correct posture and prevent recurring neck pain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-gradient-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Start Your <span class="text-white">Neck Pain Relief Journey</span></h2>
+                <div class="w-24 h-1 bg-white mx-auto"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="reveal">
+                    <h3 class="text-2xl font-semibold mb-4">Contact Us Today</h3>
+                    <p class="mb-4">Get expert physiotherapy treatment for neck pain in Naihati with Biswanath Chowdhury.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-primary mr-3"></i> +91 123-456-7890
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i> info@naihatiphysio.com
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary mr-3"></i> Naihati, West Bengal, India
+                        </li>
+                    </ul>
+                </div>
+                <div class="reveal">
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-gray-800">
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium">Name</label>
+                            <input type="text" id="name" class="w-full p-3 border rounded-lg" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium">Email</label>
+                            <input type="email" id="email" class="w-full p-3 border rounded-lg" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-sm font-medium">Message</label>
+                            <textarea id="message" class="w-full p-3 border rounded-lg" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-3 rounded-full font-medium">Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 Biswanath Chowdhury | Physiotherapy Treatment for Neck Pain in Naihati. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('show');
+        });
+
+        // Reveal Animation on Scroll
+        const reveals = document.querySelectorAll('.reveal');
+        window.addEventListener('scroll', () => {
+            reveals.forEach((reveal) => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
