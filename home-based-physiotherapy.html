@@ -461,35 +461,6 @@ border-radius: 0.5rem;
         </div>
     </footer>
 
-    
-
-    <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenu = document.getElementById('close-menu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('show');
-        });
-
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('show');
-        });
-
-        // Reveal Animation on Scroll
-        const reveals = document.querySelectorAll('.reveal');
-        window.addEventListener('scroll', () => {
-            reveals.forEach((reveal) => {
-                const windowHeight = window.innerHeight;
-                const revealTop = reveal.getBoundingClientRect().top;
-                const revealPoint = 150;
-
-                if (revealTop < windowHeight - revealPoint) {
-                    reveal.classList.add('active');
-                }
-            });
-        });
-    </script>
+        <script src="home.js"></script>
 </body>
 </html>
