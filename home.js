@@ -51,4 +51,40 @@
                     });
                 }
             });
-          
+           // Load Gallery on Button Click
+        const loadGalleryBtn = document.getElementById('load-gallery-btn');
+        const gallery = document.getElementById('gallery');
+
+        loadGalleryBtn.addEventListener('click', () => {
+            // Show gallery
+            gallery.classList.remove('hidden');
+
+            // Load images
+            const images = gallery.querySelectorAll('img[data-src]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src'); // Remove data-src to prevent re-loading
+            });
+
+            // Disable button to prevent multiple clicks
+            loadGalleryBtn.disabled = true;
+            loadGalleryBtn.textContent = 'Gallery Loaded';
+            loadGalleryBtn.classList.remove('btn-primary');
+            loadGalleryBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+
+            // Trigger reveal animation
+            gallery.classList.add('active');
+        });
+
+
+        // Error Handling for Gallery
+        document.addEventListener('DOMContentLoaded', () => {
+            if (!gallery) {
+                console.error('Gallery container not found');
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.style.display = 'block';
+                errorDiv.textContent = 'Unable to load gallery. Please try again later.';
+                document.querySelector('.section').appendChild(errorDiv);
+            }
+        });
