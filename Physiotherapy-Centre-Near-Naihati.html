@@ -10,143 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary: #00a0a0;
-            --secondary: #2563eb;
-            --accent: #0284c7;
-            --light: #f0fdfd;
-            --dark: #0f172a;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .bg-primary { background-color: var(--primary); }
-        .bg-secondary { background-color: var(--secondary); }
-        .text-primary { color: var(--primary); }
-        .border-primary { border-color: var(--primary); }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #008080;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(0, 160, 160, 0.3);
-        }
-
-        .section {
-            padding: 5rem 1rem;
-        }
-
-        .card {
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .bg-gradient-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 160, 160, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(0, 160, 160, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 160, 160, 0); }
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(-100%);
-        }
-
-        #mobile-menu.show {
-            transform: translateX(0);
-        }
-
-        input:focus, textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 160, 160, 0.2);
-        }
-/* Video container for responsive videos */
-
-
-.video-container {
-
-
-position: relative;
-
-
-padding-bottom: 56.25%;
-
-
-height: 0;
-
-
-overflow: hidden;
-
-
-}
-
-
-
-
-
-
-.video-container iframe {
-
-
-position: absolute;
-
-
-top: 0;
-
-
-left: 0;
-
-
-width: 100%;
-
-
-height: 100%;
-
-
-border-radius: 0.5rem;
-
-
-}
-    </style>
+<link href="home.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header Section -->
@@ -363,7 +227,124 @@ border-radius: 0.5rem;
             </div>
         </div>
     </section>
+<!-- Qualifications Section -->
+    <section class="section bg-white" id="qualifications">
+        <div class="container mx-auto px-4">
+            <div class="text-center reveal mb-12">
+                <h2 class="mb-4 font-bold md:text-4xl text-3xl">Qualifications & <span class="text-primary">Experience</span></h2>
+                <div class="mx-auto bg-primary h-1 w-24 mb-6"></div>
+                <p class="text-gray-600 mx-auto max-w-3xl">Biswanath Chowdhury brings extensive education, training, and professional experience to provide the highest quality care.</p>
+            </div>
+            <div class="flex md:flex-row flex-col">
+                <div class="reveal md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h3 class="flex items-center font-semibold text-2xl text-primary mb-6"><i class="fas mr-3 fa-graduation-cap"></i> Education & Certifications</h3>
+                    <div class="space-y-6">
+                        <div class="pl-8 qualification-item pb-6">
+                            <h4 class="font-semibold text-lg">Bachelor of Physiotherapy (BPT)</h4>
+                            <p class="text-gray-600">University of Health Sciences, 2005</p>
+                            <p class="text-gray-700 mt-2">Graduated with honors, specialized in orthopedic rehabilitation</p>
+                        </div>
+                        <div class="pl-8 qualification-item pb-6">
+                            <h4 class="font-semibold text-lg">Master of Physiotherapy (MPT)</h4>
+                            <p class="text-gray-600">National Institute of Rehabilitation Science, 2008</p>
+                            <p class="text-gray-700 mt-2">Specialized in sports physiotherapy and manual therapy techniques</p>
+                        </div>
+                        <div class="pl-8 qualification-item pb-6">
+                            <h4 class="font-semibold text-lg">Certified Manual Therapy Specialist</h4>
+                            <p class="text-gray-600">International Academy of Orthopedic Medicine, 2010</p>
+                        </div>
+                        <div class="pl-8 qualification-item">
+                            <h4 class="font-semibold text-lg">Certification in Dry Needling</h4>
+                            <p class="text-gray-600">Institute of Advanced Physical Therapy, 2012</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal md:w-1/2 md:pl-8">
+                    <h3 class="flex items-center font-semibold text-2xl text-primary mb-6"><i class="fas mr-3 fa-briefcase"></i> Professional Experience</h3>
+                    <div class="space-y-6">
+                        <div class="pl-8 qualification-item pb-6">
+                            <h4 class="font-semibold text-lg">Senior Physiotherapist</h4>
+                            <p class="text-gray-600">National Sports Medicine Center, 2008-2012</p>
+                            <p class="text-gray-700 mt-2">Provided rehabilitation services for elite athletes and sports teams</p>
+                        </div>
+                        <div class="pl-8 qualification-item pb-6">
+                            <h4 class="font-semibold text-lg">Head of Rehabilitation Department</h4>
+                            <p class="text-gray-600">City General Hospital, 2012-2017</p>
+                            <p class="text-gray-700 mt-2">Led a team of 15 physical therapists, developed treatment protocols</p>
+                        </div>
+                        <div class="pl-8 qualification-item pb-6">
+                            <h4 class="font-semibold text-lg">Guest Lecturer</h4>
+                            <p class="text-gray-600">University of Health Sciences, 2014-Present</p>
+                            <p class="text-gray-700 mt-2">Teaching advanced manual therapy techniques to physiotherapy students</p>
+                        </div>
+                        <div class="pl-8 qualification-item">
+                            <h4 class="font-semibold text-lg">Private Practice</h4>
+                            <p class="text-gray-600">Biswanath Physiotherapy Clinic, 2017-Present</p>
+                            <p class="text-gray-700 mt-2">Providing specialized physiotherapy services to diverse patient populations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+ <!-- Testimonials Section -->
+    <section class="section bg-white" id="testimonials">
+        <div class="container mx-auto px-4">
+            <div class="text-center reveal mb-12">
+                <h2 class="mb-4 font-bold md:text-4xl text-3xl">Patient <span class="text-primary">Testimonials</span></h2>
+                <div class="mx-auto bg-primary h-1 w-24 mb-6"></div>
+                <p class="text-gray-600 mx-auto max-w-3xl">Hear what our satisfied patients have to say about their recovery journey with Biswanath Chowdhury.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="rounded-lg p-6 reveal shadow-lg bg-gray-50 testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center justify-center rounded-full text-white font-bold bg-primary h-12 mr-4 w-12">RP</div>
+                        <div>
+                            <h3 class="font-semibold">Rajesh Patel</h3>
+                            <p class="text-gray-600 text-sm">Sports Injury</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"After a severe knee injury during cricket, I was worried my playing days were over. Mr. Chowdhury's expert treatment not only helped me recover but also improved my performance. His personalized approach and dedication to my recovery were exceptional."</p>
+                </div>
+                <div class="rounded-lg p-6 reveal shadow-lg bg-gray-50 testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center justify-center rounded-full text-white font-bold h-12 mr-4 w-12 bg-secondary">SD</div>
+                        <div>
+                            <h3 class="font-semibold">Sunita Devi</h3>
+                            <p class="text-gray-600 text-sm">Chronic Back Pain</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"I suffered from debilitating back pain for over a decade and tried various treatments with limited success. Biswanath sir's comprehensive approach and therapeutic exercises have given me a new lease on life. I can now enjoy activities I had given up years ago."</p>
+                </div>
+                <div class="rounded-lg p-6 reveal shadow-lg bg-gray-50 testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="flex items-center justify-center rounded-full text-white font-bold h-12 mr-4 w-12 bg-accent">AM</div>
+                        <div>
+                            <h3 class="font-semibold">Amit Malhotra</h3>
+                            <p class="text-gray-600 text-sm">Post-Surgery Rehabilitation</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"After my knee replacement surgery, Biswanath's rehabilitation program was crucial to my recovery. His expertise, patience, and encouragement helped me regain strength and confidence. I recovered much faster than expected and am now back to my normal activities."</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
         <!-- Contact Section -->
 <section id="contact" class="section bg-gradient-primary text-white">
