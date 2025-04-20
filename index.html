@@ -547,9 +547,74 @@
                         <h3 class="flex items-center font-semibold mb-2 text-xl"><i class="fas mr-2 text-primary fa-video"></i> Chronic Pain Management</h3>
                         <p class="text-gray-600 mb-4">Vikram discusses how specialized physiotherapy techniques helped him overcome years of back pain.</p>
                     </div>
-                    <div class="mb-4 video-container">
-                        <iframe allowfullscreen src="https://www.youtube.com/embed/nionbma2zqM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0" height="315" width="560"></iframe>
-                    </div>
+                    <!-- Thumbnail Container -->
+<style>
+    .video-thumbnail {
+  position: relative;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(0, 160, 160, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease;
+}
+
+.play-button::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 16px;
+  width: 16px;
+  height: 32px;
+  background: white;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.video-thumbnail:hover .play-button {
+  background-color: rgba(0, 128, 128, 1);
+}
+
+</style>
+<div class="mb-4 video-container video-thumbnail" data-video-id="nionbma2zqM" style="position: relative; cursor: pointer; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);">
+  <img src="https://img.youtube.com/vi/nionbma2zqM/hqdefault.jpg" alt="Video Thumbnail" style="width: 100%; height: auto; display: block;">
+  <div class="play-button" style="position: absolute; top: 50%; left: 50%; width: 64px; height: 64px; background-color: rgba(0, 160, 160, 0.8); border-radius: 50%; transform: translate(-50%, -50%); transition: background-color 0.3s ease;">
+    <div style="position: absolute; left: 24px; top: 16px; width: 16px; height: 32px; background: white; clip-path: polygon(0 0, 100% 50%, 0 100%);"></div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.video-thumbnail').forEach(container => {
+    container.addEventListener('click', () => {
+      const videoId = container.getAttribute('data-video-id');
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      container.innerHTML = '';
+      container.appendChild(iframe);
+    });
+  });
+</script>
+
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <div class="flex items-center justify-center rounded-full text-white h-10 w-10 font-bold mr-2 bg-secondary">VK</div>
@@ -563,9 +628,75 @@
                         <h3 class="flex items-center font-semibold mb-2 text-xl"><i class="fas mr-2 text-primary fa-video"></i> Stroke Rehabilitation Journey</h3>
                         <p class="text-gray-600 mb-4">Mr. Sharma describes his remarkable recovery progress after stroke through dedicated neurological physiotherapy.</p>
                     </div>
-                    <div class="mb-4 video-container">
-                        <iframe allowfullscreen src="https://www.youtube.com/embed/nionbma2zqM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0" height="315" width="560"></iframe>
-                    </div>
+                <!-- Thumbnail Container -->
+<style>
+    .video-thumbnail {
+  position: relative;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(0, 160, 160, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease;
+}
+
+.play-button::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 16px;
+  width: 16px;
+  height: 32px;
+  background: white;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.video-thumbnail:hover .play-button {
+  background-color: rgba(0, 128, 128, 1);
+}
+
+</style>
+<div class="mb-4 video-container video-thumbnail" data-video-id="EaYlIHFTxXc" style="position: relative; cursor: pointer; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);">
+  <img src="https://img.youtube.com/vi/EaYlIHFTxXc/hqdefault.jpg" alt="Video Thumbnail" style="width: 100%; height: auto; display: block;">
+  <div class="play-button" style="position: absolute; top: 50%; left: 50%; width: 64px; height: 64px; background-color: rgba(0, 160, 160, 0.8); border-radius: 50%; transform: translate(-50%, -50%); transition: background-color 0.3s ease;">
+    <div style="position: absolute; left: 24px; top: 16px; width: 16px; height: 32px; background: white; clip-path: polygon(0 0, 100% 50%, 0 100%);"></div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.video-thumbnail').forEach(container => {
+    container.addEventListener('click', () => {
+      const videoId = container.getAttribute('data-video-id');
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      container.innerHTML = '';
+      container.appendChild(iframe);
+    });
+  });
+</script>
+
+
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <div class="flex items-center justify-center rounded-full text-white h-10 w-10 font-bold mr-2 bg-accent">RS</div>
