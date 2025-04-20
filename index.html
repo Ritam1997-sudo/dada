@@ -110,8 +110,13 @@
                     <div class="relative">
                         <div class="rounded-lg absolute bg-primary inset-0 rotate-6 transform"></div>
                         <div class="flex items-center justify-center rounded-lg w-full bg-gray-200 h-80 overflow-hidden relative">
-                            <img alt="Biswanath Chowdhury" class="rounded-lg w-full h-full object-cover" src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1745149825/image-2_n6hevn.avif">
-                        </div>
+  <img 
+    alt="Biswanath Chowdhury" 
+    class="rounded-lg w-full h-full object-cover" 
+    src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1745149825/image-2_n6hevn.avif" 
+    loading="lazy"
+  >
+</div>
                     </div>
                 </div>
                 <div class="reveal md:pl-12 md:w-2/3">
@@ -815,8 +820,7 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" data-cfasync="false"></script>
-    <script src="home.js"></script>
+   <script src="home.js" defer></script>
+
 </body>
 </html>
