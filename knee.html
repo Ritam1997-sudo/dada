@@ -73,34 +73,71 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="bg-gradient-primary text-white min-h-screen flex items-center pt-16">
-        <div class="container mx-auto px-4 py-16">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0 reveal">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Physiotherapy Treatment for Knee Pain</h1>
-                    <p class="text-xl mb-8">Relieve knee pain and regain mobility with expert physiotherapy by Biswanath Chowdhury in Naihati.</p>
-                    <div class="flex space-x-4">
-                        <a href="#contact" class="btn-primary pulse px-6 py-3 rounded-full font-medium text-lg shadow-lg flex items-center">
-                            <i class="fas fa-calendar-check mr-2"></i> Book Appointment
-                        </a>
-                        <a href="#treatments" class="bg-white text-primary px-6 py-3 rounded-full font-medium text-lg shadow-lg hover:bg-gray-100 transition-colors flex items-center">
-                            <i class="fas fa-list-ul mr-2"></i> Explore Treatments
-                        </a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 reveal">
-                    <div class="bg-white p-2 rounded-lg shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                        <div class="bg-gray-200 h-64 md:h-80 rounded flex items-center justify-center overflow-hidden">
-                            <img src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1745059464/17852110_5930232_d1ikkw.jpg" 
-                                 alt="Physiotherapy Treatment for Knee Pain - Biswanath Chowdhury" 
-                                 class="object-cover object-top h-full w-full rounded">
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section id="home" class="hero-section text-white min-h-screen flex items-center pt-16">
+  <div class="container mx-auto px-4 py-16">
+    <div class="flex flex-col md:flex-row items-center">
+      <!-- Text Content -->
+      <div class="md:w-1/2 mb-8 md:mb-0 reveal">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Physiotherapy Treatment for Knee Pain
+        </h1>
+        <p class="text-xl mb-8">
+          Relieve knee pain and regain mobility with expert physiotherapy by
+          Biswanath Chowdhury in Naihati.
+        </p>
+        <div class="flex space-x-4">
+          <a
+            href="#contact"
+            class="btn-primary pulse px-6 py-3 rounded-full font-medium text-lg shadow-lg flex items-center"
+          >
+            <i class="fas fa-calendar-check mr-2"></i> Book Appointment
+          </a>
+          <a
+            href="#treatments"
+            class="bg-white text-primary px-6 py-3 rounded-full font-medium text-lg shadow-lg hover:bg-gray-100 transition-colors flex items-center"
+          >
+            <i class="fas fa-list-ul mr-2"></i> Explore Treatments
+          </a>
         </div>
-    </section>
+      </div>
 
+      <!-- Image Box -->
+      <div class="md:w-1/2 reveal">
+        <div
+          class="bg-white p-2 rounded-lg shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300"
+        >
+          <div
+            class="bg-gray-200 h-64 md:h-80 rounded flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1745059464/17852110_5930232_d1ikkw.jpg"
+              alt="Physiotherapy Treatment for Knee Pain - Biswanath Chowdhury"
+              class="object-cover object-top h-full w-full rounded"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSS for Background Image -->
+<style>
+  .hero-section {
+    background: linear-gradient(to right, #0db55e, #0a8754); /* Mobile fallback gradient */
+  }
+
+  /* Desktop Background Image */
+  @media (min-width: 768px) {
+    .hero-section {
+      background-image: url("https://res.cloudinary.com/dkwdrzobk/image/upload/v1745319495/file_000000002ff861f7b61820624e79010b_conversation_id_680703c8-2948-8000-8dfa-759802c678b8_message_id_167b6196-0d3e-4aa9-8dec-35ed20c5dac0_pplekl.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+</style>
     <!-- About Section -->
     <section id="about" class="section bg-white">
         <div class="container mx-auto px-4">
