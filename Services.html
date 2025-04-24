@@ -25,55 +25,61 @@
     
 </head>
 <body>
-    <!-- Header -->
-    <header class="w-full bg-white fixed shadow-md z-50">
-        <div class="w-full py-3 px-4">
-            <div class="flex items-center justify-between">
-                <a href="https://www.physiobiswanath.in/" class="flex items-center space-x-2 no-underline">
-                    <div class="flex items-center justify-center rounded-full text-white h-10 w-10 font-bold bg-primary text-xl">DR</div>
-                    <div>
-                        <span class="text-primary font-bold text-xl leading-none">Biswanath Chowdhury</span>
-                        <p class="text-gray-600 text-xs leading-tight">Professional Physiotherapist</p>
-                    </div>
-                </a>
-                <nav class="hidden md:flex space-x-6">
-                    <a href="https://www.physiobiswanath.in/" class="text-gray-800 hover:text-primary transition-colors flex items-center">
-                        <i class="fas fa-home mr-2"></i> Home
-                    </a>
-                    <a href="https://www.physiobiswanath.in/About" class="text-gray-800 hover:text-primary transition-colors flex items-center">
-                        <i class="fas fa-user mr-2"></i> About
-                    </a>
-                    <a href="#services" class="text-gray-800 hover:text-primary transition-colors flex items-center">
-                        <i class="fas fa-hands-helping mr-2"></i> Services
-                    </a>
-                    <a href="#contact" class="text-gray-800 hover:text-primary transition-colors flex items-center">
-                        <i class="fas fa-envelope mr-2"></i> Contact
-                    </a>
-                </nav>
-                <button id="menu-btn" class="md:hidden text-gray-800 focus:outline-none">
-                    <i class="fas fa-bars text-xl"></i>
+       <!-- Header -->
+<header class="w-full bg-white fixed shadow-md z-50">
+  <div class="w-full py-3 px-4">
+    <div class="flex items-center justify-between">
+
+      <!-- Logo + Navigation Wrapper -->
+      <div class="flex items-center space-x-10">
+        <!-- Clickable Logo -->
+        <a href="https://www.physiobiswanath.in/" class="flex items-center space-x-2 no-underline">
+          <div class="flex items-center justify-center rounded-full text-white h-10 w-10 font-bold bg-primary text-xl">DR</div>
+          <div>
+          <span class="text-primary font-bold text-xl leading-none">Biswanath Chowdhury</span>
+            <p class="text-gray-600 text-xs leading-tight">Professional Physiotherapist</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-6">
+          <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="https://www.physiobiswanath.in/"><i class="fas mr-2 fa-home"></i> Home</a>
+          <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="https://www.physiobiswanath.in/About"><i class="fas mr-2 fa-user"></i> About</a>
+          <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#services"><i class="fas mr-2 fa-hands-helping"></i> Services</a>
+          <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#benefits"><i class="fas mr-2 fa-star"></i> Benefits</a>
+          <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#testimonials"><i class="fas mr-2 fa-comment-dots"></i> Testimonials</a>
+          <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#videos"><i class="fas mr-2 fa-video"></i> Videos</a>
+          <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#qualifications"><i class="fas mr-2 fa-graduation-cap"></i> Qualifications</a>
+          <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#companies"><i class="fas mr-2 fa-building"></i> Partners</a>
+          <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#contact"><i class="fas mr-2 fa-envelope"></i> Contact</a>
+        </nav>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden focus:outline-none text-gray-800" id="menu-btn">
+        <i class="fas text-xl fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden bg-white fixed h-full left-0 shadow-lg top-0 w-64 z-50" id="mobile-menu">
+            <div class="flex p-4 justify-end">
+                <button class="focus:outline-none text-gray-800" id="close-menu">
+                    <i class="fas text-xl fa-times"></i>
                 </button>
             </div>
-        </div>
-        <div id="mobile-menu" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg z-50 md:hidden">
-            <div class="flex justify-end p-4">
-                <button id="close-menu" class="text-gray-800 focus:outline-none">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <div class="flex flex-col space-y-4 p-4">
-                <a href="https://www.physiobiswanath.in/" class="text-gray-800 hover:text-primary transition-colors flex items-center">
-                    <i class="fas fa-home w-8"></i> Home
-                </a>
-                <a href="https://www.physiobiswanath.in/About" class="text-gray-800 hover:text-primary transition-colors flex items-center">
-                    <i class="fas fa-user w-8"></i> About
-                </a>
-                <a href="#services" class="text-gray-800 hover:text-primary transition-colors flex items-center">
-                    <i class="fas fa-hands-helping w-8"></i> Services
-                </a>
-                <a href="#contact" class="text-gray-800 hover:text-primary transition-colors flex items-center">
-                    <i class="fas fa-envelope w-8"></i> Contact
-                </a>
+            <div class="flex p-4 flex-col space-y-4">
+                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="https://www.physiobiswanath.in/"><i class="fas w-8 fa-home"></i> Home</a>
+                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#https://www.physiobiswanath.in/About"><i class="fas w-8 fa-user"></i> About</a>
+                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#services"><i class="fas w-8 fa-hands-helping"></i> Services</a>
+                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#benefits"><i class="fas fa-star w-8"></i> Benefits</a>
+                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#testimonials"><i class="fas w-8 fa-comment-dots"></i> Testimonials</a>
+                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#videos"><i class="fas w-8 fa-video"></i> Videos</a>
+                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#qualifications"><i class="fas w-8 fa-graduation-cap"></i> Qualifications</a>
+                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#companies"><i class="fas w-8 fa-building"></i> Partners</a>
+                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#contact"><i class="fas w-8 fa-envelope"></i> Contact</a>
             </div>
         </div>
     </header>
