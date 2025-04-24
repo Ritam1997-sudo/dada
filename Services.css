@@ -1,0 +1,73 @@
+:root {
+    --primary: #00a0a0;
+    --secondary: #2563eb;
+    --light: #f0fdfd;
+    --dark: #0f172a;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: var(--light);
+    margin: 0 !important; /* Prevent default margins */
+}
+
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.text-primary {
+    color: var(--primary);
+}
+
+/* Header */
+header {
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+}
+
+header .flex {
+    padding: 0.75rem 1rem;
+}
+
+#mobile-menu {
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+}
+
+#mobile-menu.show {
+    transform: translateX(0);
+}
+
+/* Services Section */
+.section {
+    padding: 4rem 1rem !important; /* Consistent section padding */
+    margin-bottom: 3rem !important; /* Gap between sections */
+}
+
+#services {
+    padding-top: 6rem !important; /* Clear fixed header (~80px) */
+    background-color: #fff;
+}
+
+@media (min-width: 768px) {
+    #services {
+        padding-top: 8rem !important; /* Extra space on desktop */
+    }
+}
+
+/* Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+    position: relative !important; /* Prevent positioning issues */
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
