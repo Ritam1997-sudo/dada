@@ -180,6 +180,28 @@
 
 </style>
 
+<div class="mb-4 video-container video-thumbnail" data-video-id="efcxtiRON_M">
+  <img src="https://img.youtube.com/vi/efcxtiRON_M/hqdefault.jpg" alt="Video Thumbnail" class="thumbnail-img">
+  <div class="play-button"></div>
+</div>
+
+<script>
+  document.querySelectorAll('.video-thumbnail').forEach(container => {
+    container.addEventListener('click', () => {
+      const videoId = container.getAttribute('data-video-id');
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      container.innerHTML = '';
+      container.appendChild(iframe);
+    });
+  });
+</script>
+
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <div class="flex items-center justify-center rounded-full text-white h-10 w-10 font-bold bg-primary mr-2">PS</div>
