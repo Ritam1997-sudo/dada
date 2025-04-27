@@ -128,6 +128,72 @@
   }
 }
 </script>
+    <style>
+    /* Service Box Styling */
+.card {
+    border: 1px solid var(--primary); /* Border color using primary variable */
+    box-shadow: 0 4px 6px -1px rgba(0, 160, 160, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.bg-white {
+    background-color: #ffffff; /* White background for the card */
+}
+
+.p-6 {
+    padding: 1.5rem; /* Padding inside the card */
+}
+
+.rounded-lg {
+    border-radius: 0.5rem; /* Rounded corners */
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Light shadow for subtle elevation */
+}
+
+/* Icon Styling */
+.text-primary {
+    color: var(--primary); /* Primary color for icons */
+}
+
+.mb-3 {
+    margin-bottom: 0.75rem; /* Spacing below the icon */
+}
+
+.text-3xl {
+    font-size: 1.875rem; /* Icon size */
+}
+
+/* Text Styling */
+.text-xl {
+    font-size: 1.25rem; /* Font size for service title */
+}
+
+.font-semibold {
+    font-weight: 600; /* Semi-bold for service title */
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem; /* Spacing below title */
+}
+
+.text-gray-600 {
+    color: #4b5563; /* Gray color for description text */
+}
+
+/* Hover Effect */
+.card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 10px 15px -3px rgba(0, 160, 160, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+}
+
+/* Root Variables (for reference, as used in the card) */
+:root {
+    --primary: #00a0a0; /* Primary color for borders and icons */
+}
+        </style>
+
 </head>
 <body>
   <!-- Header -->
@@ -230,72 +296,7 @@
     </div>
 </section>
       <!-- Services Section -->
-    <style>
-    /* Service Box Styling */
-.card {
-    border: 1px solid var(--primary); /* Border color using primary variable */
-    box-shadow: 0 4px 6px -1px rgba(0, 160, 160, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
-}
-
-.bg-white {
-    background-color: #ffffff; /* White background for the card */
-}
-
-.p-6 {
-    padding: 1.5rem; /* Padding inside the card */
-}
-
-.rounded-lg {
-    border-radius: 0.5rem; /* Rounded corners */
-}
-
-.shadow-sm {
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Light shadow for subtle elevation */
-}
-
-/* Icon Styling */
-.text-primary {
-    color: var(--primary); /* Primary color for icons */
-}
-
-.mb-3 {
-    margin-bottom: 0.75rem; /* Spacing below the icon */
-}
-
-.text-3xl {
-    font-size: 1.875rem; /* Icon size */
-}
-
-/* Text Styling */
-.text-xl {
-    font-size: 1.25rem; /* Font size for service title */
-}
-
-.font-semibold {
-    font-weight: 600; /* Semi-bold for service title */
-}
-
-.mb-2 {
-    margin-bottom: 0.5rem; /* Spacing below title */
-}
-
-.text-gray-600 {
-    color: #4b5563; /* Gray color for description text */
-}
-
-/* Hover Effect */
-.card:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 10px 15px -3px rgba(0, 160, 160, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
-}
-
-/* Root Variables (for reference, as used in the card) */
-:root {
-    --primary: #00a0a0; /* Primary color for borders and icons */
-}
-        </style>
-
+    
     <section id="services" class="section bg-white scroll-mt-32 md:scroll-mt-40">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 reveal">
