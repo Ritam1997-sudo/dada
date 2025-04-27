@@ -1,0 +1,137 @@
+bg change
+image chng
+video reviews
+test
+ <div class="md:w-1/2 reveal">
+                <div class="bg-white p-2 rounded-lg shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <div class="bg-gray-200 h-64 md:h-80 rounded flex items-center justify-center overflow-hidden">
+                        <img src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1745730863/wsthxz4x8f0p36vp7o2v_jqib2f.avif" 
+                             alt="Top Knee Pain Physiotherapy in Naihati" 
+                             class="object-cover object-top h-full w-full rounded">
+                    </div>
+
+
+ 
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" onerror="console.error('Failed to load Tailwind CSS')">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" onerror="console.error('Failed to load Font Awesome')">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" onerror="console.error('Failed to load Poppins font')">
+  /* Service box styles */
+    .service-box {
+        border: 1px solid var(--primary) !important; /* Thin teal border */
+        box-shadow: 0 4px 6px -1px rgba(0, 160, 160, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important; /* Enhanced shadow */
+    }
+
+    /* Higher specificity to override home.css */
+    body #services {
+        padding-top: 6rem !important; /* Clear fixed header (~80px) */
+    }
+
+    @media (min-width: 768px) {
+        body #services {
+            padding-top: 8rem !important; /* Extra space on desktop */
+        }
+    }
+
+    /* Fallback for no home.css */
+    .no-home-css #services {
+        padding-top: 6rem;
+    }
+
+    @media (min-width: 768px) {
+        .no-home-css #services {
+            padding-top: 8rem;
+        }
+    }
+
+    #mobile-menu {
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+    }
+
+    #mobile-menu.show {
+        transform: translateX(0);
+    }
+
+
+<style>
+        :root {
+            --primary: #00a0a0;
+            --secondary: #2563eb;
+            --light: #f0fdfd;
+            --dark: #0f172a;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: var(--light);
+            margin: 0 !important; /* Prevent default margins */
+        }
+
+        .bg-primary { background-color: var(--primary); }
+        .text-primary { color: var(--primary); }
+
+        .section {
+            padding: 4rem 1rem !important; /* Override home.css */
+            margin-bottom: 3rem !important; /* Gap between sections */
+        }
+
+        /* Header styles */
+        header {
+            box-shadow: 0 4px 6px -1px rgba(0, 160, 160, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important; /* Custom shadow, no border */
+        }
+
+        /* Service box styles */
+        .service-box {
+            border: 1px solid var(--primary) !important; /* Thin teal border */
+            box-shadow: 0 4px 6px -1px rgba(0, 160, 160, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important; /* Enhanced shadow */
+        }
+
+        /* Higher specificity to override home.css */
+        body #services {
+            padding-top: 6rem !important; /* Clear fixed header (~80px) */
+        }
+
+        @media (min-width: 768px) {
+            body #services {
+                padding-top: 8rem !important; /* Extra space on desktop */
+            }
+        }
+
+        /* Fallback for no home.css */
+        .no-home-css #services {
+            padding-top: 6rem;
+        }
+
+        @media (min-width: 768px) {
+            .no-home-css #services {
+                padding-top: 8rem;
+            }
+        }
+
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
+        }
+
+        #mobile-menu.show {
+            transform: translateX(0);
+        }
+
+        /* Reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(0) !important; /* No initial offset */
+            transition: opacity 0.8s ease !important;
+            position: relative !important; /* Prevent home.css positioning issues */
+            margin-top: 0 !important; /* Prevent upward pull */
+        }
+
+        .reveal.active {
+            opacity: 1;
+        }
+    </style>
+
+
+<body class="no-home-css">
