@@ -436,6 +436,271 @@
             }
         });
     </script>
+
+     <!-- Videos Section -->
+    <section class="section bg-gray-50" id="videos">
+        <div class="container mx-auto px-4">
+            <div class="text-center reveal mb-12">
+                <h2 class="mb-4 font-bold md:text-4xl text-3xl">Video <span class="text-primary">Reviews</span></h2>
+                <div class="mx-auto bg-primary h-1 w-24 mb-6"></div>
+                <p class="text-gray-600 mx-auto max-w-3xl">Watch our patients share their experiences and recovery journeys through physiotherapy.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="rounded-lg bg-white p-6 reveal shadow-lg">
+                    <div class="mb-4">
+                       <h3 class="flex items-center font-semibold mb-2 text-xl">
+  <i class="fas mr-2 text-primary fa-video"></i> Back Pain Recovery 
+</h3>
+<p class="text-gray-600 mb-4">
+  Priya Ghosh experienced significant relief from chronic back pain through advanced physiotherapy by Biswanath Chowdhury in Naihati. Her recovery story demonstrates how professional therapy can help individuals regain mobility and improve quality of life without the need for surgery.
+</p>
+
+
+                    </div>
+                    <!-- Thumbnail Container -->
+<style>
+    .video-thumbnail {
+  position: relative;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(0, 160, 160, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease;
+}
+
+.play-button::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 16px;
+  width: 16px;
+  height: 32px;
+  background: white;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.video-thumbnail:hover .play-button {
+  background-color: rgba(0, 128, 128, 1);
+}
+
+</style>
+<div class="mb-4 video-container video-thumbnail" data-video-id="uG1EiRxRkmo">
+  <img src="https://img.youtube.com/vi/uG1EiRxRkmo/hqdefault.jpg" alt="Video Thumbnail" class="thumbnail-img">
+  <div class="play-button"></div>
+</div>
+
+<script>
+  document.querySelectorAll('.video-thumbnail').forEach(container => {
+    container.addEventListener('click', () => {
+      const videoId = container.getAttribute('data-video-id');
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      container.innerHTML = '';
+      container.appendChild(iframe);
+    });
+  });
+</script>
+                     <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="flex items-center justify-center rounded-full text-white h-10 w-10 font-bold mr-2 bg-secondary">RD</div>
+                            <span class="text-gray-700 font-medium">Priya Ghosh</span>
+                        </div>
+                        <span class="text-gray-500 text-sm">IT Employee</span>
+                    </div>
+                </div>
+                     <div class="rounded-lg bg-white p-6 reveal shadow-lg">
+                    <div class="mb-4">
+                       <h3 class="flex items-center font-semibold mb-2 text-xl">
+  <i class="fas mr-2 text-primary fa-video"></i> Quick Back Pain Recovery for Office Workers
+</h3>
+<p class="text-gray-600 mb-4">
+  Software engineer Arijit Banerjee found significant relief from chronic back pain after undergoing advanced physiotherapy with Biswanath Chowdhury in Naihati. His story highlights how even long-standing back issues can be effectively managed without surgery.
+</p>
+
+                    </div>
+                    <!-- Thumbnail Container -->
+<style>
+    .video-thumbnail {
+  position: relative;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(0, 160, 160, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease;
+}
+
+.play-button::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 16px;
+  width: 16px;
+  height: 32px;
+  background: white;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.video-thumbnail:hover .play-button {
+  background-color: rgba(0, 128, 128, 1);
+}
+
+</style>
+<div class="mb-4 video-container video-thumbnail" data-video-id="LrjnYTM1Cpw">
+  <img src="https://img.youtube.com/vi/LrjnYTM1Cpw/hqdefault.jpg" alt="Video Thumbnail" class="thumbnail-img">
+  <div class="play-button"></div>
+</div>
+
+<script>
+  document.querySelectorAll('.video-thumbnail').forEach(container => {
+    container.addEventListener('click', () => {
+      const videoId = container.getAttribute('data-video-id');
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      container.innerHTML = '';
+      container.appendChild(iframe);
+    });
+  });
+</script>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="flex items-center justify-center rounded-full text-white h-10 w-10 font-bold mr-2 bg-secondary">RD</div>
+                            <span class="text-gray-700 font-medium">Arijit Banerjee</span>
+                        </div>
+                        <span class="text-gray-500 text-sm">Engineer</span>
+                    </div>
+                </div>
+                 <div class="rounded-lg bg-white p-6 reveal shadow-lg">
+                    <div class="mb-4">
+                      <h3 class="flex items-center font-semibold mb-2 text-xl">
+  <i class="fas mr-2 text-primary fa-video"></i> Knee Pain Recovery Success in Naihati
+</h3>
+<p class="text-gray-600 mb-4">
+  Watch how local resident Arjun Dey overcame chronic back pain with expert physiotherapy by Biswanath Chowdhury in Naihati. His journey highlights effective back pain treatment and fast recovery through personalized care.
+</p>
+
+                    </div>
+                <!-- Thumbnail Container -->
+<style>
+    .video-thumbnail {
+  position: relative;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(0, 160, 160, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease;
+}
+
+.play-button::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 16px;
+  width: 16px;
+  height: 32px;
+  background: white;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.video-thumbnail:hover .play-button {
+  background-color: rgba(0, 128, 128, 1);
+}
+
+</style>
+<div class="mb-4 video-container video-thumbnail" data-video-id="yy-I6l9-wZQ">
+  <img src="https://img.youtube.com/vi/yy-I6l9-wZQ/hqdefault.jpg" alt="Video Thumbnail" class="thumbnail-img">
+  <div class="play-button"></div>
+</div>
+
+<script>
+  document.querySelectorAll('.video-thumbnail').forEach(container => {
+    container.addEventListener('click', () => {
+      const videoId = container.getAttribute('data-video-id');
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      container.innerHTML = '';
+      container.appendChild(iframe);
+    });
+  });
+</script>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="flex items-center justify-center rounded-full text-white h-10 w-10 font-bold mr-2 bg-accent">RS</div>
+                            <span class="text-gray-700 font-medium">Arjun Dey</span>
+                        </div>
+                        <span class="text-gray-500 text-sm">Local Resident</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 <!-- Testimonials Section -->
 <section class="section bg-white" id="testimonials">
   <div class="container mx-auto px-4">
