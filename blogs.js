@@ -13,3 +13,14 @@
                 }
             });
         });
+const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const closeMenu = document.getElementById("close-menu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.style.display = "flex";
+  });
+
+  closeMenu.addEventListener("click", () => {
+    mobileMenu.style.display = "none";
+  });
