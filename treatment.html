@@ -8,8 +8,367 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-   <link href="home.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #009688;
+            --light: #f0fdfd;
+        }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .blog-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .blog-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .section-title {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .img-container {
+            margin: 1.5rem 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .blog-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .tip-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .table-container {
+            max-width: 100%;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 1rem;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        td {
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover td {
+            background-color: var(--light);
+        }
+
+        .quiz-box {
+            background-color: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-sizing: border-box;
+        }
+
+        .quiz-option {
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #bbdefb;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .quiz-option:hover {
+            background-color: #bbdefb;
+        }
+
+        .testimonial {
+            background-color: #fff8e1;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .testimonial:before {
+            content: '"';
+            font-size: 4rem;
+            color: #ffd54f;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.5;
+        }
+
+        .cta-box {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .cta-button {
+            background-color: white;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: #0f766e;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* Tablet and Medium Screens (640px - 768px) */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .blog-header {
+                padding: 1.5rem 0;
+            }
+
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+
+            .blog-header p {
+                font-size: 1rem;
+            }
+
+            .blog-section {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .blog-img {
+                max-width: 90%;
+            }
+
+            .tip-box, .quiz-box, .testimonial, .cta-box {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+
+            .cta-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .grid > div {
+                padding: 0.75rem;
+            }
+
+            footer {
+                padding: 1.5rem 0;
+            }
+        }
+
+        /* Mobile Screens (Below 640px) */
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .blog-header {
+                padding: 1rem 0;
+            }
+
+            .blog-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .blog-header p {
+                font-size: 0.9rem;
+            }
+
+            .blog-section {
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .img-container {
+                margin: 1rem 0;
+            }
+
+            .blog-img {
+                max-width: 100%;
+            }
+
+            .tip-box, .quiz-box, .testimonial, .cta-box {
+                padding: 0.75rem;
+                margin: 1rem 0;
+                font-size: 0.9rem;
+            }
+
+            .testimonial:before {
+                font-size: 3rem;
+                top: -5px;
+                left: 5px;
+            }
+
+            .cta-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .table-container {
+                box-shadow: none;
+            }
+
+            table {
+                min-width: 0;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                display: block;
+                margin-bottom: 1rem;
+                border-bottom: 2px solid #e2e8f0;
+            }
+
+            td {
+                display: block;
+                text-align: right;
+                position: relative;
+                padding: 0.5rem 0.5rem 0.5rem 50%;
+                border-bottom: none;
+                font-size: 0.85rem;
+            }
+
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0.5rem;
+                width: 45%;
+                font-weight: 600;
+                text-align: left;
+                color: var(--primary);
+            }
+
+            td:last-child {
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .quiz-option {
+                font-size: 0.85rem;
+                padding: 0.4rem;
+                margin: 0.3rem 0;
+            }
+
+            .grid > div {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            footer {
+                padding: 1rem 0;
+                font-size: 0.85rem;
+            }
+
+            footer h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="blog-header">
@@ -76,37 +435,39 @@
                 <p class="text-sm text-gray-600 mt-2">A physiotherapist demonstrating neck exercises for office workers - a common need in Naihati</p>
             </div>
             
-            <table>
-                <thead>
-                    <tr>
-                        <th>Common Local Activities</th>
-                        <th>Related Body Problems</th>
-                        <th>How Physiotherapy Helps</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Train commute to Kolkata</td>
-                        <td>Lower back pain, leg fatigue</td>
-                        <td>Posture correction, strengthening exercises</td>
-                    </tr>
-                    <tr>
-                        <td>Factory work</td>
-                        <td>Repetitive strain injuries, shoulder pain</td>
-                        <td>Ergonomic advice, specific muscle training</td>
-                    </tr>
-                    <tr>
-                        <td>Office work near Station Road</td>
-                        <td>Neck pain, wrist problems</td>
-                        <td>Workplace ergonomics, stretch routines</td>
-                    </tr>
-                    <tr>
-                        <td>Household chores</td>
-                        <td>Knee pain, back strain</td>
-                        <td>Proper lifting techniques, joint protection</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Common Local Activities</th>
+                            <th>Related Body Problems</th>
+                            <th>How Physiotherapy Helps</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Common Local Activities">Train commute to Kolkata</td>
+                            <td data-label="Related Body Problems">Lower back pain, leg fatigue</td>
+                            <td data-label="How Physiotherapy Helps">Posture correction, strengthening exercises</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Common Local Activities">Factory work</td>
+                            <td data-label="Related Body Problems">Repetitive strain injuries, shoulder pain</td>
+                            <td data-label="How Physiotherapy Helps">Ergonomic advice, specific muscle training</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Common Local Activities">Office work near Station Road</td>
+                            <td data-label="Related Body Problems">Neck pain, wrist problems</td>
+                            <td data-label="How Physiotherapy Helps">Workplace ergonomics, stretch routines</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Common Local Activities">Household chores</td>
+                            <td data-label="Related Body Problems">Knee pain, back strain</td>
+                            <td data-label="How Physiotherapy Helps">Proper lifting techniques, joint protection</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <!-- Types of Treatments Section -->
@@ -128,42 +489,44 @@
                 <li><strong>Ultrasound Therapy:</strong> Using sound waves to generate heat deep in tissue to relieve pain and promote healing.</li>
             </ul>
             
-            <table>
-                <thead>
-                    <tr>
-                        <th>Treatment Type</th>
-                        <th>Best For</th>
-                        <th>Availability in Naihati</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Manual Therapy</td>
-                        <td>Joint pain, stiffness</td>
-                        <td>All clinics</td>
-                    </tr>
-                    <tr>
-                        <td>Exercise Therapy</td>
-                        <td>Weakness, poor balance</td>
-                        <td>All clinics</td>
-                    </tr>
-                    <tr>
-                        <td>Electrotherapy (TENS)</td>
-                        <td>Pain relief</td>
-                        <td>Major clinics near hospital</td>
-                    </tr>
-                    <tr>
-                        <td>Ultrasound</td>
-                        <td>Deep tissue injuries</td>
-                        <td>Limited availability</td>
-                    </tr>
-                    <tr>
-                        <td>Traction</td>
-                        <td>Spinal problems</td>
-                        <td>Only at specialized centers</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Treatment Type</th>
+                            <th>Best For</th>
+                            <th>Availability in Naihati</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Treatment Type">Manual Therapy</td>
+                            <td data-label="Best For">Joint pain, stiffness</td>
+                            <td data-label="Availability in Naihati">All clinics</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Treatment Type">Exercise Therapy</td>
+                            <td data-label="Best For">Weakness, poor balance</td>
+                            <td data-label="Availability in Naihati">All clinics</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Treatment Type">Electrotherapy (TENS)</td>
+                            <td data-label="Best For">Pain relief</td>
+                            <td data-label="Availability in Naihati">Major clinics near hospital</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Treatment Type">Ultrasound</td>
+                            <td data-label="Best For">Deep tissue injuries</td>
+                            <td data-label="Availability in Naihati">Limited availability</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Treatment Type">Traction</td>
+                            <td data-label="Best For">Spinal problems</td>
+                            <td data-label="Availability in Naihati">Only at specialized centers</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             
             <div class="tip-box">
                 <h4 class="font-bold flex items-center"><i class="fas fa-lightbulb text-yellow-500 mr-2"></i> Pro Tip</h4>
@@ -240,37 +603,39 @@
                 <li><strong>Gradual Activity Progression:</strong> Slowly increasing activity levels without aggravating pain.</li>
             </ul>
             
-            <table>
-                <thead>
-                    <tr>
-                        <th>Chronic Condition</th>
-                        <th>Common Among</th>
-                        <th>Physiotherapy Approach</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Arthritis</td>
-                        <td>Elderly in Naihati</td>
-                        <td>Joint protection, gentle strengthening, water therapy</td>
-                    </tr>
-                    <tr>
-                        <td>Chronic Back Pain</td>
-                        <td>Factory workers, commuters</td>
-                        <td>Core strengthening, posture correction, ergonomic advice</td>
-                    </tr>
-                    <tr>
-                        <td>Fibromyalgia</td>
-                        <td>Middle-aged women</td>
-                        <td>Gentle exercise, pacing strategies, relaxation techniques</td>
-                    </tr>
-                    <tr>
-                        <td>Sciatica</td>
-                        <td>Office workers, drivers</td>
-                        <td>Nerve mobilization, specific stretches, posture correction</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Chronic Condition</th>
+                            <th>Common Among</th>
+                            <th>Physiotherapy Approach</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Chronic Condition">Arthritis</td>
+                            <td data-label="Common Among">Elderly in Naihati</td>
+                            <td data-label="Physiotherapy Approach">Joint protection, gentle strengthening, water therapy</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Chronic Condition">Chronic Back Pain</td>
+                            <td data-label="Common Among">Factory workers, commuters</td>
+                            <td data-label="Physiotherapy Approach">Core strengthening, posture correction, ergonomic advice</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Chronic Condition">Fibromyalgia</td>
+                            <td data-label="Common Among">Middle-aged women</td>
+                            <td data-label="Physiotherapy Approach">Gentle exercise, pacing strategies, relaxation techniques</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Chronic Condition">Sciatica</td>
+                            <td data-label="Common Among">Office workers, drivers</td>
+                            <td data-label="Physiotherapy Approach">Nerve mobilization, specific stretches, posture correction</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             
             <div class="testimonial">
                 <p>"I suffered from chronic knee pain for 3 years after working at the textile factory. I tried everything - pain killers, home remedies, even a trip to Kolkata for expensive treatments. Nothing worked until I visited our local physiotherapist. After 8 sessions and following the home exercises, I can now walk to the market without pain for the first time in years!"</p>
@@ -369,42 +734,44 @@
                 </div>
             </div>
             
-            <table>
-                <thead>
-                    <tr>
-                        <th>Age Group</th>
-                        <th>Common Naihati Activities</th>
-                        <th>Typical Problems</th>
-                        <th>Physiotherapy Focus</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Children (5-15)</td>
-                        <td>School, cricket, cycling</td>
-                        <td>Sprains, growing pains</td>
-                        <td>Injury prevention, proper development</td>
-                    </tr>
-                    <tr>
-                        <td>Young Adults (16-30)</td>
-                        <td>College, sports, factory work</td>
-                        <td>Sports injuries, RSI</td>
-                        <td>Recovery, ergonomic training</td>
-                    </tr>
-                    <tr>
-                        <td>Adults (31-50)</td>
-                        <td>Office work, commuting, housework</td>
-                        <td>Back pain, neck pain</td>
-                        <td>Pain management, posture correction</td>
-                    </tr>
-                    <tr>
-                        <td>Seniors (51+)</td>
-                        <td>Walking, gardening, community activities</td>
-                        <td>Arthritis, balance problems</td>
-                        <td>Maintaining mobility, fall prevention</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Age Group</th>
+                            <th>Common Naihati Activities</th>
+                            <th>Typical Problems</th>
+                            <th>Physiotherapy Focus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Age Group">Children (5-15)</td>
+                            <td data-label="Common Naihati Activities">School, cricket, cycling</td>
+                            <td data-label="Typical Problems">Sprains, growing pains</td>
+                            <td data-label="Physiotherapy Focus">Injury prevention, proper development</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Age Group">Young Adults (16-30)</td>
+                            <td data-label="Common Naihati Activities">College, sports, factory work</td>
+                            <td data-label="Typical Problems">Sports injuries, RSI</td>
+                            <td data-label="Physiotherapy Focus">Recovery, ergonomic training</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Age Group">Adults (31-50)</td>
+                            <td data-label="Common Naihati Activities">Office work, commuting, housework</td>
+                            <td data-label="Typical Problems">Back pain, neck pain</td>
+                            <td data-label="Physiotherapy Focus">Pain management, posture correction</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Age Group">Seniors (51+)</td>
+                            <td data-label="Common Naihati Activities">Walking, gardening, community activities</td>
+                            <td data-label="Typical Problems">Arthritis, balance problems</td>
+                            <td data-label="Physiotherapy Focus">Maintaining mobility, fall prevention</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <!-- Costs Section -->
@@ -412,42 +779,44 @@
             <h2 class="section-title text-2xl font-bold">Cost of Physiotherapy in Naihati-Kolkata</h2>
             <p>One of the biggest concerns for people in Naihati is the cost of healthcare. Here's what you can expect to pay for physiotherapy in our area:</p>
             
-            <table>
-                <thead>
-                    <tr>
-                        <th>Service Type</th>
-                        <th>Average Cost in Naihati</th>
-                        <th>Average Cost in Kolkata</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Initial Assessment</td>
-                        <td>₹500-800</td>
-                        <td>₹800-1,500</td>
-                    </tr>
-                    <tr>
-                        <td>Regular Session (45-60 mins)</td>
-                        <td>₹300-600</td>
-                        <td>₹600-1,200</td>
-                    </tr>
-                    <tr>
-                        <td>Home Visit</td>
-                        <td>₹800-1,200</td>
-                        <td>₹1,200-2,000</td>
-                    </tr>
-                    <tr>
-                        <td>Specialized Treatment (Electrotherapy, etc.)</td>
-                        <td>₹400-700</td>
-                        <td>₹700-1,500</td>
-                    </tr>
-                    <tr>
-                        <td>Package of 10 Sessions</td>
-                        <td>₹2,500-5,000</td>
-                        <td>₹5,000-10,000</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service Type</th>
+                            <th>Average Cost in Naihati</th>
+                            <th>Average Cost in Kolkata</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Service Type">Initial Assessment</td>
+                            <td data-label="Average Cost in Naihati">₹500-800</td>
+                            <td data-label="Average Cost in Kolkata">₹800-1,500</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Service Type">Regular Session (45-60 mins)</td>
+                            <td data-label="Average Cost in Naihati">₹300-600</td>
+                            <td data-label="Average Cost in Kolkata">₹600-1,200</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Service Type">Home Visit</td>
+                            <td data-label="Average Cost in Naihati">₹800-1,200</td>
+                            <td data-label="Average Cost in Kolkata">₹1,200-2,000</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Service Type">Specialized Treatment (Electrotherapy, etc.)</td>
+                            <td data-label="Average Cost in Naihati">₹400-700</td>
+                            <td data-label="Average Cost in Kolkata">₹700-1,500</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Service Type">Package of 10 Sessions</td>
+                            <td data-label="Average Cost in Naihati">₹2,500-5,000</td>
+                            <td data-label="Average Cost in Kolkata">₹5,000-10,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             
             <h3 class="text-xl font-semibold mt-6 mb-3">Insurance Coverage</h3>
             <p>Good news for our Naihati residents - many insurance policies now cover physiotherapy:</p>
@@ -479,32 +848,34 @@
             
             <h3 class="text-xl font-semibold mt-6 mb-3">Clinic Hours</h3>
             <p>Most physiotherapy clinics in Naihati operate during these hours:</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Day</th>
-                        <th>Morning Hours</th>
-                        <th>Evening Hours</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Monday to Friday</td>
-                        <td>9:00 AM - 1:00 PM</td>
-                        <td>4:00 PM - 8:00 PM</td>
-                    </tr>
-                    <tr>
-                        <td>Saturday</td>
-                        <td>9:00 AM - 1:00 PM</td>
-                        <td>4:00 PM - 7:00 PM</td>
-                    </tr>
-                    <tr>
-                        <td>Sunday</td>
-                        <td>Closed (Some by appointment)</td>
-                        <td>Closed (Some by appointment)</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Morning Hours</th>
+                            <th>Evening Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Day">Monday to Friday</td>
+                            <td data-label="Morning Hours">9:00 AM - 1:00 PM</td>
+                            <td data-label="Evening Hours">4:00 PM - 8:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Day">Saturday</td>
+                            <td data-label="Morning Hours">9:00 AM - 1:00 PM</td>
+                            <td data-label="Evening Hours">4:00 PM - 7:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Day">Sunday</td>
+                            <td data-label="Morning Hours">Closed (Some by appointment)</td>
+                            <td data-label="Evening Hours">Closed (Some by appointment)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             
             <h3 class="text-xl font-semibold mt-6 mb-3">Choosing the Right Physiotherapist</h3>
             <p>When selecting a physiotherapist in Naihati, look for:</p>
@@ -712,17 +1083,18 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Contact Information</h3>
                     <p><i class="fas fa-phone-alt mr-2"></i> +917003647770, +919331912115</p>
-                    <p><i class="fas fa-envelope mr-2"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94f7fcfbe3f0fce1e6edf6fde7e3f5faf5e0fca6acd4f3f9f5fdf8baf7fbf9">[email&#160;protected]</a></p>
+                    <p><i class="fas fa-envelope mr-2"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="91f2f9fee6f5f9e4e3e8f3f8e2e6f0fff0e5f9a3a9d1f6fcf0f8fdbff2fefc">[email protected]</a></p>
                     <p><i class="fas fa-map-marker-alt mr-2"></i> Swastha Tirtha, Near Yellow Water Tank Road, East Prasad Nagar, Naihati</p>
                 </div>
             </div>
             <div class="mt-8 pt-8 border-t border-teal-700 text-center">
-                <p>&copy; 2023 Physiotherapy Guide Naihati. All rights reserved.</p>
+                <p>© 2023 Physiotherapy Guide Naihati. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         // Simple form validation for quiz
         document.querySelectorAll('.quiz-option input').forEach(item => {
             item.addEventListener('change', event => {
@@ -741,4 +1113,3 @@
     </script>
 </body>
 </html>
-    
