@@ -78,48 +78,88 @@ body {
     box-sizing: border-box;
 }
 
-.table-container {
-    max-width: 100%;
-    margin: 1.5rem 0;
-    overflow-x: auto; /* Enable horizontal scrolling for tables */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background: white;
-}
+ .table-container {
+        max-width: 100%;
+        margin: 0 auto;
+        background: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        overflow-x: auto; /* Enables horizontal scrolling on small screens */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 400px; /* Ensure table doesn't shrink too much */
-}
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 400px; /* Ensures table doesn't shrink too much */
+    }
 
-th, td {
-    padding: 0.75rem;
-    text-align: left;
-    border-bottom: 1px solid #e2e8f0;
-    font-size: 1rem;
-}
+    th, td {
+        padding: 1.5rem;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+        font-size: 1rem;
+    }
 
-th {
-    background-color: var(--primary);
-    color: white;
-    font-weight: 600;
-}
+    th {
+        background-color: var(--primary);
+        color: white;
+        font-weight: 600;
+    }
 
-td {
-    background-color: white;
-    transition: all 0.3s ease;
-}
+    td {
+        background-color: white;
+        transition: all 0.3s ease;
+    }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
+    tr:hover td {
+        background-color: var(--light);
+    }
 
-tr:hover td {
-    background-color: var(--light);
-}
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 640px) {
+        th, td {
+            padding: 0.75rem;
+            font-size: 0.875rem; /* Smaller font for mobile */
+        }
 
+        /* Stack table rows for very small screens */
+        table {
+            min-width: 0; /* Remove min-width for stacking */
+        }
+
+        thead {
+            display: none; /* Hide headers for stacked layout */
+        }
+
+        tr {
+            display: block;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        td {
+            display: block;
+            text-align: right;
+            position: relative;
+            padding-left: 50%;
+            border-bottom: none;
+        }
+
+        td:before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0.75rem;
+            width: 45%;
+            font-weight: 600;
+            text-align: left;
+            color: var(--primary);
+        }
+
+        td:last-child {
+            border-bottom: 1px solid #e5e7eb;
+        }
+    }
 .quiz-box {
     background-color: #e3f2fd;
     border: 1px solid #bbdefb;
