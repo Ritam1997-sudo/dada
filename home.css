@@ -1067,3 +1067,90 @@ i {
 :root {
     --primary: #00a0a0; /* Primary color for borders and icons */
 }
+ .blog-header {
+            background-color: #009688;
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .blog-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+.img-container {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        .blog-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .tip-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+ .quiz-box {
+            background-color: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .quiz-option {
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #bbdefb;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .quiz-option:hover {
+            background-color: #bbdefb;
+        }
+        .testimonial {
+            background-color: #fff8e1;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            position: relative;
+        }
+        .testimonial:before {
+            content: '"';
+            font-size: 4rem;
+            color: #ffd54f;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.5;
+        }
+        .cta-box {
+            background-color: #009688;
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .cta-button {
+            background-color: white;
+            color: #009688;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
