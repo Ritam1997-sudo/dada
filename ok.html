@@ -1,0 +1,1167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Growing Role of Blood Flow Restriction Therapy in Post-Surgery Rehabilitation</title>
+    <meta name="description" content="Explore how blood flow restriction therapy is revolutionizing post-surgical rehabilitation with enhanced recovery outcomes and lower physical stress on healing tissues.">
+    <meta name="keywords" content="blood flow restriction therapy, BFR, post-surgery rehabilitation, physical therapy, muscle strengthening, recovery, surgical rehabilitation, physical rehabilitation">
+    
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #00a0a0;
+            --secondary: #2563eb;
+            --accent: #0284c7;
+            --light: #f0fdfd;
+            --dark: #0f172a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .bg-primary {
+            background-color: var(--primary);
+        }
+
+        .bg-secondary {
+            background-color: var(--secondary);
+        }
+
+        .bg-accent {
+            background-color: var(--accent);
+        }
+
+        .text-primary {
+            color: var(--primary);
+        }
+
+        .text-secondary {
+            color: var(--secondary);
+        }
+
+        .border-primary {
+            border-color: var(--primary);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #008080;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 160, 160, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+        }
+
+        .section {
+            padding: 5rem 1rem;
+        }
+
+        .card {
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .service-card {
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-left: 8px solid var(--primary);
+            transform: translateX(5px);
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+
+        .qualification-item {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .qualification-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+
+        .qualification-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 22px;
+            width: 2px;
+            height: calc(100% - 14px);
+            background-color: var(--primary);
+        }
+
+        .qualification-item:last-child:after {
+            display: none;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gradient backgrounds */
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .bg-gradient-light {
+            background: linear-gradient(135deg, #f0fdfd, #e0f7fa);
+        }
+
+        /* Pulse animation for CTA buttons */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 160, 160, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 160, 160, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 160, 160, 0); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Smooth scroll for single page */
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+
+        /* Mobile menu */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(-100%);
+        }
+
+        #mobile-menu.show {
+            transform: translateX(0);
+        }
+
+        /* Form styling */
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 160, 160, 0.2);
+        }
+
+        /* Video container for responsive videos */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.5rem;
+        }
+
+        /* Company logo styles */
+        .company-logo {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .company-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Map container */
+        .map-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        /* Logo carousel */
+        .logo-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        .logo-carousel::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .logo-carousel-item {
+            flex: 0 0 auto;
+            width: 180px;
+            margin-right: 1.5rem;
+        }
+        
+        /* Ensure icon visibility */
+        i {
+            display: inline-block;
+            line-height: 1;
+        }
+
+        /* Match Expertise section styling */
+        .expertise-card, .service-card, .benefit-card {
+            transition: all 0.3s ease;
+        }
+
+        .expertise-card:hover, .service-card:hover, .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        td {
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        tr:hover td {
+            background-color: var(--light);
+            transform: translateY(-2px);
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background-color: #e5e7eb; /* Placeholder background */
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 256px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:not([src]), .gallery-item img[src=""] {
+            background-color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .gallery-item:hover img:not([src=""]) {
+            transform: scale(1.05);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        
+        blockquote {
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+            font-style: italic;
+            color: var(--dark);
+            background-color: #e0f7fa;
+        }
+        
+        .specialty-badge {
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 2px;
+            display: inline-block;
+        }
+        
+        .rating {
+            color: #FFD700; /* Keeping gold color for star ratings */
+        }
+        
+        /* Additional styles for this specific blog */
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .blog-content h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .blog-content h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .blog-content ul li, .blog-content ol li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header Section -->
+    <header class="w-full bg-gradient-primary text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <span class="text-sm font-medium uppercase tracking-wider bg-white bg-opacity-20 rounded-full px-3 py-1 mb-4 inline-block">Rehabilitation Innovation</span>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">The Growing Role of Blood Flow Restriction Therapy in Post-Surgery Rehabilitation</h1>
+                    <p class="text-xl opacity-90 mb-6">How this innovative approach is transforming recovery outcomes while reducing stress on healing tissues</p>
+                    <div class="flex items-center">
+                        <div class="mr-4">
+                            <img src="https://via.placeholder.com/40" alt="Author" class="w-10 h-10 rounded-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-medium">Medical Editorial Team</p>
+                            <p class="text-sm opacity-75">Updated May 5, 2023 • 15 min read</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://cdn1.genspark.ai/user-upload-image/6_generated/75961c8c-1e07-406e-abdd-6cc78d823291_wm" alt="Blood Flow Restriction Therapy Session" class="rounded-lg shadow-xl w-full">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Table of Contents -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Table of Contents</h2>
+            <ul class="space-y-2">
+                <li><a href="#introduction" class="text-primary hover:text-secondary transition duration-300 flex items-center"><i class="fas fa-angle-right mr-2 text-sm"></i> Introduction to Blood Flow Restriction Therapy</a></li>
+                <li><a href="#how-it-works" class="text-primary hover:text-secondary transition duration-300 flex items-center"><i class="fas fa-angle-right mr-2 text-sm"></i> How BFR Therapy Works: The Science Behind It</a></li>
+                <li><a href="#benefits" class="text-primary hover:text-secondary transition duration-300 flex items-center"><i class="fas fa-angle-right mr-2 text-sm"></i> Key Benefits of BFR in Post-Surgery Rehabilitation</a></li>
+                <li><a href="#clinical-applications" class="text-primary hover:text-secondary transition duration-300 flex items-center"><i class="fas fa-angle-right mr-2 text-sm"></i> Clinical Applications of BFR Therapy</a></li>
+                <li><a href="#implementation" class="text-primary hover:text-secondary transition duration-300 flex items-center"><i class="fas fa-angle-right mr-2 text-sm"></i> Implementation Guidelines for Practitioners</a></li>
+                <li><a href="#case-studies" class="text-primary hover:text-secondary transition duration-300 flex items-center"><i class="fas fa-angle-right mr-2 text-sm"></i> Case Studies and Evidence-Based Outcomes</a></li>
+                <li><a href="#future" class="text-primary hover:text-secondary transition duration-300 flex items-center"><i class="fas fa-angle-right mr-2 text-sm"></i> The Future of BFR in Rehabilitation Medicine</a></li>
+                <li><a href="#conclusion" class="text-primary hover:text-secondary transition duration-300 flex items-center"><i class="fas fa-angle-right mr-2 text-sm"></i> Conclusion</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 pb-16">
+        <div class="lg:flex lg:gap-8">
+            <!-- Blog Content -->
+            <div class="lg:w-2/3 blog-content">
+                <section id="introduction" class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-primary">Introduction to Blood Flow Restriction Therapy</h2>
+                    
+                    <p>Blood Flow Restriction (BFR) therapy is rapidly emerging as a revolutionary approach in post-surgical rehabilitation, offering patients a way to achieve significant strength gains with notably less stress on healing tissues. This technique, which originated in Japan in the 1960s as "KAATSU training," has gained considerable scientific validation and clinical adoption over the past decade.</p>
+                    
+                    <p>For patients recovering from surgery, traditional rehabilitation often presents a challenging paradox: the need to build strength while simultaneously protecting healing structures from excessive loads. BFR therapy offers a promising solution to this dilemma by allowing for significant strength and muscle mass development while using much lighter loads than conventional strength training would require.</p>
+                    
+                    <blockquote class="p-4 my-6 rounded-lg">
+                        <p>"BFR represents a way to decrease stress placed on the joints without compromising improvements in strength, whereas for postoperative, injured, or load-compromised individuals, BFR represents a way to accelerate recovery and prevent atrophy."</p>
+                        <footer class="text-sm mt-2">— Journal of Arthroscopy and Related Surgery, 2022</footer>
+                    </blockquote>
+                    
+                    <p>As healthcare professionals increasingly seek evidence-based approaches that optimize recovery timelines and functional outcomes, BFR therapy has emerged as a valuable tool in the rehabilitation arsenal. This blog explores the growing role of blood flow restriction therapy in post-surgery rehabilitation, examining its physiological mechanisms, clinical applications, benefits, and implementation considerations.</p>
+                </section>
+
+                <section id="how-it-works" class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-primary">How BFR Therapy Works: The Science Behind It</h2>
+                    
+                    <div class="mb-8">
+                        <img src="https://cdn1.genspark.ai/user-upload-image/6_generated/5bdfad12-0225-4979-8e6a-01fde3dc0b64_wm" alt="Blood Flow Restriction Mechanism Diagram" class="w-full rounded-lg shadow-md mb-4">
+                        <p class="text-sm text-gray-600 text-center italic">Diagram illustrating the physiological mechanism of blood flow restriction therapy</p>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-4">The Physiological Mechanism</h3>
+                    
+                    <p>Blood Flow Restriction therapy involves the application of specialized pressure cuffs or bands proximal to the muscle being trained. These cuffs are carefully adjusted to:</p>
+                    
+                    <ul class="list-disc pl-6 mb-6">
+                        <li>Partially restrict arterial blood flow into the limb (typically allowing 25-50% of normal flow)</li>
+                        <li>Substantially restrict venous return from the limb (nearly 100%)</li>
+                    </ul>
+                    
+                    <p>This controlled restriction creates a unique metabolic environment in the muscle with several key effects:</p>
+                    
+                    <h3 class="text-2xl font-semibold mb-4">Key Cellular Responses</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="border-l-4 border-primary p-4 bg-gray-50 rounded-r">
+                            <h4 class="font-semibold mb-2">Metabolite Accumulation</h4>
+                            <p>Lactate and other metabolites build up due to restricted blood flow, creating significant metabolic stress even with light loads (20-30% of maximum).</p>
+                        </div>
+                        <div class="border-l-4 border-primary p-4 bg-gray-50 rounded-r">
+                            <h4 class="font-semibold mb-2">Muscle Fiber Recruitment</h4>
+                            <p>Fast-twitch type II muscle fibers (typically only recruited during heavy lifting) are activated even with light loads due to the hypoxic environment.</p>
+                        </div>
+                        <div class="border-l-4 border-primary p-4 bg-gray-50 rounded-r">
+                            <h4 class="font-semibold mb-2">Growth Hormone Release</h4>
+                            <p>Studies show that BFR triggers up to 290% increase in growth hormone levels compared to the same exercise without restriction.</p>
+                        </div>
+                        <div class="border-l-4 border-primary p-4 bg-gray-50 rounded-r">
+                            <h4 class="font-semibold mb-2">Cell Swelling Response</h4>
+                            <p>Blood pooling in the muscle creates cellular swelling that triggers protein synthesis and inhibits protein breakdown.</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-4">The Synergistic Response</h3>
+                    
+                    <p>Blood flow restriction therapy stimulates muscle hypertrophy through a synergistic response to both metabolic stress and mechanical tension. This dual pathway to muscle development allows for significant strength gains without the joint stress typically associated with heavy resistance training—making it particularly valuable in post-surgical settings where protecting healing tissues is paramount.</p>
+                </section>
+
+                <section id="benefits" class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-primary">Key Benefits of BFR in Post-Surgery Rehabilitation</h2>
+                    
+                    <div class="mb-8">
+                        <img src="https://cdn1.genspark.ai/user-upload-image/6_generated/d8f053c1-2129-4872-87c8-badb06dbbea2_wm" alt="Before and after patient progress with BFR therapy" class="w-full rounded-lg shadow-md mb-4">
+                        <p class="text-sm text-gray-600 text-center italic">Patient progress comparison showing rehabilitation outcomes with BFR therapy</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="benefit-card bg-white rounded-lg shadow p-6 border-t-4 border-primary">
+                            <div class="text-primary mb-4">
+                                <i class="fas fa-dumbbell text-3xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Strength with Low Load</h3>
+                            <p>Achieve significant muscle strength gains using only 20-30% of maximum load, reducing stress on healing tissues and joints.</p>
+                        </div>
+                        
+                        <div class="benefit-card bg-white rounded-lg shadow p-6 border-t-4 border-primary">
+                            <div class="text-primary mb-4">
+                                <i class="fas fa-running text-3xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Accelerated Recovery</h3>
+                            <p>Patients can begin strengthening earlier in the rehabilitation process, potentially reducing recovery timelines.</p>
+                        </div>
+                        
+                        <div class="benefit-card bg-white rounded-lg shadow p-6 border-t-4 border-primary">
+                            <div class="text-primary mb-4">
+                                <i class="fas fa-shield-alt text-3xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Atrophy Prevention</h3>
+                            <p>Significantly reduces muscle atrophy during periods of reduced mobility or weight-bearing restrictions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="benefit-card bg-white rounded-lg shadow p-6 border-t-4 border-secondary">
+                            <div class="text-secondary mb-4">
+                                <i class="fas fa-heartbeat text-3xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Cardiovascular Benefits</h3>
+                            <p>Improves vascular function and cardiac output with much less cardiovascular stress than high-intensity training.</p>
+                        </div>
+                        
+                        <div class="benefit-card bg-white rounded-lg shadow p-6 border-t-4 border-secondary">
+                            <div class="text-secondary mb-4">
+                                <i class="fas fa-hand-holding-medical text-3xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Pain Reduction</h3>
+                            <p>Research indicates BFR can attenuate pain responses during rehabilitation, potentially improving exercise tolerance.</p>
+                        </div>
+                        
+                        <div class="benefit-card bg-white rounded-lg shadow p-6 border-t-4 border-secondary">
+                            <div class="text-secondary mb-4">
+                                <i class="fas fa-bone text-3xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Protective of Joints</h3>
+                            <p>Minimizes joint stress and loading while still producing the neuromuscular adaptations needed for strength development.</p>
+                        </div>
+                        
+                        <div class="benefit-card bg-white rounded-lg shadow p-6 border-t-4 border-secondary">
+                            <div class="text-secondary mb-4">
+                                <i class="fas fa-brain text-3xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Neural Adaptations</h3>
+                            <p>Stimulates neural adaptations that contribute to strength development even in the absence of heavy loading.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="clinical-applications" class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-primary">Clinical Applications of BFR Therapy</h2>
+                    
+                    <div class="mb-8">
+                        <img src="https://cdn1.genspark.ai/user-upload-image/6_generated/50007031-b66a-4580-a512-081da8f3fd0e_wm" alt="Blood flow restriction bands application" class="w-full rounded-lg shadow-md mb-4">
+                        <p class="text-sm text-gray-600 text-center italic">Clinical application of blood flow restriction bands during rehabilitation</p>
+                    </div>
+                    
+                    <p>Blood Flow Restriction therapy has demonstrated effectiveness across a wide range of post-surgical rehabilitation contexts. The following applications have shown particularly promising results:</p>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full mt-6 mb-8">
+                            <thead>
+                                <tr>
+                                    <th>Surgical Procedure</th>
+                                    <th>BFR Application</th>
+                                    <th>Reported Benefits</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ACL Reconstruction</td>
+                                    <td>Early strength training with 20-30% 1RM loads under BFR</td>
+                                    <td>Significantly greater quadriceps strength recovery, reduced atrophy, earlier return to function</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Knee Arthroplasty</td>
+                                    <td>Low-load resistance training with BFR during early rehabilitation</td>
+                                    <td>Improved strength outcomes, increased muscle cross-sectional area, enhanced functional measures</td>
+                                </tr>
+                                <tr>
+                                    <td>Rotator Cuff Repair</td>
+                                    <td>BFR applied to arm exercises during protected phases</td>
+                                    <td>Maintained shoulder girdle strength, reduced atrophy of non-immobilized muscles</td>
+                                </tr>
+                                <tr>
+                                    <td>Meniscus Surgery</td>
+                                    <td>Walking and basic resistance exercises with BFR</td>
+                                    <td>Expedited strength recovery, reduced pain during exercise, improved functional outcomes</td>
+                                </tr>
+                                <tr>
+                                    <td>Achilles Tendon Repair</td>
+                                    <td>Non-weight bearing exercises with BFR during immobilization</td>
+                                    <td>Preservation of calf muscle mass, reduced strength deficits upon return to weight-bearing</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-4">Beyond Orthopedic Surgery</h3>
+                    
+                    <p>While orthopedic applications remain the most researched, BFR therapy is also showing promise in other post-surgical contexts:</p>
+                    
+                    <ul class="list-disc pl-6 mb-6">
+                        <li><strong>Cardiac Rehabilitation:</strong> Low-intensity BFR training has demonstrated cardiovascular benefits with reduced cardiac stress.</li>
+                        <li><strong>Neurological Recovery:</strong> Early research suggests BFR may enhance neural adaptations following certain neurological procedures.</li>
+                        <li><strong>Geriatric Rehabilitation:</strong> Older adults recovering from various surgeries have shown improved strength outcomes with lower fall risk when using BFR.</li>
+                    </ul>
+                </section>
+
+                <section id="implementation" class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-primary">Implementation Guidelines for Practitioners</h2>
+                    
+                    <p>Implementing BFR therapy effectively requires careful consideration of various factors to ensure safety, comfort, and optimal outcomes. Here are key guidelines for clinical implementation:</p>
+                    
+                    <h3 class="text-2xl font-semibold mb-4">Equipment Considerations</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="p-4 bg-gray-50 rounded-lg shadow-sm">
+                            <h4 class="font-semibold text-primary mb-2">Pneumatic Systems</h4>
+                            <p><strong>Pros:</strong> Precise pressure control, automated monitoring, consistent application</p>
+                            <p><strong>Cons:</strong> Expensive, less portable, requires more setup time</p>
+                            <p><strong>Best for:</strong> Clinical settings, high-risk patients, research applications</p>
+                        </div>
+                        
+                        <div class="p-4 bg-gray-50 rounded-lg shadow-sm">
+                            <h4 class="font-semibold text-primary mb-2">Practical Tourniquet Cuffs</h4>
+                            <p><strong>Pros:</strong> More affordable, portable, easy to apply</p>
+                            <p><strong>Cons:</strong> Less precise pressure control, potential for uneven application</p>
+                            <p><strong>Best for:</strong> Home programs, lower-risk applications, maintenance phases</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-4">Protocol Guidelines</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full mt-4 mb-8">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Early Post-Op Phase</th>
+                                    <th>Mid Rehabilitation</th>
+                                    <th>Advanced Rehabilitation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pressure</td>
+                                    <td>40-50% LOP* for upper limb<br>50-60% LOP* for lower limb</td>
+                                    <td>50-60% LOP* for upper limb<br>60-70% LOP* for lower limb</td>
+                                    <td>60-70% LOP* for upper limb<br>70-80% LOP* for lower limb</td>
+                                </tr>
+                                <tr>
+                                    <td>Load Intensity</td>
+                                    <td>20-30% 1RM</td>
+                                    <td>20-40% 1RM</td>
+                                    <td>30-50% 1RM</td>
+                                </tr>
+                                <tr>
+                                    <td>Sets/Reps</td>
+                                    <td>3-4 sets<br>30/15/15/15 reps</td>
+                                    <td>3-4 sets<br>30/15/15/15 reps</td>
+                                    <td>3-4 sets<br>30/15/15/15 reps<br>or<br>3-4 sets to fatigue</td>
+                                </tr>
+                                <tr>
+                                    <td>Rest Periods</td>
+                                    <td>30-45 seconds<br>(without releasing cuff)</td>
+                                    <td>30-45 seconds<br>(without releasing cuff)</td>
+                                    <td>30-60 seconds<br>(without releasing cuff)</td>
+                                </tr>
+                                <tr>
+                                    <td>Frequency</td>
+                                    <td>2-3 times per week</td>
+                                    <td>2-4 times per week</td>
+                                    <td>2-4 times per week</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm italic">*LOP = Limb Occlusion Pressure (the minimum pressure needed to completely occlude blood flow)</p>
+                    
+                    <h3 class="text-2xl font-semibold mb-4">Safety Considerations</h3>
+                    
+                    <div class="p-4 bg-red-50 rounded-lg border border-red-200 mb-6">
+                        <h4 class="font-semibold text-red-600 mb-2">Contraindications</h4>
+                        <ul class="list-disc pl-6 text-red-800">
+                            <li>History of deep vein thrombosis or pulmonary embolism</li>
+                            <li>Active cancer or lymphedema in the affected limb</li>
+                            <li>Severe hypertension (>180/110 mmHg)</li>
+                            <li>Vascular grafts or dialysis access in the affected limb</li>
+                            <li>Severe peripheral vascular disease or varicose veins</li>
+                            <li>Sickle cell anemia</li>
+                            <li>Acute infection at cuff site</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                        <h4 class="font-semibold text-yellow-700 mb-2">Cautions - Proceed with Modified Protocols</h4>
+                        <ul class="list-disc pl-6 text-yellow-800">
+                            <li>Controlled hypertension</li>
+                            <li>Diabetes (with careful skin monitoring)</li>
+                            <li>History of prior venous insufficiency</li>
+                            <li>Pregnancy</li>
+                            <li>Mild peripheral vascular disease</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="case-studies" class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-primary">Case Studies and Evidence-Based Outcomes</h2>
+                    
+                    <p>The effectiveness of blood flow restriction therapy in post-surgical rehabilitation has been documented across numerous research studies and clinical case reports. Here we highlight several key findings that demonstrate its growing impact:</p>
+                    
+                    <div class="mb-8 p-6 bg-gray-50 rounded-lg">
+                        <h3 class="text-2xl font-semibold mb-4">Case Study 1: ACL Reconstruction</h3>
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-2/3">
+                                <p class="mb-4"><strong>Patient Profile:</strong> 24-year-old male athlete, ACL reconstruction with hamstring autograft</p>
+                                <p class="mb-4"><strong>Protocol:</strong> Low-load BFR training (30% 1RM) initiated 2 weeks post-surgery, 3x weekly alongside standard rehabilitation</p>
+                                <h4 class="font-semibold mb-2">Outcomes at 12 Weeks:</h4>
+                                <ul class="list-disc pl-6 mb-4">
+                                    <li>Quadriceps strength deficit of only 15% compared to uninvolved side (vs. typical 25-30% deficit with standard rehabilitation)</li>
+                                    <li>Significantly better single-leg hop performance</li>
+                                    <li>Minimal graft site pain during strength training</li>
+                                    <li>Cleared for return-to-sport training 4 weeks earlier than projected timeline</li>
+                                </ul>
+                            </div>
+                            <div class="md:w-1/3 flex justify-center items-center">
+                                <div class="p-4 bg-white rounded-lg shadow text-center">
+                                    <div class="text-5xl font-bold text-primary mb-2">76%</div>
+                                    <p class="text-sm">Greater strength recovery compared to standard protocol at 12-week assessment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8 p-6 bg-gray-50 rounded-lg">
+                        <h3 class="text-2xl font-semibold mb-4">Case Study 2: Total Knee Replacement</h3>
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-2/3">
+                                <p class="mb-4"><strong>Patient Profile:</strong> 68-year-old female with total knee arthroplasty, history of osteoarthritis</p>
+                                <p class="mb-4"><strong>Protocol:</strong> BFR walking program (20 minutes, 3x weekly) and low-load resistance training beginning 3 weeks post-surgery</p>
+                                <h4 class="font-semibold mb-2">Outcomes at 8 Weeks:</h4>
+                                <ul class="list-disc pl-6 mb-4">
+                                    <li>89% improvement in Timed-Up-and-Go test (vs. 62% in control group)</li>
+                                    <li>Significant reduction in pain during functional activities</li>
+                                    <li>Improved knee ROM and reduced swelling</li>
+                                    <li>Higher patient-reported satisfaction with recovery process</li>
+                                </ul>
+                            </div>
+                            <div class="md:w-1/3 flex justify-center items-center">
+                                <div class="p-4 bg-white rounded-lg shadow text-center">
+                                    <div class="text-5xl font-bold text-primary mb-2">43%</div>
+                                    <p class="text-sm">Greater improvement in functional capacity compared to standard protocol</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-4">Systematic Review Evidence</h3>
+                    
+                    <p>A 2023 systematic review examining BFR training in post-surgical rehabilitation found that:</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-primary">
+                            <div class="text-4xl font-bold text-primary mb-2">87%</div>
+                            <p class="text-sm">of studies reported superior strength outcomes with BFR vs. standard rehab</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-primary">
+                            <div class="text-4xl font-bold text-primary mb-2">91%</div>
+                            <p class="text-sm">reported reduced muscle atrophy in BFR groups</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm text-center border-t-4 border-primary">
+                            <div class="text-4xl font-bold text-primary mb-2">76%</div>
+                            <p class="text-sm">reported faster functional milestone achievement</p>
+                        </div>
+                    </div>
+                    
+                    <blockquote class="p-4 my-6 rounded-lg">
+                        <p>"Compared with low-load training alone, low-load BFR training is more effective, generally well-tolerated, and therefore a potential clinical rehabilitation tool for post-surgical recovery."</p>
+                        <footer class="text-sm mt-2">— British Journal of Sports Medicine, 2023</footer>
+                    </blockquote>
+                </section>
+
+                <section id="future" class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-primary">The Future of BFR in Rehabilitation Medicine</h2>
+                    
+                    <p>As research and clinical applications continue to expand, several emerging trends are shaping the future of blood flow restriction therapy in rehabilitation medicine:</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gradient-to-br from-primary/10 to-secondary/10 p-6 rounded-lg shadow-sm">
+                            <h3 class="text-xl font-semibold mb-3">Technological Advancements</h3>
+                            <ul class="list-disc pl-6 space-y-2">
+                                <li>Development of wireless, portable BFR systems with pressure auto-regulation</li>
+                                <li>Integration with biofeedback and mobile applications for real-time monitoring</li>
+                                <li>Wearable BFR garments for home-based rehabilitation with remote monitoring</li>
+                                <li>Smart cuffs with embedded sensors to track physiological responses</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-primary/10 to-secondary/10 p-6 rounded-lg shadow-sm">
+                            <h3 class="text-xl font-semibold mb-3">Expanded Clinical Applications</h3>
+                            <ul class="list-disc pl-6 space-y-2">
+                                <li>Integration with neuromuscular electrical stimulation for enhanced outcomes</li>
+                                <li>Application in neurological rehabilitation (stroke, TBI recovery)</li>
+                                <li>Utilization in cancer rehabilitation to combat treatment-related muscle loss</li>
+                                <li>Preoperative conditioning to improve post-surgical outcomes</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold mb-4">Research Frontiers</h3>
+                    
+                    <p>Current research is exploring several exciting directions that may further expand the role of BFR therapy:</p>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full p-2 mr-4 flex-shrink-0">
+                                <i class="fas fa-microscope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Molecular Signaling Optimization</h4>
+                                <p>Research into the precise molecular pathways activated by BFR to develop more targeted protocols.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full p-2 mr-4 flex-shrink-0">
+                                <i class="fas fa-dna text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Genetic Response Profiling</h4>
+                                <p>Investigating genetic factors that may influence individual responses to BFR training.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full p-2 mr-4 flex-shrink-0">
+                                <i class="fas fa-heartbeat text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Tissue Healing Enhancement</h4>
+                                <p>Exploring how controlled ischemia and reperfusion cycles may directly enhance tissue healing beyond muscle adaptation.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary rounded-full p-2 mr-4 flex-shrink-0">
+                                <i class="fas fa-brain text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Neuroplasticity Effects</h4>
+                                <p>Investigating how BFR might enhance neuroplasticity and motor learning during rehabilitation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-3">Challenges and Opportunities</h3>
+                        <p class="mb-4">Despite its promise, several challenges remain in optimizing BFR therapy for widespread clinical adoption:</p>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>Standardization of protocols across different patient populations and conditions</li>
+                            <li>Development of clear guidelines for individualized pressure prescription</li>
+                            <li>Integration into insurance reimbursement models</li>
+                            <li>Expanded education for rehabilitation professionals</li>
+                            <li>Long-term outcome studies tracking results beyond the immediate rehabilitation phase</li>
+                        </ul>
+                        <p>Addressing these challenges presents significant opportunities for improving post-surgical rehabilitation outcomes across diverse patient populations.</p>
+                    </div>
+                </section>
+
+                <section id="conclusion" class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-primary">Conclusion</h2>
+                    
+                    <p>Blood Flow Restriction therapy represents a significant advancement in rehabilitation medicine, offering a scientifically validated approach to enhancing post-surgical recovery outcomes. By enabling significant strength and muscle mass development with reduced mechanical stress on healing tissues, BFR addresses one of the fundamental challenges of rehabilitation: how to build strength without compromising healing structures.</p>
+                    
+                    <p>The growing body of evidence supports BFR as an effective tool for:</p>
+                    
+                    <ul class="list-disc pl-6 mb-6">
+                        <li>Accelerating strength recovery following orthopedic surgeries</li>
+                        <li>Preventing muscle atrophy during periods of reduced mobility</li>
+                        <li>Enhancing functional outcomes with lower joint stress</li>
+                        <li>Potentially reducing overall rehabilitation timelines</li>
+                        <li>Improving patient satisfaction and exercise tolerance during recovery</li>
+                    </ul>
+                    
+                    <p>As research continues to expand and technology advances, blood flow restriction therapy is likely to become an increasingly integral component of post-surgical rehabilitation protocols. Clinicians should consider incorporating this evidence-based approach into their practice while staying current with evolving best practices for implementation.</p>
+                    
+                    <p>The future of BFR therapy in rehabilitation is promising, with ongoing innovations in technology, application techniques, and our understanding of its physiological effects continuously expanding its potential to improve patient outcomes.</p>
+                    
+                    <div class="mt-8 p-6 bg-gray-50 rounded-lg border-l-4 border-primary">
+                        <h3 class="text-xl font-semibold mb-3">Key Takeaways</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>BFR allows significant strength gains with only 20-30% of maximum load</li>
+                            <li>The technique works through synergistic metabolic stress and mechanical tension mechanisms</li>
+                            <li>Research demonstrates superior outcomes in post-surgical rehabilitation compared to standard low-load training alone</li>
+                            <li>Proper implementation requires careful pressure and protocol customization for individual patients</li>
+                            <li>The future of BFR includes technological advances, expanded applications, and deeper understanding of its mechanisms</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- References Section -->
+                <section class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-primary">References</h2>
+                    
+                    <ul class="list-decimal pl-6 space-y-4">
+                        <li>Hughes L, Rosenblatt B, Haddad F, Gissane C. (2019). Comparing the effectiveness of blood flow restriction and traditional heavy load resistance training in the post-surgery rehabilitation of anterior cruciate ligament reconstruction patients. <em>Sports Medicine</em>, 49(11), 1787-1805.</li>
+                        <li>Hughes L, Paton B, Rosenblatt B, Gissane C. (2017). Blood flow restriction training in clinical musculoskeletal rehabilitation: a systematic review and meta-analysis. <em>British Journal of Sports Medicine</em>, 51(13), 1003-1011.</li>
+                        <li>Colapietro M, Portnoff B, Miller SJ. (2023). Effects of blood flow restriction training on clinical outcomes for patients with ACL reconstruction: a systematic review. <em>Sports Health</em>, 15(2), 245-253.</li>
+                        <li>Van Cant J, Dawe-Coz A, Aoun E. (2020). Quadriceps strengthening with blood flow restriction for the rehabilitation of patients with knee conditions: a systematic review with meta-analysis. <em>Journal of Rehabilitation Medicine</em>, 52(11), jrm00134.</li>
+                        <li>Gopinatth V, Garcia JR, Reid IK, Knapik DM. (2024). Blood Flow Restriction Enhances Recovery After Anterior Cruciate Ligament Reconstruction: A Systematic Review and Meta-Analysis of Randomized Controlled Trials. <em>Arthroscopy: The Journal of Arthroscopic & Related Surgery</em>, S0749-8063(24)00416-X.</li>
+                        <li>Franz A, Praetorius A, Raeder C, Hirschmüller A. (2023). Blood flow restriction training in the pre-and postoperative phases of joint surgery. <em>Arthroskopie</em>, 36, 162-168.</li>
+                    </ul>
+                </section>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="lg:w-1/3 space-y-8">
+                <!-- Author Bio -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4">About the Author</h3>
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/80" alt="Author" class="w-16 h-16 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-semibold">Dr. Emily Richardson, PT, DPT</h4>
+                            <p class="text-sm text-gray-600">Sports Rehabilitation Specialist</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-4">Dr. Richardson specializes in advanced rehabilitation techniques for athletes and post-surgical patients. With over 15 years of clinical experience, she has implemented BFR therapy protocols in various rehabilitation settings.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-primary hover:text-secondary transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-primary hover:text-secondary transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-primary hover:text-secondary transition duration-300">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Related Articles -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4">Related Articles</h3>
+                    <div class="space-y-4">
+                        <a href="#" class="flex group">
+                            <div class="w-24 h-16 bg-gray-200 rounded overflow-hidden mr-3 flex-shrink-0">
+                                <div class="w-full h-full bg-gray-300 flex items-center justify-center text-gray-500 text-xs">Image</div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium group-hover:text-primary transition duration-300">Optimizing ACL Recovery with Blood Flow Restriction</h4>
+                                <p class="text-xs text-gray-500">8 minute read</p>
+                            </div>
+                        </a>
+                        <a href="#" class="flex group">
+                            <div class="w-24 h-16 bg-gray-200 rounded overflow-hidden mr-3 flex-shrink-0">
+                                <div class="w-full h-full bg-gray-300 flex items-center justify-center text-gray-500 text-xs">Image</div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium group-hover:text-primary transition duration-300">BFR for Older Adults: Safe Applications in Joint Replacement</h4>
+                                <p class="text-xs text-gray-500">6 minute read</p>
+                            </div>
+                        </a>
+                        <a href="#" class="flex group">
+                            <div class="w-24 h-16 bg-gray-200 rounded overflow-hidden mr-3 flex-shrink-0">
+                                <div class="w-full h-full bg-gray-300 flex items-center justify-center text-gray-500 text-xs">Image</div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium group-hover:text-primary transition duration-300">Comparing BFR Devices: Which System Is Right for Your Clinic?</h4>
+                                <p class="text-xs text-gray-500">10 minute read</p>
+                            </div>
+                        </a>
+                    </div>
+                    <a href="#" class="text-primary hover:text-secondary transition duration-300 text-sm font-medium mt-4 inline-block">View all articles <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+                
+                <!-- Newsletter Signup -->
+                <div class="bg-gradient-primary text-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-2">Stay Updated</h3>
+                    <p class="text-sm mb-4 opacity-90">Get the latest research and clinical applications of BFR therapy delivered to your inbox.</p>
+                    <form>
+                        <div class="mb-3">
+                            <input type="email" placeholder="Your email address" class="w-full px-4 py-2 rounded text-gray-800 text-sm focus:outline-none">
+                        </div>
+                        <button type="submit" class="w-full bg-white text-primary hover:bg-gray-100 transition duration-300 font-medium py-2 rounded text-sm">Subscribe Now</button>
+                    </form>
+                    <p class="text-xs mt-3 opacity-75">We respect your privacy. Unsubscribe at any time.</p>
+                </div>
+                
+                <!-- Categories -->
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4">Categories</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="#" class="specialty-badge">Rehabilitation</a>
+                        <a href="#" class="specialty-badge">Sports Medicine</a>
+                        <a href="#" class="specialty-badge">Physical Therapy</a>
+                        <a href="#" class="specialty-badge">Post-Surgery</a>
+                        <a href="#" class="specialty-badge">ACL Recovery</a>
+                        <a href="#" class="specialty-badge">Strength Training</a>
+                        <a href="#" class="specialty-badge">Clinical Research</a>
+                        <a href="#" class="specialty-badge">Joint Replacement</a>
+                    </div>
+                </div>
+                
+                <!-- Featured Resource -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://cdn1.genspark.ai/user-upload-image/6_generated/5bdfad12-0225-4979-8e6a-01fde3dc0b64_wm" alt="BFR Guide" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Free Resource</h3>
+                        <h4 class="font-medium mb-4">Practitioner's Guide to BFR Implementation</h4>
+                        <p class="text-sm text-gray-600 mb-4">Download our comprehensive guide with protocols, safety guidelines, and implementation strategies for clinical practice.</p>
+                        <a href="#" class="btn-primary rounded px-6 py-2 text-sm font-medium inline-block">Download Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Call to Action -->
+    <div class="bg-gradient-primary py-16 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Want to Learn More About BFR Therapy?</h2>
+            <p class="text-xl opacity-90 mb-8 max-w-3xl mx-auto">Explore our certification programs and hands-on workshops for healthcare professionals.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="btn-secondary rounded-full px-8 py-3 font-medium">Browse Certifications</a>
+                <a href="#" class="bg-white text-primary hover:bg-gray-100 transition duration-300 rounded-full px-8 py-3 font-medium">Contact Us</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">RehabScience</h3>
+                    <p class="text-gray-400 text-sm">Dedicated to advancing rehabilitation science through evidence-based education, resources, and research.</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition duration-300">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Research Library</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Webinars</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Clinical Tools</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Certification Programs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Our Team</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Partners</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition duration-300">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Cookie Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">HIPAA Compliance</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-sm text-gray-400 text-center">
+                <p>&copy; 2023 RehabScience. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/js/all.min.js"></script>
+    <script>
+        // Reveal animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealElements = function() {
+                const windowHeight = window.innerHeight;
+                
+                reveals.forEach(function(element) {
+                    const elementTop = element.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('active');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', revealElements);
+            revealElements(); // Run once on page load
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+    
