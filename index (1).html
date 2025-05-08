@@ -257,37 +257,53 @@
                 </div>
                 
                 <!-- Article Content -->
-                <div class="blog-content text-gray-700">
-                    <h1 class="text-3xl font-bold text-christmas-red mb-4">25 Creative Elf on the Shelf Ideas</h1>
-                    <p class="text-lg font-medium">
-                        The holiday season is upon us, and that means it's time for your family's Elf on the Shelf to make their grand appearance! If you're running out of creative ideas for your mischievous little scout, we've got you covered with 25 delightful and easy-to-implement elf scenarios that will keep your children enchanted throughout the Christmas season.
-                    </p>
+              <div class="blog-content text-gray-700">
+  <h1 class="text-3xl font-bold text-christmas-red mb-4">25 Creative Elf on the Shelf Ideas</h1>
+  <p class="text-lg font-medium">
+    The holiday season is upon us, and that means it's time for your family's Elf on the Shelf to make their grand appearance! If you're running out of creative ideas for your mischievous little scout, we've got you covered with 25 delightful and easy-to-implement elf scenarios that will keep your children enchanted throughout the Christmas season.
+  </p>
 
-                    <h2 class="text-2xl font-bold text-christmas-red mt-10 mb-6">Kitchen Antics</h2>
-                    <p>
-                        Elves love to get creative in the kitchen! Here are some fun ideas that turn everyday kitchen items into magical elf adventures. These setups are quick, simple, and guaranteed to bring giggles to your morning routine.
-                    </p>
-                    
-                    <div class="image-container">
-                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhaC9aKIWxrcE4xlwqxAZCc1ufG7C3AjL9-P6kNiBMw5jwL0ApELiaodVeB5nH5v4kd9na9uZuMo2YxrwBeJOnS-jddquXeEJxc-fJfw7ySelEm8jbrpgasdvlADJHGetE6GNVqb3UFlwwHr_ywkhS1AJP5-vWoVHJ2sho7nQ7mMoXtfX6YYaVvCldQzls" alt="Cereal Mischief">
-                        <img src="https://via.placeholder.com/200x150?text=Cookie+Baking" alt="Cookie Baking">
-                        <img src="https://via.placeholder.com/200x150?text=Marshmallow+Bath" alt="Marshmallow Bath">
-                        <img src="https://via.placeholder.com/200x150?text=Kitchen+Fun" alt="Kitchen Fun">
-                    </div>
+  <!-- First Section -->
+  <h2 class="text-2xl font-bold text-christmas-red mt-10 mb-6">Kitchen Antics</h2>
+  <p>
+    Elves love to get creative in the kitchen! Here are some fun ideas that turn everyday kitchen items into magical elf adventures. These setups are quick, simple, and guaranteed to bring giggles to your morning routine.
+  </p>
 
-                    <h2 class="text-2xl font-bold text-christmas-green mt-10 mb-6">Living Room Fun</h2>
-                    <p>
-                        The living room is the perfect stage for your elf to shine. From cozy movie nights to crafty snowmen, these ideas will transform your living space into a festive wonderland for your kids to discover.
-                    </p>
-                    
-                    <div class="image-container">
-                        <img src="https://via.placeholder.com/200x150?text=Toilet+Paper+Snowman" alt="Toilet Paper Snowman">
-                        <img src="https://via.placeholder.com/200x150?text=Movie+Night" alt="Movie Night">
-                        <img src="https://via.placeholder.com/200x150?text=Living+Room+Adventure" alt="Living Room Adventure">
-                        <img src="https://via.placeholder.com/200x150?text=Elf+Craft" alt="Elf Craft">
-                    </div>
-                </div>
-                
+  <div class="image-container">
+    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEhaC9aKIWxrcE4xlwqxAZCc1ufG7C3AjL9-P6kNiBMw5jwL0ApELiaodVeB5nH5v4kd9na9uZuMo2YxrwBeJOnS-jddquXeEJxc-fJfw7ySelEm8jbrpgasdvlADJHGetE6GNVqb3UFlwwHr_ywkhS1AJP5-vWoVHJ2sho7nQ7mMoXtfX6YYaVvCldQzls" alt="Cereal Mischief">
+    <img src="https://via.placeholder.com/200x150?text=Cookie+Baking" alt="Cookie Baking">
+    <img src="https://via.placeholder.com/200x150?text=Marshmallow+Bath" alt="Marshmallow Bath">
+    <img src="https://via.placeholder.com/200x150?text=Kitchen+Fun" alt="Kitchen Fun">
+  </div>
+
+  <!-- Load More Button -->
+  <button id="loadMoreBtn" class="mt-6 px-4 py-2 bg-christmas-green text-white rounded hover:bg-green-700">
+    Load More
+  </button>
+
+  <!-- Second Section Hidden Initially -->
+  <div id="moreContent" class="hidden">
+    <h2 class="text-2xl font-bold text-christmas-green mt-10 mb-6">Living Room Fun</h2>
+    <p>
+      The living room is the perfect stage for your elf to shine. From cozy movie nights to crafty snowmen, these ideas will transform your living space into a festive wonderland for your kids to discover.
+    </p>
+
+    <div class="image-container">
+      <img src="https://via.placeholder.com/200x150?text=Toilet+Paper+Snowman" alt="Toilet Paper Snowman">
+      <img src="https://via.placeholder.com/200x150?text=Movie+Night" alt="Movie Night">
+      <img src="https://via.placeholder.com/200x150?text=Living+Room+Adventure" alt="Living Room Adventure">
+      <img src="https://via.placeholder.com/200x150?text=Elf+Craft" alt="Elf Craft">
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  document.getElementById("loadMoreBtn").addEventListener("click", function () {
+    document.getElementById("moreContent").classList.remove("hidden");
+    this.style.display = "none";
+  });
+</script>
                 <!-- Tags -->
                 <div class="mt-8 pt-6 border-t border-gray-200">
                     <div class="flex flex-wrap items-center">
