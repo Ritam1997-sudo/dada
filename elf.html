@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elf Magic | Your Ultimate Elf on the Shelf Resource</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --christmas-red: #c0392b;
+            --christmas-green: #27ae60;
+            --christmas-gold: #f39c12;
+            --snow-white: #f8f9fa;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--snow-white);
+            color: #333;
+        }
+        .christmas-red {
+            background-color: var(--christmas-red);
+        }
+        .christmas-green {
+            background-color: var(--christmas-green);
+        }
+        .text-christmas-red {
+            color: var(--christmas-red);
+        }
+        .text-christmas-green {
+            color: var(--christmas-green);
+        }
+        .border-christmas-red {
+            border-color: var(--christmas-red);
+        }
+        .border-christmas-green {
+            border-color: var(--christmas-green);
+        }
+        .snowflake {
+            position: absolute;
+            color: white;
+            opacity: 0.8;
+            font-size: 20px;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+        .card {
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .logo-text {
+            font-family: 'Brush Script MT', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Snow effect container -->
+    <div id="snowContainer" class="fixed w-full h-full pointer-events-none z-10"></div>
+
+    <!-- Header -->
+    <header class="christmas-red text-white shadow-lg sticky top-0 z-20">
+        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center mb-2 md:mb-0">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-3">
+                    <span class="text-christmas-red text-2xl font-bold">E</span>
+                </div>
+                <h1 class="text-3xl font-bold logo-text">Elf Magic</h1>
+            </div>
+            <nav class="flex flex-wrap justify-center">
+                <a href="#" class="px-4 py-2 hover:bg-red-700 rounded transition-colors duration-200">Home</a>
+                <a href="#" class="px-4 py-2 hover:bg-red-700 rounded transition-colors duration-200">Elf Ideas</a>
+                <a href="#" class="px-4 py-2 hover:bg-red-700 rounded transition-colors duration-200">Printables</a>
+                <a href="#" class="px-4 py-2 hover:bg-red-700 rounded transition-colors duration-200">Shop</a>
+                <a href="#" class="px-4 py-2 hover:bg-red-700 rounded transition-colors duration-200">About</a>
+                <a href="#" class="px-4 py-2 hover:bg-red-700 rounded transition-colors duration-200">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+        <div class="bg-gradient-to-r from-red-100 to-green-100 py-16">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4 text-christmas-red">Welcome to Elf Magic!</h2>
+                    <p class="text-lg mb-6">Your one-stop resource for creative Elf on the Shelf ideas, printables, and inspiration to make this holiday tradition magical!</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200">Get Started</a>
+                        <a href="#" class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200">Browse Ideas</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 bg-white rounded-full shadow-xl flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-red-100 rounded-full flex items-center justify-center">
+                            <div class="w-48 h-48 bg-red-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-candy-cane text-white text-6xl transform -rotate-45"></i>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 w-full bg-green-500 h-20 flex items-center justify-center">
+                            <div class="text-center text-white font-bold">
+                                <i class="fas fa-hat-wizard text-3xl mb-2"></i>
+                                <p>Elf Magic</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wave separator -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-12">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.11,150.07,111.22,213.08,104.41Z" fill="white"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-12">
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-christmas-green mb-2">Featured Elf Ideas</h2>
+                <p class="text-gray-600">Get inspired with our most popular elf antics!</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md border-2 border-christmas-red">
+                    <div class="h-48 bg-red-100 flex items-center justify-center">
+                        <div class="text-christmas-red text-6xl">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2">Elf Cookie Baking Night</h3>
+                        <p class="text-gray-600 mb-3">Find your elf with a tiny rolling pin and flour scattered everywhere!</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Dec 5, 2023</span>
+                            <a href="#" class="text-christmas-red hover:underline font-semibold">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md border-2 border-christmas-green">
+                    <div class="h-48 bg-green-100 flex items-center justify-center">
+                        <div class="text-christmas-green text-6xl">
+                            <i class="fas fa-snowman"></i>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2">Toilet Paper Snowman</h3>
+                        <p class="text-gray-600 mb-3">Your elf turns toilet paper rolls into adorable snowmen overnight!</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Dec 8, 2023</span>
+                            <a href="#" class="text-christmas-green hover:underline font-semibold">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="card bg-white rounded-lg overflow-hidden shadow-md border-2 border-christmas-red">
+                    <div class="h-48 bg-red-100 flex items-center justify-center">
+                        <div class="text-christmas-red text-6xl">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2">Messages to Santa</h3>
+                        <p class="text-gray-600 mb-3">Find your elf with a tiny mailbox and special notes to Santa!</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Dec 12, 2023</span>
+                            <a href="#" class="text-christmas-red hover:underline font-semibold">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <a href="#" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200">View All Ideas</a>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-christmas-red mb-2">Free Elf Printables</h2>
+                <p class="text-gray-600">Download our exclusive printables to enhance your elf adventures!</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card bg-white rounded-lg p-5 shadow-md border-2 border-christmas-green hover:border-christmas-red transition-colors duration-200">
+                    <div class="h-40 flex items-center justify-center bg-green-100 rounded mb-3">
+                        <i class="fas fa-file-download text-4xl text-christmas-green"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-1">Elf Arrival Letter</h3>
+                    <p class="text-sm text-gray-600">Perfect for introducing your elf!</p>
+                </div>
+                
+                <div class="card bg-white rounded-lg p-5 shadow-md border-2 border-christmas-red hover:border-christmas-green transition-colors duration-200">
+                    <div class="h-40 flex items-center justify-center bg-red-100 rounded mb-3">
+                        <i class="fas fa-file-download text-4xl text-christmas-red"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-1">Elf Report Cards</h3>
+                    <p class="text-sm text-gray-600">Track kids' behavior with these cute cards!</p>
+                </div>
+                
+                <div class="card bg-white rounded-lg p-5 shadow-md border-2 border-christmas-green hover:border-christmas-red transition-colors duration-200">
+                    <div class="h-40 flex items-center justify-center bg-green-100 rounded mb-3">
+                        <i class="fas fa-file-download text-4xl text-christmas-green"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-1">Elf Accessories</h3>
+                    <p class="text-sm text-gray-600">Cute props to dress up your elf!</p>
+                </div>
+                
+                <div class="card bg-white rounded-lg p-5 shadow-md border-2 border-christmas-red hover:border-christmas-green transition-colors duration-200">
+                    <div class="h-40 flex items-center justify-center bg-red-100 rounded mb-3">
+                        <i class="fas fa-file-download text-4xl text-christmas-red"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-1">Goodbye Letter</h3>
+                    <p class="text-sm text-gray-600">A sweet farewell until next Christmas!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Owner Card -->
+        <section class="mb-16">
+            <div class="bg-gradient-to-r from-red-50 to-green-50 rounded-xl shadow-lg p-6 md:p-8 border border-gray-200">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/4 mb-6 md:mb-0 flex justify-center">
+                        <div class="w-32 h-32 rounded-full bg-white border-4 border-christmas-red flex items-center justify-center shadow-lg">
+                            <i class="fas fa-user-circle text-6xl text-gray-400"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-3/4 md:pl-8">
+                        <h2 class="text-2xl font-bold text-christmas-green mb-3">Hello, I'm Holly Evergreen!</h2>
+                        <p class="text-gray-700 mb-4">
+                            As a mom of three with over a decade of "Elf on the Shelf" experience, I've created this website to share all my tried-and-true ideas and printables. My mission is to help make your holiday season magical without the stress of coming up with new elf antics every night!
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-christmas-red hover:text-red-700">
+                                <i class="fab fa-facebook-f text-lg"></i>
+                            </a>
+                            <a href="#" class="text-christmas-red hover:text-red-700">
+                                <i class="fab fa-instagram text-lg"></i>
+                            </a>
+                            <a href="#" class="text-christmas-red hover:text-red-700">
+                                <i class="fab fa-pinterest text-lg"></i>
+                            </a>
+                            <a href="#" class="text-christmas-red hover:text-red-700">
+                                <i class="fab fa-tiktok text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="mb-16 bg-christmas-red text-white p-8 rounded-lg shadow-lg">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Get Elf Updates!</h2>
+                <p class="mb-6">Subscribe to our newsletter for weekly elf ideas, printables, and exclusive content delivered directly to your inbox!</p>
+                <form class="flex flex-col md:flex-row gap-3">
+                    <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-800">
+                    <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200">Subscribe</button>
+                </form>
+                <p class="text-sm mt-4 text-red-200">We promise not to spam! You'll only receive our weekly elf updates.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="christmas-green text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Elf Magic</h3>
+                    <p class="text-green-100 mb-4">Making Christmas magical one elf adventure at a time!</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-green-200"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-green-200"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-green-200"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="text-white hover:text-green-200"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-green-100 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Elf Ideas</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Printables</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Shop</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">About</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-green-100 hover:text-white">Elf FAQ</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Elf Rules</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Elf History</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">DIY Accessories</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Elf Calendar</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="far fa-envelope mr-2"></i>
+                            <a href="mailto:hello@elfmagic.com" class="text-green-100 hover:text-white">hello@elfmagic.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span class="text-green-100">(555) ELF-HELP</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="border-green-700 mb-6">
+            
+            <div class="text-center text-green-200 text-sm">
+                <p>&copy; 2023 Elf Magic. All rights reserved.</p>
+                <div class="mt-2">
+                    <a href="#" class="hover:text-white">Privacy Policy</a> | 
+                    <a href="#" class="hover:text-white">Terms of Service</a> | 
+                    <a href="#" class="hover:text-white">Cookie Policy</a>
+                </div>
+                <p class="mt-4">
+                    <i class="fas fa-candy-cane mr-1 text-red-400"></i> 
+                    "Elf on the Shelf" is a registered trademark. This website is not affiliated with the official "Elf on the Shelf" brand.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create snowflakes
+        function createSnowflakes() {
+            const container = document.getElementById('snowContainer');
+            const snowflakesCount = 50;
+            
+            for (let i = 0; i < snowflakesCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = `${Math.random() * 100}%`;
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = `${Math.random() * 10 + 10}px`;
+                
+                // Set animation duration
+                const animationDuration = Math.random() * 10 + 5;
+                snowflake.style.animationDuration = `${animationDuration}s`;
+                
+                // Set animation delay
+                snowflake.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(snowflake);
+                
+                // Remove and recreate snowflake after animation ends
+                setTimeout(() => {
+                    snowflake.remove();
+                    createNewSnowflake();
+                }, animationDuration * 1000);
+            }
+        }
+        
+        function createNewSnowflake() {
+            const container = document.getElementById('snowContainer');
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = `${Math.random() * 100}%`;
+            snowflake.style.top = '-20px';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = `${Math.random() * 10 + 10}px`;
+            
+            // Set animation duration
+            const animationDuration = Math.random() * 10 + 5;
+            snowflake.style.animationDuration = `${animationDuration}s`;
+            
+            container.appendChild(snowflake);
+            
+            // Remove and recreate snowflake after animation ends
+            setTimeout(() => {
+                snowflake.remove();
+                createNewSnowflake();
+            }, animationDuration * 1000);
+        }
+        
+        // Initialize snowflakes on page load
+        window.addEventListener('load', createSnowflakes);
+    </script>
+</body>
+</html>
