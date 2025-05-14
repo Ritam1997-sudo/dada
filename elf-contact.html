@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Elf Magic</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --christmas-red: #c0392b;
+            --christmas-green: #27ae60;
+            --christmas-gold: #f39c12;
+            --snow-white: #f8f9fa;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--snow-white);
+            color: #333;
+        }
+        .christmas-red {
+            background-color: var(--christmas-red);
+        }
+        .christmas-green {
+            background-color: var(--christmas-green);
+        }
+        .text-christmas-red {
+            color: var(--christmas-red);
+        }
+        .text-christmas-green {
+            color: var(--christmas-green);
+        }
+        .border-christmas-red {
+            border-color: var(--christmas-red);
+        }
+        .border-christmas-green {
+            border-color: var(--christmas-green);
+        }
+        .snowflake {
+            position: absolute;
+            color: white;
+            opacity: 0.8;
+            font-size: 20px;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+        .card {
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .logo-text {
+            font-family: 'Brush Script MT', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        .content h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Snow effect container -->
+    <div id="snowContainer" class="fixed w-full h-full pointer-events-none z-10"></div>
+
+    <!-- Header -->
+    <header class="christmas-red text-white shadow-lg sticky top-0 z-20">
+        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center mb-2 md:mb-0">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-3">
+                    <span class="text-christmas-red text-2xl font-bold">E</span>
+                </div>
+                <h1 class="text-3xl font-bold logo-text">Elf Magic</h1>
+            </div>
+            <nav class="flex flex-wrap justify-center">
+                <a href="#" class="px-4 py-2 hover:bg-red-700 rounded transition-colors duration-200">Home</a>
+                <a href="#" class="px-4 py-2 hover:bg-red-700 rounded transition-colors duration-200">Elf Ideas</a>
+                <a href="#" class="px-4 py-2 hover:bg-red-700 rounded transition-colors duration-200">Printables</a>
+                <a href="#" class="px-4 py-2 hover:bg-red-700 rounded transition-colors duration-200">Shop</a>
+                <a href="#" class="px-4 py-2 hover:bg-red-700 rounded transition-colors duration-200">About</a>
+                <a href="#" class="px-4 py-2 hover:bg-red-700 rounded transition-colors duration-200">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <!-- Breadcrumbs -->
+        <div class="text-sm mb-6 text-gray-500">
+            <a href="#" class="hover:text-christmas-red">Home</a> > 
+            <span class="text-gray-700">Contact Us</span>
+        </div>
+
+        <!-- Contact Us Section -->
+        <section class="mb-16">
+            <h1 class="text-3xl font-bold text-christmas-red mb-6">Contact Us</h1>
+            <div class="content text-gray-700">
+                <p>
+                    We'd love to hear from you! Whether you have questions about Elf on the Shelf ideas, need help with printables, or just want to share your own elf adventures, our team is here to help. Reach out using the form below or contact us directly.
+                </p>
+                <h2 class="text-2xl font-bold text-christmas-green">Get in Touch</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-christmas-red">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-christmas-red">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 mb-1">Message</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-christmas-red"></textarea>
+                            </div>
+                            <button type="submit" class="bg-christmas-red hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition-colors duration-200">Send Message</button>
+                        </form>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-christmas-red mb-4">Contact Details</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <i class="far fa-envelope mr-2 text-christmas-green"></i>
+                                <a href="mailto:hello@elfmagic.com" class="text-gray-700 hover:text-christmas-red">hello@elfmagic.com</a>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone-alt mr-2 text-christmas-green"></i>
+                                <span class="text-gray-700">(555) ELF-HELP</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2 text-christmas-green"></i>
+                                <span class="text-gray-700">123 North Pole Lane, Santa City, NP 00001</span>
+                            </li>
+                        </ul>
+                        <h3 class="text-xl font-bold text-christmas-red mt-6 mb-4">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-christmas-red hover:text-red-700"><i class="fab fa-facebook-f text-lg"></i></a>
+                            <a href="#" class="text-christmas-red hover:text-red-700"><i class="fab fa-instagram text-lg"></i></a>
+                            <a href="#" class="text-christmas-red hover:text-red-700"><i class="fab fa-pinterest text-lg"></i></a>
+                            <a href="#" class="text-christmas-red hover:text-red-700"><i class="fab fa-twitter text-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="christmas-green text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Elf Magic</h3>
+                    <p class="text-green-100 mb-4">Making Christmas magical one elf adventure at a time!</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-green-200"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-green-200"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-green-200"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="text-white hover:text-green-200"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-green-100 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Elf Ideas</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Printables</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Shop</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">About</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-green-100 hover:text-white">Elf FAQ</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Elf Rules</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Elf History</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">DIY Accessories</a></li>
+                        <li><a href="#" class="text-green-100 hover:text-white">Elf Calendar</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="far fa-envelope mr-2"></i>
+                            <a href="#" class="text-green-100 hover:text-white">hello@elfmagic.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span class="text-green-100">(555) ELF-HELP</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="border-green-700 mb-6">
+            
+            <div class="text-center text-green-200 text-sm">
+                <p>© 2023 Elf Magic. All rights reserved.</p>
+                <div class="mt-2">
+                    <a href="#" class="hover:text-white">Privacy Policy</a> | 
+                    <a href="#" class="hover:text-white">Terms of Service</a> | 
+                    <a href="#" class="hover:text-white">Cookie Policy</a>
+                </div>
+                <p class="mt-4">
+                    <i class="fas fa-candy-cane mr-1 text-red-400"></i> 
+                    "Elf on the Shelf" is a registered trademark. This website is not affiliated with the official "Elf on the Shelf" brand.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create snowflakes
+        function createSnowflakes() {
+            const container = document.getElementById('snowContainer');
+            const snowflakesCount = 50;
+            
+            for (let i = 0; i < snowflakesCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = `${Math.random() * 100}%`;
+                snowflake.style.opacity = Math.random();
+                snowflake.style.fontSize = `${Math.random() * 10 + 10}px`;
+                
+                const animationDuration = Math.random() * 10 + 5;
+                snowflake.style.animationDuration = `${animationDuration}s`;
+                snowflake.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(snowflake);
+                
+                setTimeout(() => {
+                    snowflake.remove();
+                    createNewSnowflake();
+                }, animationDuration * 1000);
+            }
+        }
+        
+        function createNewSnowflake() {
+            const container = document.getElementById('snowContainer');
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = `${Math.random() * 100}%`;
+            snowflake.style.top = '-20px';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = `${Math.random() * 10 + 10}px`;
+            
+            const animationDuration = Math.random() * 10 + 5;
+            snowflake.style.animationDuration = `${animationDuration}s`;
+            
+            container.appendChild(snowflake);
+            
+            setTimeout(() => {
+                snowflake.remove();
+                createNewSnowflake();
+            }, animationDuration * 1000);
+        }
+        
+        window.addEventListener('load', createSnowflakes);
+    </script>
+</body>
+</html>
