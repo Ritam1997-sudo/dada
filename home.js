@@ -52,3 +52,18 @@
                 }
             });
         });
+document.addEventListener("DOMContentLoaded", function () {
+  let pathPrefix = "";
+  let depth = window.location.pathname.split("/").length - 2;
+
+  for (let i = 0; i < depth; i++) {
+    pathPrefix += "../";  // This creates the correct relative path
+  }
+
+  fetch(pathPrefix + "blogs/footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+    })
+    .catch(err => console.error("Footer load error:", err));
+});
