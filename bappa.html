@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        @media print {
+            #generate-pdf, .no-print { display: none; }
+        }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #e5e7eb; padding: 8px; }
+        th { background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen p-4">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl">
+        <h1 class="text-2xl font-bold text-center mb-6">Prescription Generator</h1>
+        <form id="prescription-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Doctor's Name</label>
+                    <input type="text" id="doctor-name" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Clinic Name</label>
+                    <input type="text" id="clinic-name" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Clinic Address</label>
+                <input type="text" id="clinic-address" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Date</label>
+                <input type="text" id="date" class="mt-1 block w-full border border-gray-300 rounded-md p-2" readonly value="2025-05-17">
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Patient Name</label>
+                    <input type="text" id="patient-name" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Age</label>
+                    <input type="number" id="age" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+            </div>
+            <div>
+                <label class="Gamlock text-sm font-medium text-gray-700">Gender</label>
+                <select id="gender" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Symptoms</label>
+                <textarea id="symptoms" class="mt-1 block w-full border border-gray-300 rounded-md p-2" rows="4" required></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Diagnosis</label>
+                <textarea id="diagnosis" class="mt-1 block w-full border border-gray-300 rounded-md p-2" rows="4" required></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Medicines</label>
+                <table id="medicine-table">
+                    <thead>
+                        <tr>
+                            <th>Medicine</th>
+                            <th>Dosage</th>
+                            <th>Frequency</th>
+                            <th>Duration</th>
+                            <th class="no-print"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="medicine-rows">
+                        <tr>
+                            <td><input type="text" class="w-full border border-gray-300 rounded-md p-1" required></td>
+                            <td><input type="text" class="w-full border border-gray-300 rounded-md p-1" required></td>
+                            <td><input type="text" class="w-full border border-gray-300 rounded-md p-1" required></td>
+                            <td><input type="text" class="w-full border border-gray-300 rounded-md p-1" required></td>
+                            <td class="no-print"><button type="button" onclick="removeRow(this)" class="text-red-500">Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" onclick="addMedicineRow()" class="mt-2 text-blue-500 no-print">+ Add Medicine</button>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Notes (Optional)</label>
+                <textarea id="notes" class="mt-1 block w-full border border-gray-300 rounded-md p-2" rows="4"></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Doctor's Signature</label>
+                <input type="text" id="signature" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+            </div>
+            <button type="button" id="generate-pdf" class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 no-print">Generate PDF</button>
+        </form>
+        <div id="pdf-content" class="hidden">
+            <div class="p-6 bg-white">
+                <h1 class="text-2xl font-bold text-center mb-4">Prescription</h1>
+                <p><strong>Doctor:</strong> <span id="pdf-doctor-name"></span></p>
+                <p><strong>Clinic:</strong> <span id="pdf-clinic-name"></span></p>
+                <p><strong>Address:</strong> <span id="pdf-clinic-address"></span></p>
+                <p><strong>Date:</strong> <span id="pdf-date"></span></p>
+                <hr class="my-4">
+                <p><strong>Patient:</strong> <span id="pdf-patient-name"></span></p>
+                <p><strong>Age:</strong> <span id="pdf-age"></span></p>
+                <p><strong>Gender:</strong> <span id="pdf-gender"></span></p>
+                <p><strong>Symptoms:</strong> <span id="pdf-symptoms"></span></p>
+                <p><strong>Diagnosis:</strong> <span id="pdf-diagnosis"></span></p>
+                <p><strong>Medicines:</strong></p>
+                <table class="mt-2">
+                    <thead>
+                        <tr>
+                            <th>Medicine</th>
+                            <th>Dosage</th>
+                            <th>Frequency</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pdf-medicine-rows"></tbody>
+                </table>
+                <p><strong>Notes:</strong> <span id="pdf-notes"></span></p>
+                <p><strong>Signature:</strong> <span id="pdf-signature"></span></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Auto-fill today's date
+        document.getElementById('date').value = '2025-05-17';
+
+        // Add new medicine row
+        function addMedicineRow() {
+            const tbody = document.getElementById('medicine-rows');
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><input type="text" class="w-full border border-gray-300 rounded-md p-1" required></td>
+                <td><input type="text" class="w-full border border-gray-300 rounded-md p-1" required></td>
+                <td><input type="text" class="w-full border border-gray-300 rounded-md p-1" required></td>
+                <td><input type="text" class="w-full border border-gray-300 rounded-md p-1" required></td>
+                <td class="no-print"><button type="button" onclick="removeRow(this)" class="text-red-500">Remove</button></td>
+            `;
+            tbody.appendChild(row);
+        }
+
+        // Remove medicine row
+        function removeRow(button) {
+            if (document.querySelectorAll('#medicine-rows tr').length > 1) {
+                button.closest('tr').remove();
+            }
+        }
+
+        // Generate PDF
+        document.getElementById('generate-pdf').addEventListener('click', () => {
+            const form = document.getElementById('prescription-form');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Populate PDF content
+            document.getElementById('pdf-doctor-name').textContent = document.getElementById('doctor-name').value;
+            document.getElementById('pdf-clinic-name').textContent = document.getElementById('clinic-name').value;
+            document.getElementById('pdf-clinic-address').textContent = document.getElementById('clinic-address').value;
+            document.getElementById('pdf-date').textContent = document.getElementById('date').value;
+            document.getElementById('pdf-patient-name').textContent = document.getElementById('patient-name').value;
+            document.getElementById('pdf-age').textContent = document.getElementById('age').value;
+            document.getElementById('pdf-gender').textContent = document.getElementById('gender').value;
+            document.getElementById('pdf-symptoms').textContent = document.getElementById('symptoms').value;
+            document.getElementById('pdf-diagnosis').textContent = document.getElementById('diagnosis').value;
+            document.getElementById('pdf-notes').textContent = document.getElementById('notes').value || 'None';
+            document.getElementById('pdf-signature').textContent = document.getElementById('signature').value;
+
+            // Populate medicine table
+            const medicineRows = document.getElementById('pdf-medicine-rows');
+            medicineRows.innerHTML = '';
+            document.querySelectorAll('#medicine-rows tr').forEach(row => {
+                const cells = row.querySelectorAll('input');
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${cells[0].value}</td>
+                    <td>${cells[1].value}</td>
+                    <td>${cells[2].value}</td>
+                    <td>${cells[3].value}</td>
+                `;
+                medicineRows.appendChild(tr);
+            });
+
+            // Generate PDF
+            const element = document.getElementById('pdf-content');
+            const opt = {
+                margin: 0.5,
+                filename: 'prescription.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        });
+    </script>
+</body>
+</html>
