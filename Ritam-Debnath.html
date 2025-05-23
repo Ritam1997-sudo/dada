@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByRitam - Personal Blog by Ritam Debnath</title>
+    <meta name="description" content="A multi-niche blog site by Ritam Debnath, sharing news, articles, and helpful content across various fields to benefit readers.">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .blog-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+        .btn-primary {
+            background-color: #3B82F6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #2563EB;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #3B82F6;
+        }
+        .author-image {
+            border: 3px solid #3B82F6;
+        }
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.hidden {
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1742183309/Ritam_slac9k.avif" alt="Ritam Debnath" class="w-16 h-16 rounded-full author-image object-cover">
+                    <div class="ml-4">
+                        <h1 class="text-3xl font-bold text-gray-800">ByRitam</h1>
+                        <p class="text-gray-600">Personal Blog by Ritam Debnath</p>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                <div class="hidden md:flex flex-col items-end">
+                    <p class="text-gray-700 mb-1"><i class="fas fa-briefcase mr-2"></i>SEO Executive (2+ years)</p>
+                    <p class="text-gray-700 mb-1"><i class="fas fa-map-marker-alt mr-2"></i>Halisahar, West Bengal, India</p>
+                    <p class="text-gray-700"><i class="fas fa-phone mr-2"></i>9038303107</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav id="mobile-menu" class="bg-blue-600 text-white mobile-menu fixed top-0 right-0 h-full w-64 z-50 hidden md:hidden">
+        <div class="flex justify-end p-4">
+            <button id="close-menu" class="text-white focus:outline-none">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <div class="flex flex-col items-center py-8">
+            <a href="#" class="px-4 py-2 font-medium hover:bg-blue-700 rounded transition duration-300 w-full text-center">Home</a>
+            <a href="#about" class="px-4 py-2 font-medium hover:bg-blue-700 rounded transition duration-300 w-full text-center">About</a>
+            <a href="#blog" class="px-4 py-2 font-medium hover:bg-blue-700 rounded transition duration-300 w-full text-center">Blog</a>
+            <a href="#contact" class="px-4 py-2 font-medium hover:bg-blue-700 rounded transition duration-300 w-full text-center">Contact</a>
+        </div>
+    </nav>
+    <nav class="bg-blue-600 text-white hidden md:block">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center md:justify-start py-3">
+                <a href="#" class="px-4 py-2 font-medium hover:bg-blue-700 rounded transition duration-300">Home</a>
+                <a href="#about" class="px-4 py-2 font-medium hover:bg-blue-700 rounded transition duration-300">About</a>
+                <a href="#blog" class="px-4 py-2 font-medium hover:bg-blue-700 rounded transition duration-300">Blog</a>
+                <a href="#contact" class="px-4 py-2 font-medium hover:bg-blue-700 rounded transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-50 to-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4">Welcome to ByRitam</h2>
+                    <p class="text-lg text-gray-600 mb-6">A multi-niche blog platform where I share valuable news, articles, and helpful content across various fields to inform and inspire readers.</p>
+                    <div class="flex space-x-4">
+                        <a href="#blog" class="btn-primary inline-block">Explore Blog</a>
+                        <a href="#contact" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md font-medium hover:bg-gray-300 transition duration-300">Contact Me</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1742183309/Ritam_slac9k.avif" alt="Ritam Debnath" class="w-64 h-64 rounded-full shadow-xl object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Content Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2 section-title">Featured Content</h2>
+            <p class="text-gray-600 mb-8">Check out my latest YouTube video on career tips</p>
+            
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                <div class="aspect-w-16 aspect-h-9 mb-6">
+                    <div class="w-full" style="position: relative; padding-bottom: 56.25%;">
+                        <iframe 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                            src="https://www.youtube.com/embed/videoseries?list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL" 
+                            title="Career Tips by Ritam Debnath" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-2">Career Tips for Success</h3>
+                <p class="text-gray-600 mb-4">Learn valuable career insights and tips to advance your professional journey. Subscribe to my YouTube channel for more content like this.</p>
+                <a href="https://youtube.com/@careertipsbangla?si=m3jfIb_MHLAD8ZlI" target="_blank" class="btn-primary inline-flex items-center">
+                    <i class="fab fa-youtube mr-2"></i> Subscribe to My Channel
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2 section-title">About Me & This Blog</h2>
+            <p class="text-gray-600 mb-8">Learn more about who I am and what ByRitam is all about</p>
+            
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/3 mb-6 md:mb-0 md:pr-8">
+                        <img src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1742183309/Ritam_slac9k.avif" alt="Ritam Debnath" class="w-full rounded-lg shadow-md">
+                        <div class="mt-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Ritam Debnath</h3>
+                            <p class="text-gray-600 mb-2"><i class="fas fa-briefcase mr-2 text-blue-500"></i>SEO Executive (2+ years)</p>
+                            <p class="text-gray-600 mb-2"><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>East Prasad Nagar, North 24 Parganas</p>
+                            <p class="text-gray-600 mb-2"><i class="fas fa-location-dot mr-2 text-blue-500"></i>Halisahar, West Bengal – 743135, India</p>
+                            <p class="text-gray-600"><i class="fas fa-phone mr-2 text-blue-500"></i>9038303107</p>
+                        </div>
+                        <div class="mt-6 flex space-x-3">
+                            <a href="https://www.facebook.com/share/12JQi8g586Q/" target="_blank" class="social-icon bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://youtube.com/@careertipsbangla?si=m3jfIb_MHLAD8ZlI" target="_blank" class="social-icon bg-red-600 text-white p-3 rounded-full hover:bg-red-700">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/ritam-debnath-179330203" target="_blank" class="social-icon bg-blue-800 text-white p-3 rounded-full hover:bg-blue-900">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">My Intent</h3>
+                        <p class="text-gray-600 mb-4">
+                            Hello! I'm Ritam Debnath, an SEO Executive with over 2 years of experience in digital marketing. My passion lies in creating and sharing helpful content that informs, educates, and inspires readers across various fields.
+                        </p>
+                        <p class="text-gray-600 mb-4">
+                            Through my work, I aim to provide valuable resources and insights to help individuals and businesses navigate the digital world, improve their skills, and stay informed about diverse topics.
+                        </p>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4 mt-6">About ByRitam</h3>
+                        <p class="text-gray-600 mb-4">
+                            ByRitam is my personal blog where I share news, articles, and helpful content across multiple niches, including:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 mb-4 ml-4">
+                            <li class="mb-2"><span class="font-semibold text-blue-600">SEO & Digital Marketing</span> - Practical advice to enhance online presence</li>
+                            <li class="mb-2"><span class="font-semibold text-blue-600">Career Development</span> - Guidance for professional growth and success</li>
+                            <li class="mb-2"><span class="font-semibold text-blue-600">Technology Updates</span> - Latest trends and innovations in tech</li>
+                            <li class="mb-2"><span class="font-semibold text-blue-600">Personal Growth</span> - Tips for self-improvement and motivation</li>
+                            <li><span class="font-semibold text-blue-600">Lifestyle & More</span> - Diverse topics to inform and inspire</li>
+                        </ul>
+                        <p class="text-gray-600">
+                            My goal is to provide actionable, well-researched content that helps readers from all walks of life. Whether you're seeking practical tips, industry insights, or inspiration, ByRitam has something for you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Blog Posts Section -->
+    <section id="blog" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2 section-title">Latest Blog Posts, Tips & News</h2>
+            <p class="text-gray-600 mb-8">Stay updated with my latest content across various topics</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <div class="blog-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-search text-6xl text-blue-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">10 Advanced SEO Techniques for 2023</h3>
+                        <p class="text-gray-600 mb-4">Discover cutting-edge SEO strategies that will help your website rank higher and attract more organic traffic in the current digital landscape.</p>
+                        <a href="https://byritam.in/blog/advanced-seo-techniques" class="btn-primary inline-block">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 2 -->
+                <div class="blog-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-green-100 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-6xl text-green-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Building a Personal Brand Online</h3>
+                        <p class="text-gray-600 mb-4">Learn how to establish and grow your personal brand online using social media, content marketing, and networking strategies.</p>
+                        <a href="https://byritam.in/blog/personal-branding-guide" class="btn-primary inline-block">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 3 -->
+                <div class="blog-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-6xl text-purple-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Essential Digital Tools for Marketers</h3>
+                        <p class="text-gray-600 mb-4">A comprehensive guide to the most useful digital marketing tools that can streamline your workflow and improve your campaign results.</p>
+                        <a href="https://byritam.in/blog/digital-marketing-tools" class="btn-primary inline-block">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 4 -->
+                <div class="blog-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-yellow-100 flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-6xl text-yellow-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Content Strategy for Small Businesses</h3>
+                        <p class="text-gray-600 mb-4">Practical tips and strategies for small businesses to create effective content that engages their target audience and drives conversions.</p>
+                        <a href="https://byritam.in/blog/small-business-content" class="btn-primary inline-block">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 5 -->
+                <div class="blog-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-red-100 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-6xl text-red-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Career Growth in Digital Marketing</h3>
+                        <p class="text-gray-600 mb-4">Insights and advice on how to advance your career in the competitive field of digital marketing, based on my personal experience.</p>
+                        <a href="https://byritam.in/blog/digital-marketing-career" class="btn-primary inline-block">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 6 -->
+                <div class="blog-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-indigo-100 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-6xl text-indigo-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Mobile SEO Best Practices</h3>
+                        <p class="text-gray-600 mb-4">Learn how to optimize your website for mobile users and improve your rankings in mobile search results with these proven techniques.</p>
+                        <a href="https://byritam.in/blog/mobile-seo-guide" class="btn-primary inline-block">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Profiles Highlight Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2 section-title">Connect With Me</h2>
+            <p class="text-gray-600 mb-8">Follow me on social media for more content and updates</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Facebook Profile -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">Facebook</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Connect with me on Facebook for daily tips, updates, and behind-the-scenes content.</p>
+                    <a href="https://www.facebook.com/share/12JQi8g586Q/" target="_blank" class="btn-primary inline-flex items-center">
+                        <i class="fas fa-external-link-alt mr-2"></i> Visit Profile
+                    </a>
+                </div>
+                
+                <!-- YouTube Channel -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">YouTube</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Subscribe to my YouTube channel for video tutorials, career tips, and in-depth guides.</p>
+                    <a href="https://youtube.com/@careertipsbangla?si=m3jfIb_MHLAD8ZlI" target="_blank" class="bg-red-600 text-white px-4 py-2 rounded-md font-medium hover:bg-red-700 transition duration-300 inline-flex items-center">
+                        <i class="fas fa-play mr-2"></i> Watch Videos
+                    </a>
+                </div>
+                
+                <!-- LinkedIn Profile -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center text-white">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-4">LinkedIn</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Connect professionally on LinkedIn for industry insights, job opportunities, and networking.</p>
+                    <a href="https://www.linkedin.com/in/ritam-debnath-179330203" target="_blank" class="bg-blue-800 text-white px-4 py-2 rounded-md font-medium hover:bg-blue-900 transition duration-300 inline-flex items-center">
+                        <i class="fas fa-user-plus mr-2"></i> Connect
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2 section-title">Get In Touch</h2>
+            <p class="text-gray-600 mb-8">Have a question or want to collaborate? Reach out to me.</p>
+            
+            <div class="bg-blue-50 p-8 rounded-lg shadow-md">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white mr-4 mt-1">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-800">Phone</h4>
+                                    <p class="text-gray-600">9038303107</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-800">Address</h4>
+                                    <p class="text-gray-600">East Prasad Nagar, North 24 Parganas</p>
+                                    <p class="text-gray-600">Halisahar, West Bengal – 743135, India</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white mr-4 mt-1">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-gray-800">Website</h4>
+                                    <p class="text-gray-600">ByRitam.in</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="text-lg font-medium text-gray-800 mb-3">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.facebook.com/share/12JQi8g586Q/" target="_blank" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://youtube.com/@careertipsbangla?si=m3jfIb_MHLAD8ZlI" target="_blank" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition duration-300">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/ritam-debnath-179330203" target="_blank" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center text-white hover:bg-blue-900 transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Send a Message</h3>
+                        <div>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button type="button" onclick="alert('Form submission is disabled in this preview.')" class="btn-primary w-full py-3">Send Message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">ByRitam</h3>
+                    <p class="text-gray-400 mb-4">A multi-niche blog site by Ritam Debnath, sharing news, articles, and helpful content across various fields to inform and inspire readers.</p>
+                    <p class="text-gray-400">© 2025 ByRitam - All rights reserved.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Info</h3>
+                    <p class="text-gray-400 mb-2"><i class="fas fa-user mr-2"></i>Ritam Debnath</p>
+                    <p class="text-gray-400 mb-2"><i class="fas fa-phone mr-2"></i>9038303107</p>
+                    <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i>East Prasad Nagar, North 24 Parganas</p>
+                    <p class="text-gray-400"><i class="fas fa-location-dot mr-2"></i>Halisahar, West Bengal – 743135, India</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Follow Me</h3>
+                    <div class="mb-3">
+                        <a href="https://www.facebook.com/share/12JQi8g586Q/" target="_blank" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                            <i class="fab fa-facebook-f mr-3 w-5"></i>
+                            <span>Facebook Profile</span>
+                        </a>
+                    </div>
+                    <div class="mb-3">
+                        <a href="https://youtube.com/@careertipsbangla?si=m3jfIb_MHLAD8ZlI" target="_blank" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                            <i class="fab fa-youtube mr-3 w-5"></i>
+                            <span>YouTube Channel</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://www.linkedin.com/in/ritam-debnath-179330203" target="_blank" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                            <i class="fab fa-linkedin-in mr-3 w-5"></i>
+                            <span>LinkedIn Profile</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
