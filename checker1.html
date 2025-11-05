@@ -1,726 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free Gemini 2.5 Flash Schema Generator: Create JSON-LD structured data for LocalBusiness, Product, Service, Organization, Person, and Event. Boost your SEO with schema.org markup effortlessly.">
-  <meta name="keywords" content="schema generator, JSON-LD, structured data, SEO schema, schema.org, Gemini AI schema, free schema tool">
-  <title>Gemini 2.5 Flash Schema Generator - Free JSON-LD Structured Data Tool for SEO</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemini 2.5 Flash Schema Generator</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
       font-family: "Inter", sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f8fafc;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    /* Header */
-    header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    nav {
+      background: #f5f7fb;
+      color: #222;
+      margin: 0;
+      padding: 0;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
+      min-height: 100vh;
     }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
+
+    h1 {
+      margin-top: 40px;
+      color: #1e40af;
+      font-size: 2rem;
     }
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      transition: opacity 0.3s;
-    }
-    .nav-links a:hover {
-      opacity: 0.8;
-    }
-    /* Hero */
-    .hero {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      text-align: center;
-      padding: 4rem 0;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .cta-button {
-      display: inline-block;
-      background: #ff6b6b;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-    /* Sections */
-    section {
-      padding: 4rem 0;
-    }
-    .section-title {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 3rem;
-      color: #2d3748;
-    }
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 2rem;
-    }
-    .content-block {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      transition: transform 0.3s;
-    }
-    .content-block:hover {
-      transform: translateY(-5px);
-    }
-    .content-block h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #4a5568;
-    }
-    .content-block p {
-      margin-bottom: 1rem;
-    }
-    .content-block ul {
-      margin-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    .content-block li {
-      margin-bottom: 0.5rem;
-    }
-    /* Generator Card */
-    .generator-card {
-      background: white;
+
+    .card {
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       border-radius: 16px;
-      padding: 3rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      margin: 2rem 0;
-      text-align: center;
+      padding: 30px;
+      max-width: 700px;
+      width: 90%;
+      margin-top: 30px;
     }
-    .form-group {
-      margin-bottom: 1.5rem;
-      text-align: left;
-    }
-    .form-group label {
+
+    label {
       display: block;
+      margin-top: 20px;
       font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #4a5568;
+      color: #374151;
     }
-    .form-group select,
-    .form-group textarea {
+
+    select, input, textarea {
       width: 100%;
-      padding: 1rem;
-      border: 2px solid #e2e8f0;
+      padding: 12px;
       border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 6px;
       font-size: 1rem;
-      transition: border-color 0.3s;
     }
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: #667eea;
-    }
-    .generate-btn {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
+
+    button {
+      margin-top: 25px;
+      padding: 14px 24px;
+      background: #2563eb;
       border: none;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      font-size: 1.1rem;
+      color: white;
       font-weight: 600;
+      border-radius: 10px;
       cursor: pointer;
-      transition: transform 0.3s;
-      width: 100%;
-      max-width: 300px;
+      transition: background 0.2s;
     }
-    .generate-btn:hover {
-      transform: translateY(-2px);
+
+    button:hover {
+      background: #1e40af;
     }
-    .quota {
-      background: #e6fffa;
-      color: #065f46;
-      padding: 0.75rem;
-      border-radius: 8px;
-      margin: 1rem 0;
-      font-size: 0.9rem;
-    }
+
     pre {
-      background: #1a202c;
+      background: #0f172a;
       color: #e2e8f0;
-      padding: 1.5rem;
-      border-radius: 8px;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 25px;
       overflow-x: auto;
-      text-align: left;
       white-space: pre-wrap;
       word-break: break-word;
-      margin: 1rem 0;
     }
+
     .copy-btn {
+      margin-top: 10px;
+      padding: 10px 20px;
       background: #10b981;
-      color: white;
+      color: #fff;
       border: none;
-      padding: 0.75rem 1.5rem;
       border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s;
-      margin-top: 1rem;
+      transition: background 0.2s;
     }
+
     .copy-btn:hover {
       background: #059669;
     }
-    /* Examples */
-    .examples {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .example-card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    }
-    /* FAQ */
-    .faq-item {
-      background: white;
-      margin-bottom: 1rem;
+
+    .quota {
+      margin-top: 15px;
+      color: #374151;
+      font-size: 0.95rem;
+      background: #e0f2fe;
+      padding: 8px 14px;
       border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: inline-block;
     }
-    .faq-question {
-      padding: 1rem;
-      background: #f7fafc;
-      cursor: pointer;
-      font-weight: 600;
-      border: none;
-      width: 100%;
-      text-align: left;
-    }
-    .faq-answer {
-      padding: 1rem;
-      display: none;
-      background: white;
-    }
-    .faq-answer.active {
-      display: block;
-    }
-    /* Footer */
+
     footer {
-      background: #2d3748;
-      color: white;
-      text-align: center;
-      padding: 2rem 0;
-    }
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .content-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .generator-card {
-        padding: 2rem;
-      }
-      .section-title {
-        font-size: 2rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 15px;
-      }
-      .hero {
-        padding: 2rem 0;
-      }
-      .hero h1 {
-        font-size: 1.8rem;
-      }
+      margin-top: 40px;
+      color: #6b7280;
+      font-size: 0.9rem;
+      padding-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav class="container">
-      <div class="logo">SchemaGen AI</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#generator">Generator</a></li>
-        <li><a href="#benefits">Benefits</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-    </nav>
-  </header>
+  <h1>Gemini 2.5 Flash Schema Generator</h1>
 
-  <section id="home" class="hero">
-    <div class="container">
-      <h1>Gemini 2.5 Flash Schema Generator</h1>
-      <p>Unlock the power of structured data with our free AI-powered tool. Generate JSON-LD schema markup for schema.org types like LocalBusiness, Product, Service, and more. Boost your website's SEO rankings effortlessly using Google's Gemini 2.5 Flash model.</p>
-      <a href="#generator" class="cta-button">Start Generating Now</a>
-    </div>
-  </section>
+  <div class="card">
+    <label for="schemaType">Choose Schema Type:</label>
+    <select id="schemaType">
+      <option value="LocalBusiness">Local Business</option>
+      <option value="Product">Product</option>
+      <option value="Service">Service</option>
+      <option value="Organization">Organization</option>
+      <option value="Person">Person</option>
+      <option value="Event">Event</option>
+    </select>
 
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">What is Schema Markup and Why Does It Matter?</h2>
-      <div class="content-grid">
-        <div class="content-block">
-          <p>Schema markup, also known as structured data, is a standardized vocabulary that helps search engines understand the content on your web pages more deeply. It's like giving your website a map that Google, Bing, and other search engines can use to display richer results in search engine results pages (SERPs). This includes rich snippets, knowledge graphs, carousels, and more, which can significantly improve click-through rates (CTR) and visibility.</p>
-          <p>At its core, schema markup uses JSON-LD (JavaScript Object Notation for Linked Data), a lightweight format recommended by Google. JSON-LD allows you to embed semantic information directly into your HTML without disrupting the page's structure. For instance, marking up a product page with Product schema can show price, ratings, and availability right in the search results, making your listing stand out from plain text snippets.</p>
-          <p>The benefits of implementing schema markup extend far beyond basic SEO. It enhances user experience by providing contextually relevant information, reduces bounce rates, and can even influence voice search results. With the rise of AI-driven search like Google's Search Generative Experience (SGE), structured data becomes even more crucial as it feeds directly into AI models for accurate summaries and recommendations.</p>
-          <p>Historically, schema.org was launched in 2011 as a collaborative effort between Google, Microsoft, Yahoo, and Yandex to create a unified schema vocabulary. Today, it encompasses over 800 types and thousands of properties, covering everything from e-commerce to local businesses, events, recipes, and FAQs. Our Gemini 2.5 Flash Schema Generator leverages this vast library to create precise, valid markup tailored to your needs.</p>
-          <p>Implementing schema manually can be time-consuming and error-prone, especially for complex types like Organization or Event, which require nested properties and conditional logic. That's where AI tools like ours shine—using Gemini 2.5 Flash, we analyze your input and generate compliant code in seconds, ensuring it passes Google's Structured Data Testing Tool (now part of Rich Results Test).</p>
-          <p>In the competitive digital landscape of 2025, where over 90% of online experiences begin with a search engine, ignoring structured data is akin to leaving money on the table. Studies from SEMrush and Ahrefs show that pages with schema markup see up to 30% higher CTRs. Moreover, with Google's emphasis on E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness), well-structured content signals reliability to algorithms.</p>
-          <p>Our tool supports key schema types: LocalBusiness for brick-and-mortar stores, Product for e-commerce, Service for professional offerings, Organization for companies, Person for individuals, and Event for happenings. Each generation is optimized for mobile-first indexing, ensuring responsiveness across devices.</p>
-          <p>Beyond generation, education is key. This page dives deep into best practices, common pitfalls, and advanced techniques to maximize your schema's impact. Whether you're a small business owner, SEO specialist, or developer, you'll find actionable insights here.</p>
-          <p>Schema markup isn't just for large sites; even solopreneurs can benefit. For example, a freelance graphic designer using Person schema can highlight skills and testimonials in search results, attracting qualified leads. Similarly, a local cafe with LocalBusiness schema can appear in "near me" searches with hours, menu, and reviews.</p>
-          <p>As search evolves with multimodal AI, schema will play a pivotal role in connecting structured data to images, videos, and audio. Tools like ours are future-proofed, ready for emerging standards like Schema.org's Dataset and MedicalEntity extensions.</p>
-          <p>In summary, schema markup bridges the gap between human-readable content and machine-readable data, powering the semantic web. With our generator, democratizing this technology becomes effortless—start today and watch your organic traffic soar.</p>
-        </div>
-        <div class="content-block">
-          <h3>Deep Dive: JSON-LD vs. Microdata vs. RDFa</h3>
-          <p>While JSON-LD is the gold standard, understanding alternatives helps contextualize its superiority. Microdata, embedded inline with HTML attributes, is verbose and can bloat codebases. RDFa extends HTML with attributes for greater flexibility but requires more expertise. JSON-LD, placed in a <script type="application/ld+json"> tag, keeps it separate, making maintenance easier and less prone to rendering issues.</p>
-          <p>Google's documentation explicitly favors JSON-LD for its ease of use and scalability. In A/B tests, sites switching to JSON-LD reported faster implementation times and fewer validation errors. Our tool exclusively outputs JSON-LD to align with these recommendations.</p>
-          <h3>Schema Types Breakdown</h3>
-          <ul>
-            <li><strong>LocalBusiness:</strong> Ideal for physical locations; includes address, geo coordinates, opening hours, and reviews.</li>
-            <li><strong>Product:</strong> E-commerce essential; covers name, image, price, currency, availability, and aggregate ratings.</li>
-            <li><strong>Service:</strong> For intangible offerings like consulting; properties include provider, areaServed, and serviceType.</li>
-            <li><strong>Organization:</strong> Corporate profiles; logo, contact points, subOrganization, and foundingDate.</li>
-            <li><strong>Person:</strong> Individual bios; jobTitle, worksFor, alumniOf, and knowsAbout.</li>
-            <li><strong>Event:</strong> For webinars or concerts; startDate, location, performer, and offers.</li>
-          </ul>
-          <p>Each type adheres to schema.org's hierarchy, inheriting properties from Thing, CreativeWork, or Place as needed. Validation ensures no deprecated properties or invalid URLs.</p>
-          <h3>AI-Powered Precision</h3>
-          <p>Gemini 2.5 Flash, Google's latest multimodal model, excels at natural language understanding. It parses your details—like "ARC UK Printing Solutions, https://www.e-arc.co.uk, printing services in London"—and infers missing elements, such as inferring geo from addresses or suggesting ratings placeholders.</p>
-          <p>Unlike rigid templates, AI generation adapts dynamically. For a Product input with "iPhone 15, $999, available now," it auto-adds offers with priceCurrency: "USD" and availability: "InStock."</p>
-          <p>Ethical AI use ensures privacy; no data is stored, and generations are ephemeral. This aligns with GDPR and CCPA, building trust with users.</p>
-          <p>Future updates may integrate real-time validation via Google's API or expand to HowTo and Recipe schemas, based on community feedback.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <label for="details">Enter Details (Name, URL, etc.):</label>
+    <textarea id="details" rows="4" placeholder="Example: ARC UK Printing Solutions, https://www.e-arc.co.uk, printing services in London"></textarea>
 
-  <section id="benefits">
-    <div class="container">
-      <h2 class="section-title">Benefits of Using Our Schema Generator</h2>
-      <div class="content-grid">
-        <div class="content-block">
-          <h3>Enhanced Search Visibility</h3>
-          <p>Structured data unlocks rich results, such as star ratings, prices, and event dates in SERPs. According to Google's data, rich snippets can increase CTR by 20-30%. Our tool ensures your markup qualifies for these features by following exact guidelines.</p>
-          <p>Imagine your local business appearing in a local pack with a map pin— that's the power of LocalBusiness schema. For products, FAQ schema can expand to show questions directly, reducing the need for users to click through.</p>
-          <p>Beyond CTR, schema improves crawl efficiency. Search engines parse structured data faster, leading to better indexing and fresher content updates. In voice search, where 50% of queries now occur, schema powers concise answers via assistants like Google Assistant.</p>
-          <p>Case study: A mid-sized e-commerce site using Product schema saw a 25% uplift in organic sales within three months, per Moz analytics. Similarly, event organizers report higher attendance from Event schema-enhanced listings.</p>
-          <p>Our generator's AI refines inputs for maximum eligibility, avoiding common disqualifiers like mismatched data or invalid dates.</p>
-          <h3>Time and Cost Savings</h3>
-          <p>Manual schema creation can take hours per page; our tool delivers in seconds. Free tier (250 requests/day) suits most users, with scalable options for agencies.</p>
-          <p>No coding expertise required—paste details, select type, and copy JSON-LD. Integrate via Google Tag Manager or directly in head tags for instant deployment.</p>
-          <p>Compared to paid tools like Schema App ($25+/month), ours is accessible, powered by cutting-edge AI without subscription walls.</p>
-        </div>
-        <div class="content-block">
-          <h3>SEO Best Practices Integration</h3>
-          <p>Generated schemas include mobile optimization, AMP compatibility, and Core Web Vitals alignment. We embed @context: "https://schema.org" and @type correctly for universal recognition.</p>
-          <p>Advanced users appreciate auto-inclusion of sameAs for social profiles, boosting entity authority. For organizations, we suggest adding hasOfferCatalog for service listings.</p>
-          <p>Post-generation, use tools like Google's Rich Results Test or Schema Markup Validator to confirm. Our outputs consistently pass, with 99% validation rate in beta tests.</p>
-          <h3>Scalability for Enterprises</h3>
-          <p>While free for individuals, bulk generation via API (coming soon) will handle thousands of pages. Integrate with CMS like WordPress via plugins or headless setups.</p>
-          <p>For multilingual sites, schema supports inLanguage and alternateName, ensuring global reach. E-commerce platforms like Shopify can automate via webhooks.</p>
-          <p>Sustainability angle: Efficient AI reduces compute needs compared to traditional parsers, aligning with green SEO initiatives.</p>
-          <h3>User Testimonials</h3>
-          <p>"Transformed my site's SEO overnight!" - Sarah, E-commerce Owner</p>
-          <p>"Easy and accurate—perfect for local businesses." - Mike, SEO Consultant</p>
-          <p>These stories underscore real-world impact, from startups to Fortune 500s.</p>
-          <h3>Future-Proofing Your Site</h3>
-          <p>As AI search advances, schema will fuel personalized results. Our tool evolves with schema.org updates, like the 2025 VideoObject enhancements.</p>
-          <p>Stay ahead by subscribing to our newsletter for tips on emerging schemas like MedicalTrial or FinancialProduct.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <button onclick="generateSchema()">Generate Schema</button>
 
-  <section id="generator" class="generator-section">
-    <div class="container">
-      <h2 class="section-title">Generate Your Schema Markup Now</h2>
-      <div class="generator-card">
-        <div class="form-group">
-          <label for="schemaType">Choose Schema Type:</label>
-          <select id="schemaType">
-            <option value="LocalBusiness">Local Business</option>
-            <option value="Product">Product</option>
-            <option value="Service">Service</option>
-            <option value="Organization">Organization</option>
-            <option value="Person">Person</option>
-            <option value="Event">Event</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="details">Enter Details (Name, URL, Address, Description, etc.):</label>
-          <textarea id="details" rows="5" placeholder="Example: ARC UK Printing Solutions, https://www.e-arc.co.uk, printing services in London, 123 High Street, SW1A 1AA, +44 20 1234 5678"></textarea>
-        </div>
-        <button class="generate-btn" onclick="generateSchema()">Generate Schema with AI</button>
-        <div id="quotaDisplay" class="quota">Requests used: 0 / 250 (Free Tier)</div>
-        <pre id="output"></pre>
-        <button class="copy-btn" onclick="copyOutput()" style="display: none;" id="copyBtn">Copy Schema to Clipboard</button>
-      </div>
-      <p style="text-align: center; margin-top: 1rem; color: #666;">Powered by Google's Gemini 2.5 Flash API | Built by Ritam | Secure & Private - No data stored</p>
-    </div>
-  </section>
+    <div id="quotaDisplay" class="quota">Requests used: 0 / 250 (Free Tier)</div>
 
-  <section id="how-it-works">
-    <div class="container">
-      <h2 class="section-title">How Our Schema Generator Works</h2>
-      <div class="content-grid">
-        <div class="content-block">
-          <h3>Step 1: Select Your Schema Type</h3>
-          <p>From the dropdown, pick the most relevant type. Not sure? Our guide above details each one's use cases. This ensures the AI focuses on appropriate properties.</p>
-          <p>For hybrid needs, like a service-based business, combine Service with LocalBusiness via nested structures—our AI handles this intelligently.</p>
-          <h3>Step 2: Provide Details</h3>
-          <p>Input natural language text with key facts. The more context, the better: include URLs, addresses, prices, dates. Gemini parses this like a human, filling gaps with schema best practices.</p>
-          <p>Example input for Event: "Tech Conference 2025, March 15-17, Online via Zoom, Speakers: Elon Musk, Tickets $99." Output includes performer, location (VirtualLocation), and offers.</p>
-          <h3>Step 3: AI Generation</h3>
-          <p>Under the hood, we send a prompt to Gemini 2.5 Flash: "Generate valid JSON-LD for [type] based on [details]." The model, trained on vast web data, outputs compliant code with proper nesting and types.</p>
-          <p>Processing time: <1 second for simple types, up to 5s for complex. Error handling includes retries and user-friendly messages.</p>
-          <h3>Step 4: Review & Implement</h3>
-          <p>Preview in the preformatted box. Copy via button—works on all devices. Paste into your site's <head> or CMS. Validate instantly at search.google.com/test/rich-results.</p>
-          <p>Tips: Use one schema per page for focus; aggregate multiple with @graph for comprehensive coverage.</p>
-        </div>
-        <div class="content-block">
-          <h3>Technical Underpinnings</h3>
-          <p>Our frontend uses vanilla JS for lightweight performance, with fetch API for secure HTTPS calls to Google's Generative Language endpoint. No third-party trackers—privacy first.</p>
-          <p>Quota management prevents abuse, with visual counters. Exceeding? Upgrade prompts appear gracefully.</p>
-          <h3>Customization Options</h3>
-          <p>Want tweaks? Edit the JSON post-generation. For devs, API key integration allows self-hosting.</p>
-          <h3>Common Use Cases</h3>
-          <ul>
-            <li>E-commerce: Bulk product schemas for catalogs.</li>
-            <li>Local SEO: Multi-location businesses with chained LocalBusiness.</li>
-            <li>Content Sites: Article schema with author (Person) links.</li>
-            <li>Events: Calendar integration with iCalendar exports.</li>
-          </ul>
-          <p>Edge cases like seasonal products (with validFrom/validThrough) are auto-detected.</p>
-          <h3>Performance Metrics</h3>
-          <p>Load time: <2s on 3G. Accessibility: ARIA labels, keyboard nav. SEO: Semantic HTML5, fast render.</p>
-          <p>User feedback loop: Rate generations to improve AI prompts iteratively.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <pre id="output"></pre>
+    <button class="copy-btn" onclick="copyOutput()">Copy Schema</button>
+  </div>
 
-  <section id="examples">
-    <div class="container">
-      <h2 class="section-title">Schema Generation Examples</h2>
-      <div class="examples">
-        <div class="example-card">
-          <h3>LocalBusiness Example</h3>
-          <p>Input: "Cozy Cafe, 456 Oak Ave, Seattle WA 98101, opens 7am-7pm, coffee shop"</p>
-          <pre>{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Cozy Cafe",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "456 Oak Ave",
-    "addressLocality": "Seattle",
-    "addressRegion": "WA",
-    "postalCode": "98101",
-    "addressCountry": "US"
-  },
-  "openingHours": "Mo-Su 07:00-19:00",
-  "description": "A welcoming coffee shop in Seattle"
-}</pre>
-          <p>This enables local pack appearance and directions in search.</p>
-        </div>
-        <div class="example-card">
-          <h3>Product Example</h3>
-          <p>Input: "Wireless Headphones, $149.99, black, in stock, 4.5 stars"</p>
-          <pre>{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Wireless Headphones",
-  "image": "https://example.com/headphones.jpg",
-  "description": "High-quality wireless headphones",
-  "sku": "WH-001",
-  "brand": {
-    "@type": "Brand",
-    "name": "AudioTech"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://example.com/product",
-    "priceCurrency": "USD",
-    "price": "149.99",
-    "availability": "https://schema.org/InStock",
-    "itemCondition": "https://schema.org/NewCondition"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.5",
-    "reviewCount": "120"
-  }
-}</pre>
-          <p>Triggers product rich snippets with price and ratings.</p>
-        </div>
-        <div class="example-card">
-          <h3>Event Example</h3>
-          <p>Input: "Webinar on AI, June 10 2025, 2pm UTC, online, free"</p>
-          <pre>{
-  "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "Webinar on AI",
-  "startDate": "2025-06-10T14:00:00Z",
-  "endDate": "2025-06-10T15:00:00Z",
-  "eventStatus": "https://schema.org/EventScheduled",
-  "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
-  "location": {
-    "@type": "VirtualLocation",
-    "url": "https://zoom.us/webinar"
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock"
-  },
-  "description": "Learn about AI advancements"
-}</pre>
-          <p>Appears in event search with calendar add-to options.</p>
-        </div>
-      </div>
-      <p style="text-align: center; margin-top: 2rem;">These examples showcase AI's ability to infer and structure data accurately. Try your own!</p>
-    </div>
-  </section>
-
-  <section id="seo-tips">
-    <div class="container">
-      <h2 class="section-title">Advanced SEO Tips for Structured Data</h2>
-      <div class="content-grid">
-        <div class="content-block">
-          <h3>Implementation Best Practices</h3>
-          <p>Place JSON-LD in the <head> for early parsing. Use async loading if on SPAs. Avoid duplicates—consolidate with @graph. Monitor via Google Search Console's Enhancements report for errors or warnings.</p>
-          <p>For dynamic content, generate server-side with Node.js or PHP. Client-side JS works but risks crawl delays. Test with Lighthouse for SEO scores.</p>
-          <p>Layer schemas: BreadcrumbList + WebPage + mainEntity (Article/Product). This creates a semantic breadcrumb trail.</p>
-          <h3>Common Pitfalls to Avoid</h3>
-          <ul>
-            <li>Incomplete addresses: Always use PostalAddress subtype.</li>
-            <li>Missing @context: Breaks parsing.</li>
-            <li>Over-optimization: Don't stuff keywords; focus on accuracy.</li>
-            <li>Ignoring mobile: Ensure responsive design pairs with schema.</li>
-          </ul>
-          <p>Penalty risks are low if valid, but spam (e.g., fake reviews) can trigger manual actions.</p>
-          <h3>Measuring Impact</h3>
-          <p>Track impressions vs. clicks in GSC. Use UTM params for rich result traffic. A/B test pages with/without schema via Google Optimize.</p>
-          <p>Tools: Screaming Frog for site-wide audits, Data Studio for dashboards visualizing CTR uplift.</p>
-        </div>
-        <div class="content-block">
-          <h3>Integrating with Other SEO Elements</h3>
-          <p>Pair schema with fast loading (under 2s), HTTPS, and mobile-friendliness. Use it to enhance internal linking via about/aboutPage.</p>
-          <p>For content clusters, link entities: Organization knowsAbout IndustryTopic. This builds topical authority.</p>
-          <h3>Voice and Visual Search</h3>
-          <p>Schema fuels Siri/Alexa responses. ImageObject with caption boosts Google Lens results. VideoObject for YouTube embeds.</p>
-          <h3>International SEO</h3>
-          <p>Use alternateName for translations, hasVariant for region-specific offers. Hreflang tags complement geo-targeted schema.</p>
-          <h3>2025 Trends</h3>
-          <p>Expect schema for AR/VR experiences (AugmentedRealityObject) and blockchain verification (DigitalDocument). AI tools like ours will automate zero-party data integration.</p>
-          <p>E-commerce: Use Order schema for post-purchase tracking. Healthcare: MedicalEntity for compliant info pages.</p>
-          <p>Sustainability: Add energyEfficiencyScale to Product for eco-conscious searches.</p>
-          <p>Stay updated via schema.org blog and Google's Webmaster Central.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="container">
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">What is the free tier limit?</button>
-        <div class="faq-answer">
-          <p>You get 250 requests per day on the free tier, resetting at midnight UTC. This covers most individual needs; for more, contact us for pro plans.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">Do I need an API key?</button>
-        <div class="faq-answer">
-          <p>No, our tool uses a shared key for free users. For private instances, replace YOUR_API_KEY_HERE with your own from Google AI Studio.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">Is the generated schema valid?</button>
-        <div class="faq-answer">
-          <p>Yes, 100% validated against schema.org. Always double-check with Google's Rich Results Test for your specific use.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">Can I use this for commercial sites?</button>
-        <div class="faq-answer">
-          <p>Absolutely! Generated code is yours to use commercially. Attribution appreciated but not required.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">How does Gemini improve generation?</button>
-        <div class="faq-answer">
-          <p>Gemini 2.5 Flash's advanced NLP infers details and ensures context-aware properties, outperforming rule-based tools.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFAQ(this)">What if I need custom schemas?</button>
-        <div class="faq-answer">
-          <p>Contact us via email for bespoke types like Recipe or JobPosting. We're expanding based on demand.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="conclusion">
-    <div class="container">
-      <h2 class="section-title">Ready to Elevate Your SEO?</h2>
-      <p>Schema markup is the foundation of modern search success. With our Gemini 2.5 Flash Schema Generator, implementation is a breeze. Join thousands who've boosted their rankings—generate your first schema today and step into the semantic future.</p>
-      <div style="text-align: center; margin-top: 2rem;">
-        <a href="#generator" class="cta-button">Generate Free Schema</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 SchemaGen AI. Powered by Gemini 2.5 Flash. Built with ❤️ by Ritam. | <a href="#privacy" style="color: #cbd5e0;">Privacy Policy</a> | <a href="#terms" style="color: #cbd5e0;">Terms</a></p>
-    </div>
-  </footer>
+  <footer>Powered by Gemini 2.5 Flash | Built by Ritam</footer>
 
   <script>
     let requestCount = 0;
     const MAX_REQUESTS = 250;
-    const API_KEY = "AIzaSyDVQxh--vRjLUw6QNaxS16cCKWvGgf1GyM"; // Replace with your actual key for production
-
-    function toggleFAQ(button) {
-      const answer = button.nextElementSibling;
-      answer.classList.toggle('active');
-    }
+    const API_KEY = "YOUR_API_KEY_HERE"; // Replace safely later
 
     async function generateSchema() {
       if (requestCount >= MAX_REQUESTS) {
-        alert("Daily request limit reached. Please try again tomorrow or upgrade.");
+        alert("Daily request limit reached (250/day on Free Tier).");
         return;
       }
+
       const schemaType = document.getElementById("schemaType").value;
       const details = document.getElementById("details").value.trim();
+
       if (!details) {
-        alert("Please enter some details to generate the schema.");
+        alert("Please enter details before generating schema.");
         return;
       }
+
       const outputEl = document.getElementById("output");
-      const copyBtn = document.getElementById("copyBtn");
-      outputEl.innerText = "⏳ Generating with Gemini 2.5 Flash...";
-      copyBtn.style.display = 'none';
+      outputEl.innerText = "⏳ Generating schema... Please wait.";
+
       try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            contents: [{
-              parts: [{
-                text: `Generate a valid, complete JSON-LD schema markup for ${schemaType} based exactly on this information: ${details}. Use schema.org structure. Ensure it's production-ready with all necessary properties inferred appropriately. Output only the JSON.`
-              }]
-            }],
-            generationConfig: {
-              temperature: 0.1,
-              topK: 1,
-              topP: 0.8,
-              maxOutputTokens: 1024
-            }
-          })
-        });
+        const response = await fetch(
+          "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + API_KEY,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [
+                {
+                  parts: [
+                    {
+                      text: `Generate a valid JSON-LD schema markup for ${schemaType} based on this information:\n${details}\nUse schema.org structure.`
+                    }
+                  ]
+                }
+              ]
+            })
+          }
+        );
+
         const data = await response.json();
         if (data.error) {
-          throw new Error(data.error.message || "API error");
+          outputEl.innerText = "❌ Error: " + (data.error.message || "Unknown error");
+          return;
         }
-        const result = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || "No valid response generated.";
-        // Clean up if it includes markdown or extras
-        const jsonMatch = result.match(/\{[\s\S]*\}/);
-        outputEl.innerText = jsonMatch ? jsonMatch[0] : result;
+
+        const result = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response.";
+        outputEl.innerText = result;
+
         requestCount++;
-        document.getElementById("quotaDisplay").innerText = `Requests used: ${requestCount} / ${MAX_REQUESTS} (Free Tier)`;
-        copyBtn.style.display = 'inline-block';
+        document.getElementById("quotaDisplay").innerText =
+          `Requests used: ${requestCount} / ${MAX_REQUESTS} (Free Tier)`;
       } catch (err) {
-        outputEl.innerText = `❌ Error: ${err.message}. Check API key or try again.`;
+        outputEl.innerText = "⚠️ Failed to connect to Gemini API: " + err.message;
       }
     }
 
     function copyOutput() {
       const text = document.getElementById("output").innerText;
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => {
-          alert("✅ Schema copied to clipboard!");
-        });
-      } else {
-        const textarea = document.createElement("textarea");
-        textarea.value = text;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textarea);
-        alert("✅ Schema copied!");
-      }
+      navigator.clipboard.writeText(text);
+      alert("✅ Schema copied to clipboard!");
     }
-
-    // Smooth scrolling for nav links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
   </script>
 </body>
 </html>
