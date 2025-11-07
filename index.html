@@ -1,992 +1,1174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Biswanath Chowdhury | Professional Physiotherapist</title>
-
-  <!-- Preconnect to Google Fonts for faster loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
-
-  <!-- Preload fonts to prevent layout shift -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-  
-  <!-- Load fonts efficiently with optional display to minimize CLS -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="all" onload="this.media='all'">
-
-  <!-- Stylesheets -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <link href="home.css" rel="stylesheet">
-<link rel="canonical" href="https://www.physiobiswanath.in/" />
-
-</head>
-
-<body>
-     <!-- Header -->
-    <header class="w-full bg-white fixed shadow-md z-50">
-        <div class="container">
-            <!-- Logo -->
-            <a href="https://www.physiobiswanath.in" class="logo-container" title="Visit Biswanath Chowdhury's Website">
-                <div class="cross-symbol">
-                    <svg viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" download="biswanath-chowdhury-logo.svg">
-                        <defs>
-                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#00a0a0" />
-                                <stop offset="100%" style="stop-color:#0284c7" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="0" y="0" width="44" height="44" rx="12" fill="url(#gradient)" />
-                        <rect x="9" y="19" width="26" height="6" fill="#ffffff" />
-                        <rect x="19" y="9" width="6" height="26" fill="#ffffff" />
-                    </svg>
-                </div>
-                <div class="text-container">
-                    <h1 class="name">Biswanath Chowdhury</h1>
-                    <p class="profession">Professional Physiotherapist</p>
-                </div>
-            </a>
-        </div>
-    </header>
-                </div>
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex space-x-6">
-                    <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="index.html"><i class="fas mr-2 fa-home"></i> Home</a>
-                    <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#about"><i class="fas mr-2 fa-user"></i> About</a>
-                    <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#services"><i class="fas mr-2 fa-hands-helping"></i> Services</a>
-                    <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#benefits"><i class="fas mr-2 fa-star"></i> Benefits</a>
-                    <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#testimonials"><i class="fas mr-2 fa-comment-dots"></i> Testimonials</a>
-                    <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#videos"><i class="fas mr-2 fa-video"></i> Videos</a>
-                    <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#qualifications"><i class="fas mr-2 fa-graduation-cap"></i> Qualifications</a>
-                    <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#companies"><i class="fas mr-2 fa-building"></i> Partners</a>
-                    <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#contact"><i class="fas mr-2 fa-envelope"></i> Contact</a>
-                </nav>
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden focus:outline-none text-gray-800" id="menu-btn">
-                    <i class="fas text-xl fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="md:hidden bg-white fixed h-full left-0 shadow-lg top-0 w-64 z-50" id="mobile-menu">
-            <div class="flex p-4 justify-end">
-                <button class="focus:outline-none text-gray-800" id="close-menu">
-                    <i class="fas text-xl fa-times"></i>
-                </button>
-            </div>
-            <div class="flex p-4 flex-col space-y-4">
-                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#home"><i class="fas w-8 fa-home"></i> Home</a>
-                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#about"><i class="fas w-8 fa-user"></i> About</a>
-                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#services"><i class="fas w-8 fa-hands-helping"></i> Services</a>
-                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#benefits"><i class="fas fa-star w-8"></i> Benefits</a>
-                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#testimonials"><i class="fas w-8 fa-comment-dots"></i> Testimonials</a>
-                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#videos"><i class="fas w-8 fa-video"></i> Videos</a>
-                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#qualifications"><i class="fas w-8 fa-graduation-cap"></i> Qualifications</a>
-                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#companies"><i class="fas w-8 fa-building"></i> Partners</a>
-                <a class="flex items-center transition-colors hover:text-primary text-gray-800" href="#contact"><i class="fas w-8 fa-envelope"></i> Contact</a>
-            </div>
-        </div>
-    </header>
-<!-- Home Section -->
-<section 
-    id="home"
-    class="flex items-center min-h-screen pt-16 text-white bg-cover bg-center bg-no-repeat relative" 
-    style="background-image: url('https://res.cloudinary.com/dkwdrzobk/image/upload/v1745370133/file_00000000a70061f7b092347c67a43371_conversation_id_680703c8-2948-8000-8dfa-759802c678b8_message_id_0b56e9ae-1c78-4b4e-8294-8745754baf97_zhasws.png');"
-    data-bg="https://res.cloudinary.com/dkwdrzobk/image/upload/v1745370133/file_00000000a70061f7b092347c67a43371_conversation_id_680703c8-2948-8000-8dfa-759802c678b8_message_id_0b56e9ae-1c78-4b4e-8294-8745754baf97_zhasws.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tanusree Dutta - Professional Content Writer in Kolkata with 10+ years experience, 30,000+ hours worked, and 100+ projects completed. Expert in SEO content, blog writing, and technical writing.">
+    <meta name="keywords" content="content writer in kolkata, professional content writer, SEO content writer, freelance writer kolkata, blog writer kolkata">
+    <meta name="author" content="Tanusree Dutta">
+    <title>Tanusree Dutta - Expert Content Writer in Kolkata | 10+ Years Experience</title>
     
-    <div class="absolute inset-0 bg-black bg-opacity-60 z-0"></div> <!-- dark overlay for contrast -->
-
-    <div class="container mx-auto px-4 py-16 relative z-10">
-        <div class="flex items-center flex-col md:flex-row">
-            <div class="reveal md:w-1/2 mb-8 md:mb-0">
-                <h1 class="mb-4 font-bold md:text-5xl text-4xl">Trusted Physiotherapist in Naihati with 25+ Years Experience</h1>
-                <p class="mb-8 text-xl">Get expert physiotherapy care from Biswanath Chowdhury — helping Naihati residents recover, strengthen, and live pain-free for over 25 years.</p>
-                <div class="flex space-x-4">
-                    <a class="flex items-center font-medium py-3 btn-primary px-6 rounded-full shadow-lg pulse text-lg" href="#contact">
-                        <i class="fas mr-2 fa-calendar-check"></i> Book Appointment
-                    </a>
-                    <a class="flex items-center transition-colors rounded-full bg-white font-medium hover:bg-gray-100 px-6 py-3 shadow-lg text-lg text-primary" href="#services">
-                        <i class="fas mr-2 fa-list-ul"></i> Our Services
-                    </a>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Tanusree Dutta - Expert Content Writer in Kolkata">
+    <meta property="og:description" content="Professional Content Writer with 10+ years experience, 30,000+ hours worked, and 100+ projects completed.">
+    <meta property="og:image" content="https://res.cloudinary.com/dkwdrzobk/image/upload/v1742183309/Ritam_slac9k.avif">
+    <meta property="og:type" content="website">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Tanusree Dutta - Content Writer",
+        "image": "https://res.cloudinary.com/dkwdrzobk/image/upload/v1742183309/Ritam_slac9k.avif",
+        "description": "Professional content writer in Kolkata with 10+ years of experience specializing in SEO content, blog writing, and technical writing.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kolkata",
+            "addressRegion": "West Bengal",
+            "addressCountry": "IN"
+        },
+        "telephone": "+91-9038303107",
+        "priceRange": "$$",
+        "areaServed": "Kolkata",
+        "serviceType": "Content Writing Services"
+    }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#home" class="nav-logo">Tanusree Dutta</a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-close" id="nav-close">
+                    <i class="fas fa-times"></i>
                 </div>
             </div>
             
+            <div class="nav-btns">
+                <a href="tel:+919038303107" class="nav-cta">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+                <div class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-    <!-- About Section -->
-    <section class="section bg-white" id="about">
-        <div class="container mx-auto px-4">
-            <div class="text-center reveal mb-12">
-                <h2 class="mb-4 font-bold md:text-4xl text-3xl">About <span class="text-primary">Biswanath Chowdhury</span></h2>
-                <div class="mx-auto bg-primary h-1 w-24"></div>
-            </div>
-            <div class="flex items-center flex-col md:flex-row">
-                <div class="reveal mb-8 md:mb-0 md:w-1/3">
-                    <div class="relative">
-                        <div class="rounded-lg absolute bg-primary inset-0 rotate-6 transform"></div>
-                        <div class="flex items-center justify-center rounded-lg w-full bg-gray-200 h-80 overflow-hidden relative">
-  <img 
-    alt="Biswanath Chowdhury" 
-    class="rounded-lg w-full h-full object-cover" 
-    src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1745149825/image-2_n6hevn.avif" 
-    loading="lazy"
-  >
-</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Professional Content Writer in Kolkata</span>
+                <h1 class="hero-title">Transforming Ideas into <span class="highlight">Compelling Content</span></h1>
+                <p class="hero-description">
+                    With over a decade of proven expertise, I'm Tanusree Dutta, your trusted content writing partner in Kolkata. I've successfully delivered results-driven content across diverse industries, helping businesses establish their digital authority and connect with their audience.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">30,000+</div>
+                        <div class="stat-label">Hours Worked</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Projects Completed</div>
                     </div>
                 </div>
-                <div class="reveal md:pl-12 md:w-2/3">
-                    <h3 class="flex items-center font-semibold text-2xl text-primary mb-4"><i class="fas mr-3 fa-heartbeat"></i> Dedicated to Your Healing Journey</h3>
-                    <p class="mb-4 text-gray-700">With over 15 years of experience in physiotherapy, Biswanath Chowdhury has helped thousands of patients recover from injuries, manage chronic pain, and improve their quality of life. His approach combines traditional techniques with modern research-based methods to provide comprehensive care tailored to each individual's needs.</p>
-                    <p class="text-gray-700 mb-6">Biswanath specializes in orthopedic rehabilitation, sports injuries, neurological conditions, and geriatric care. His gentle yet effective treatment techniques have earned him a reputation as one of the most trusted physiotherapists in the region.</p>
-                    <div class="grid gap-4 grid-cols-2 mb-6 md:grid-cols-4">
-                        <div class="text-center">
-                            <div class="flex justify-center font-bold text-3xl text-primary"><i class="fas mr-2 fa-calendar-alt"></i> 15+</div>
-                            <div class="text-gray-600">Years Experience</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="flex justify-center font-bold text-3xl text-primary"><i class="fas mr-2 fa-users"></i> 3000+</div>
-                            <div class="text-gray-600">Patients Treated</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="flex justify-center font-bold text-3xl text-primary"><i class="fas mr-2 fa-trophy"></i> 10+</div>
-                            <div class="text-gray-600">Specialized Therapies</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="flex justify-center font-bold text-3xl text-primary"><i class="fas mr-2 fa-thumbs-up"></i> 98%</div>
-                            <div class="text-gray-600">Success Rate</div>
+                
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <img src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1742183309/Ritam_slac9k.avif" alt="Tanusree Dutta - Content Writer in Kolkata">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">My Work</span>
+                <h2 class="section-title">Featured Portfolio</h2>
+                <p class="section-description">
+                    Explore a curated selection of my content writing projects across various industries. Each project demonstrates my commitment to delivering high-quality, engaging, and SEO-optimized content tailored to client needs.
+                </p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop" alt="Healthcare content writing portfolio">
+                        <div class="portfolio-overlay">
+                            <a href="#contact" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
-                    <a class="flex items-center justify-center rounded-full btn-primary font-medium inline-block px-6 py-3 shadow-lg text-center" href="#contact"><i class="fas mr-2 fa-calendar-check"></i> Schedule a Consultation</a>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Healthcare Blog Series</h3>
+                        <p class="portfolio-description">
+                            Developed a comprehensive 50-article blog series for a leading healthcare provider in Kolkata, focusing on patient education and medical awareness. The content increased organic traffic by 180% within 6 months.
+                        </p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Healthcare</span>
+                            <span class="tag">SEO Content</span>
+                            <span class="tag">Blog Writing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Technology content writing portfolio">
+                        <div class="portfolio-overlay">
+                            <a href="#contact" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Tech Startup Website Content</h3>
+                        <p class="portfolio-description">
+                            Created complete website content for a Kolkata-based SaaS startup, including landing pages, product descriptions, and technical documentation. The content helped achieve 95% user engagement rate and contributed to successful Series A funding.
+                        </p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Technology</span>
+                            <span class="tag">Website Content</span>
+                            <span class="tag">Technical Writing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" alt="E-commerce content writing portfolio">
+                        <div class="portfolio-overlay">
+                            <a href="#contact" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">E-commerce Product Descriptions</h3>
+                        <p class="portfolio-description">
+                            Crafted over 500 compelling product descriptions for a fashion e-commerce platform. The SEO-optimized content improved product page rankings and increased conversion rates by 35%, directly impacting revenue growth.
+                        </p>
+                        <div class="portfolio-tags">
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">Product Descriptions</span>
+                            <span class="tag">Conversion Copy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=400&fit=crop" alt="Finance content writing portfolio">
+                        <div class="portfolio-overlay">
+                            <a href="#contact" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Financial Services Content Strategy</h3>
+                        <p class="portfolio-description">
+                            Developed a year-long content strategy for a financial advisory firm, including market analysis articles, investment guides, and client education materials. The authority-building content established the firm as a thought leader in Kolkata's finance sector.
+                        </p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Finance</span>
+                            <span class="tag">Content Strategy</span>
+                            <span class="tag">Thought Leadership</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=600&h=400&fit=crop" alt="Real estate content writing portfolio">
+                        <div class="portfolio-overlay">
+                            <a href="#contact" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Real Estate Marketing Materials</h3>
+                        <p class="portfolio-description">
+                            Created persuasive marketing collateral for premium real estate projects in Kolkata, including brochures, website content, and property descriptions. The emotionally engaging content helped achieve 40% faster sales velocity.
+                        </p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Real Estate</span>
+                            <span class="tag">Marketing Copy</span>
+                            <span class="tag">Sales Content</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop" alt="Education content writing portfolio">
+                        <div class="portfolio-overlay">
+                            <a href="#contact" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Educational Platform Content</h3>
+                        <p class="portfolio-description">
+                            Authored curriculum-aligned educational content for an online learning platform, including course descriptions, study materials, and assessment questions. The quality content contributed to 50,000+ student enrollments and high satisfaction ratings.
+                        </p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Education</span>
+                            <span class="tag">Educational Content</span>
+                            <span class="tag">Curriculum Writing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-cta">
+                <p>Ready to see similar results for your business?</p>
+                <a href="#contact" class="btn btn-primary">Start Your Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-image">
+                    <div class="about-image-wrapper">
+                        <img src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1742183309/Ritam_slac9k.avif" alt="Tanusree Dutta - Professional Content Writer">
+                        <div class="experience-badge">
+                            <div class="badge-number">10+</div>
+                            <div class="badge-text">Years of Excellence</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-content">
+                    <span class="section-subtitle">About Me</span>
+                    <h2 class="section-title">Your Trusted Content Writing Partner in Kolkata</h2>
+                    
+                    <p class="about-text">
+                        Hello! I'm <strong>Tanusree Dutta</strong>, a seasoned content writer based in Kolkata with over 10 years of hands-on experience in crafting compelling, conversion-focused content. Throughout my career, I've dedicated more than <strong>30,000 hours</strong> to mastering the art and science of content creation, successfully completing <strong>over 100 projects</strong> across diverse industries.
+                    </p>
+                    
+                    <p class="about-text">
+                        My journey as a <a href="#services" class="internal-link">professional content writer in Kolkata</a> began with a simple passion: transforming complex ideas into clear, engaging narratives that resonate with target audiences. Over the years, this passion has evolved into a proven methodology that combines creative storytelling with data-driven SEO strategies to deliver measurable results.
+                    </p>
+                    
+                    <p class="about-text">
+                        What sets me apart as a <strong>content writer in Kolkata</strong> is my deep understanding of both local and global markets. I've worked with startups, established enterprises, and international brands, helping them build authority, increase engagement, and drive conversions through strategic content. My expertise spans multiple content formats and industries, making me a versatile partner for all your content needs.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Certified in Content Marketing & SEO Best Practices</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Published Author with Industry Recognition</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Expert in E-E-A-T Compliant Content Creation</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Proven Track Record of Increasing Organic Traffic</span>
+                        </div>
+                    </div>
+                    
+                    <div class="about-buttons">
+                        <a href="#services" class="btn btn-primary">Explore Services</a>
+                        <a href="tel:+919038303107" class="btn btn-outline">
+                            <i class="fas fa-phone"></i> 9038303107
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="section bg-gray-50" id="services">
-        <div class="max-w-screen-xl w-full mx-auto px-4">
-            <div class="text-center reveal mb-12">
-                <h2 class="mb-4 font-bold md:text-4xl text-3xl">Our <span class="text-primary">Services</span></h2>
-                <div class="mx-auto bg-primary h-1 w-24 mb-3"></div>
-                <p class="text-gray-600 mx-auto max-w-3xl">Comprehensive physiotherapy services designed to address a wide range of conditions and promote optimal physical well-being.</p>
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">What I Offer</span>
+                <h2 class="section-title">Comprehensive Content Writing Services</h2>
+                <p class="section-description">
+                    As an experienced <strong>content writer in Kolkata</strong>, I offer a full spectrum of content writing services designed to meet your unique business objectives. Whether you need engaging blog posts, persuasive website copy, or technical documentation, I bring expertise, creativity, and strategic thinking to every project.
+                </p>
             </div>
-            <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-                <div class="rounded-lg bg-white p-6 shadow-sm">
-                    <div class="text-primary mb-3"><i class="fas text-3xl fa-bone"></i></div>
-                    <h3 class="font-semibold mb-2 text-xl">Orthopedic Rehabilitation</h3>
-                    <p class="text-gray-600 mb-4">Specialized therapy for musculoskeletal injuries, joint replacements, and post-surgical rehabilitation to restore mobility and function.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Joint and muscle pain treatment</li>
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Post-surgical rehabilitation</li>
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Fracture rehabilitation</li>
-                    </ul>
-                </div>
-                <div class="rounded-lg bg-white p-6 shadow-sm">
-                    <div class="text-primary mb-3"><i class="fas text-3xl fa-person-running"></i></div>
-                    <h3 class="font-semibold mb-2 text-xl">Sports Injury Management</h3>
-                    <p class="text-gray-600 mb-4">Comprehensive treatment for athletes of all levels, focusing on injury prevention, rehabilitation, and performance enhancement.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Sports-specific rehabilitation</li>
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Injury prevention strategies</li>
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Performance enhancement</li>
-                    </ul>
-                </div>
-                <div class="rounded-lg bg-white p-6 shadow-sm">
-                    <div class="text-primary mb-3"><i class="fas text-3xl fa-brain"></i></div>
-                    <h3 class="font-semibold mb-2 text-xl">Neurological Rehabilitation</h3>
-                    <p class="text-gray-600 mb-4">Specialized care for patients with neurological conditions to improve function, independence, and quality of life.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Stroke rehabilitation</li>
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Balance and coordination training</li>
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Functional mobility improvement</li>
-                    </ul>
-                </div>
-                <div class="rounded-lg bg-white p-6 shadow-sm">
-                    <div class="text-primary mb-3"><i class="fas text-3xl fa-pills"></i></div>
-                    <h3 class="font-semibold mb-2 text-xl">Chronic Pain Management</h3>
-                    <p class="text-gray-600 mb-4">Multidisciplinary approach to manage and alleviate chronic pain conditions, improving daily function and quality of life.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Personalized pain reduction programs</li>
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Manual therapy techniques</li>
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Self-management strategies</li>
-                    </ul>
-                </div>
-                <div class="rounded-lg bg-white p-6 shadow-sm">
-                    <div class="text-primary mb-3"><i class="fas text-3xl fa-user-friends"></i></div>
-                    <h3 class="font-semibold mb-2 text-xl">Geriatric Physiotherapy</h3>
-                    <p class="text-gray-600 mb-4">Specialized care for older adults addressing age-related conditions, mobility issues, and fall prevention.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Balance and fall prevention</li>
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Mobility enhancement</li>
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Arthritis management</li>
-                    </ul>
-                </div>
-                <div class="rounded-lg bg-white p-6 shadow-sm">
-                    <div class="text-primary mb-3"><i class="fas text-3xl fa-home"></i></div>
-                    <h3 class="font-semibold mb-2 text-xl">Home Physiotherapy</h3>
-                    <p class="text-gray-600 mb-4">Convenient, personalized care delivered in the comfort of your home, eliminating travel constraints for patients with mobility limitations.</p>
-                    <ul class="text-gray-600 space-y-2">
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Personalized home programs</li>
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Home safety assessments</li>
-                        <li class="flex items-center"><i class="fas mr-2 text-primary fa-check-circle"></i> Caregiver training</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section class="section bg-gradient-light" id="benefits">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center reveal mb-12">
-                <h2 class="mb-4 font-bold md:text-4xl text-3xl">Benefits of <span class="text-primary">Physiotherapy</span></h2>
-                <div class="mx-auto bg-primary h-1 w-24 mb-3"></div>
-                <p class="text-gray-600 mx-auto max-w-3xl px-2">Discover how physiotherapy can enhance your physical well-being and improve your quality of life.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="rounded-lg bg-white p-6 duration-300 hover:scale-105 shadow-sm transform transition">
-                    <div class="text-primary mb-3"><i class="fas text-3xl fa-medkit"></i></div>
-                    <h3 class="font-semibold mb-2 text-xl">Pain Relief</h3>
-                    <p class="text-gray-600">Effective techniques to reduce and manage acute and chronic pain, decreasing the need for pain medications.</p>
-                </div>
-                <div class="rounded-lg bg-white p-6 duration-300 hover:scale-105 shadow-sm transform transition">
-                    <div class="text-primary mb-3"><i class="fas text-3xl fa-person-walking"></i></div>
-                    <h3 class="font-semibold mb-2 text-xl">Improved Mobility</h3>
-                    <p class="text-gray-600">Restore and enhance movement, flexibility, and range of motion for better daily function and independence.</p>
-                </div>
-                <div class="rounded-lg bg-white p-6 duration-300 hover:scale-105 shadow-sm transform transition">
-                    <div class="text-primary mb-3"><i class="fas text-3xl fa-tachometer-alt"></i></div>
-                    <h3 class="font-semibold mb-2 text-xl">Faster Recovery</h3>
-                    <p class="text-gray-600">Accelerate healing from injuries, surgeries, and medical conditions through targeted therapeutic interventions.</p>
-                </div>
-                <div class="rounded-lg bg-white p-6 duration-300 hover:scale-105 shadow-sm transform transition">
-                    <div class="text-primary mb-3"><i class="fas text-3xl fa-shield"></i></div>
-                    <h3 class="font-semibold mb-2 text-xl">Injury Prevention</h3>
-                    <p class="text-gray-600">Learn techniques and strategies to reduce the risk of injuries through proper movement patterns and body mechanics.</p>
-                </div>
-                <div class="rounded-lg bg-white p-6 duration-300 hover:scale-105 shadow-sm transform transition">
-                    <div class="text-primary mb-3"><i class="fas text-3xl fa-file-medical"></i></div>
-                    <h3 class="font-semibold mb-2 text-xl">Personalized Care</h3>
-                    <p class="text-gray-600">Individualized treatment plans tailored to your specific needs, goals, and health conditions for optimal results.</p>
-                </div>
-                <div class="rounded-lg bg-white p-6 duration-300 hover:scale-105 shadow-sm transform transition">
-                    <div class="text-primary mb-3"><i class="fas text-3xl fa-heart"></i></div>
-                    <h3 class="font-semibold mb-2 text-xl">Enhanced Quality of Life</h3>
-                    <p class="text-gray-600">Improve your overall well-being, independence, and ability to participate in work, recreational activities, and daily living.</p>
-                </div>
-            </div>
-        </div>
-    </section>
- <!-- Gallery Section -->
-    <section class="section bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12 reveal">
-                <h2 class="mb-4 font-bold md:text-4xl text-3xl">Our Physiotherapy <span class="text-primary">Gallery</span></h2>
-                <div class="w-24 h-1 bg-primary mx-auto"></div>
-            </div>
-            <div class="text-center mb-8">
-                <button id="load-gallery-btn" class="btn-primary px-6 py-3 rounded-full font-medium text-lg shadow-lg flex items-center mx-auto">
-                    <i class="fas fa-image mr-2"></i> Load Gallery
-                </button>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 reveal hidden" id="gallery">
-                <div class="gallery-item">
-                    <img data-src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1745121665/FB_IMG_1745121545184_p8864z.jpg" 
-                         alt="Physiotherapy session at Biswanath Chowdhury's centre near Naihati"
-                         onerror="this.onerror=null; this.parentElement.querySelector('.overlay').style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div class="overlay">
-                        <i class="fas fa-search text-white text-2xl"></i>
-                    </div>
-                    <div class="error-message">Failed to load image</div>
-                </div>
-                <div class="gallery-item">
-                    <img data-src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1745121665/FB_IMG_1745121540505_fuxszv.jpg" 
-                         alt="Patient rehabilitation at physiotherapy centre near Naihati"
-                         onerror="this.onerror=null; this.parentElement.querySelector('.overlay').style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div class="overlay">
-                        <i class="fas fa-search text-white text-2xl"></i>
-                    </div>
-                    <div class="error-message">Failed to load image</div>
-                </div>
-                <div class="gallery-item">
-                    <img data-src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1745121665/FB_IMG_1745121535064_bvppjb.jpg" 
-                         alt="Physiotherapy equipment at Biswanath Chowdhury's clinic"
-                         onerror="this.onerror=null; this.parentElement.querySelector('.overlay').style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div class="overlay">
-                        <i class="fas fa-search text-white text-2xl"></i>
-                    </div>
-                    <div class="error-message">Failed to load image</div>
-                </div>
-                <div class="gallery-item">
-                    <img data-src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1745121665/FB_IMG_1745121548046_pprvm8.jpg" 
-                         alt="Therapeutic exercise session near Naihati"
-                         onerror="this.onerror=null; this.parentElement.querySelector('.overlay').style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div class="overlay">
-                        <i class="fas fa-search text-white text-2xl"></i>
-                    </div>
-                    <div class="error-message">Failed to load image</div>
-                </div>
-                <div class="gallery-item">
-                    <img data-src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1745121665/FB_IMG_1745121551010_s6su46.jpg" 
-                         alt="Physiotherapy consultation at Naihati centre"
-                         onerror="this.onerror=null; this.parentElement.querySelector('.overlay').style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div class="overlay">
-                        <i class="fas fa-search text-white text-2xl"></i>
-                    </div>
-                    <div class="error-message">Failed to load image</div>
-                </div>
-                <div class="gallery-item">
-                    <img data-src="https://res.cloudinary.com/dkwdrzobk/image/upload/v1745121664/FB_IMG_1745121566724_qhrhbn.jpg" 
-                         alt="Patient recovery at Biswanath Chowdhury's physiotherapy centre"
-                         onerror="this.onerror=null; this.parentElement.querySelector('.overlay').style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div class="overlay">
-                        <i class="fas fa-search text-white text-2xl"></i>
-                    </div>
-                    <div class="error-message">Failed to load image</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Load Gallery on Button Click
-        const loadGalleryBtn = document.getElementById('load-gallery-btn');
-        const gallery = document.getElementById('gallery');
-
-        loadGalleryBtn.addEventListener('click', () => {
-            // Show gallery
-            gallery.classList.remove('hidden');
-
-            // Load images
-            const images = gallery.querySelectorAll('img[data-src]');
-            images.forEach(img => {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src'); // Remove data-src to prevent re-loading
-            });
-
-            // Disable button to prevent multiple clicks
-            loadGalleryBtn.disabled = true;
-            loadGalleryBtn.textContent = 'Gallery Loaded';
-            loadGalleryBtn.classList.remove('btn-primary');
-            loadGalleryBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
-
-            // Trigger reveal animation
-            gallery.classList.add('active');
-        });
-
-        // Reveal Animation on Scroll for Heading
-        const reveals = document.querySelectorAll('.reveal:not(#gallery)');
-        window.addEventListener('scroll', () => {
-            reveals.forEach((reveal) => {
-                const windowHeight = window.innerHeight;
-                const revealTop = reveal.getBoundingClientRect().top;
-                const revealPoint = 150;
-
-                if (revealTop < windowHeight - revealPoint) {
-                    reveal.classList.add('active');
-                }
-            });
-        });
-
-        // Error Handling for Gallery
-        document.addEventListener('DOMContentLoaded', () => {
-            if (!gallery) {
-                console.error('Gallery container not found');
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'error-message';
-                errorDiv.style.display = 'block';
-                errorDiv.textContent = 'Unable to load gallery. Please try again later.';
-                document.querySelector('.section').appendChild(errorDiv);
-            }
-        });
-    </script>
-    <!-- Testimonials Section -->
-    <section class="section bg-white" id="testimonials">
-        <div class="container mx-auto px-4">
-            <div class="text-center reveal mb-12">
-                <h2 class="mb-4 font-bold md:text-4xl text-3xl">Patient <span class="text-primary">Testimonials</span></h2>
-                <div class="mx-auto bg-primary h-1 w-24 mb-6"></div>
-                <p class="text-gray-600 mx-auto max-w-3xl">Hear what our satisfied patients have to say about their recovery journey with Biswanath Chowdhury.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="rounded-lg p-6 reveal shadow-lg bg-gray-50 testimonial-card">
-                    <div class="flex items-center mb-4">
-                        <div class="flex items-center justify-center rounded-full text-white font-bold bg-primary h-12 mr-4 w-12">RP</div>
-                        <div>
-                            <h3 class="font-semibold">Rajesh Patel</h3>
-                            <p class="text-gray-600 text-sm">Sports Injury</p>
+            
+            <!-- Content Types -->
+            <div class="services-category">
+                <h3 class="category-title">Content Types I Create</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-blog"></i>
                         </div>
+                        <h4 class="service-title">Blog Writing</h4>
+                        <p class="service-description">
+                            Engaging, SEO-optimized blog posts that establish your brand authority, drive organic traffic, and keep your audience coming back for more. I specialize in creating thought-leadership articles, how-to guides, listicles, and industry insights that resonate with your target market.
+                        </p>
+                        <ul class="service-features">
+                            <li>SEO keyword optimization</li>
+                            <li>Original research and data analysis</li>
+                            <li>Compelling headlines and meta descriptions</li>
+                            <li>Internal linking strategy</li>
+                        </ul>
                     </div>
-                    <div class="mb-4">
-                        <div class="flex text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-globe"></i>
                         </div>
+                        <h4 class="service-title">Website Content</h4>
+                        <p class="service-description">
+                            Conversion-focused website copy that captures your brand voice and guides visitors through their customer journey. From landing pages to about sections, I craft persuasive content that builds trust and drives action.
+                        </p>
+                        <ul class="service-features">
+                            <li>Landing page optimization</li>
+                            <li>Homepage and service pages</li>
+                            <li>Brand storytelling</li>
+                            <li>Call-to-action development</li>
+                        </ul>
                     </div>
-                    <p class="text-gray-700 italic">"After a severe knee injury during cricket, I was worried my playing days were over. Mr. Chowdhury's expert treatment not only helped me recover but also improved my performance. His personalized approach and dedication to my recovery were exceptional."</p>
-                </div>
-                <div class="rounded-lg p-6 reveal shadow-lg bg-gray-50 testimonial-card">
-                    <div class="flex items-center mb-4">
-                        <div class="flex items-center justify-center rounded-full text-white font-bold h-12 mr-4 w-12 bg-secondary">SD</div>
-                        <div>
-                            <h3 class="font-semibold">Sunita Devi</h3>
-                            <p class="text-gray-600 text-sm">Chronic Back Pain</p>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
                         </div>
+                        <h4 class="service-title">SEO Content Writing</h4>
+                        <p class="service-description">
+                            Strategic SEO content that ranks high on search engines while providing genuine value to readers. I combine keyword research, search intent analysis, and quality writing to create content that satisfies both algorithms and human readers.
+                        </p>
+                        <ul class="service-features">
+                            <li>Keyword research and mapping</li>
+                            <li>Search intent optimization</li>
+                            <li>On-page SEO implementation</li>
+                            <li>Competitor content analysis</li>
+                        </ul>
                     </div>
-                    <div class="mb-4">
-                        <div class="flex text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
                         </div>
+                        <h4 class="service-title">Technical Writing</h4>
+                        <p class="service-description">
+                            Clear, concise technical documentation that makes complex information accessible. I create user manuals, API documentation, product guides, and knowledge base articles that enhance user experience and reduce support queries.
+                        </p>
+                        <ul class="service-features">
+                            <li>User guides and manuals</li>
+                            <li>API documentation</li>
+                            <li>Technical specifications</li>
+                            <li>Knowledge base articles</li>
+                        </ul>
                     </div>
-                    <p class="text-gray-700 italic">"I suffered from debilitating back pain for over a decade and tried various treatments with limited success. Biswanath sir's comprehensive approach and therapeutic exercises have given me a new lease on life. I can now enjoy activities I had given up years ago."</p>
-                </div>
-                <div class="rounded-lg p-6 reveal shadow-lg bg-gray-50 testimonial-card">
-                    <div class="flex items-center mb-4">
-                        <div class="flex items-center justify-center rounded-full text-white font-bold h-12 mr-4 w-12 bg-accent">AM</div>
-                        <div>
-                            <h3 class="font-semibold">Amit Malhotra</h3>
-                            <p class="text-gray-600 text-sm">Post-Surgery Rehabilitation</p>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-share-alt"></i>
                         </div>
+                        <h4 class="service-title">Social Media Content</h4>
+                        <p class="service-description">
+                            Engaging social media posts that spark conversations and build community. I create platform-specific content strategies that increase engagement, grow followers, and strengthen brand presence across all major social channels.
+                        </p>
+                        <ul class="service-features">
+                            <li>Platform-specific content</li>
+                            <li>Content calendar planning</li>
+                            <li>Hashtag strategy</li>
+                            <li>Engagement-focused posts</li>
+                        </ul>
                     </div>
-                    <div class="mb-4">
-                        <div class="flex text-yellow-400">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-envelope"></i>
                         </div>
+                        <h4 class="service-title">Email Marketing Content</h4>
+                        <p class="service-description">
+                            Persuasive email campaigns that nurture leads and drive conversions. From welcome sequences to promotional campaigns, I craft emails that get opened, read, and acted upon.
+                        </p>
+                        <ul class="service-features">
+                            <li>Newsletter writing</li>
+                            <li>Promotional email campaigns</li>
+                            <li>Drip campaign sequences</li>
+                            <li>Subject line optimization</li>
+                        </ul>
                     </div>
-                    <p class="text-gray-700 italic">"After my knee replacement surgery, Biswanath's rehabilitation program was crucial to my recovery. His expertise, patience, and encouragement helped me regain strength and confidence. I recovered much faster than expected and am now back to my normal activities."</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Videos Section -->
-    <section class="section bg-gray-50" id="videos">
-        <div class="container mx-auto px-4">
-            <div class="text-center reveal mb-12">
-                <h2 class="mb-4 font-bold md:text-4xl text-3xl">Video <span class="text-primary">Reviews</span></h2>
-                <div class="mx-auto bg-primary h-1 w-24 mb-6"></div>
-                <p class="text-gray-600 mx-auto max-w-3xl">Watch our patients share their experiences and recovery journeys through physiotherapy.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="rounded-lg bg-white p-6 reveal shadow-lg">
-                    <div class="mb-4">
-                        <h3 class="flex items-center font-semibold mb-2 text-xl"><i class="fas mr-2 text-primary fa-video"></i> Sports Recovery Success Story</h3>
-                        <p class="text-gray-600 mb-4">Marathon runner Priya shares her journey from injury to competitive running with our rehabilitation program.</p>
-                    </div>
-                    <!-- Thumbnail Container -->
-<style>
-    .video-thumbnail {
-  position: relative;
-  cursor: pointer;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.thumbnail-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 64px;
-  height: 64px;
-  background-color: rgba(0, 160, 160, 0.8);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: background-color 0.3s ease;
-}
-
-.play-button::before {
-  content: '';
-  position: absolute;
-  left: 24px;
-  top: 16px;
-  width: 16px;
-  height: 32px;
-  background: white;
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
-}
-
-.video-thumbnail:hover .play-button {
-  background-color: rgba(0, 128, 128, 1);
-}
-
-</style>
-<div class="mb-4 video-container video-thumbnail" data-video-id="EKplkl6xQrw">
-  <img src="https://img.youtube.com/vi/EKplkl6xQrw/hqdefault.jpg" alt="Video Thumbnail" class="thumbnail-img">
-  <div class="play-button"></div>
-</div>
-
-<script>
-  document.querySelectorAll('.video-thumbnail').forEach(container => {
-    container.addEventListener('click', () => {
-      const videoId = container.getAttribute('data-video-id');
-      const iframe = document.createElement('iframe');
-      iframe.setAttribute('allowfullscreen', '');
-      iframe.setAttribute('frameborder', '0');
-      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-      iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
-      iframe.style.width = '100%';
-      iframe.style.height = '100%';
-      container.innerHTML = '';
-      container.appendChild(iframe);
-    });
-  });
-</script>
-
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <div class="flex items-center justify-center rounded-full text-white h-10 w-10 font-bold bg-primary mr-2">PS</div>
-                            <span class="text-gray-700 font-medium">Priya Singh</span>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
                         </div>
-                        <span class="text-gray-500 text-sm">Marathon Runner</span>
+                        <h4 class="service-title">Product Descriptions</h4>
+                        <p class="service-description">
+                            Compelling product descriptions that highlight benefits, overcome objections, and drive purchases. I create SEO-friendly copy that appeals to both search engines and potential customers.
+                        </p>
+                        <ul class="service-features">
+                            <li>Benefit-focused writing</li>
+                            <li>SEO optimization</li>
+                            <li>Brand voice consistency</li>
+                            <li>Conversion-oriented copy</li>
+                        </ul>
                     </div>
-                </div>
-                <div class="rounded-lg bg-white p-6 reveal shadow-lg">
-                    <div class="mb-4">
-                        <h3 class="flex items-center font-semibold mb-2 text-xl"><i class="fas mr-2 text-primary fa-video"></i> Chronic Pain Management</h3>
-                        <p class="text-gray-600 mb-4">Vikram discusses how specialized physiotherapy techniques helped him overcome years of back pain.</p>
-                    </div>
-                    <!-- Thumbnail Container -->
-<style>
-    .video-thumbnail {
-  position: relative;
-  cursor: pointer;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.thumbnail-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 64px;
-  height: 64px;
-  background-color: rgba(0, 160, 160, 0.8);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: background-color 0.3s ease;
-}
-
-.play-button::before {
-  content: '';
-  position: absolute;
-  left: 24px;
-  top: 16px;
-  width: 16px;
-  height: 32px;
-  background: white;
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
-}
-
-.video-thumbnail:hover .play-button {
-  background-color: rgba(0, 128, 128, 1);
-}
-
-</style>
-<div class="mb-4 video-container video-thumbnail" data-video-id="nionbma2zqM" style="position: relative; cursor: pointer; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);">
-  <img src="https://img.youtube.com/vi/nionbma2zqM/hqdefault.jpg" alt="Video Thumbnail" style="width: 100%; height: auto; display: block;">
-  <div class="play-button" style="position: absolute; top: 50%; left: 50%; width: 64px; height: 64px; background-color: rgba(0, 160, 160, 0.8); border-radius: 50%; transform: translate(-50%, -50%); transition: background-color 0.3s ease;">
-    <div style="position: absolute; left: 24px; top: 16px; width: 16px; height: 32px; background: white; clip-path: polygon(0 0, 100% 50%, 0 100%);"></div>
-  </div>
-</div>
-
-<script>
-  document.querySelectorAll('.video-thumbnail').forEach(container => {
-    container.addEventListener('click', () => {
-      const videoId = container.getAttribute('data-video-id');
-      const iframe = document.createElement('iframe');
-      iframe.setAttribute('allowfullscreen', '');
-      iframe.setAttribute('frameborder', '0');
-      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-      iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
-      iframe.style.width = '100%';
-      iframe.style.height = '100%';
-      container.innerHTML = '';
-      container.appendChild(iframe);
-    });
-  });
-</script>
-
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <div class="flex items-center justify-center rounded-full text-white h-10 w-10 font-bold mr-2 bg-secondary">VK</div>
-                            <span class="text-gray-700 font-medium">Vikram Kumar</span>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-file-alt"></i>
                         </div>
-                        <span class="text-gray-500 text-sm">IT Professional</span>
-                    </div>
-                </div>
-                <div class="rounded-lg bg-white p-6 reveal shadow-lg">
-                    <div class="mb-4">
-                        <h3 class="flex items-center font-semibold mb-2 text-xl"><i class="fas mr-2 text-primary fa-video"></i> Stroke Rehabilitation Journey</h3>
-                        <p class="text-gray-600 mb-4">Mr. Sharma describes his remarkable recovery progress after stroke through dedicated neurological physiotherapy.</p>
-                    </div>
-                <!-- Thumbnail Container -->
-<style>
-    .video-thumbnail {
-  position: relative;
-  cursor: pointer;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.thumbnail-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 64px;
-  height: 64px;
-  background-color: rgba(0, 160, 160, 0.8);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: background-color 0.3s ease;
-}
-
-.play-button::before {
-  content: '';
-  position: absolute;
-  left: 24px;
-  top: 16px;
-  width: 16px;
-  height: 32px;
-  background: white;
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
-}
-
-.video-thumbnail:hover .play-button {
-  background-color: rgba(0, 128, 128, 1);
-}
-
-</style>
-<div class="mb-4 video-container video-thumbnail" data-video-id="EaYlIHFTxXc" style="position: relative; cursor: pointer; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);">
-  <img src="https://img.youtube.com/vi/EaYlIHFTxXc/hqdefault.jpg" alt="Video Thumbnail" style="width: 100%; height: auto; display: block;">
-  <div class="play-button" style="position: absolute; top: 50%; left: 50%; width: 64px; height: 64px; background-color: rgba(0, 160, 160, 0.8); border-radius: 50%; transform: translate(-50%, -50%); transition: background-color 0.3s ease;">
-    <div style="position: absolute; left: 24px; top: 16px; width: 16px; height: 32px; background: white; clip-path: polygon(0 0, 100% 50%, 0 100%);"></div>
-  </div>
-</div>
-
-<script>
-  document.querySelectorAll('.video-thumbnail').forEach(container => {
-    container.addEventListener('click', () => {
-      const videoId = container.getAttribute('data-video-id');
-      const iframe = document.createElement('iframe');
-      iframe.setAttribute('allowfullscreen', '');
-      iframe.setAttribute('frameborder', '0');
-      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-      iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
-      iframe.style.width = '100%';
-      iframe.style.height = '100%';
-      container.innerHTML = '';
-      container.appendChild(iframe);
-    });
-  });
-</script>
-
-
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <div class="flex items-center justify-center rounded-full text-white h-10 w-10 font-bold mr-2 bg-accent">RS</div>
-                            <span class="text-gray-700 font-medium">Ramesh Sharma</span>
-                        </div>
-                        <span class="text-gray-500 text-sm">Retired Teacher</span>
+                        <h4 class="service-title">Whitepapers & Case Studies</h4>
+                        <p class="service-description">
+                            In-depth, authoritative content that positions your brand as an industry leader. I create well-researched whitepapers and compelling case studies that generate leads and build credibility.
+                        </p>
+                        <ul class="service-features">
+                            <li>Original research and insights</li>
+                            <li>Data visualization</li>
+                            <li>Thought leadership positioning</li>
+                            <li>Lead generation focus</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-<!-- Comparison Table Section -->
-    <section class="section">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12 reveal">
-<h2 class="mb-4 font-bold md:text-4xl text-3xl">Why Physiotherapy Treatment Is <span class="text-primary">Best For Your Health?</span></h2>                <div class="w-24 h-1 bg-primary mx-auto"></div>
-            </div>
-            <div class="table-container reveal">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Physiotherapy Treatment</th>
-                            <th>Other Treatments (e.g., Medication/Surgery)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <i class="fas fa-check-circle text-primary mr-2"></i>
-                                <strong>Non-Invasive</strong>: Uses natural techniques like exercises and manual therapy to promote healing without surgery.
-                            </td>
-                            <td>
-                                <i class="fas fa-times-circle text-gray-500 mr-2"></i>
-                                Often invasive, with risks like surgical complications or side effects from long-term medication use.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fas fa-check-circle text-primary mr-2"></i>
-                                <strong>Personalized Care</strong>: Tailored treatment plans address individual needs, ensuring optimal recovery.
-                            </td>
-                            <td>
-                                <i class="fas fa-times-circle text-gray-500 mr-2"></i>
-                                Generic solutions like painkillers may not target the root cause of the issue.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fas fa-check-circle text-primary mr-2"></i>
-                                <strong>Long-Term Benefits</strong>: Improves strength, mobility, and prevents future injuries through rehabilitation.
-                            </td>
-                            <td>
-                                <i class="fas fa-times-circle text-gray-500 mr-2"></i>
-                                Temporary relief; medications may mask symptoms, and surgeries may require lengthy recovery.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fas fa-check-circle text-primary mr-2"></i>
-                                <strong>Holistic Approach</strong>: Enhances overall well-being, including mental health, through active participation in recovery.
-                            </td>
-                            <td>
-                                <i class="fas fa-times-circle text-gray-500 mr-2"></i>
-                                Focuses primarily on symptom management, often neglecting overall wellness.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <i class="fas fa-check-circle text-primary mr-2"></i>
-                                <strong>Cost-Effective</strong>: Reduces dependency on medications and avoids costly surgical procedures.
-                            </td>
-                            <td>
-                                <i class="fas fa-times-circle text-gray-500 mr-2"></i>
-                                High costs for surgeries, hospital stays, or ongoing medication prescriptions.
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-    <!-- Qualifications Section -->
-    <section class="section bg-white" id="qualifications">
-        <div class="container mx-auto px-4">
-            <div class="text-center reveal mb-12">
-                <h2 class="mb-4 font-bold md:text-4xl text-3xl">Qualifications & <span class="text-primary">Experience</span></h2>
-                <div class="mx-auto bg-primary h-1 w-24 mb-6"></div>
-                <p class="text-gray-600 mx-auto max-w-3xl">Biswanath Chowdhury brings extensive education, training, and professional experience to provide the highest quality care.</p>
-            </div>
-            <div class="flex md:flex-row flex-col">
-                <div class="reveal md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                    <h3 class="flex items-center font-semibold text-2xl text-primary mb-6"><i class="fas mr-3 fa-graduation-cap"></i> Education & Certifications</h3>
-                    <div class="space-y-6">
-                        <div class="pl-8 qualification-item pb-6">
-                            <h4 class="font-semibold text-lg">Bachelor of Physiotherapy (BPT)</h4>
-                            <p class="text-gray-600">University of Health Sciences, 2005</p>
-                            <p class="text-gray-700 mt-2">Graduated with honors, specialized in orthopedic rehabilitation</p>
+            
+            <!-- Industries Served -->
+            <div class="services-category">
+                <h3 class="category-title">Industries I Serve</h3>
+                <p class="category-description">
+                    With 10 years of experience as a <a href="#home" class="internal-link">content writer in Kolkata</a>, I've developed deep expertise across multiple industries. My diverse portfolio demonstrates my ability to quickly understand complex subject matters and create content that speaks directly to your target audience.
+                </p>
+                
+                <div class="industries-grid">
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-heartbeat"></i>
                         </div>
-                        <div class="pl-8 qualification-item pb-6">
-                            <h4 class="font-semibold text-lg">Master of Physiotherapy (MPT)</h4>
-                            <p class="text-gray-600">National Institute of Rehabilitation Science, 2008</p>
-                            <p class="text-gray-700 mt-2">Specialized in sports physiotherapy and manual therapy techniques</p>
-                        </div>
-                        <div class="pl-8 qualification-item pb-6">
-                            <h4 class="font-semibold text-lg">Certified Manual Therapy Specialist</h4>
-                            <p class="text-gray-600">International Academy of Orthopedic Medicine, 2010</p>
-                        </div>
-                        <div class="pl-8 qualification-item">
-                            <h4 class="font-semibold text-lg">Certification in Dry Needling</h4>
-                            <p class="text-gray-600">Institute of Advanced Physical Therapy, 2012</p>
-                        </div>
+                        <h4 class="industry-title">Healthcare & Medical</h4>
+                        <p class="industry-description">
+                            Expert medical content writing for hospitals, clinics, pharmaceutical companies, and health tech startups. I create patient education materials, medical blog posts, and healthcare marketing content that adheres to medical accuracy standards and builds patient trust.
+                        </p>
                     </div>
-                </div>
-                <div class="reveal md:w-1/2 md:pl-8">
-                    <h3 class="flex items-center font-semibold text-2xl text-primary mb-6"><i class="fas mr-3 fa-briefcase"></i> Professional Experience</h3>
-                    <div class="space-y-6">
-                        <div class="pl-8 qualification-item pb-6">
-                            <h4 class="font-semibold text-lg">Senior Physiotherapist</h4>
-                            <p class="text-gray-600">National Sports Medicine Center, 2008-2012</p>
-                            <p class="text-gray-700 mt-2">Provided rehabilitation services for elite athletes and sports teams</p>
+                    
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-laptop-code"></i>
                         </div>
-                        <div class="pl-8 qualification-item pb-6">
-                            <h4 class="font-semibold text-lg">Head of Rehabilitation Department</h4>
-                            <p class="text-gray-600">City General Hospital, 2012-2017</p>
-                            <p class="text-gray-700 mt-2">Led a team of 15 physical therapists, developed treatment protocols</p>
+                        <h4 class="industry-title">Technology & SaaS</h4>
+                        <p class="industry-description">
+                            Technical yet accessible content for software companies, tech startups, and IT service providers. I translate complex technical concepts into clear, user-friendly content that educates customers and drives product adoption.
+                        </p>
+                    </div>
+                    
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-shopping-bag"></i>
                         </div>
-                        <div class="pl-8 qualification-item pb-6">
-                            <h4 class="font-semibold text-lg">Guest Lecturer</h4>
-                            <p class="text-gray-600">University of Health Sciences, 2014-Present</p>
-                            <p class="text-gray-700 mt-2">Teaching advanced manual therapy techniques to physiotherapy students</p>
+                        <h4 class="industry-title">E-commerce & Retail</h4>
+                        <p class="industry-description">
+                            Conversion-optimized content for online stores and retail brands. From product descriptions to category pages, I create SEO-friendly content that enhances the shopping experience and increases sales.
+                        </p>
+                    </div>
+                    
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        <div class="pl-8 qualification-item">
-                            <h4 class="font-semibold text-lg">Private Practice</h4>
-                            <p class="text-gray-600">Biswanath Physiotherapy Clinic, 2017-Present</p>
-                            <p class="text-gray-700 mt-2">Providing specialized physiotherapy services to diverse patient populations</p>
+                        <h4 class="industry-title">Finance & Banking</h4>
+                        <p class="industry-description">
+                            Trustworthy financial content for banks, investment firms, and fintech companies. I create clear, compliant content that demystifies financial concepts and helps customers make informed decisions.
+                        </p>
+                    </div>
+                    
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-building"></i>
                         </div>
+                        <h4 class="industry-title">Real Estate</h4>
+                        <p class="industry-description">
+                            Persuasive real estate content for developers, agents, and property portals. I craft emotionally engaging property descriptions and market insights that help buyers envision their dream homes.
+                        </p>
+                    </div>
+                    
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4 class="industry-title">Education & E-learning</h4>
+                        <p class="industry-description">
+                            Educational content for schools, universities, and online learning platforms. I develop course materials, educational blog posts, and student resources that facilitate effective learning.
+                        </p>
+                    </div>
+                    
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h4 class="industry-title">Travel & Hospitality</h4>
+                        <p class="industry-description">
+                            Inspiring travel content for hotels, tour operators, and travel agencies. I create destination guides, travel blogs, and booking page content that ignites wanderlust and drives bookings.
+                        </p>
+                    </div>
+                    
+                    <div class="industry-card">
+                        <div class="industry-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h4 class="industry-title">Professional Services</h4>
+                        <p class="industry-description">
+                            Authority-building content for consultants, law firms, and B2B service providers. I create thought leadership articles and service pages that establish expertise and attract qualified leads.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Companies Section -->
-    <section class="section bg-gray-50" id="companies">
-        <div class="container mx-auto px-4">
-            <div class="text-center reveal mb-12">
-                <h2 class="mb-4 font-bold md:text-4xl text-3xl">Companies I've <span class="text-primary">Worked With</span></h2>
-                <div class="mx-auto bg-primary h-1 w-24 mb-6"></div>
-                <p class="text-gray-600 mx-auto max-w-3xl">Biswanath Chowdhury has collaborated with leading organizations providing specialized physiotherapy services to their employees and clients.</p>
+    <!-- Comparison Tables Section -->
+    <section class="comparisons">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Making Informed Decisions</span>
+                <h2 class="section-title">Understanding Content Writing Services</h2>
+                <p class="section-description">
+                    As an experienced <strong>content writer in Kolkata</strong>, I believe in transparency and helping clients make informed decisions. Here are some key comparisons to understand the value of professional content writing services.
+                </p>
             </div>
-            <!-- Desktop View -->
-            <div class="reveal mb-12 gap-8 grid-cols-2 hidden md:grid md:grid-cols-4">
-                <div class="flex items-center justify-center rounded-lg bg-white duration-300 flex-col hover:shadow-lg p-6 shadow transition-shadow">
-                    <div class="flex items-center justify-center h-32 w-32"><i class="fas text-primary company-logo text-5xl fa-hospital"></i></div>
-                    <h3 class="font-semibold mt-4 text-center">Apollo Hospitals</h3>
-                    <p class="text-gray-600 mt-2 text-center text-sm">Rehabilitation consultant for orthopedic department</p>
-                </div>
-                <div class="flex items-center justify-center rounded-lg bg-white duration-300 flex-col hover:shadow-lg p-6 shadow transition-shadow">
-                    <div class="flex items-center justify-center h-32 w-32"><i class="fas text-primary company-logo text-5xl fa-running"></i></div>
-                    <h3 class="font-semibold mt-4 text-center">Indian Sports Authority</h3>
-                    <p class="text-gray-600 mt-2 text-center text-sm">Physiotherapy consultant for national athletes</p>
-                </div>
-                <div class="flex items-center justify-center rounded-lg bg-white duration-300 flex-col hover:shadow-lg p-6 shadow transition-shadow">
-                    <div class="flex items-center justify-center h-32 w-32"><i class="fas text-primary company-logo text-5xl fa-building"></i></div>
-                    <h3 class="font-semibold mt-4 text-center">Infosys</h3>
-                    <p class="text-gray-600 mt-2 text-center text-sm">Workplace ergonomics and employee wellness programs</p>
-                </div>
-                <div class="flex items-center justify-center rounded-lg bg-white duration-300 flex-col hover:shadow-lg p-6 shadow transition-shadow">
-                    <div class="flex items-center justify-center h-32 w-32"><i class="fas text-primary company-logo text-5xl fa-dumbbell"></i></div>
-                    <h3 class="font-semibold mt-4 text-center">Gold's Gym</h3>
-                    <p class="text-gray-600 mt-2 text-center text-sm">Injury prevention and sports performance enhancement</p>
-                </div>
-                <div class="flex items-center justify-center rounded-lg bg-white duration-300 flex-col hover:shadow-lg p-6 shadow transition-shadow">
-                    <div class="flex items-center justify-center h-32 w-32"><i class="fas text-primary company-logo text-5xl fa-school"></i></div>
-                    <h3 class="font-semibold mt-4 text-center">Delhi Public School</h3>
-                    <p class="text-gray-600 mt-2 text-center text-sm">Sports injury management for school athletes</p>
-                </div>
-                <div class="flex items-center justify-center rounded-lg bg-white duration-300 flex-col hover:shadow-lg p-6 shadow transition-shadow">
-                    <div class="flex items-center justify-center h-32 w-32"><i class="fas text-primary company-logo text-5xl fa-plane"></i></div>
-                    <h3 class="font-semibold mt-4 text-center">Air India</h3>
-                    <p class="text-gray-600 mt-2 text-center text-sm">Ergonomic assessment and staff wellness programs</p>
-                </div>
-                <div class="flex items-center justify-center rounded-lg bg-white duration-300 flex-col hover:shadow-lg p-6 shadow transition-shadow">
-                    <div class="flex items-center justify-center h-32 w-32"><i class="fas text-primary company-logo text-5xl fa-heartbeat"></i></div>
-                    <h3 class="font-semibold mt-4 text-center">Max Healthcare</h3>
-                    <p class="text-gray-600 mt-2 text-center text-sm">Cardiac rehabilitation specialist</p>
-                </div>
-                <div class="flex items-center justify-center rounded-lg bg-white duration-300 flex-col hover:shadow-lg p-6 shadow transition-shadow">
-                    <div class="flex items-center justify-center h-32 w-32"><i class="fas text-primary company-logo text-5xl fa-futbol"></i></div>
-                    <h3 class="font-semibold mt-4 text-center">Delhi Dynamos FC</h3>
-                    <p class="text-gray-600 mt-2 text-center text-sm">Team physiotherapist for professional football club</p>
-                </div>
-            </div>
-            <!-- Mobile View -->
-            <div class="reveal mb-12 md:hidden">
-                <div class="logo-carousel py-4">
-                    <div class="rounded-lg bg-white logo-carousel-item p-4 shadow">
-                        <div class="flex items-center justify-center w-full"><i class="fas text-primary company-logo text-4xl fa-hospital"></i></div>
-                        <h3 class="font-semibold mt-4 text-center">Apollo Hospitals</h3>
-                        <p class="text-gray-600 mt-2 text-center text-xs">Rehabilitation consultant</p>
-                    </div>
-                    <div class="rounded-lg bg-white logo-carousel-item p-4 shadow">
-                        <div class="flex items-center justify-center w-full"><i class="fas text-primary company-logo text-4xl fa-running"></i></div>
-                        <h3 class="font-semibold mt-4 text-center">Indian Sports Authority</h3>
-                        <p class="text-gray-600 mt-2 text-center text-xs">Consultant physiotherapist</p>
-                    </div>
-                    <div class="rounded-lg bg-white logo-carousel-item p-4 shadow">
-                        <div class="flex items-center justify-center w-full"><i class="fas text-primary company-logo text-4xl fa-building"></i></div>
-                        <h3 class="font-semibold mt-4 text-center">Infosys</h3>
-                        <p class="text-gray-600 mt-2 text-center text-xs">Employee wellness</p>
-                    </div>
-                    <div class="rounded-lg bg-white logo-carousel-item p-4 shadow">
-                        <div class="flex items-center justify-center w-full"><i class="fas text-primary company-logo text-4xl fa-dumbbell"></i></div>
-                        <h3 class="font-semibold mt-4 text-center">Gold's Gym</h3>
-                        <p class="text-gray-600 mt-2 text-center text-xs">Sports performance</p>
-                    </div>
-                </div>
-                <div class="flex justify-center mt-6">
-                    <p class="text-primary text-sm"><i class="fas fa-arrow-right"></i> Scroll to see more partners</p>
+            
+            <!-- Comparison Table 1 -->
+            <div class="comparison-container">
+                <h3 class="comparison-title">Freelance Content Writer vs. Content Writing Agency</h3>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Freelance Content Writer (Like Me)</th>
+                                <th>Content Writing Agency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cost</td>
+                                <td class="highlight-cell">More affordable with transparent pricing and no overhead costs</td>
+                                <td>Higher costs due to agency overheads and multiple team members</td>
+                            </tr>
+                            <tr>
+                                <td>Direct Communication</td>
+                                <td class="highlight-cell">Direct access to the writer, faster response times, clearer understanding</td>
+                                <td>Communication through project managers, potential delays and miscommunication</td>
+                            </tr>
+                            <tr>
+                                <td>Consistency</td>
+                                <td class="highlight-cell">Single writer ensures consistent brand voice and writing style</td>
+                                <td>Multiple writers may lead to inconsistent tone and quality</td>
+                            </tr>
+                            <tr>
+                                <td>Flexibility</td>
+                                <td class="highlight-cell">Highly flexible with project scope, timelines, and revisions</td>
+                                <td>Rigid processes and less room for customization</td>
+                            </tr>
+                            <tr>
+                                <td>Expertise</td>
+                                <td class="highlight-cell">Specialized expertise with 10+ years experience and proven track record</td>
+                                <td>Variable quality depending on assigned writer</td>
+                            </tr>
+                            <tr>
+                                <td>Turnaround Time</td>
+                                <td class="highlight-cell">Faster turnaround with dedicated attention to your project</td>
+                                <td>Longer timelines due to internal processes and approvals</td>
+                            </tr>
+                            <tr>
+                                <td>Personal Investment</td>
+                                <td class="highlight-cell">Personal stake in your success, builds long-term partnerships</td>
+                                <td>Transactional relationships focused on volume</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="text-center reveal">
-                <h3 class="font-semibold text-2xl mb-4">Interested in Corporate Partnerships?</h3>
-                <p class="text-gray-600 mx-auto max-w-2xl mb-6">Biswanath Chowdhury offers specialized physiotherapy services for corporate wellness programs, including ergonomic assessments, injury prevention workshops, and on-site therapy.</p>
-<a class="flex justify-center items-center font-medium py-3 btn-primary px-6 rounded-full shadow-lg mx-auto text-center" href="#contact">
-    <i class="fas fa-handshake mr-2"></i> Discuss Partnership Opportunities
-</a>
+            
+            <!-- Comparison Table 2 -->
+            <div class="comparison-container">
+                <h3 class="comparison-title">SEO-Optimized Content vs. Regular Content</h3>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>SEO-Optimized Content</th>
+                                <th>Regular Content</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Keyword Research</td>
+                                <td class="highlight-cell">Strategic keyword integration based on search volume and competition analysis</td>
+                                <td>No keyword strategy, written without search intent consideration</td>
+                            </tr>
+                            <tr>
+                                <td>Search Visibility</td>
+                                <td class="highlight-cell">Designed to rank high on search engines and attract organic traffic</td>
+                                <td>Low search visibility, difficult for target audience to discover</td>
+                            </tr>
+                            <tr>
+                                <td>Structure</td>
+                                <td class="highlight-cell">Optimized headings (H1, H2, H3), meta tags, and URL structure</td>
+                                <td>Basic structure without SEO consideration</td>
+                            </tr>
+                            <tr>
+                                <td>Internal Linking</td>
+                                <td class="highlight-cell">Strategic internal links to improve site architecture and user navigation</td>
+                                <td>Minimal or no internal linking strategy</td>
+                            </tr>
+                            <tr>
+                                <td>Content Length</td>
+                                <td class="highlight-cell">Optimized length based on topic complexity and competitor analysis (typically 1500-3000+ words)</td>
+                                <td>Variable length without strategic consideration</td>
+                            </tr>
+                            <tr>
+                                <td>User Intent</td>
+                                <td class="highlight-cell">Addresses specific search queries and user needs</td>
+                                <td>Generic content not aligned with what users are searching for</td>
+                            </tr>
+                            <tr>
+                                <td>Long-term Value</td>
+                                <td class="highlight-cell">Continuous organic traffic and leads over time</td>
+                                <td>Limited reach and short-term impact</td>
+                            </tr>
+                            <tr>
+                                <td>ROI</td>
+                                <td class="highlight-cell">Higher ROI through sustained organic visibility and lower customer acquisition cost</td>
+                                <td>Lower ROI, requires ongoing paid promotion for visibility</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Comparison Table 3 -->
+            <div class="comparison-container">
+                <h3 class="comparison-title">Professional Content Writer vs. AI-Generated Content</h3>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Criteria</th>
+                                <th>Professional Content Writer</th>
+                                <th>AI-Generated Content</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Originality</td>
+                                <td class="highlight-cell">100% original content with unique perspectives and insights</td>
+                                <td>May contain recycled information and lack original thought</td>
+                            </tr>
+                            <tr>
+                                <td>E-E-A-T Compliance</td>
+                                <td class="highlight-cell">Demonstrates genuine experience, expertise, authoritativeness, and trustworthiness</td>
+                                <td>Cannot demonstrate real-world experience or establish true authority</td>
+                            </tr>
+                            <tr>
+                                <td>Emotional Connection</td>
+                                <td class="highlight-cell">Creates authentic emotional resonance with readers</td>
+                                <td>Lacks genuine emotional understanding and human touch</td>
+                            </tr>
+                            <tr>
+                                <td>Strategic Thinking</td>
+                                <td class="highlight-cell">Understands business objectives and creates content aligned with goals</td>
+                                <td>Follows patterns without understanding business context</td>
+                            </tr>
+                            <tr>
+                                <td>Quality Assurance</td>
+                                <td class="highlight-cell">Human judgment, fact-checking, and quality control</td>
+                                <td>May contain factual errors and require extensive editing</td>
+                            </tr>
+                            <tr>
+                                <td>Brand Voice</td>
+                                <td class="highlight-cell">Develops and maintains consistent, distinctive brand voice</td>
+                                <td>Generic tone that sounds similar across brands</td>
+                            </tr>
+                            <tr>
+                                <td>Cultural Nuance</td>
+                                <td class="highlight-cell">Understands local context, cultural references, and market-specific insights (especially for Kolkata market)</td>
+                                <td>Lacks cultural sensitivity and local market understanding</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Informational Content Section -->
+    <section class="content-info">
+        <div class="container">
+            <div class="info-content">
+                <h2 class="info-title">The Complete Guide to Finding the Right Content Writer in Kolkata</h2>
+                
+                <div class="info-section">
+                    <h3>Why Professional Content Writing Matters in Today's Digital Landscape</h3>
+                    <p>
+                        In an era where content is the cornerstone of digital marketing success, partnering with an experienced <strong>content writer in Kolkata</strong> can be the difference between obscurity and online prominence. Quality content serves multiple critical functions: it educates your audience, builds brand authority, improves search engine rankings, nurtures leads, and ultimately drives conversions. However, not all content is created equal.
+                    </p>
+                    <p>
+                        Professional content writing goes beyond stringing words together. It requires a deep understanding of <a href="#services" class="internal-link">SEO best practices</a>, audience psychology, brand positioning, and conversion optimization. As someone who has dedicated over 30,000 hours to mastering this craft, I've witnessed firsthand how strategic content can transform businesses—increasing organic traffic by 200%, generating qualified leads, and establishing brands as industry authorities.
+                    </p>
+                    <p>
+                        The investment in professional content writing pays dividends over time. Unlike paid advertising that stops delivering results when you stop spending, quality content continues attracting visitors, building authority, and generating leads long after publication. This makes it one of the most cost-effective marketing strategies available to businesses of all sizes.
+                    </p>
+                </div>
+                
+                <div class="info-section">
+                    <h3>Understanding the Kolkata Content Writing Market</h3>
+                    <p>
+                        Kolkata has emerged as a significant hub for content writing services in India, offering a unique blend of literary heritage, linguistic excellence, and modern digital expertise. The city's rich cultural background—from being the birthplace of numerous literary legends to its contemporary position as an education and technology center—creates an environment where quality writing flourishes.
+                    </p>
+                    <p>
+                        As a <strong>content writer in Kolkata</strong> for over a decade, I've seen the market evolve significantly. What began as basic article writing has transformed into a sophisticated industry offering specialized services across multiple niches. Today, Kolkata-based content writers serve clients not just locally but across India and internationally, bringing a unique perspective that combines global best practices with local insights.
+                    </p>
+                    <p>
+                        The advantage of working with a Kolkata-based content writer extends beyond cost-effectiveness. The city's diverse business ecosystem—from traditional industries to modern startups—has equipped local writers with versatile expertise. Whether you need content for a family-owned retail business or a cutting-edge SaaS platform, experienced writers in Kolkata can deliver with equal proficiency.
+                    </p>
+                    <p>
+                        Moreover, Kolkata's time zone advantage (IST) makes it ideal for both domestic and international collaborations. The city's robust educational infrastructure ensures a constant supply of linguistically skilled professionals, while the lower cost of living translates to more competitive rates without compromising quality—a win-win for businesses seeking value.
+                    </p>
+                </div>
+                
+                <div class="info-section">
+                    <h3>What Sets Apart an Expert Content Writer in Kolkata</h3>
+                    <p>
+                        Not all content writers offer the same value. An expert content writer brings a combination of skills, experience, and strategic thinking that goes far beyond basic writing ability. Here's what distinguishes truly exceptional content writers:
+                    </p>
+                    <p>
+                        <strong>Proven Experience and Track Record:</strong> Years of hands-on experience matter immensely. My 10+ years in the industry and 100+ completed projects have exposed me to virtually every content challenge imaginable. This experience enables me to anticipate issues, navigate complex topics, and deliver quality consistently. When evaluating any <a href="#about" class="internal-link">professional content writer</a>, always review their portfolio and client testimonials.
+                    </p>
+                    <p>
+                        <strong>SEO Expertise:</strong> Modern content writing is inseparable from SEO. An expert content writer understands keyword research, search intent, on-page optimization, and how to balance SEO requirements with readability. They stay updated with algorithm changes and adapt their strategies accordingly. My content consistently ranks on first-page search results because it's optimized for both search engines and human readers.
+                    </p>
+                    <p>
+                        <strong>Industry Versatility:</strong> The ability to write effectively across multiple industries demonstrates adaptability and research skills. Throughout my career, I've created content for <a href="#services" class="internal-link">healthcare, technology, finance, e-commerce</a>, and numerous other sectors. This versatility comes from a systematic approach to understanding new industries, conducting thorough research, and quickly grasping complex concepts.
+                    </p>
+                    <p>
+                        <strong>Strategic Thinking:</strong> Great content writers don't just execute—they strategize. They understand your business objectives, target audience, and competitive landscape. They recommend content topics, formats, and distribution strategies that align with your goals. This consultative approach transforms content from a tactical activity into a strategic asset.
+                    </p>
+                    <p>
+                        <strong>E-E-A-T Compliance:</strong> Google's emphasis on Experience, Expertise, Authoritativeness, and Trustworthiness (E-E-A-T) means content must demonstrate genuine credibility. Professional content writers know how to incorporate author credentials, cite authoritative sources, provide original insights, and structure content to signal expertise. This is especially crucial for YMYL (Your Money Your Life) topics in healthcare, finance, and other sensitive areas.
+                    </p>
+                    <p>
+                        <strong>Excellent Communication:</strong> A content writer is ultimately a communication professional. Beyond written communication, they should maintain clear, responsive communication with clients. They should understand briefs quickly, ask clarifying questions, incorporate feedback gracefully, and meet deadlines consistently. These soft skills are as important as writing ability in maintaining successful long-term partnerships.
+                    </p>
+                </div>
+                
+                <div class="info-section">
+                    <h3>The Content Writing Process: How Professional Writers Deliver Results</h3>
+                    <p>
+                        Understanding the process behind professional content creation helps you appreciate the value a skilled content writer brings. Here's how I approach every project to ensure exceptional results:
+                    </p>
+                    <p>
+                        <strong>Step 1: Discovery and Research</strong><br>
+                        Every successful project begins with thorough understanding. I start by diving deep into your business, target audience, competitive landscape, and content objectives. This involves reviewing existing materials, conducting competitor analysis, identifying content gaps, and understanding your unique value proposition. For <a href="#services" class="internal-link">SEO content</a>, this phase includes comprehensive keyword research to identify opportunities.
+                    </p>
+                    <p>
+                        <strong>Step 2: Strategic Planning</strong><br>
+                        Based on research insights, I develop a content strategy that outlines topics, formats, messaging, and success metrics. This strategic framework ensures every piece of content serves a purpose and contributes to your broader business objectives. Whether you need a single blog post or a year-long content calendar, planning provides direction and consistency.
+                    </p>
+                    <p>
+                        <strong>Step 3: Content Creation</strong><br>
+                        This is where research and strategy transform into compelling content. I write with your target audience in mind, balancing information with engagement, optimization with readability. Each piece is crafted to reflect your brand voice, incorporate relevant keywords naturally, and guide readers toward desired actions. My 30,000+ hours of writing experience ensure efficiency without compromising quality.
+                    </p>
+                    <p>
+                        <strong>Step 4: Optimization and Enhancement</strong><br>
+                        After the initial draft, I enhance the content through optimization. This includes refining headlines, adding internal links, incorporating relevant images or multimedia suggestions, formatting for readability (headings, bullet points, short paragraphs), and ensuring all on-page SEO elements are properly implemented. This attention to detail maximizes content performance.
+                    </p>
+                    <p>
+                        <strong>Step 5: Quality Assurance</strong><br>
+                        Before delivery, every piece undergoes rigorous quality checks. I verify facts, ensure grammatical perfection, check for plagiarism, validate links, and confirm alignment with your brief. This quality assurance process guarantees you receive polished, publish-ready content.
+                    </p>
+                    <p>
+                        <strong>Step 6: Revision and Refinement</strong><br>
+                        I welcome client feedback and typically include revision rounds to ensure complete satisfaction. This collaborative approach ensures the final content perfectly matches your vision and requirements.
+                    </p>
+                    <p>
+                        <strong>Step 7: Performance Monitoring (Ongoing)</strong><br>
+                        For long-term partnerships, I monitor content performance through analytics—tracking rankings, traffic, engagement, and conversions. These insights inform future content strategy, creating a continuous improvement cycle that maximizes ROI over time.
+                    </p>
+                </div>
+                
+                <div class="info-section">
+                    <h3>The ROI of Professional Content Writing Services</h3>
+                    <p>
+                        Businesses often question the return on investment for professional content writing. The data speaks clearly: strategic content delivers substantial returns across multiple metrics. Let me break down the tangible and intangible benefits of investing in quality content:
+                    </p>
+                    <p>
+                        <strong>Increased Organic Traffic:</strong> Quality, SEO-optimized content improves search rankings, which directly translates to more organic visitors. My clients typically see 100-200% increases in organic traffic within 6-12 months of implementing consistent content strategies. Unlike paid advertising where traffic stops when spending stops, organic traffic compounds over time.
+                    </p>
+                    <p>
+                        <strong>Enhanced Lead Generation:</strong> Strategic content attracts qualified prospects actively searching for solutions you provide. Well-crafted content educates potential customers, addresses their concerns, and guides them toward conversion. Studies show content marketing generates 3x more leads than traditional marketing while costing 62% less.
+                    </p>
+                    <p>
+                        <strong>Improved Conversion Rates:</strong> Quality content builds trust and credibility. When visitors find valuable information on your website, they're more likely to view your brand favorably and convert into customers. My <a href="#portfolio" class="internal-link">portfolio demonstrates</a> conversion rate improvements ranging from 25% to 50% through optimized content.
+                    </p>
+                    <p>
+                        <strong>Reduced Customer Acquisition Cost:</strong> As organic traffic and conversions increase, your customer acquisition cost decreases. The initial investment in quality content continues paying dividends for years, making it one of the most cost-effective marketing channels available.
+                    </p>
+                    <p>
+                        <strong>Brand Authority and Trust:</strong> Consistent, valuable content positions your brand as an industry authority. When potential customers repeatedly encounter your helpful content, they develop trust. This intangible benefit is difficult to quantify but incredibly valuable—trusted brands command premium pricing and enjoy higher customer lifetime value.
+                    </p>
+                    <p>
+                        <strong>Long-term Asset Creation:</strong> Unlike ephemeral marketing tactics, quality content is a permanent asset. A comprehensive guide or thought-leadership article continues attracting visitors and generating leads for years after publication. My clients' older blog posts often rank on first pages and consistently deliver traffic—that's the power of evergreen content.
+                    </p>
+                    <p>
+                        <strong>Competitive Advantage:</strong> In crowded markets, superior content differentiates your brand. When you provide more valuable, comprehensive, and engaging content than competitors, you capture greater market share. As an experienced <strong>content writer in Kolkata</strong>, I help businesses establish this competitive edge.
+                    </p>
+                </div>
+                
+                <div class="info-section">
+                    <h3>Common Content Writing Mistakes and How to Avoid Them</h3>
+                    <p>
+                        Throughout my decade-long career, I've observed numerous content mistakes that undermine marketing efforts. Understanding these pitfalls helps you appreciate the value of professional expertise:
+                    </p>
+                    <p>
+                        <strong>Mistake 1: Prioritizing Quantity Over Quality</strong><br>
+                        Many businesses believe more content automatically equals better results. This quantity-first approach often produces thin, low-value content that fails to engage readers or rank in search engines. The solution: Focus on creating comprehensive, valuable content that thoroughly addresses topics. One exceptional 3000-word guide outperforms ten shallow 300-word posts.
+                    </p>
+                    <p>
+                        <strong>Mistake 2: Ignoring Search Intent</strong><br>
+                        Creating content without understanding what users actually want leads to poor performance. For example, someone searching "content writer in Kolkata" likely seeks to hire a writer, not read about content writing history. Professional content writers analyze search intent and align content accordingly.
+                    </p>
+                    <p>
+                        <strong>Mistake 3: Keyword Stuffing</strong><br>
+                        While keywords are important, excessive repetition harms readability and can trigger search engine penalties. The modern approach involves natural keyword integration that maintains flow while signaling relevance to search engines.
+                    </p>
+                    <p>
+                        <strong>Mistake 4: Neglecting Content Structure</strong><br>
+                        Large blocks of text intimidate readers. Professional content uses headings, subheadings, bullet points, and short paragraphs to enhance scannability. This structure improves both user experience and SEO performance.
+                    </p>
+                    <p>
+                        <strong>Mistake 5: Lack of Clear CTAs</strong><br>
+                        Content without clear calls-to-action fails to guide readers toward desired actions. Every piece should have a purpose—whether educating, entertaining, or converting—and include appropriate CTAs aligned with that purpose.
+                    </p>
+                    <p>
+                        <strong>Mistake 6: Inconsistent Publishing</strong><br>
+                        Sporadic content creation fails to build momentum. Search engines favor websites that publish consistently, and audiences come to expect regular content from brands they follow. A sustainable content calendar ensures consistency.
+                    </p>
+                    <p>
+                        <strong>Mistake 7: Ignoring E-E-A-T Principles</strong><br>
+                        Content that lacks demonstrated expertise, experience, authoritativeness, and trustworthiness struggles to rank, especially in competitive niches. Professional writers incorporate author credentials, cite authoritative sources, and structure content to establish credibility.
+                    </p>
+                </div>
+                
+                <div class="info-section">
+                    <h3>How to Choose the Right Content Writer for Your Business</h3>
+                    <p>
+                        Selecting the right content writer is a critical decision that impacts your marketing success. Here's a comprehensive guide to making the right choice:
+                    </p>
+                    <p>
+                        <strong>Review Their Portfolio:</strong> A content writer's portfolio reveals their capabilities better than any claim. Look for diversity in topics and formats, quality of writing, and results achieved. My <a href="#portfolio" class="internal-link">portfolio showcases</a> work across multiple industries with documented outcomes.
+                    </p>
+                    <p>
+                        <strong>Assess Industry Experience:</strong> Writers with experience in your industry understand your audience, speak your language, and require less hand-holding. If industry-specific experience isn't available, look for demonstrated ability to quickly grasp new subjects.
+                    </p>
+                    <p>
+                        <strong>Evaluate SEO Knowledge:</strong> In today's digital landscape, content writing and SEO are inseparable. Ask potential writers about their keyword research process, understanding of search intent, and approach to on-page optimization. Request examples of content that ranks well.
+                    </p>
+                    <p>
+                        <strong>Check References and Testimonials:</strong> Client testimonials provide social proof and insights into working relationships. Don't hesitate to contact references directly to ask about reliability, quality, and results.
+                    </p>
+                    <p>
+                        <strong>Discuss Their Process:</strong> Understanding how a writer approaches projects reveals their professionalism. Ask about their research methods, revision policies, turnaround times, and quality assurance processes.
+                    </p>
+                    <p>
+                        <strong>Assess Communication Skills:</strong> Strong communication is essential for successful partnerships. During initial conversations, notice response times, clarity of communication, and whether they ask insightful questions about your business and objectives.
+                    </p>
+                    <p>
+                        <strong>Consider Availability and Scalability:</strong> Ensure the writer can accommodate your current needs and scale with your business. Discuss their capacity, typical turnaround times, and policies for rush projects or high-volume work.
+                    </p>
+                    <p>
+                        <strong>Start with a Test Project:</strong> Before committing to large projects, start with a smaller test assignment. This allows you to evaluate quality, adherence to guidelines, receptiveness to feedback, and overall working compatibility.
+                    </p>
+                </div>
+                
+                <div class="info-section">
+                    <h3>The Future of Content Writing: Trends Shaping the Industry</h3>
+                    <p>
+                        As an experienced <strong>content writer in Kolkata</strong>, staying ahead of industry trends is crucial. Here are key developments shaping content writing's future:
+                    </p>
+                    <p>
+                        <strong>AI-Assisted (Not AI-Generated) Content:</strong> While AI tools are becoming prevalent, they serve best as assistants rather than replacements. Professional writers use AI for research, ideation, and optimization while maintaining the human creativity, strategic thinking, and emotional intelligence that AI cannot replicate. The future belongs to writers who effectively leverage AI while preserving authentic human voice.
+                    </p>
+                    <p>
+                        <strong>Increased Emphasis on E-E-A-T:</strong> Google continues prioritizing content that demonstrates genuine expertise and experience. This trend benefits professional writers with proven track records and industry knowledge. Expect increasing demand for content that showcases author credentials and first-hand experience.
+                    </p>
+                    <p>
+                        <strong>Video and Multimedia Integration:</strong> Written content increasingly incorporates multimedia elements. Content writers must understand how to complement text with images, infographics, videos, and interactive elements to enhance engagement and cater to diverse learning preferences.
+                    </p>
+                    <p>
+                        <strong>Conversational and Voice Search Optimization:</strong> As voice search grows, content must address natural language queries and conversational phrases. This shift influences keyword strategy and content structure, favoring long-tail keywords and question-based formats.
+                    </p>
+                    <p>
+                        <strong>Hyper-Personalization:</strong> Advances in technology enable increasingly personalized content experiences. Content writers must create adaptable content that resonates with specific audience segments while maintaining brand consistency.
+                    </p>
+                    <p>
+                        <strong>Sustainability and Purpose-Driven Content:</strong> Audiences increasingly value brands that demonstrate social responsibility and authentic values. Content writers must help brands communicate their purpose and values authentically without appearing performative.
+                    </p>
+                </div>
+                
+                <div class="info-section">
+                    <h3>Why Kolkata Businesses Should Prioritize Local Content Writers</h3>
+                    <p>
+                        While content writing services are available globally, there are compelling reasons for Kolkata businesses to work with local content writers:
+                    </p>
+                    <p>
+                        <strong>Cultural and Market Understanding:</strong> A <strong>content writer in Kolkata</strong> understands the local market nuances, cultural references, and consumer behavior patterns that resonate with regional audiences. This local insight ensures content connects authentically with your target market.
+                    </p>
+                    <p>
+                        <strong>Language Proficiency:</strong> While English is universal, Kolkata's literary heritage produces writers with exceptional linguistic skills. The city's emphasis on education and literature cultivates writers who excel in both creative and technical writing.
+                    </p>
+                    <p>
+                        <strong>Time Zone Convenience:</strong> Working with local writers eliminates time zone challenges. Real-time communication, quick turnarounds, and same-day revisions become possible when you're in the same time zone.
+                    </p>
+                    <p>
+                        <strong>Cost Effectiveness:</strong> Kolkata offers exceptional value—professional writers deliver international-quality work at rates more competitive than major metros like Mumbai or Delhi, and far more affordable than Western countries.
+                    </p>
+                    <p>
+                        <strong>In-Person Collaboration:</strong> When needed, local partnerships enable face-to-face meetings for complex projects, strategic planning sessions, or relationship building—valuable opportunities not available with remote partnerships.
+                    </p>
+                    <p>
+                        <strong>Supporting Local Economy:</strong> Partnering with local professionals contributes to Kolkata's economy and business ecosystem, fostering a thriving local community of skilled professionals.
+                    </p>
+                </div>
+                
+                <div class="info-section">
+                    <h3>Getting Started: How to Begin Your Content Writing Journey</h3>
+                    <p>
+                        Ready to leverage professional content writing for your business? Here's how to get started effectively:
+                    </p>
+                    <p>
+                        <strong>Define Your Objectives:</strong> Before approaching any content writer, clarify what you want to achieve. Are you looking to increase organic traffic, generate leads, establish thought leadership, or support product launches? Clear objectives guide content strategy and enable measurable success.
+                    </p>
+                    <p>
+                        <strong>Understand Your Audience:</strong> Effective content speaks directly to your target audience. Document your ideal customer profiles—their demographics, pain points, questions, and preferred content formats. This information helps writers create resonant content.
+                    </p>
+                    <p>
+                        <strong>Audit Existing Content:</strong> If you have existing content, conduct an audit to identify what's working, what needs improvement, and where gaps exist. This assessment provides baseline data and informs content priorities.
+                    </p>
+                    <p>
+                        <strong>Set a Realistic Budget:</strong> Quality content writing is an investment. While rates vary, remember that professional expertise delivers ROI that far exceeds costs. Allocate budget that allows for consistent, quality content rather than sporadic, budget content.
+                    </p>
+                    <p>
+                        <strong>Start with a Consultation:</strong> Most professional writers offer initial consultations to discuss your needs, review their process, and determine fit. Use this opportunity to ask questions, share objectives, and assess whether the partnership feels right.
+                    </p>
+                    <p>
+                        <strong>Begin with a Pilot Project:</strong> Rather than committing to extensive projects immediately, start with a defined pilot—perhaps a few blog posts or website pages. This allows both parties to establish workflow, communication preferences, and quality expectations.
+                    </p>
+                    <p>
+                        <strong>Plan for Consistency:</strong> Content marketing requires consistency for best results. Whether monthly blog posts, quarterly whitepapers, or weekly social content, establish a sustainable publishing cadence and commit to maintaining it.
+                    </p>
+                    <p>
+                        If you're searching for an experienced, reliable <strong>content writer in Kolkata</strong>, I invite you to explore my <a href="#services" class="internal-link">services</a>, review my <a href="#portfolio" class="internal-link">portfolio</a>, and <a href="#contact" class="internal-link">contact me</a> to discuss how we can achieve your content goals together. With 10 years of experience, 30,000+ hours of dedicated work, and 100+ successful projects, I bring the expertise, commitment, and results-driven approach your business deserves.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-<section id="contact" class="section bg-gradient-primary text-white">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-12 reveal">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Visit Our <span class="text-white">Physiotherapy Centre</span></h2>
-            <div class="w-24 h-1 bg-white mx-auto"></div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="reveal">
-                <h3 class="text-2xl font-semibold mb-4">Contact Us Today</h3>
-                <p class="mb-4">Take the first step towards recovery at our physiotherapy centre near Naihati. Reach out to schedule your appointment.</p>
-                <ul class="space-y-4">
-                    <li class="flex items-center">
-                        <i class="fas fa-phone-alt text-white mr-3"></i> +91 123-456-7890
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-envelope text-white mr-3"></i> info@naihatiphysio.com
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-map-marker-alt text-white mr-3"></i> Naihati, West Bengal, India
-                    </li>
-                </ul>
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="section-title">Let's Create Something Amazing Together</h2>
+                <p class="section-description">
+                    Ready to elevate your content and achieve your business goals? I'm here to help. Whether you need a single blog post or a comprehensive content strategy, let's discuss how we can work together.
+                </p>
             </div>
-            <div class="reveal">
-                <div class="bg-white p-6 rounded-lg shadow-lg text-gray-800">
-                    <div class="mb-4">
-                        <label for="name" class="block text-sm font-medium">Name</label>
-                        <input type="text" id="name" class="w-full p-3 border rounded-lg" required>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Call Me</h4>
+                            <a href="tel:+919038303107">+91 9038303107</a>
+                        </div>
                     </div>
-                    <div class="mb-4">
-                        <label for="email" class="block text-sm font-medium">Email</label>
-                        <input type="email" id="email" class="w-full p-3 border rounded-lg" required>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Me</h4>
+                            <a href="mailto:tanusreedutta@example.com">tanusreedutta@example.com</a>
+                        </div>
                     </div>
-                    <div class="mb-4">
-                        <label for="message" class="block text-sm font-medium">Message</label>
-                        <textarea id="message" class="w-full p-3 border rounded-lg" rows="4" required></textarea>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Kolkata, West Bengal, India</p>
+                        </div>
                     </div>
-<a href="https://wa.me/919038303107" target="_blank" class="btn-primary w-full py-3 rounded-full font-medium text-center block">
-    Send Message on WhatsApp
-</a>
-
+                    
+                    <div class="contact-social">
+                        <h4>Connect on Social Media</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="blog">Blog Writing</option>
+                                <option value="website">Website Content</option>
+                                <option value="seo">SEO Content</option>
+                                <option value="technical">Technical Writing</option>
+                                <option value="social">Social Media Content</option>
+                                <option value="email">Email Marketing</option>
+                                <option value="product">Product Descriptions</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Tanusree Dutta</h3>
+                    <p class="footer-description">
+                        Professional content writer in Kolkata with 10+ years of experience helping businesses achieve their content goals through strategic, SEO-optimized writing.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Blog Writing</a></li>
+                        <li><a href="#services">SEO Content</a></li>
+                        <li><a href="#services">Website Content</a></li>
+                        <li><a href="#services">Technical Writing</a></li>
+                        <li><a href="#services">Product Descriptions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Contact Info</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+919038303107">+91 9038303107</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:tanusreedutta@example.com">tanusreedutta@example.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kolkata, West Bengal</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tanusree Dutta - Professional Content Writer in Kolkata. All Rights Reserved.</p>
+                <p class="footer-tagline">Transforming Ideas into Compelling Content Since 2014</p>
+            </div>
+        </div>
+    </footer>
 
-      <div id="footer"></div>
-   <script src="home.js" defer></script>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
+    <script src="js/main.js"></script>
 </body>
 </html>
