@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ImageHarvest – Extract All Images from Any URL | Free Bulk Scraper + Keyword Renaming</title>
+<meta name="description" content="Free online tool to extract and download all images from any webpage URL. Bulk download with custom keyword naming, filters by size/type, ZIP export. No signup required.">
+<meta name="keywords" content="image scraper, extract images from url, bulk image downloader, website image extractor, download all images from website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f8fc;
+  --bg2: #edf0f9;
+  --white: #ffffff;
+  --border: #e3e7f0;
+  --border2: #cdd3e8;
+  --accent: #4361ee;
+  --accent-d: #2f4bd4;
+  --accent2: #ff3d7f;
+  --accent3: #00c896;
+  --accent4: #ff9500;
+  --accent5: #7c3aed;
+  --text: #181c2e;
+  --text-m: #4a506a;
+  --text-d: #818aaa;
+  --text-l: #b8c0d8;
+  --sh0: 0 1px 3px rgba(40,50,100,.07), 0 1px 2px rgba(40,50,100,.04);
+  --sh1: 0 4px 18px rgba(40,50,100,.09), 0 1px 4px rgba(40,50,100,.04);
+  --sh2: 0 12px 44px rgba(40,50,100,.13), 0 4px 12px rgba(40,50,100,.06);
+  --r: 14px;
+  --rsm: 8px;
+  --rlg: 20px;
+  --f: 'Plus Jakarta Sans', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--f); line-height: 1.6; overflow-x: hidden; font-size: 15px; }
+::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: var(--bg2); } ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+/* HEADER */
+.hdr { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 200; box-shadow: var(--sh0); }
+.hdr-in { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 62px; gap: 20px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); flex-shrink: 0; }
+.logo-mk { width: 38px; height: 38px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 10px; display: grid; place-items: center; font-size: 19px; box-shadow: 0 4px 12px rgba(67,97,238,.25); }
+.logo-nm { font-size: 18px; font-weight: 800; letter-spacing: -.5px; }
+.logo-nm em { font-style: normal; color: var(--accent); }
+nav { display: flex; align-items: center; gap: 2px; }
+nav a { padding: 7px 14px; border-radius: var(--rsm); text-decoration: none; color: var(--text-m); font-size: 14px; font-weight: 600; transition: all .18s; }
+nav a:hover { background: var(--bg2); color: var(--accent); }
+nav a.act { color: var(--accent); background: rgba(67,97,238,.08); }
+.hdr-badge { display: flex; align-items: center; gap: 6px; background: rgba(0,200,150,.1); border: 1px solid rgba(0,200,150,.25); border-radius: 20px; padding: 5px 12px; font-size: 12px; font-weight: 700; color: var(--accent3); }
+.mob-btn { display: none; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--rsm); padding: 8px 10px; cursor: pointer; font-size: 18px; color: var(--text-m); }
+.mob-nav { display: none; flex-direction: column; background: var(--white); border-top: 1px solid var(--border); padding: 12px 20px; gap: 4px; }
+.mob-nav.open { display: flex; }
+.mob-nav a { padding: 10px 14px; border-radius: var(--rsm); text-decoration: none; color: var(--text-m); font-weight: 600; font-size: 14px; }
+.mob-nav a:hover { background: var(--bg2); color: var(--accent); }
+
+/* HERO */
+.hero { background: linear-gradient(155deg, #eef0ff 0%, #f5f7ff 45%, #fff0f6 100%); border-bottom: 1px solid var(--border); padding: 56px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 15% 60%, rgba(67,97,238,.06) 0%, transparent 55%), radial-gradient(circle at 85% 20%, rgba(255,61,127,.04) 0%, transparent 50%); pointer-events: none; }
+.hero-in { max-width: 800px; margin: 0 auto; position: relative; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(67,97,238,.08); border: 1px solid rgba(67,97,238,.18); border-radius: 20px; padding: 6px 16px; font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 20px; letter-spacing: .3px; animation: fdD .5s ease both; }
+.pdot { width: 7px; height: 7px; background: var(--accent3); border-radius: 50%; animation: pu 2s infinite; }
+@keyframes pu { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.75)} }
+@keyframes fdD { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:none} }
+@keyframes fdU { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} }
+@keyframes scIn { from{opacity:0;transform:scale(.96)} to{opacity:1;transform:scale(1)} }
+@keyframes spin { to{transform:rotate(360deg)} }
+h1 { font-size: clamp(30px,5vw,56px); font-weight: 900; letter-spacing: -2px; line-height: 1.06; margin-bottom: 16px; animation: fdD .5s .07s ease both; }
+h1 em { font-style: normal; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-sub { font-size: clamp(14px,2vw,17px); color: var(--text-m); max-width: 580px; margin: 0 auto 26px; font-weight: 500; animation: fdD .5s .14s ease both; }
+.hero-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; animation: fdD .5s .2s ease both; }
+.pill { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 5px 13px; font-size: 12px; font-weight: 600; color: var(--text-m); box-shadow: var(--sh0); }
+.pill strong { color: var(--accent); }
+
+/* MAIN */
+.main { max-width: 1280px; margin: 0 auto; padding: 36px 24px 64px; }
+
+/* TOOL CARD */
+.tool-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--rlg); box-shadow: var(--sh1); overflow: hidden; animation: fdU .5s .28s ease both; }
+.tool-tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--bg); }
+.tab-btn { flex: 1; padding: 14px 16px; background: none; border: none; font-family: var(--f); font-size: 13px; font-weight: 700; cursor: pointer; color: var(--text-d); transition: all .18s; position: relative; display: flex; align-items: center; justify-content: center; gap: 7px; }
+.tab-btn.act { background: var(--white); color: var(--accent); }
+.tab-btn.act::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background: var(--accent); }
+.tab-icon { font-size: 16px; }
+.tab-badge { background: var(--accent2); color: #fff; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 800; }
+
+/* SINGLE URL MODE */
+.mode-pane { display: none; padding: 26px; }
+.mode-pane.act { display: block; animation: fdU .3s ease both; }
+
+.url-row { display: flex; gap: 10px; margin-bottom: 18px; }
+.url-input-wrap { flex: 1; position: relative; }
+.url-input { width: 100%; background: var(--bg); border: 2px solid var(--border2); border-radius: var(--r); color: var(--text); font-family: var(--f); font-size: 14px; font-weight: 500; padding: 13px 16px 13px 44px; transition: all .2s; }
+.url-input:focus { outline: none; border-color: var(--accent); background: #fff; box-shadow: 0 0 0 3px rgba(67,97,238,.1); }
+.url-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 16px; pointer-events: none; }
+
+/* KEYWORDS SECTION */
+.kw-section { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 18px; margin-bottom: 18px; }
+.kw-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+.kw-title { font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 7px; }
+.kw-title .ki { font-size: 15px; }
+.kw-hint { font-size: 11px; color: var(--text-d); font-weight: 500; }
+.kw-counter { font-family: var(--mono); font-size: 12px; color: var(--accent); font-weight: 500; background: rgba(67,97,238,.08); border-radius: 8px; padding: 2px 8px; }
+.kw-textarea { width: 100%; background: var(--white); border: 1.5px solid var(--border2); border-radius: var(--rsm); color: var(--text); font-family: var(--mono); font-size: 12px; padding: 12px 14px; resize: vertical; min-height: 100px; max-height: 200px; transition: border-color .2s; line-height: 1.6; }
+.kw-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(67,97,238,.08); }
+.kw-actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; align-items: center; }
+.kw-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.kw-tag { background: rgba(67,97,238,.08); border: 1px solid rgba(67,97,238,.18); border-radius: 12px; padding: 3px 10px; font-size: 11px; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 5px; }
+.kw-tag .rm { cursor: pointer; color: var(--text-d); font-size: 12px; line-height: 1; transition: color .15s; }
+.kw-tag .rm:hover { color: var(--accent2); }
+
+/* FILTERS */
+.filters-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 18px; }
+.filter-g { display: flex; flex-direction: column; gap: 6px; }
+.filter-lbl { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: var(--text-d); }
+select, input[type=number] { background: var(--bg); border: 1.5px solid var(--border2); border-radius: var(--rsm); color: var(--text); font-family: var(--f); font-size: 13px; font-weight: 500; padding: 9px 13px; width: 100%; transition: border-color .2s; appearance: none; cursor: pointer; }
+select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%237880a8' stroke-width='2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 34px; }
+select:focus, input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(67,97,238,.1); }
+
+/* CHECKBOXES */
+.check-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.chk-item { display: flex; align-items: center; gap: 7px; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--text-m); background: var(--bg); border: 1.5px solid var(--border2); border-radius: var(--rsm); padding: 8px 13px; transition: all .15s; user-select: none; }
+.chk-item:hover { border-color: var(--accent); color: var(--accent); }
+.chk-item input[type=checkbox] { display: none; }
+.chk-box { width: 16px; height: 16px; background: var(--white); border: 1.5px solid var(--border2); border-radius: 4px; display: grid; place-items: center; font-size: 10px; transition: all .15s; flex-shrink: 0; }
+.chk-item input:checked ~ .chk-box { background: var(--accent); border-color: var(--accent); color: #fff; }
+.chk-item input:checked ~ span { color: var(--accent); }
+
+/* BUTTONS */
+.btn { display: inline-flex; align-items: center; gap: 8px; border: none; border-radius: var(--rsm); font-family: var(--f); font-weight: 700; cursor: pointer; transition: all .18s; text-decoration: none; white-space: nowrap; font-size: 14px; }
+.btn-p { background: var(--accent); color: #fff; padding: 13px 26px; box-shadow: 0 4px 14px rgba(67,97,238,.3); font-size: 15px; }
+.btn-p:hover { background: var(--accent-d); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(61,92,255,.35); }
+.btn-p:disabled { background: var(--border2); color: var(--text-d); cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-s { background: var(--accent3); color: #082e22; padding: 12px 22px; box-shadow: 0 4px 12px rgba(0,200,150,.25); }
+.btn-s:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,200,150,.3); }
+.btn-o { background: var(--white); color: var(--text-m); border: 1.5px solid var(--border2); padding: 9px 16px; font-size: 13px; }
+.btn-o:hover { border-color: var(--accent); color: var(--accent); }
+.btn-danger { background: rgba(255,61,127,.08); color: var(--accent2); border: 1.5px solid rgba(255,61,127,.2); padding: 9px 16px; font-size: 13px; }
+.btn-danger:hover { background: rgba(255,61,127,.14); }
+.btn-sm { padding: 7px 13px; font-size: 12px; }
+.btn-xs { padding: 5px 10px; font-size: 11px; border-radius: 6px; }
+
+.action-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+/* BULK URL SECTION */
+.bulk-textarea { width: 100%; background: var(--bg); border: 2px solid var(--border2); border-radius: var(--r); color: var(--text); font-family: var(--mono); font-size: 12px; padding: 14px 16px; resize: vertical; min-height: 150px; transition: border-color .2s; line-height: 1.7; }
+.bulk-textarea:focus { outline: none; border-color: var(--accent); background: #fff; box-shadow: 0 0 0 3px rgba(67,97,238,.08); }
+.bulk-info { display: flex; align-items: center; gap: 18px; margin: 10px 0 18px; flex-wrap: wrap; }
+.bulk-stat { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--text-m); }
+.bulk-stat .ic { font-size: 14px; }
+.bulk-progress-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+.bpl-item { background: var(--bg); border: 1px solid var(--border); border-radius: var(--rsm); padding: 10px 14px; }
+.bpl-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.bpl-url { font-family: var(--mono); font-size: 11px; color: var(--text-m); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 340px; }
+.bpl-status { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 8px; white-space: nowrap; }
+.bpl-status.wait { background: var(--bg2); color: var(--text-d); }
+.bpl-status.run { background: rgba(67,97,238,.1); color: var(--accent); }
+.bpl-status.done { background: rgba(0,200,150,.1); color: var(--accent3); }
+.bpl-status.err { background: rgba(255,61,127,.1); color: var(--accent2); }
+.bpl-bar { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.bpl-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 3px; transition: width .3s; }
+.bpl-count { font-size: 11px; color: var(--text-d); margin-top: 4px; font-family: var(--mono); }
+
+/* PROGRESS */
+.prog-card { display: none; background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 22px; margin-top: 16px; }
+.prog-card.sh { display: block; animation: fdU .3s ease both; }
+.prog-top { display: flex; justify-content: space-between; margin-bottom: 9px; align-items: center; }
+.prog-lbl { font-size: 13px; font-weight: 600; color: var(--text-m); }
+.prog-pct { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+.prog-bg { height: 8px; background: var(--border2); border-radius: 4px; overflow: hidden; }
+.prog-fill { height: 100%; width: 0%; border-radius: 4px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width .25s; }
+.prog-steps { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.prog-step { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 12px; background: var(--white); border: 1px solid var(--border); color: var(--text-d); }
+.prog-step.done { color: var(--accent3); border-color: rgba(0,200,150,.3); background: rgba(0,200,150,.05); }
+.prog-step.act { color: var(--accent); border-color: rgba(67,97,238,.3); background: rgba(67,97,238,.06); }
+.prog-step .spin { display: inline-block; animation: spin 1s linear infinite; }
+
+/* RESULTS */
+.res-section { display: none; margin-top: 28px; }
+.res-section.sh { display: block; animation: fdU .4s ease both; }
+.res-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap; gap: 14px; }
+.res-title-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.res-title { font-size: 18px; font-weight: 800; }
+.res-stats { display: flex; gap: 8px; flex-wrap: wrap; }
+.res-stat { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 4px 11px; font-size: 12px; font-weight: 700; color: var(--text-m); display: flex; align-items: center; gap: 5px; }
+.res-stat.blue { background: rgba(67,97,238,.07); border-color: rgba(67,97,238,.18); color: var(--accent); }
+.res-stat.green { background: rgba(0,200,150,.07); border-color: rgba(0,200,150,.2); color: var(--accent3); }
+.res-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* FILTER BAR */
+.filter-bar { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; align-items: center; }
+.filter-bar input[type=text] { background: var(--white); border: 1.5px solid var(--border2); border-radius: var(--rsm); color: var(--text); font-family: var(--f); font-size: 13px; padding: 8px 13px; transition: border-color .2s; width: 200px; }
+.filter-bar input[type=text]:focus { outline: none; border-color: var(--accent); }
+.sort-btn { background: var(--white); border: 1.5px solid var(--border2); border-radius: var(--rsm); padding: 8px 13px; font-family: var(--f); font-size: 12px; font-weight: 700; cursor: pointer; color: var(--text-m); transition: all .15s; display: flex; align-items: center; gap: 6px; }
+.sort-btn:hover, .sort-btn.act { border-color: var(--accent); color: var(--accent); background: rgba(67,97,238,.04); }
+.view-btns { display: flex; gap: 4px; margin-left: auto; }
+.view-btn { background: var(--white); border: 1.5px solid var(--border2); border-radius: 6px; padding: 7px 10px; cursor: pointer; color: var(--text-d); font-size: 15px; transition: all .15s; }
+.view-btn.act { border-color: var(--accent); color: var(--accent); background: rgba(67,97,238,.06); }
+
+/* IMAGE GRID */
+.img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+.img-grid.list { grid-template-columns: 1fr; }
+.img-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r); overflow: hidden; transition: all .2s; animation: scIn .25s ease both; position: relative; }
+.img-card:hover { box-shadow: var(--sh2); transform: translateY(-3px); border-color: var(--accent); }
+.img-card.selected { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(61,92,255,.15); }
+.img-thumb-wrap { width: 100%; padding-bottom: 65%; position: relative; background: var(--bg2); overflow: hidden; }
+.img-grid.list .img-thumb-wrap { padding-bottom: 0; height: 80px; }
+.img-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; cursor: zoom-in; }
+.img-card:hover .img-thumb { transform: scale(1.04); }
+.img-overlay { position: absolute; inset: 0; background: rgba(19,23,41,.45); display: flex; align-items: center; justify-content: center; gap: 8px; opacity: 0; transition: opacity .2s; }
+.img-card:hover .img-overlay { opacity: 1; }
+.overlay-btn { width: 34px; height: 34px; background: rgba(255,255,255,.9); border-radius: 8px; display: grid; place-items: center; cursor: pointer; font-size: 15px; transition: all .15s; border: none; }
+.overlay-btn:hover { background: #fff; transform: scale(1.1); }
+.sel-box { position: absolute; top: 8px; left: 8px; width: 20px; height: 20px; background: rgba(255,255,255,.9); border: 2px solid var(--border2); border-radius: 5px; cursor: pointer; display: grid; place-items: center; font-size: 11px; transition: all .15s; }
+.img-card.selected .sel-box { background: var(--accent); border-color: var(--accent); color: #fff; }
+.img-card:hover .sel-box { border-color: var(--accent); }
+.img-type-badge { position: absolute; top: 8px; right: 8px; background: rgba(19,23,41,.7); color: #fff; border-radius: 5px; padding: 2px 7px; font-size: 10px; font-weight: 700; font-family: var(--mono); text-transform: uppercase; }
+.img-info { padding: 10px 12px; }
+.img-grid.list .img-info { padding: 10px 16px; display: flex; align-items: center; gap: 16px; }
+.img-name { font-size: 12px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px; }
+.img-grid.list .img-name { margin-bottom: 0; flex: 1; min-width: 0; }
+.img-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+.img-meta-item { font-family: var(--mono); font-size: 10px; color: var(--text-d); display: flex; align-items: center; gap: 3px; }
+.img-dl-btn { display: flex; align-items: center; gap: 4px; background: var(--bg); border: 1px solid var(--border2); border-radius: 6px; padding: 5px 10px; font-size: 11px; font-weight: 700; cursor: pointer; color: var(--text-m); transition: all .15s; font-family: var(--f); text-decoration: none; flex-shrink: 0; }
+.img-dl-btn:hover { border-color: var(--accent3); color: var(--accent3); }
+.img-kw-name { font-family: var(--mono); font-size: 10px; color: var(--accent5); background: rgba(124,58,237,.07); border-radius: 4px; padding: 2px 7px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px; }
+
+/* SELECTION BAR */
+.sel-bar { display: none; position: sticky; bottom: 16px; z-index: 100; }
+.sel-bar.sh { display: flex; }
+.sel-bar-in { background: var(--text); color: #fff; border-radius: var(--r); padding: 14px 22px; display: flex; align-items: center; gap: 16px; box-shadow: var(--sh2); flex-wrap: wrap; margin: 0 auto; max-width: 700px; }
+.sel-count { font-size: 14px; font-weight: 700; flex: 1; }
+.sel-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.sel-btn { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); border-radius: 8px; padding: 8px 16px; font-family: var(--f); font-size: 13px; font-weight: 700; cursor: pointer; color: #fff; transition: all .15s; display: flex; align-items: center; gap: 6px; }
+.sel-btn:hover { background: rgba(255,255,255,.22); }
+.sel-btn.green { background: rgba(0,200,150,.25); border-color: rgba(0,200,150,.4); }
+.sel-btn.green:hover { background: rgba(0,200,150,.35); }
+
+/* LIGHTBOX */
+.lb { display: none; position: fixed; inset: 0; background: rgba(10,14,32,.95); z-index: 999; place-items: center; backdrop-filter: blur(12px); }
+.lb.open { display: grid; }
+.lb-wrap { position: relative; max-width: 90vw; max-height: 88vh; }
+.lb-img { max-width: 88vw; max-height: 80vh; border-radius: 10px; object-fit: contain; box-shadow: 0 24px 80px rgba(0,0,0,.6); display: block; }
+.lb-x { position: absolute; top: -14px; right: -14px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); border-radius: 8px; width: 36px; height: 36px; display: grid; place-items: center; cursor: pointer; color: #fff; font-size: 16px; transition: background .2s; }
+.lb-x:hover { background: rgba(255,255,255,.22); }
+.lb-info { text-align: center; margin-top: 14px; font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,.5); }
+.lb-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 8px; width: 38px; height: 38px; display: grid; place-items: center; cursor: pointer; color: #fff; font-size: 16px; transition: background .2s; }
+.lb-nav:hover { background: rgba(255,255,255,.22); }
+.lb-prev { left: -54px; }
+.lb-next { right: -54px; }
+
+/* TRUST / FEATURES */
+.sec { margin-top: 48px; }
+.sec-ey { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); margin-bottom: 6px; }
+.sec-t { font-size: 24px; font-weight: 800; letter-spacing: -.5px; margin-bottom: 6px; }
+.sec-s { color: var(--text-m); font-size: 14px; font-weight: 500; }
+.feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 24px; }
+.feat { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 22px; box-shadow: var(--sh0); transition: all .2s; }
+.feat:hover { box-shadow: var(--sh1); border-color: var(--accent); transform: translateY(-2px); }
+.feat-i { font-size: 26px; margin-bottom: 10px; }
+.feat-t { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
+.feat-d { font-size: 13px; color: var(--text-m); line-height: 1.65; }
+.trust-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+.tbadge { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 20px; display: flex; align-items: center; gap: 12px; box-shadow: var(--sh0); flex: 1; min-width: 160px; }
+.tbadge-ic { font-size: 24px; }
+.tbadge-txt .t { font-size: 13px; font-weight: 700; }
+.tbadge-txt .s { font-size: 12px; color: var(--text-d); }
+
+/* FAQ */
+.faq-list { margin-top: 22px; display: flex; flex-direction: column; gap: 9px; }
+.fi { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--sh0); overflow: hidden; }
+.fq { padding: 16px 20px; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background .15s; user-select: none; gap: 10px; }
+.fq:hover { background: var(--bg); }
+.fa-arr { font-size: 10px; color: var(--text-d); transition: transform .25s; flex-shrink: 0; }
+.fi.open .fa-arr { transform: rotate(180deg); color: var(--accent); }
+.fa { display: none; padding: 0 20px 16px; font-size: 13px; color: var(--text-m); line-height: 1.75; }
+.fi.open .fq { color: var(--accent); }
+.fi.open .fa { display: block; }
+
+/* FOOTER */
+.site-footer { background: var(--text); color: rgba(255,255,255,.65); margin-top: 64px; }
+.ft-top { max-width: 1280px; margin: 0 auto; padding: 44px 24px 32px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 36px; }
+.ft-brand p { font-size: 13px; line-height: 1.7; margin-top: 12px; margin-bottom: 16px; }
+.ft-brand .logo { color: #fff; }
+.ft-brand .logo-nm { color: #fff; }
+.fc-col h4 { color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 13px; }
+.fc-col ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.fc-col ul a { color: rgba(255,255,255,.55); text-decoration: none; font-size: 13px; transition: color .15s; }
+.fc-col ul a:hover { color: #fff; }
+.ft-bot { border-top: 1px solid rgba(255,255,255,.1); padding: 18px 24px; max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.ft-bot p { font-size: 12px; }
+
+/* TOAST */
+.toast { position: fixed; bottom: 22px; right: 22px; background: var(--white); border: 1px solid var(--border); border-radius: var(--rsm); box-shadow: var(--sh2); padding: 12px 18px; font-size: 13px; font-weight: 600; z-index: 998; transform: translateY(80px); opacity: 0; transition: all .3s; display: flex; align-items: center; gap: 8px; max-width: 320px; }
+.toast.sh { transform: none; opacity: 1; }
+.toast.ok { border-color: var(--accent3); } .toast.er { border-color: var(--accent2); } .toast.info { border-color: var(--accent); }
+
+/* EMPTY / ERROR STATE */
+.empty-state { text-align: center; padding: 52px 24px; color: var(--text-d); }
+.empty-icon { font-size: 48px; margin-bottom: 14px; }
+.empty-t { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--text-m); }
+.empty-s { font-size: 13px; }
+
+/* LOADING SPINNER OVERLAY */
+.spinner-ic { display: inline-block; width: 16px; height: 16px; border: 2.5px solid rgba(255,255,255,.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; }
+
+/* CORS NOTE */
+.cors-note { background: rgba(255,149,0,.08); border: 1px solid rgba(255,149,0,.25); border-radius: var(--rsm); padding: 12px 16px; font-size: 12px; color: #8a5500; margin-bottom: 16px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.6; }
+.cors-note .ci { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+
+@media(max-width:900px){nav{display:none}.mob-btn{display:flex;align-items:center;justify-content:center}.ft-top{grid-template-columns:1fr}}
+@media(max-width:600px){.hero{padding:36px 18px 30px}.main{padding:20px 14px 48px}.url-row{flex-direction:column}.img-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}.ft-top{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-in">
+    <a href="#" class="logo">
+      <div class="logo-mk">🖼️</div>
+      <span class="logo-nm">Image<em>Harvest</em></span>
+    </a>
+    <nav>
+      <a href="#tool" class="act">Scraper</a>
+      <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="hdr-badge"><span>🔒</span> No Upload · 100% Free</div>
+    <button class="mob-btn" id="mob-btn">☰</button>
+  </div>
+  <div class="mob-nav" id="mob-nav">
+    <a href="#tool">🖼️ Scraper</a>
+    <a href="#features">✨ Features</a>
+    <a href="#faq">❓ FAQ</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="tool">
+  <div class="hero-in">
+    <div class="hero-badge"><span class="pdot"></span> Free · No Signup · Bulk Ready</div>
+    <h1>Bulk <em>Image Scraper</em><br>& Downloader</h1>
+    <p class="hero-sub">Enter any URL and instantly extract every image from that page. Download all images with custom SEO keyword names — individually or as a ZIP archive.</p>
+    <div class="hero-pills">
+      <span class="pill"><strong>Bulk</strong> URL Mode</span>
+      <span class="pill"><strong>50</strong> Keywords Naming</span>
+      <span class="pill"><strong>ZIP</strong> Download</span>
+      <span class="pill">Size <strong>Filter</strong></span>
+      <span class="pill">Type <strong>Filter</strong></span>
+      <span class="pill">Select <strong>All / Custom</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- TOOL CARD -->
+  <div class="tool-card">
+    <div class="tool-tabs">
+      <button class="tab-btn act" onclick="switchTab('single',this)"><span class="tab-icon">🔗</span> Single URL</button>
+      <button class="tab-btn" onclick="switchTab('bulk',this)"><span class="tab-icon">📋</span> Bulk URLs <span class="tab-badge">NEW</span></button>
+      <button class="tab-btn" onclick="switchTab('settings',this)"><span class="tab-icon">⚙️</span> Advanced</button>
+    </div>
+
+    <!-- SINGLE URL PANE -->
+    <div class="mode-pane act" id="pane-single">
+      <div class="cors-note">
+        <span class="ci">⚠️</span>
+        <div><strong>How it works:</strong> ImageHarvest fetches pages via a CORS proxy (allorigins.win) to extract image URLs client-side. Most public websites work. Private/auth-required pages may not load. All processing happens in your browser — no data is stored on any server.</div>
+      </div>
+
+      <!-- URL INPUT -->
+      <div class="url-row">
+        <div class="url-input-wrap">
+          <span class="url-icon">🌐</span>
+          <input type="url" class="url-input" id="url-input" placeholder="https://example.com — paste any webpage URL here" autocomplete="off" spellcheck="false">
+        </div>
+        <button class="btn btn-p" id="scrape-btn" onclick="doScrape()">
+          <span id="scrape-btn-txt">🔍 Extract Images</span>
+        </button>
+      </div>
+
+      <!-- KEYWORDS -->
+      <div class="kw-section">
+        <div class="kw-head">
+          <div class="kw-title"><span class="ki">🏷️</span> SEO Keyword Names <span class="kw-counter" id="kw-counter">0 / 50</span></div>
+          <span class="kw-hint">Images will be named using these keywords in rotation (keyword-1.jpg, keyword-2.jpg…)</span>
+        </div>
+        <textarea class="kw-textarea" id="kw-textarea" placeholder="Enter keywords, one per line (up to 50):
+running shoes
+blue sneakers
+nike air max
+sports footwear
+comfortable shoes
+..." rows="5"></textarea>
+        <div class="kw-actions">
+          <button class="btn btn-o btn-sm" onclick="parseKeywords()">✚ Parse Keywords</button>
+          <button class="btn btn-o btn-sm" onclick="clearKeywords()">✕ Clear All</button>
+          <span style="font-size:12px;color:var(--text-d);margin-left:4px">After parsing, keywords will appear as tags below</span>
+        </div>
+        <div class="kw-tags" id="kw-tags"></div>
+      </div>
+
+      <!-- FILTERS -->
+      <div class="filters-row">
+        <div class="filter-g">
+          <div class="filter-lbl">Min Width (px)</div>
+          <input type="number" id="f-minw" value="50" min="0" placeholder="50">
+        </div>
+        <div class="filter-g">
+          <div class="filter-lbl">Min Height (px)</div>
+          <input type="number" id="f-minh" value="50" min="0" placeholder="50">
+        </div>
+        <div class="filter-g">
+          <div class="filter-lbl">Image Format</div>
+          <select id="f-type">
+            <option value="all">All Formats</option>
+            <option value="jpg">JPG / JPEG only</option>
+            <option value="png">PNG only</option>
+            <option value="webp">WebP only</option>
+            <option value="gif">GIF only</option>
+            <option value="svg">SVG only</option>
+          </select>
+        </div>
+        <div class="filter-g">
+          <div class="filter-lbl">Max Images</div>
+          <input type="number" id="f-max" value="500" min="1" max="2000" placeholder="500">
+        </div>
+        <div class="filter-g">
+          <div class="filter-lbl">Image Source</div>
+          <select id="f-src">
+            <option value="all">All (img + bg + srcset)</option>
+            <option value="img">img tags only</option>
+            <option value="bg">Background images</option>
+            <option value="srcset">srcset only</option>
+          </select>
+        </div>
+        <div class="filter-g">
+          <div class="filter-lbl">Sort By</div>
+          <select id="f-sort">
+            <option value="order">Page order</option>
+            <option value="size-desc">Largest first</option>
+            <option value="size-asc">Smallest first</option>
+            <option value="name">Filename A–Z</option>
+            <option value="type">File type</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- CHECKBOXES -->
+      <div class="check-row">
+        <label class="chk-item"><input type="checkbox" id="c-dedup" checked><span class="chk-box">✓</span><span>Remove duplicates</span></label>
+        <label class="chk-item"><input type="checkbox" id="c-skip-tiny" checked><span class="chk-box">✓</span><span>Skip tracking pixels</span></label>
+        <label class="chk-item"><input type="checkbox" id="c-lazy"><span class="chk-box">✓</span><span>Include lazy-load images</span></label>
+        <label class="chk-item"><input type="checkbox" id="c-svg"><span class="chk-box">✓</span><span>Include SVG icons</span></label>
+        <label class="chk-item"><input type="checkbox" id="c-data"><span class="chk-box">✓</span><span>Include data: URIs</span></label>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-p" id="scrape-btn2" onclick="doScrape()">
+          <span id="s2txt">🔍 Extract Images</span>
+        </button>
+        <button class="btn btn-o" onclick="clearResults()">✕ Clear</button>
+      </div>
+
+      <!-- PROGRESS -->
+      <div class="prog-card" id="pc">
+        <div class="prog-top">
+          <span class="prog-lbl" id="prog-lbl">Fetching page…</span>
+          <span class="prog-pct" id="prog-pct">0%</span>
+        </div>
+        <div class="prog-bg"><div class="prog-fill" id="prog-fill"></div></div>
+        <div class="prog-steps">
+          <div class="prog-step" id="ps1">🌐 Fetching URL</div>
+          <div class="prog-step" id="ps2">🔍 Parsing HTML</div>
+          <div class="prog-step" id="ps3">🖼️ Extracting Images</div>
+          <div class="prog-step" id="ps4">📐 Filtering & Sorting</div>
+          <div class="prog-step" id="ps5">✅ Done</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BULK URL PANE -->
+    <div class="mode-pane" id="pane-bulk">
+      <div class="cors-note">
+        <span class="ci">📋</span>
+        <div><strong>Bulk Mode:</strong> Enter up to 20 URLs (one per line). ImageHarvest will process each URL sequentially, apply your keyword naming, and collect all images. You can then download everything as a single ZIP.</div>
+      </div>
+      <div class="filter-g" style="margin-bottom:14px">
+        <div class="filter-lbl">URLs to scrape (one per line, max 20)</div>
+        <textarea class="bulk-textarea" id="bulk-urls" placeholder="https://example.com/product-page
+https://store.example.com/category/shoes
+https://brand.com/gallery
+https://news-site.com/article/headline
+..."></textarea>
+      </div>
+      <div class="bulk-info">
+        <div class="bulk-stat"><span class="ic">🔗</span> <span id="bulk-url-count">0 URLs</span></div>
+        <div class="bulk-stat"><span class="ic">🖼️</span> <span id="bulk-img-count">0 images found</span></div>
+      </div>
+
+      <!-- Reuse keywords and basic filter -->
+      <div class="kw-section">
+        <div class="kw-head">
+          <div class="kw-title"><span class="ki">🏷️</span> SEO Keywords (shared for all URLs) <span class="kw-counter" id="kw-counter2">0 / 50</span></div>
+        </div>
+        <textarea class="kw-textarea" id="kw-textarea2" placeholder="Enter keywords one per line — used to name all downloaded images across all URLs" rows="4"></textarea>
+        <div class="kw-actions">
+          <button class="btn btn-o btn-sm" onclick="syncBulkKeywords()">↕ Sync from Single Tab</button>
+        </div>
+      </div>
+
+      <div class="action-row" style="margin-bottom:16px">
+        <button class="btn btn-p" id="bulk-run-btn" onclick="doBulkScrape()">⚡ Run Bulk Scrape</button>
+        <button class="btn btn-o" onclick="clearBulk()">✕ Clear</button>
+      </div>
+      <div class="bulk-progress-list" id="bulk-list"></div>
+    </div>
+
+    <!-- ADVANCED SETTINGS PANE -->
+    <div class="mode-pane" id="pane-settings">
+      <div style="max-width:620px">
+        <div style="font-size:15px;font-weight:800;margin-bottom:18px">⚙️ Advanced Settings</div>
+
+        <div class="filters-row">
+          <div class="filter-g">
+            <div class="filter-lbl">CORS Proxy</div>
+            <select id="s-proxy">
+              <option value="allorigins">AllOrigins (default)</option>
+              <option value="corsproxy">corsproxy.io</option>
+              <option value="direct">Direct (same-origin only)</option>
+            </select>
+          </div>
+          <div class="filter-g">
+            <div class="filter-lbl">Naming Pattern</div>
+            <select id="s-naming">
+              <option value="kw-seq">keyword-1, keyword-2…</option>
+              <option value="kw-orig">keyword_originalname</option>
+              <option value="kw-hash">keyword_hash</option>
+              <option value="orig">Original filename</option>
+              <option value="seq">seq-001, seq-002…</option>
+            </select>
+          </div>
+          <div class="filter-g">
+            <div class="filter-lbl">ZIP Folder Name</div>
+            <input type="text" id="s-folder" value="images" placeholder="images">
+          </div>
+          <div class="filter-g">
+            <div class="filter-lbl">Concurrent Requests</div>
+            <select id="s-concur">
+              <option value="1">1 (slowest, safest)</option>
+              <option value="3" selected>3 (balanced)</option>
+              <option value="5">5 (fast)</option>
+            </select>
+          </div>
+          <div class="filter-g">
+            <div class="filter-lbl">Request Timeout (sec)</div>
+            <input type="number" id="s-timeout" value="10" min="3" max="30">
+          </div>
+          <div class="filter-g">
+            <div class="filter-lbl">Image Quality (if re-encode)</div>
+            <select id="s-quality">
+              <option value="original">Keep original</option>
+              <option value="high">High (92%)</option>
+              <option value="medium">Medium (75%)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="check-row">
+          <label class="chk-item"><input type="checkbox" id="s-metadata" checked><span class="chk-box">✓</span><span>Save metadata CSV</span></label>
+          <label class="chk-item"><input type="checkbox" id="s-subfolders"><span class="chk-box">✓</span><span>Subfolder per URL (bulk)</span></label>
+          <label class="chk-item"><input type="checkbox" id="s-skipfavicon" checked><span class="chk-box">✓</span><span>Skip favicons</span></label>
+          <label class="chk-item"><input type="checkbox" id="s-skiplogo"><span class="chk-box">✓</span><span>Skip logos (16–64px)</span></label>
+        </div>
+
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--rsm);padding:16px;margin-top:16px">
+          <div style="font-size:13px;font-weight:700;margin-bottom:8px">📝 Keyword Pattern Preview</div>
+          <div style="font-family:var(--mono);font-size:12px;color:var(--text-m);line-height:1.8" id="pattern-preview">
+            Add keywords to see preview...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS SECTION -->
+  <div class="res-section" id="res-sec">
+    <div class="res-header">
+      <div class="res-title-row">
+        <div class="res-title">Extracted Images</div>
+        <div class="res-stats">
+          <div class="res-stat blue" id="stat-total">0 found</div>
+          <div class="res-stat green" id="stat-selected">0 selected</div>
+          <div class="res-stat" id="stat-src">—</div>
+        </div>
+      </div>
+      <div class="res-actions">
+        <button class="btn btn-s" id="dl-all-btn" onclick="downloadSelected()">⬇ Download Selected (ZIP)</button>
+        <button class="btn btn-o btn-sm" onclick="selectAll()">☑ Select All</button>
+        <button class="btn btn-o btn-sm" onclick="selectNone()">☐ Deselect All</button>
+        <button class="btn btn-danger btn-sm" onclick="clearResults()">🗑 Clear</button>
+      </div>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <input type="text" id="img-search" placeholder="🔍 Search by filename…" oninput="filterImages()">
+      <select id="type-filter" onchange="filterImages()" style="width:130px">
+        <option value="all">All types</option>
+        <option value="jpg">JPG</option>
+        <option value="png">PNG</option>
+        <option value="webp">WebP</option>
+        <option value="gif">GIF</option>
+        <option value="svg">SVG</option>
+      </select>
+      <button class="sort-btn" onclick="sortImages('size')" id="sort-size">📐 By Size</button>
+      <button class="sort-btn" onclick="sortImages('name')" id="sort-name">🔤 By Name</button>
+      <button class="sort-btn" onclick="sortImages('type')" id="sort-type">🎨 By Type</button>
+      <div class="view-btns">
+        <button class="view-btn act" id="vb-grid" onclick="setView('grid')" title="Grid view">⊞</button>
+        <button class="view-btn" id="vb-list" onclick="setView('list')" title="List view">☰</button>
+      </div>
+    </div>
+
+    <div class="img-grid" id="img-grid"></div>
+  </div>
+
+  <!-- SELECTION STICKY BAR -->
+  <div class="sel-bar" id="sel-bar">
+    <div class="sel-bar-in">
+      <div class="sel-count" id="sel-count-txt">0 images selected</div>
+      <div class="sel-actions">
+        <button class="sel-btn green" onclick="downloadSelected()">⬇ Download ZIP</button>
+        <button class="sel-btn" onclick="downloadSelectedIndividual()">⬇ Download Individually</button>
+        <button class="sel-btn" onclick="selectAll()">☑ All</button>
+        <button class="sel-btn" onclick="selectNone()">✕ Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="sec" id="features">
+    <div class="sec-ey">Why ImageHarvest</div>
+    <div class="sec-t">Every Feature You Need</div>
+    <p class="sec-s">The most advanced free image scraper — designed for SEO professionals, designers, and content teams.</p>
+    <div class="feat-grid">
+      <div class="feat"><div class="feat-i">🏷️</div><div class="feat-t">50-Keyword SEO Naming</div><div class="feat-d">Enter up to 50 keywords and all downloaded images will be named using those keywords in rotation — perfect for SEO optimization and organized asset libraries.</div></div>
+      <div class="feat"><div class="feat-i">📋</div><div class="feat-t">Bulk URL Scraping</div><div class="feat-d">Process up to 20 URLs in one run. All images from all pages are collected together, keyword-named, and downloadable as a single organized ZIP file.</div></div>
+      <div class="feat"><div class="feat-i">🔍</div><div class="feat-t">Deep Image Extraction</div><div class="feat-d">Finds images in img tags, CSS background images, srcset attributes, data-src lazy-load attributes, and picture elements — nothing is missed.</div></div>
+      <div class="feat"><div class="feat-i">📐</div><div class="feat-t">Smart Filters</div><div class="feat-d">Filter by minimum dimensions, file type (JPG/PNG/WebP/GIF/SVG), image source, and more. Auto-deduplication removes repeated images.</div></div>
+      <div class="feat"><div class="feat-i">🗜️</div><div class="feat-t">ZIP Bulk Download</div><div class="feat-d">Download all or selected images as a ZIP with your custom folder name. Or download images individually. All filenames use your keywords.</div></div>
+      <div class="feat"><div class="feat-i">📊</div><div class="feat-t">Metadata CSV Export</div><div class="feat-d">Export a CSV with each image's original URL, dimensions, file type, keyword name, and source URL — perfect for documentation and reporting.</div></div>
+    </div>
+
+    <div class="trust-row">
+      <div class="tbadge"><div class="tbadge-ic">🔒</div><div class="tbadge-txt"><div class="t">No Upload</div><div class="s">All processing in browser</div></div></div>
+      <div class="tbadge"><div class="tbadge-ic">♾️</div><div class="tbadge-txt"><div class="t">No Limits</div><div class="s">Extract as many as you need</div></div></div>
+      <div class="tbadge"><div class="tbadge-ic">⚡</div><div class="tbadge-txt"><div class="t">Instant Results</div><div class="s">No server processing wait</div></div></div>
+      <div class="tbadge"><div class="tbadge-ic">✅</div><div class="tbadge-txt"><div class="t">Always Free</div><div class="s">No account, no watermarks</div></div></div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="sec" id="faq">
+    <div class="sec-ey">FAQ</div>
+    <div class="sec-t">Frequently Asked Questions</div>
+    <div class="faq-list">
+      <div class="fi"><div class="fq">How does the image scraper work? <span class="fa-arr">▼</span></div><div class="fa">ImageHarvest fetches the target webpage HTML via a CORS proxy, then parses all image references — including img src, srcset, CSS background-image, data-src, and picture elements — entirely in your browser. No images or data are ever stored on our servers.</div></div>
+      <div class="fi"><div class="fq">What are keywords used for? <span class="fa-arr">▼</span></div><div class="fa">When you download images, they are renamed using your keywords in rotation. For example, if your keywords are "red shoes" and "nike sneakers", the images will be saved as red-shoes-1.jpg, nike-sneakers-1.jpg, red-shoes-2.jpg, etc. This is ideal for SEO — search engines index image filenames as part of relevance ranking.</div></div>
+      <div class="fi"><div class="fq">Why do some websites not work? <span class="fa-arr">▼</span></div><div class="fa">Some websites block CORS proxy requests, require authentication (login), or use JavaScript rendering to load images dynamically. The scraper works best on publicly accessible, server-rendered pages. JavaScript-heavy SPAs (React/Vue apps) may only show partially loaded images.</div></div>
+      <div class="fi"><div class="fq">How many images can I extract and download? <span class="fa-arr">▼</span></div><div class="fa">There is no hard limit. The Max Images setting defaults to 500 per URL but can be raised to 2000. In Bulk Mode you can process 20 URLs simultaneously, potentially extracting thousands of images in one session.</div></div>
+      <div class="fi"><div class="fq">Can I use this for commercial purposes? <span class="fa-arr">▼</span></div><div class="fa">ImageHarvest is a technical extraction tool. You are solely responsible for ensuring you have the legal right to download and use any images you extract. Always respect copyright, website terms of service, and applicable laws before using downloaded images commercially.</div></div>
+      <div class="fi"><div class="fq">What is the naming pattern? <span class="fa-arr">▼</span></div><div class="fa">The default pattern is keyword-N.ext — e.g., blue-sneakers-1.jpg. You can change this in Advanced Settings to keyword_originalname, sequential numbers, or keep original filenames. Spaces in keywords are replaced with hyphens for web-safe filenames.</div></div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <a href="#" class="logo"><div class="logo-mk">🖼️</div><span class="logo-nm" style="color:#fff">Image<em style="color:#a5b4fc">Harvest</em></span></a>
+      <p>The most advanced free bulk image scraper. Extract, rename with SEO keywords, and download all images from any webpage — no upload, no server, 100% browser-based.</p>
+    </div>
+    <div class="fc-col">
+      <h4>Tool</h4>
+      <ul>
+        <li><a href="#tool">Image Scraper</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="fc-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <p>© 2026 ImageHarvest · Free Bulk Image Scraper. All rights reserved.</p>
+    <div style="display:flex;gap:10px">
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:rgba(255,255,255,.5)">🔒 No Upload</span>
+      <span style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:rgba(255,255,255,.5)">♾️ Free Forever</span>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <div class="lb-wrap">
+    <button class="lb-x" id="lb-x">✕</button>
+    <button class="lb-nav lb-prev" id="lb-prev">◀</button>
+    <button class="lb-nav lb-next" id="lb-next">▶</button>
+    <img class="lb-img" id="lb-img" src="" alt="">
+    <div class="lb-info" id="lb-info"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+// ── STATE ──────────────────────────────────────────────────────────────────
+let allImages = [];       // all extracted images [{url,name,type,w,h,src,kwName}]
+let filteredImages = [];  // after UI filters
+let selectedSet = new Set();
+let keywords = [];        // parsed keyword list
+let lbIdx = 0;
+let currentView = 'grid';
+let sortState = {col:'order',dir:1};
+
+// ── MOBILE NAV ─────────────────────────────────────────────────────────────
+document.getElementById('mob-btn').addEventListener('click',()=>document.getElementById('mob-nav').classList.toggle('open'));
+
+// ── FAQ ────────────────────────────────────────────────────────────────────
+document.querySelectorAll('.fq').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+
+// ── TAB SWITCHING ──────────────────────────────────────────────────────────
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('act'));
+  document.querySelectorAll('.mode-pane').forEach(p=>p.classList.remove('act'));
+  btn.classList.add('act');
+  document.getElementById('pane-'+name).classList.add('act');
+}
+
+// ── KEYWORDS ──────────────────────────────────────────────────────────────
+document.getElementById('kw-textarea').addEventListener('input', updateKwCounter);
+document.getElementById('kw-textarea2').addEventListener('input', () => {
+  const lines = document.getElementById('kw-textarea2').value.split('\n').filter(l=>l.trim());
+  document.getElementById('kw-counter2').textContent = Math.min(lines.length,50)+' / 50';
+});
+document.getElementById('bulk-urls').addEventListener('input', updateBulkCount);
+
+function updateKwCounter() {
+  const lines = document.getElementById('kw-textarea').value.split('\n').filter(l=>l.trim());
+  document.getElementById('kw-counter').textContent = Math.min(lines.length,50)+' / 50';
+}
+
+function parseKeywords() {
+  const raw = document.getElementById('kw-textarea').value;
+  const lines = raw.split('\n').map(l=>l.trim()).filter(Boolean).slice(0,50);
+  keywords = lines;
+  renderKwTags();
+  updatePatternPreview();
+  toast2('✓ '+keywords.length+' keywords parsed','ok');
+}
+
+function clearKeywords() {
+  keywords = [];
+  document.getElementById('kw-textarea').value = '';
+  document.getElementById('kw-tags').innerHTML = '';
+  document.getElementById('kw-counter').textContent = '0 / 50';
+  updatePatternPreview();
+}
+
+function renderKwTags() {
+  const c = document.getElementById('kw-tags');
+  c.innerHTML = keywords.map((k,i) =>
+    `<div class="kw-tag">${escHtml(k)}<span class="rm" onclick="removeKw(${i})">✕</span></div>`
+  ).join('');
+}
+
+function removeKw(i) {
+  keywords.splice(i,1);
+  renderKwTags();
+  document.getElementById('kw-textarea').value = keywords.join('\n');
+  updateKwCounter();
+  updatePatternPreview();
+}
+
+function updatePatternPreview() {
+  const naming = document.getElementById('s-naming')?.value || 'kw-seq';
+  const kws = keywords.length ? keywords : ['your-keyword'];
+  const preview = document.getElementById('pattern-preview');
+  if (!preview) return;
+  let lines = [];
+  for (let i=0;i<Math.min(6,kws.length*2+1);i++) {
+    const k = slugify(kws[i % kws.length]);
+    if (naming==='kw-seq') lines.push(k+'-'+(i+1)+'.jpg');
+    else if (naming==='kw-orig') lines.push(k+'_original-name.jpg');
+    else if (naming==='kw-hash') lines.push(k+'_a3f9c1.jpg');
+    else if (naming==='orig') lines.push('original-filename.jpg');
+    else lines.push('img-'+String(i+1).padStart(3,'0')+'.jpg');
+  }
+  preview.innerHTML = lines.map(l=>`<span style="color:var(--accent)">${l}</span>`).join('<br>');
+}
+document.getElementById('s-naming')?.addEventListener('change', updatePatternPreview);
+
+function syncBulkKeywords() {
+  const v = document.getElementById('kw-textarea').value;
+  document.getElementById('kw-textarea2').value = v;
+  const lines = v.split('\n').filter(l=>l.trim());
+  document.getElementById('kw-counter2').textContent = Math.min(lines.length,50)+' / 50';
+  toast2('✓ Keywords synced from Single tab','ok');
+}
+
+function getBulkKeywords() {
+  const raw = document.getElementById('kw-textarea2').value;
+  return raw.split('\n').map(l=>l.trim()).filter(Boolean).slice(0,50);
+}
+
+// ── KEYWORD NAMING ─────────────────────────────────────────────────────────
+function getImageName(idx, originalUrl, kwList) {
+  const naming = document.getElementById('s-naming')?.value || 'kw-seq';
+  const ext = getExt(originalUrl) || 'jpg';
+  const fname = getFilename(originalUrl);
+  if (!kwList.length) {
+    if (naming==='seq') return 'img-'+String(idx+1).padStart(4,'0')+'.'+ext;
+    return fname || 'img-'+String(idx+1).padStart(4,'0')+'.'+ext;
+  }
+  const kw = slugify(kwList[idx % kwList.length]);
+  if (naming==='kw-seq') return kw+'-'+(Math.floor(idx/kwList.length)+1)+'.'+ext;
+  if (naming==='kw-orig') return kw+'_'+(fname||('img-'+idx))+'.'+ext;
+  if (naming==='kw-hash') return kw+'_'+hashStr(originalUrl).slice(0,6)+'.'+ext;
+  if (naming==='orig') return fname || 'img-'+String(idx+1).padStart(4,'0')+'.'+ext;
+  return 'img-'+String(idx+1).padStart(4,'0')+'.'+ext;
+}
+
+// ── SINGLE SCRAPE ──────────────────────────────────────────────────────────
+let scraping = false;
+
+async function doScrape() {
+  const url = document.getElementById('url-input').value.trim();
+  if (!url) { toast2('Please enter a URL','er'); return; }
+  if (!url.startsWith('http')) { toast2('URL must start with http:// or https://','er'); return; }
+  if (scraping) return;
+
+  // Auto-parse keywords if textarea has content
+  const rawKw = document.getElementById('kw-textarea').value.trim();
+  if (rawKw && keywords.length === 0) parseKeywords();
+
+  scraping = true;
+  clearResults(false);
+  setProgress(true);
+  setBtnLoading(true);
+
+  try {
+    setStep(1,'act');
+    setProgressBar(10, 'Fetching page HTML…');
+    const html = await fetchPage(url);
+
+    setStep(1,'done'); setStep(2,'act');
+    setProgressBar(35, 'Parsing HTML structure…');
+    await sleep(100);
+
+    setStep(2,'done'); setStep(3,'act');
+    setProgressBar(55, 'Extracting image URLs…');
+    const raw = extractImages(html, url);
+
+    setStep(3,'done'); setStep(4,'act');
+    setProgressBar(75, 'Applying filters…');
+    const filtered = applyFilters(raw);
+
+    setStep(4,'done');
+    setProgressBar(95, 'Building image grid…');
+    await sleep(150);
+
+    const kwList = keywords.length ? keywords : getBulkKeywords();
+    allImages = filtered.map((img,i) => ({
+      ...img,
+      kwName: getImageName(i, img.url, kwList),
+      idx: i
+    }));
+
+    setStep(5,'done');
+    setProgressBar(100, '✓ Done! '+allImages.length+' images found.');
+    renderResults(url);
+
+  } catch(err) {
+    setProgressBar(0, '✗ Error: '+err.message);
+    toast2('Error: '+err.message,'er');
+    console.error(err);
+  } finally {
+    scraping = false;
+    setBtnLoading(false);
+  }
+}
+
+// ── FETCH PAGE ─────────────────────────────────────────────────────────────
+async function fetchPage(url) {
+  const proxy = document.getElementById('s-proxy')?.value || 'allorigins';
+  const timeout = (parseInt(document.getElementById('s-timeout')?.value)||10) * 1000;
+
+  let fetchUrl;
+  if (proxy==='allorigins') fetchUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+  else if (proxy==='corsproxy') fetchUrl = `https://corsproxy.io/?${encodeURIComponent(url)}`;
+  else fetchUrl = url;
+
+  const controller = new AbortController();
+  const tid = setTimeout(()=>controller.abort(), timeout);
+
+  const res = await fetch(fetchUrl, {signal: controller.signal});
+  clearTimeout(tid);
+  if (!res.ok) throw new Error('HTTP '+res.status+' from proxy');
+
+  const data = await res.json().catch(()=>null);
+  if (data && data.contents) return data.contents;
+  return await res.text();
+}
+
+// ── EXTRACT IMAGES ─────────────────────────────────────────────────────────
+function extractImages(html, baseUrl) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, 'text/html');
+  const seen = new Set();
+  const imgs = [];
+  const base = getBase(baseUrl);
+  const fSrc = document.getElementById('f-src')?.value || 'all';
+
+  function addImg(url, type) {
+    if (!url || url.startsWith('javascript:')) return;
+    const clean = cleanUrl(url, base);
+    if (!clean) return;
+    const skipTiny = document.getElementById('c-skip-tiny')?.checked;
+    const skipFav = document.getElementById('s-skipfavicon')?.checked;
+    const inclData = document.getElementById('c-data')?.checked;
+    if (!inclData && clean.startsWith('data:')) return;
+    if (skipFav && (clean.includes('favicon') || clean.includes('/icon') || clean.endsWith('.ico'))) return;
+    const dedup = document.getElementById('c-dedup')?.checked !== false;
+    if (dedup && seen.has(clean)) return;
+    seen.add(clean);
+    imgs.push({ url: clean, srcType: type, ext: getExt(clean), name: getFilename(clean) });
+  }
+
+  // 1) img tags
+  if (fSrc==='all' || fSrc==='img') {
+    doc.querySelectorAll('img').forEach(el => {
+      addImg(el.getAttribute('src'), 'img');
+      addImg(el.getAttribute('data-src'), 'lazy');
+      addImg(el.getAttribute('data-lazy-src'), 'lazy');
+      addImg(el.getAttribute('data-original'), 'lazy');
+      if (document.getElementById('c-lazy')?.checked) {
+        addImg(el.getAttribute('data-lazy'), 'lazy');
+        addImg(el.getAttribute('loading-src'), 'lazy');
+      }
+    });
+  }
+
+  // 2) srcset
+  if (fSrc==='all' || fSrc==='srcset') {
+    doc.querySelectorAll('[srcset]').forEach(el => {
+      const ss = el.getAttribute('srcset');
+      ss.split(',').forEach(part => {
+        const u = part.trim().split(/\s+/)[0];
+        addImg(u, 'srcset');
+      });
+    });
+    doc.querySelectorAll('source[srcset]').forEach(el => {
+      el.getAttribute('srcset').split(',').forEach(part => {
+        const u = part.trim().split(/\s+/)[0];
+        addImg(u, 'srcset');
+      });
+    });
+  }
+
+  // 3) Background images in style attrs
+  if (fSrc==='all' || fSrc==='bg') {
+    doc.querySelectorAll('[style]').forEach(el => {
+      const style = el.getAttribute('style')||'';
+      const matches = style.match(/url\(['"]?([^'")]+)['"]?\)/gi)||[];
+      matches.forEach(m => {
+        const u = m.replace(/url\(['"]?/i,'').replace(/['"]?\)$/,'');
+        addImg(u,'bg');
+      });
+    });
+    // CSS in <style> tags
+    doc.querySelectorAll('style').forEach(el => {
+      const matches = el.textContent.match(/url\(['"]?([^'")]+)['"]?\)/g)||[];
+      matches.forEach(m => {
+        const u = m.replace(/url\(['"]?/,'').replace(/['"]?\)$/,'');
+        if (!u.startsWith('#') && !u.startsWith('data:font')) addImg(u,'css-bg');
+      });
+    });
+  }
+
+  // 4) SVGs inline
+  if (document.getElementById('c-svg')?.checked) {
+    doc.querySelectorAll('svg image').forEach(el => {
+      addImg(el.getAttribute('href') || el.getAttribute('xlink:href'), 'svg');
+    });
+  }
+
+  // 5) meta og:image
+  const og = doc.querySelector('meta[property="og:image"]');
+  if (og) addImg(og.getAttribute('content'), 'og');
+
+  return imgs.slice(0, parseInt(document.getElementById('f-max')?.value)||500);
+}
+
+// ── FILTERS ────────────────────────────────────────────────────────────────
+function applyFilters(imgs) {
+  const fType = document.getElementById('f-type')?.value || 'all';
+  const skipLogo = document.getElementById('s-skiplogo')?.checked;
+
+  return imgs.filter(img => {
+    // type filter
+    if (fType !== 'all') {
+      const ext = img.ext.toLowerCase();
+      if (fType==='jpg' && ext!=='jpg' && ext!=='jpeg') return false;
+      if (fType==='png' && ext!=='png') return false;
+      if (fType==='webp' && ext!=='webp') return false;
+      if (fType==='gif' && ext!=='gif') return false;
+      if (fType==='svg' && ext!=='svg') return false;
+    }
+    if (skipLogo && img.name && /logo|brand|icon/.test(img.name.toLowerCase())) return false;
+    return true;
+  });
+}
+
+// ── RENDER RESULTS ─────────────────────────────────────────────────────────
+function renderResults(srcUrl) {
+  filteredImages = [...allImages];
+  const sec = document.getElementById('res-sec');
+  sec.classList.add('sh');
+  document.getElementById('stat-total').textContent = allImages.length+' found';
+  document.getElementById('stat-src').textContent = '🌐 '+truncUrl(srcUrl,40);
+  renderGrid();
+  scrollTo({top: sec.offsetTop-80, behavior:'smooth'});
+}
+
+function renderGrid() {
+  const grid = document.getElementById('img-grid');
+  grid.className = 'img-grid'+(currentView==='list' ? ' list' : '');
+
+  if (!filteredImages.length) {
+    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">🔍</div><div class="empty-t">No images match your filters</div><div class="empty-s">Try adjusting the type filter or search term</div></div>';
+    return;
+  }
+
+  grid.innerHTML = filteredImages.map((img,vi) => {
+    const sel = selectedSet.has(img.url);
+    const ext = (img.ext||'img').toUpperCase().slice(0,4);
+    const kwDisplay = img.kwName ? img.kwName.replace(/\.\w+$/,'') : '';
+    return `<div class="img-card${sel?' selected':''}" id="imgc-${img.idx}" onclick="toggleSelect('${escAttr(img.url)}',event)">
+      <div class="img-thumb-wrap">
+        <img class="img-thumb" src="${escAttr(img.url)}" alt="${escAttr(img.name||'image')}" loading="lazy" onerror="this.parentElement.style.background='#e8eaf6';this.style.display='none'">
+        <div class="img-overlay">
+          <button class="overlay-btn" title="Preview" onclick="event.stopPropagation();openLB(${img.idx})">🔍</button>
+          <a class="overlay-btn" title="Download" href="${escAttr(img.url)}" download="${escAttr(img.kwName)}" onclick="event.stopPropagation()" target="_blank">⬇</a>
+        </div>
+        <div class="sel-box">${sel?'✓':''}</div>
+        <div class="img-type-badge">${ext}</div>
+      </div>
+      <div class="img-info">
+        <div class="img-name" title="${escAttr(img.name)}">${escHtml(img.name||'image')}</div>
+        ${currentView==='list' ? `<div class="img-kw-name" title="${escAttr(img.kwName)}">${escHtml(kwDisplay)}</div>` : ''}
+        <div class="img-meta">
+          <span class="img-meta-item">🏷️ ${escHtml(kwDisplay||'—')}</span>
+          ${img.srcType?`<span class="img-meta-item">📌 ${img.srcType}</span>`:''}
+        </div>
+        <div style="margin-top:7px;display:flex;align-items:center;justify-content:space-between;gap:6px">
+          <a class="img-dl-btn" href="${escAttr(img.url)}" download="${escAttr(img.kwName)}" target="_blank" onclick="event.stopPropagation()">⬇ Save</a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  updateSelectionBar();
+  updateStats();
+}
+
+// ── SELECTION ──────────────────────────────────────────────────────────────
+function toggleSelect(url, e) {
+  if (e && (e.target.tagName==='A'||e.target.tagName==='BUTTON')) return;
+  if (selectedSet.has(url)) selectedSet.delete(url);
+  else selectedSet.add(url);
+  // Update just the card
+  const img = allImages.find(i=>i.url===url);
+  if (img) {
+    const card = document.getElementById('imgc-'+img.idx);
+    if (card) {
+      card.classList.toggle('selected', selectedSet.has(url));
+      const sb = card.querySelector('.sel-box');
+      if (sb) sb.textContent = selectedSet.has(url)?'✓':'';
+    }
+  }
+  updateSelectionBar();
+  updateStats();
+}
+
+function selectAll() {
+  filteredImages.forEach(i=>selectedSet.add(i.url));
+  renderGrid();
+}
+function selectNone() {
+  filteredImages.forEach(i=>selectedSet.delete(i.url));
+  renderGrid();
+}
+function updateStats() {
+  document.getElementById('stat-selected').textContent = selectedSet.size+' selected';
+}
+function updateSelectionBar() {
+  const bar = document.getElementById('sel-bar');
+  const cnt = document.getElementById('sel-count-txt');
+  cnt.textContent = selectedSet.size+' image'+(selectedSet.size!==1?'s':'')+' selected';
+  bar.classList.toggle('sh', selectedSet.size>0);
+}
+
+// ── SORT & FILTER UI ──────────────────────────────────────────────────────
+function filterImages() {
+  const search = document.getElementById('img-search').value.toLowerCase();
+  const type = document.getElementById('type-filter').value;
+  filteredImages = allImages.filter(img => {
+    if (search && !img.name.toLowerCase().includes(search) && !img.kwName.toLowerCase().includes(search)) return false;
+    if (type!=='all') {
+      const ext = (img.ext||'').toLowerCase();
+      if (type==='jpg' && ext!=='jpg' && ext!=='jpeg') return false;
+      if (type!=='jpg' && ext!==type) return false;
+    }
+    return true;
+  });
+  renderGrid();
+}
+
+function sortImages(col) {
+  if (sortState.col===col) sortState.dir*=-1;
+  else { sortState.col=col; sortState.dir=1; }
+  document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('act'));
+  const btn = document.getElementById('sort-'+col);
+  if (btn) btn.classList.add('act');
+  filteredImages.sort((a,b)=>{
+    if (col==='size') return (b.w*b.h - a.w*a.h)*sortState.dir;
+    if (col==='name') return a.name.localeCompare(b.name)*sortState.dir;
+    if (col==='type') return (a.ext||'').localeCompare(b.ext||'')*sortState.dir;
+    return (a.idx-b.idx)*sortState.dir;
+  });
+  renderGrid();
+}
+
+function setView(v) {
+  currentView = v;
+  document.getElementById('vb-grid').classList.toggle('act', v==='grid');
+  document.getElementById('vb-list').classList.toggle('act', v==='list');
+  renderGrid();
+}
+
+// ── DOWNLOAD ──────────────────────────────────────────────────────────────
+async function downloadSelected() {
+  const imgs = allImages.filter(i=>selectedSet.has(i.url));
+  if (!imgs.length) { toast2('Select images first','er'); return; }
+  toast2('Building ZIP for '+imgs.length+' images…','info');
+  const zip = new JSZip();
+  const folder = (document.getElementById('s-folder')?.value||'images').trim()||'images';
+  const f = zip.folder(folder);
+
+  // Add metadata CSV if enabled
+  if (document.getElementById('s-metadata')?.checked) {
+    let csv = 'index,keyword_name,original_url,src_type,extension\n';
+    imgs.forEach((img,i) => {
+      csv += `${i+1},"${img.kwName}","${img.url}","${img.srcType||''}","${img.ext}"\n`;
+    });
+    f.file('metadata.csv', csv);
+  }
+
+  let done = 0;
+  // Download images via fetch (works for same-origin; cross-origin images are referenced by URL)
+  const errors = [];
+  await Promise.all(imgs.map(async img => {
+    try {
+      const res = await fetch(img.url, {mode:'cors'});
+      if (!res.ok) throw new Error('HTTP '+res.status);
+      const blob = await res.blob();
+      f.file(img.kwName, blob);
+    } catch(e) {
+      // Fall back: add URL reference file
+      errors.push(img.url);
+      f.file(img.kwName+'.url.txt', img.url);
+    }
+    done++;
+  }));
+
+  if (errors.length) toast2(errors.length+' images saved as URL references (CORS)', 'info');
+
+  const blob = await zip.generateAsync({type:'blob'});
+  const url = URL.createObjectURL(blob);
+  const a = Object.assign(document.createElement('a'),{href:url, download:folder+'.zip'});
+  a.click();
+  URL.revokeObjectURL(url);
+  toast2('✓ ZIP downloaded: '+imgs.length+' images','ok');
+}
+
+function downloadSelectedIndividual() {
+  const imgs = allImages.filter(i=>selectedSet.has(i.url));
+  if (!imgs.length) { toast2('Select images first','er'); return; }
+  if (imgs.length > 10) {
+    if (!confirm('Download '+imgs.length+' files individually? Your browser may block multiple downloads. Use ZIP instead for large sets.')) return;
+  }
+  imgs.forEach((img,i) => {
+    setTimeout(() => {
+      const a = Object.assign(document.createElement('a'),{href:img.url, download:img.kwName, target:'_blank'});
+      a.click();
+    }, i * 200);
+  });
+  toast2('Downloading '+imgs.length+' images…','ok');
+}
+
+function clearResults(showMsg=true) {
+  allImages = [];
+  filteredImages = [];
+  selectedSet.clear();
+  document.getElementById('res-sec').classList.remove('sh');
+  document.getElementById('img-grid').innerHTML = '';
+  document.getElementById('sel-bar').classList.remove('sh');
+  document.getElementById('pc').classList.remove('sh');
+  if (showMsg) toast2('Results cleared','ok');
+}
+
+// ── BULK SCRAPE ────────────────────────────────────────────────────────────
+let bulkRunning = false;
+
+function updateBulkCount() {
+  const urls = parseBulkUrls();
+  document.getElementById('bulk-url-count').textContent = urls.length+' URLs';
+}
+
+function parseBulkUrls() {
+  return document.getElementById('bulk-urls').value
+    .split('\n').map(l=>l.trim()).filter(l=>l.startsWith('http')).slice(0,20);
+}
+
+async function doBulkScrape() {
+  const urls = parseBulkUrls();
+  if (!urls.length) { toast2('Enter at least one URL','er'); return; }
+  if (bulkRunning) return;
+
+  const kwRaw = document.getElementById('kw-textarea2').value.trim();
+  const kwList = kwRaw ? kwRaw.split('\n').map(l=>l.trim()).filter(Boolean).slice(0,50) : keywords;
+
+  bulkRunning = true;
+  document.getElementById('bulk-run-btn').disabled = true;
+  clearResults(false);
+
+  // Build list UI
+  const listEl = document.getElementById('bulk-list');
+  listEl.innerHTML = urls.map((u,i)=>`
+    <div class="bpl-item" id="bpl-${i}">
+      <div class="bpl-top">
+        <span class="bpl-url">${escHtml(u)}</span>
+        <span class="bpl-status wait" id="bpl-st-${i}">Waiting</span>
+      </div>
+      <div class="bpl-bar"><div class="bpl-fill" id="bpl-fill-${i}" style="width:0%"></div></div>
+      <div class="bpl-count" id="bpl-cnt-${i}">—</div>
+    </div>`).join('');
+
+  let globalIdx = 0;
+  let totalFound = 0;
+
+  for (let i=0;i<urls.length;i++) {
+    const st = document.getElementById('bpl-st-'+i);
+    const fill = document.getElementById('bpl-fill-'+i);
+    const cnt = document.getElementById('bpl-cnt-'+i);
+    st.className='bpl-status run'; st.textContent='Running…';
+    fill.style.width='30%';
+
+    try {
+      const html = await fetchPage(urls[i]);
+      fill.style.width='60%';
+      const raw = extractImages(html, urls[i]);
+      fill.style.width='85%';
+      const filtered = applyFilters(raw);
+
+      const useSubfolders = document.getElementById('s-subfolders')?.checked;
+      const subfolder = useSubfolders ? 'url-'+(i+1)+'/' : '';
+
+      filtered.forEach(img => {
+        allImages.push({
+          ...img,
+          kwName: subfolder + getImageName(globalIdx, img.url, kwList),
+          idx: globalIdx,
+          bulkSrc: urls[i]
+        });
+        globalIdx++;
+      });
+
+      totalFound += filtered.length;
+      document.getElementById('bulk-img-count').textContent = totalFound+' images found';
+      fill.style.width='100%';
+      st.className='bpl-status done'; st.textContent='✓ '+filtered.length+' images';
+      cnt.textContent = filtered.length+' images found from this URL';
+    } catch(err) {
+      fill.style.width='100%'; fill.style.background='var(--accent2)';
+      st.className='bpl-status err'; st.textContent='✗ Error';
+      cnt.textContent = 'Error: '+err.message;
+    }
+
+    // small delay between requests
+    if (i<urls.length-1) await sleep(600);
+  }
+
+  filteredImages = [...allImages];
+  if (allImages.length) {
+    document.getElementById('res-sec').classList.add('sh');
+    document.getElementById('stat-total').textContent = allImages.length+' found';
+    document.getElementById('stat-src').textContent = '📋 '+urls.length+' URLs';
+    renderGrid();
+    toast2('✓ Bulk done! '+allImages.length+' images from '+urls.length+' URLs','ok');
+  } else {
+    toast2('No images found across all URLs','er');
+  }
+
+  bulkRunning = false;
+  document.getElementById('bulk-run-btn').disabled = false;
+}
+
+function clearBulk() {
+  document.getElementById('bulk-urls').value = '';
+  document.getElementById('bulk-list').innerHTML = '';
+  document.getElementById('bulk-url-count').textContent = '0 URLs';
+  document.getElementById('bulk-img-count').textContent = '0 images found';
+  clearResults(false);
+}
+
+// ── LIGHTBOX ──────────────────────────────────────────────────────────────
+function openLB(idx) {
+  lbIdx = idx;
+  const img = allImages.find(i=>i.idx===idx)||allImages[0];
+  if (!img) return;
+  document.getElementById('lb-img').src = img.url;
+  document.getElementById('lb-info').textContent = img.kwName+' · '+img.name;
+  document.getElementById('lb').classList.add('open');
+}
+document.getElementById('lb-x').onclick = ()=>document.getElementById('lb').classList.remove('open');
+document.getElementById('lb').addEventListener('click',e=>{if(e.target===document.getElementById('lb'))document.getElementById('lb').classList.remove('open')});
+document.getElementById('lb-prev').onclick = ()=>{ if(lbIdx>0){lbIdx--;openLB(lbIdx)} };
+document.getElementById('lb-next').onclick = ()=>{ if(lbIdx<allImages.length-1){lbIdx++;openLB(lbIdx)} };
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') document.getElementById('lb').classList.remove('open');
+  if(e.key==='ArrowLeft' && document.getElementById('lb').classList.contains('open')) { if(lbIdx>0){lbIdx--;openLB(lbIdx)} }
+  if(e.key==='ArrowRight' && document.getElementById('lb').classList.contains('open')) { if(lbIdx<allImages.length-1){lbIdx++;openLB(lbIdx)} }
+});
+
+// ── PROGRESS HELPERS ───────────────────────────────────────────────────────
+function setProgress(show) {
+  document.getElementById('pc').classList.toggle('sh', show);
+  if (show) {
+    [1,2,3,4,5].forEach(i=>{ const el=document.getElementById('ps'+i); if(el){el.className='prog-step'} });
+    document.getElementById('prog-fill').style.width='0%';
+  }
+}
+function setProgressBar(pct, msg) {
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('prog-pct').textContent=pct+'%';
+  document.getElementById('prog-lbl').textContent=msg;
+}
+function setStep(n, state) {
+  const el = document.getElementById('ps'+n);
+  if (!el) return;
+  el.className='prog-step '+state;
+  if (state==='act') { const sp=document.createElement('span');sp.className='spin';sp.textContent='⟳';el.appendChild(sp); }
+}
+function setBtnLoading(loading) {
+  const t1=document.getElementById('scrape-btn-txt'), t2=document.getElementById('s2txt');
+  const b1=document.getElementById('scrape-btn'), b2=document.getElementById('scrape-btn2');
+  const txt=loading?'<span class="spinner-ic"></span> Extracting…':'🔍 Extract Images';
+  if(t1) t1.innerHTML=txt;
+  if(t2) t2.innerHTML=txt;
+  if(b1) b1.disabled=loading;
+  if(b2) b2.disabled=loading;
+}
+
+// ── UTILITY ───────────────────────────────────────────────────────────────
+function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+function getExt(url) {
+  if (!url) return 'jpg';
+  if (url.startsWith('data:image/')) return url.split(';')[0].split('/')[1]||'jpg';
+  const m=(url.split('?')[0]).match(/\.(\w{2,5})$/);
+  return m ? m[1].toLowerCase() : 'jpg';
+}
+function getFilename(url) {
+  if (!url || url.startsWith('data:')) return 'image';
+  const p=url.split('?')[0].split('/');
+  return p[p.length-1]||'image';
+}
+function getBase(url) {
+  try { const u=new URL(url); return u.protocol+'//'+u.host; } catch(e){ return ''; }
+}
+function cleanUrl(url, base) {
+  if (!url || typeof url!=='string') return null;
+  url = url.trim();
+  if (url.startsWith('data:image')) return url;
+  if (url.startsWith('//')) return 'https:'+url;
+  if (url.startsWith('/')) return base+url;
+  if (url.startsWith('http')) return url;
+  if (url.startsWith('data:')) return null;
+  return base+'/'+url;
+}
+function slugify(s) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+function hashStr(s) {
+  let h=0;for(let c of s){h=(h<<5)-h+c.charCodeAt(0);h|=0;}
+  return Math.abs(h).toString(16);
+}
+function truncUrl(url, n) {
+  return url.length>n?url.slice(0,n)+'…':url;
+}
+function escHtml(s){ if(!s)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escAttr(s){ if(!s)return'';return String(s).replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+// ── TOAST ─────────────────────────────────────────────────────────────────
+let tt;
+function toast2(msg,type=''){
+  const t=document.getElementById('toast');
+  t.innerHTML=msg; t.className='toast sh '+(type==='ok'?'ok':type==='er'?'er':type==='info'?'info':'');
+  clearTimeout(tt);tt=setTimeout(()=>t.className='toast',3500);
+}
+
+// ── ENTER KEY ──────────────────────────────────────────────────────────────
+document.getElementById('url-input').addEventListener('keydown',e=>{if(e.key==='Enter')doScrape()});
+</script>
+</body>
+</html>
