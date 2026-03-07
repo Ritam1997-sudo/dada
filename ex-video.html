@@ -89,193 +89,242 @@ h1 em{font-style:normal;color:var(--accent)}
 .mc label{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-l);margin-bottom:2px}
 .mc span{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent)}
 
-/* ═══════════════════════════════════════════════════════════
-   VIDEO PREVIEW CARD  ← NEW
-   ═══════════════════════════════════════════════════════════ */
-.vp-card{
-  display:none;
-  background:var(--white);
-  border:1px solid var(--border);
-  border-radius:var(--rlg);
-  box-shadow:var(--sh1);
-  margin-top:18px;
-  overflow:hidden;
+/* ── VIDEO PREVIEW PANEL ──────────────────────────────────── */
+.vprev-card {
+  display: none;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--rlg);
+  box-shadow: var(--sh1);
+  margin-top: 18px;
+  overflow: hidden;
 }
-.vp-card.sh{display:block;animation:fdU .4s ease both}
+.vprev-card.sh { display: block; animation: fdU .4s ease both; }
 
-/* header row */
-.vp-hdr{
-  padding:14px 20px;
-  border-bottom:1px solid var(--border);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
+.vprev-hdr {
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: linear-gradient(90deg, rgba(67,97,238,.03), rgba(247,37,133,.02));
 }
-.vp-hdr-l{display:flex;align-items:center;gap:10px}
-.vp-hdr-l h3{font-size:15px;font-weight:700}
-.vp-badge{
-  display:inline-flex;align-items:center;gap:5px;
-  background:rgba(67,97,238,.08);
-  border:1px solid rgba(67,97,238,.18);
-  border-radius:20px;padding:3px 11px;
-  font-size:11px;font-weight:700;color:var(--accent)
+.vprev-hdr-left { display: flex; align-items: center; gap: 10px; }
+.vprev-hdr h3 { font-size: 15px; font-weight: 700; }
+.vprev-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(6,214,160,.1); border: 1px solid rgba(6,214,160,.25);
+  border-radius: 12px; padding: 3px 10px;
+  font-size: 11px; font-weight: 700; color: #0a9e77;
 }
-.vp-badge .vdot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--accent2);
-  animation:pu 2s infinite;
-}
-.vp-toggle{
-  display:flex;align-items:center;gap:6px;
-  background:var(--bg);border:1px solid var(--border);
-  border-radius:var(--rsm);padding:6px 13px;
-  font-family:var(--f);font-size:12px;font-weight:700;
-  color:var(--text-m);cursor:pointer;transition:all .18s;
-}
-.vp-toggle:hover{border-color:var(--accent);color:var(--accent)}
-.vp-toggle-arr{transition:transform .25s;font-size:10px;opacity:.6}
-.vp-card.collapsed .vp-toggle-arr{transform:rotate(180deg)}
+.vprev-dot { width: 6px; height: 6px; background: var(--accent3); border-radius: 50%; animation: pu 2s infinite; }
 
-/* body */
-.vp-body{padding:20px}
-.vp-card.collapsed .vp-body{display:none}
+.vprev-body { padding: 20px 22px; }
 
-/* video wrapper — maintains aspect ratio */
-.vp-vid-wrap{
-  position:relative;
-  width:100%;
-  background:#0a0d1a;
-  border-radius:var(--r);
-  overflow:hidden;
-  margin-bottom:16px;
-}
-/* The padding-bottom is set dynamically via JS */
-.vp-vid-inner{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.vp-vid-inner video{
-  width:100%;height:100%;
-  object-fit:contain;
-  display:block !important; /* override canvas,video{display:none} */
+.vprev-layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 18px;
+  align-items: start;
 }
 
-/* big play overlay (shows when paused) */
-.vp-play-overlay{
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;
-  background:transparent;
-  transition:background .2s;
+/* Video player wrapper */
+.vprev-player-wrap {
+  background: #0d0f1a;
+  border-radius: var(--r);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,.2);
 }
-.vp-play-overlay:hover .vp-play-circle{transform:scale(1.1);background:rgba(255,255,255,.25)}
-.vp-play-circle{
-  width:60px;height:60px;
-  background:rgba(255,255,255,.18);
-  backdrop-filter:blur(8px);
-  border-radius:50%;
-  display:grid;place-items:center;
-  font-size:22px;
-  transition:all .2s;
-  border:2px solid rgba(255,255,255,.3);
-  color:#fff;
-}
-.vp-play-overlay.playing .vp-play-circle{opacity:0}
-.vp-play-overlay:hover.playing .vp-play-circle{opacity:1}
-
-/* custom controls bar */
-.vp-ctrl{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+.vprev-video-el {
+  display: block !important;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  background: #0d0f1a;
 }
 
-/* seek bar */
-.vp-seek-wrap{
-  display:flex;align-items:center;gap:10px;
+/* Custom controls bar */
+.vprev-controls {
+  background: linear-gradient(to top, rgba(10,12,28,.95), rgba(10,12,28,.7));
+  padding: 10px 14px 12px;
 }
-.vp-time{
-  font-family:var(--mono);font-size:11px;
-  color:var(--text-d);white-space:nowrap;min-width:88px;
+.vprev-seekbar-wrap {
+  position: relative;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
 }
-.vp-seek{
-  flex:1;
-  -webkit-appearance:none;appearance:none;
-  height:5px;border-radius:3px;
-  background:var(--border2);
-  outline:none;cursor:pointer;border:none;padding:0;
-  position:relative;
+.vprev-seekbar-bg {
+  position: absolute;
+  left: 0; right: 0;
+  height: 4px;
+  background: rgba(255,255,255,.15);
+  border-radius: 2px;
+  overflow: hidden;
 }
-.vp-seek::-webkit-slider-thumb{
-  -webkit-appearance:none;
-  width:14px;height:14px;
-  border-radius:50%;
-  background:var(--accent);
-  box-shadow:0 2px 8px rgba(67,97,238,.4);
-  cursor:pointer;
-  transition:box-shadow .15s;
+.vprev-seekbar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 2px;
+  transition: width .1s linear;
 }
-.vp-seek::-webkit-slider-thumb:hover{box-shadow:0 2px 14px rgba(67,97,238,.6)}
+.vprev-seekbar {
+  position: absolute;
+  left: 0; right: 0;
+  width: 100%;
+  height: 20px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+/* Thumb visible only on hover */
+.vprev-seekbar-wrap:hover .vprev-seekbar-bg { height: 6px; }
+.vprev-seekbar-thumb {
+  position: absolute;
+  width: 14px; height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,.4);
+  top: 50%; transform: translateY(-50%);
+  left: 0%;
+  transition: left .1s linear;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.vprev-seekbar-wrap:hover .vprev-seekbar-thumb { opacity: 1; }
 
-/* bottom controls row */
-.vp-ctrl-row{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
+.vprev-btns {
+  display: flex; align-items: center; gap: 10px;
 }
-.vp-cbtn{
-  display:inline-flex;align-items:center;gap:5px;
-  padding:7px 12px;
-  background:var(--bg);border:1.5px solid var(--border2);
-  border-radius:var(--rsm);font-family:var(--f);font-size:12px;
-  font-weight:700;cursor:pointer;transition:all .18s;
-  color:var(--text-m);white-space:nowrap;
+.vprev-ctrl-btn {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 7px;
+  color: #fff;
+  font-size: 13px;
+  width: 32px; height: 32px;
+  display: grid; place-items: center;
+  cursor: pointer;
+  transition: background .15s;
+  flex-shrink: 0;
 }
-.vp-cbtn:hover{border-color:var(--accent);color:var(--accent);background:rgba(67,97,238,.04)}
-.vp-cbtn.act{background:rgba(67,97,238,.08);border-color:var(--accent);color:var(--accent)}
-.vp-cbtn.snap{background:rgba(6,214,160,.08);border-color:var(--accent3);color:#0a5c43}
-.vp-cbtn.snap:hover{background:rgba(6,214,160,.15)}
+.vprev-ctrl-btn:hover { background: rgba(255,255,255,.2); }
+.vprev-ctrl-btn.play-btn { width: 38px; height: 38px; font-size:16px; background: var(--accent); border-color: var(--accent); }
+.vprev-ctrl-btn.play-btn:hover { background: var(--accent-d); }
+.vprev-vol-wrap { display: flex; align-items: center; gap: 7px; flex: 1; }
+.vprev-vol-slider {
+  flex: 1; max-width: 80px;
+  height: 4px; -webkit-appearance: none; appearance: none;
+  background: rgba(255,255,255,.2); border-radius: 2px; cursor: pointer; border: none;
+}
+.vprev-vol-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 12px; height: 12px;
+  border-radius: 50%; background: #fff; cursor: pointer;
+}
+.vprev-time {
+  font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,.6);
+  margin-left: auto; white-space: nowrap;
+}
+.vprev-speed {
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+  border-radius: 6px; color: rgba(255,255,255,.7); font-family: var(--mono);
+  font-size: 11px; font-weight: 600; padding: 4px 8px; cursor: pointer;
+}
+.vprev-speed:hover { background: rgba(255,255,255,.15); color: #fff; }
+.vprev-speed option { background: #1a1d2e; color: #fff; }
 
-/* volume */
-.vp-vol-wrap{display:flex;align-items:center;gap:7px;margin-left:auto}
-.vp-vol{
-  width:70px;-webkit-appearance:none;appearance:none;
-  height:4px;border-radius:3px;
-  background:var(--border2);outline:none;cursor:pointer;border:none;padding:0;
+/* Snapshot button overlay */
+.vprev-snap-overlay {
+  position: absolute;
+  bottom: 72px; right: 12px;
+  z-index: 10;
 }
-.vp-vol::-webkit-slider-thumb{
-  -webkit-appearance:none;width:12px;height:12px;
-  border-radius:50%;background:var(--text-m);cursor:pointer;
+.vprev-snap-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.15); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.25); border-radius: 8px;
+  color: #fff; font-family: var(--f); font-size: 12px; font-weight: 700;
+  padding: 7px 13px; cursor: pointer; transition: all .18s;
 }
+.vprev-snap-btn:hover { background: rgba(255,255,255,.28); transform: translateY(-1px); }
 
-/* speed select */
-.vp-speed{
-  background:var(--bg);border:1.5px solid var(--border2);
-  border-radius:var(--rsm);color:var(--text-m);
-  font-family:var(--f);font-size:12px;font-weight:700;
-  padding:6px 10px;cursor:pointer;transition:border-color .18s;
-  appearance:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='%23818aaa' stroke-width='2'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 8px center;
-  padding-right:26px;
+/* Snapshot result strip */
+.vprev-snaps {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;
 }
-.vp-speed:focus{outline:none;border-color:var(--accent)}
-
-/* snap flash animation */
-@keyframes snapFlash{0%{opacity:1}100%{opacity:0}}
-.snap-flash{
-  position:absolute;inset:0;
-  background:#fff;border-radius:var(--r);
-  pointer-events:none;opacity:0;
+.vprev-snap-item {
+  position: relative; border-radius: 8px; overflow: hidden;
+  border: 2px solid var(--border); transition: border-color .2s; cursor: pointer;
+  box-shadow: var(--sh0);
 }
-.snap-flash.go{animation:snapFlash .35s ease-out forwards}
+.vprev-snap-item:hover { border-color: var(--accent); }
+.vprev-snap-item img { display: block; width: 70px; height: 45px; object-fit: cover; }
+.vprev-snap-dl {
+  position: absolute; inset: 0; background: rgba(67,97,238,.8);
+  display: none; place-items: center;
+  font-size: 16px; color: #fff;
+}
+.vprev-snap-item:hover .vprev-snap-dl { display: grid; }
 
-/* ═══════════════════════════════════════════════════════════ */
+/* Info panel */
+.vprev-info { display: flex; flex-direction: column; gap: 12px; }
+.vprev-info-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 16px;
+}
+.vprev-info-card h4 {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px;
+  color: var(--text-l); margin-bottom: 12px;
+}
+.vprev-stat { display: flex; justify-content: space-between; align-items: center; margin-bottom: 9px; gap: 8px; }
+.vprev-stat:last-child { margin-bottom: 0; }
+.vprev-stat-l { font-size: 12px; color: var(--text-d); font-weight: 500; }
+.vprev-stat-v { font-family: var(--mono); font-size: 12px; color: var(--accent); font-weight: 500; text-align: right; }
+
+.vprev-jump-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+.vprev-jb {
+  flex: 1; min-width: 48px; padding: 7px 5px; background: var(--white);
+  border: 1.5px solid var(--border2); border-radius: var(--rsm);
+  font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--text-m);
+  cursor: pointer; text-align: center; transition: all .18s;
+}
+.vprev-jb:hover { border-color: var(--accent); color: var(--accent); background: rgba(67,97,238,.04); }
+
+.vprev-snap-count {
+  font-size: 12px; color: var(--text-d); text-align: center; margin-top: 4px;
+}
+.vprev-snaps-label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px;
+  color: var(--text-l); margin-bottom: 6px; margin-top: 2px;
+}
+.vprev-close-btn {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--bg2); border: 1px solid var(--border2); border-radius: var(--rsm);
+  font-family: var(--f); font-size: 12px; font-weight: 600; color: var(--text-m);
+  padding: 6px 12px; cursor: pointer; transition: all .18s;
+}
+.vprev-close-btn:hover { border-color: var(--accent2); color: var(--accent2); background: rgba(247,37,133,.04); }
+
+@media(max-width:760px){
+  .vprev-layout { grid-template-columns: 1fr; }
+  .vprev-info { flex-direction: row; flex-wrap: wrap; }
+  .vprev-info-card { flex: 1; min-width: 200px; }
+}
 
 /* CONTROLS */
 .ctrl-card{display:none;background:var(--white);border:1px solid var(--border);border-radius:var(--rlg);box-shadow:var(--sh1);margin-top:18px;overflow:hidden}
@@ -463,9 +512,9 @@ input[type=range]::-webkit-slider-thumb:hover{box-shadow:0 2px 14px rgba(67,97,2
 .toast.ok{border-color:var(--accent3)}.toast.er{border-color:var(--accent2)}
 
 @media(max-width:900px){nav{display:none}.mob-btn{display:flex;align-items:center;justify-content:center}.ft-top{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.hero{padding:36px 18px 32px}.main{padding:20px 14px 48px}.stats-row{gap:24px}.ft-top{grid-template-columns:1fr;gap:24px}.rev-top{flex-direction:column}.ctrl-body{padding:14px}.vp-ctrl-row{gap:6px}}
-/* hide the hidden extraction video & canvas */
-#vid{display:none!important}
+@media(max-width:600px){.hero{padding:36px 18px 32px}.main{padding:20px 14px 48px}.stats-row{gap:24px}.ft-top{grid-template-columns:1fr;gap:24px}.rev-top{flex-direction:column}.ctrl-body{padding:14px}}
+
+/* Hidden canvas only (video is now shown in preview panel) */
 canvas{display:none}
 </style>
 </head>
@@ -556,94 +605,106 @@ canvas{display:none}
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════
-       VIDEO PREVIEW CARD  ← NEW
-       ═══════════════════════════════════════════════════════ -->
-  <div class="vp-card" id="vp-card">
-    <!-- header -->
-    <div class="vp-hdr">
-      <div class="vp-hdr-l">
+  <!-- ── VIDEO PREVIEW PANEL ── -->
+  <div class="vprev-card" id="vprev-card">
+    <div class="vprev-hdr">
+      <div class="vprev-hdr-left">
         <span style="font-size:18px">🎬</span>
         <h3>Video Preview</h3>
-        <div class="vp-badge"><span class="vdot"></span> Live</div>
+        <div class="vprev-badge"><span class="vprev-dot"></span> Live Preview</div>
       </div>
-      <button class="vp-toggle" id="vp-toggle-btn">
-        <span>Hide Preview</span>
-        <span class="vp-toggle-arr">▲</span>
-      </button>
+      <button class="vprev-close-btn" id="vprev-close">✕ Hide Preview</button>
     </div>
+    <div class="vprev-body">
+      <div class="vprev-layout">
 
-    <!-- body (collapsible) -->
-    <div class="vp-body">
-      <!-- video wrapper: padding-bottom set by JS for correct aspect ratio -->
-      <div class="vp-vid-wrap" id="vp-wrap">
-        <div class="vp-vid-inner">
-          <!-- This is the PREVIEW video element (separate from the hidden extraction one) -->
-          <video id="vp-vid"
-            preload="metadata"
-            muted
-            playsinline
-            crossorigin="anonymous"
-            style="width:100%;height:100%;object-fit:contain;display:block;">
-          </video>
-        </div>
-        <!-- click-to-play overlay -->
-        <div class="vp-play-overlay" id="vp-overlay">
-          <div class="vp-play-circle" id="vp-play-circle">▶</div>
-        </div>
-        <!-- snap flash -->
-        <div class="snap-flash" id="snap-flash"></div>
-      </div>
+        <!-- Left: player -->
+        <div>
+          <div class="vprev-player-wrap" id="vprev-player-wrap">
+            <video
+              id="vprev-vid"
+              class="vprev-video-el"
+              preload="auto"
+              muted
+              playsinline
+              crossorigin="anonymous"
+            ></video>
 
-      <!-- custom controls -->
-      <div class="vp-ctrl">
-        <!-- seek bar row -->
-        <div class="vp-seek-wrap">
-          <span class="vp-time" id="vp-cur">00:00.00</span>
-          <input type="range" class="vp-seek" id="vp-seek" min="0" max="1000" value="0" step="1">
-          <span class="vp-time" style="text-align:right" id="vp-dur">00:00.00</span>
-        </div>
+            <!-- Snapshot overlay button -->
+            <div class="vprev-snap-overlay">
+              <button class="vprev-snap-btn" id="vprev-snap-btn" title="Capture current frame">
+                📷 Snapshot
+              </button>
+            </div>
 
-        <!-- buttons row -->
-        <div class="vp-ctrl-row">
-          <!-- play/pause -->
-          <button class="vp-cbtn" id="vp-pp-btn" title="Play / Pause (Space)">▶ Play</button>
-
-          <!-- rewind 10s -->
-          <button class="vp-cbtn" id="vp-rew" title="Back 10s">⏮ 10s</button>
-
-          <!-- forward 10s -->
-          <button class="vp-cbtn" id="vp-fwd" title="Forward 10s">10s ⏭</button>
-
-          <!-- loop -->
-          <button class="vp-cbtn" id="vp-loop-btn" title="Toggle loop">🔁 Loop</button>
-
-          <!-- speed -->
-          <select class="vp-speed" id="vp-speed" title="Playback speed">
-            <option value="0.25">0.25×</option>
-            <option value="0.5">0.5×</option>
-            <option value="1" selected>1× Speed</option>
-            <option value="1.5">1.5×</option>
-            <option value="2">2×</option>
-            <option value="3">3×</option>
-          </select>
-
-          <!-- snap current frame -->
-          <button class="vp-cbtn snap" id="vp-snap" title="Extract current frame">📷 Snap Frame</button>
-
-          <!-- fullscreen -->
-          <button class="vp-cbtn" id="vp-fs" title="Fullscreen">⛶</button>
-
-          <!-- volume -->
-          <div class="vp-vol-wrap">
-            <button class="vp-cbtn" id="vp-mute" title="Mute / Unmute" style="padding:7px 10px">🔊</button>
-            <input type="range" class="vp-vol" id="vp-vol" min="0" max="1" step="0.05" value="1" title="Volume">
+            <!-- Custom controls -->
+            <div class="vprev-controls">
+              <!-- Seekbar -->
+              <div class="vprev-seekbar-wrap" id="vprev-seek-wrap">
+                <div class="vprev-seekbar-bg">
+                  <div class="vprev-seekbar-fill" id="vprev-fill"></div>
+                </div>
+                <div class="vprev-seekbar-thumb" id="vprev-thumb"></div>
+                <input type="range" class="vprev-seekbar" id="vprev-seek" min="0" max="100" step="0.01" value="0">
+              </div>
+              <!-- Buttons row -->
+              <div class="vprev-btns">
+                <button class="vprev-ctrl-btn" id="vprev-rew" title="Back 10s">⏪</button>
+                <button class="vprev-ctrl-btn play-btn" id="vprev-play" title="Play/Pause">▶</button>
+                <button class="vprev-ctrl-btn" id="vprev-fwd" title="Forward 10s">⏩</button>
+                <div class="vprev-vol-wrap">
+                  <button class="vprev-ctrl-btn" id="vprev-mute" title="Mute/Unmute">🔊</button>
+                  <input type="range" class="vprev-vol-slider" id="vprev-vol" min="0" max="1" step="0.05" value="0.8">
+                </div>
+                <select class="vprev-speed" id="vprev-speed">
+                  <option value="0.25">0.25×</option>
+                  <option value="0.5">0.5×</option>
+                  <option value="1" selected>1×</option>
+                  <option value="1.5">1.5×</option>
+                  <option value="2">2×</option>
+                </select>
+                <div class="vprev-time" id="vprev-time">00:00.00 / 00:00.00</div>
+              </div>
+            </div>
           </div>
+
+          <!-- Snapshots strip -->
+          <div id="vprev-snaps-wrap" style="display:none; margin-top:12px">
+            <div class="vprev-snaps-label">📸 Snapshots <span id="vprev-snap-count" style="font-family:var(--mono);font-size:10px;color:var(--text-d);font-weight:400;text-transform:none;letter-spacing:0">(click to download)</span></div>
+            <div class="vprev-snaps" id="vprev-snaps"></div>
+          </div>
+        </div>
+
+        <!-- Right: info panel -->
+        <div class="vprev-info">
+
+          <div class="vprev-info-card">
+            <h4>📊 Video Info</h4>
+            <div class="vprev-stat"><span class="vprev-stat-l">Duration</span><span class="vprev-stat-v" id="vi-dur">—</span></div>
+            <div class="vprev-stat"><span class="vprev-stat-l">Resolution</span><span class="vprev-stat-v" id="vi-res">—</span></div>
+            <div class="vprev-stat"><span class="vprev-stat-l">Aspect Ratio</span><span class="vprev-stat-v" id="vi-ar">—</span></div>
+            <div class="vprev-stat"><span class="vprev-stat-l">File Size</span><span class="vprev-stat-v" id="vi-size">—</span></div>
+            <div class="vprev-stat"><span class="vprev-stat-l">Current Time</span><span class="vprev-stat-v" id="vi-cur">00:00.00</span></div>
+          </div>
+
+          <div class="vprev-info-card">
+            <h4>⏱️ Jump To</h4>
+            <div class="vprev-jump-btns" id="vprev-jumps">
+              <!-- filled dynamically -->
+            </div>
+          </div>
+
+          <div class="vprev-info-card">
+            <h4>📷 Snapshot Tool</h4>
+            <p style="font-size:12px;color:var(--text-m);line-height:1.6;margin-bottom:10px">Pause the video at any frame and click <strong>Snapshot</strong> to capture it as a PNG.</p>
+            <div class="vprev-stat"><span class="vprev-stat-l">Snapshots taken</span><span class="vprev-stat-v" id="vi-snaps">0</span></div>
+            <button class="btn btn-p" style="width:100%;justify-content:center;margin-top:10px;font-size:13px;padding:10px" onclick="document.getElementById('vprev-snap-btn').click()">📷 Take Snapshot</button>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
-  <!-- ═══════════════════════════════════════════════════════ -->
 
   <!-- CONTROLS -->
   <div class="ctrl-card" id="ctrl-card">
@@ -748,9 +809,9 @@ canvas{display:none}
       </div>
       <div class="steps-grid">
         <div class="step-it"><div class="sn">1</div><div class="si">📁</div><div class="st">Upload Your Video</div><div class="sd">Drag your video onto the upload zone or click Browse. Supports MP4, MOV, AVI, MKV, WebM. No file size limit — the video never leaves your device.</div></div>
-        <div class="step-it"><div class="sn">2</div><div class="si">🎬</div><div class="st">Preview Your Video</div><div class="sd">Instantly see your video in the preview player. Play, scrub, adjust speed, and use Snap Frame to grab any single moment before doing a bulk extraction.</div></div>
+        <div class="step-it"><div class="sn">2</div><div class="si">🎬</div><div class="st">Preview Your Video</div><div class="sd">A full video player appears instantly. Watch your video, scrub to any frame, use the Snapshot tool to manually capture specific moments.</div></div>
         <div class="step-it"><div class="sn">3</div><div class="si">⚙️</div><div class="st">Configure Settings</div><div class="sd">Choose your frame extraction rate (FPS), set start/end time for a specific segment, and pick PNG, JPG, or WebP as your output format.</div></div>
-        <div class="step-it"><div class="sn">4</div><div class="si">⬇️</div><div class="st">Extract & Download</div><div class="sd">Click Extract Frames. Frames appear in real-time. Click Download ZIP to save all frames, or tap Save on any individual frame. Click any frame to preview full size.</div></div>
+        <div class="step-it"><div class="sn">4</div><div class="si">▶️</div><div class="st">Extract & Download</div><div class="sd">Click Extract Frames and watch them appear in a real-time grid. Download individually or grab all frames as a single ZIP file.</div></div>
       </div>
     </div>
     <div class="tips-box">
@@ -759,7 +820,7 @@ canvas{display:none}
         <div class="tip"><strong>🎯 PNG = Best Quality</strong>PNG is lossless — zero compression artifacts. Perfect for design, analysis, or thumbnails.</div>
         <div class="tip"><strong>📱 9:16 Portraits Work Perfectly</strong>Grid auto-adjusts to your video's aspect ratio. Portrait videos show portrait frames.</div>
         <div class="tip"><strong>✂️ Use Time Range</strong>Only need one scene? Set start + end time to skip the rest and extract faster.</div>
-        <div class="tip"><strong>📷 Snap Frame</strong>Pause the preview at the perfect moment and click Snap Frame to instantly grab just that one image.</div>
+        <div class="tip"><strong>📷 Snapshot First</strong>Use the video preview's Snapshot button to manually grab specific frames before running bulk extraction.</div>
       </div>
     </div>
   </div>
@@ -770,9 +831,9 @@ canvas{display:none}
     <div class="sec-t">The Complete Video Frame Extractor</div>
     <p class="sec-s">More powerful than any other free <strong>frame extractor</strong> or <strong>video extractor</strong> online.</p>
     <div class="feat-grid">
-      <div class="feat"><div class="feat-i">🎬</div><div class="feat-t">Instant Video Preview</div><div class="feat-d">See your video the moment you upload it. Full-featured player with play/pause, scrub, speed control, volume, loop, and fullscreen — all before extracting a single frame.</div></div>
-      <div class="feat"><div class="feat-i">📷</div><div class="feat-t">Snap Frame</div><div class="feat-d">Pause your video at exactly the right moment and click Snap Frame to instantly capture that single frame. Perfect for grabbing one key moment without a full extraction.</div></div>
-      <div class="feat"><div class="feat-i">📐</div><div class="feat-t">Smart Aspect Ratio Grid</div><div class="feat-d">The frame grid auto-matches your video's ratio — 16:9, 9:16, 4:3, 1:1. Portrait videos (TikTok, Reels) display as portrait frames, always. No more squished thumbnails.</div></div>
+      <div class="feat"><div class="feat-i">🎬</div><div class="feat-t">Live Video Preview</div><div class="feat-d">Watch your video directly in the browser with a full-featured player. Scrub, seek, control playback speed, and snapshot any frame before extracting.</div></div>
+      <div class="feat"><div class="feat-i">🎞️</div><div class="feat-t">Video Frame Extractor</div><div class="feat-d">Extract any frame from any video at any timestamp. Captures at native resolution with zero quality loss — the best free video frame extractor online.</div></div>
+      <div class="feat"><div class="feat-i">📐</div><div class="feat-t">Smart Aspect Ratio Grid</div><div class="feat-d">The frame grid auto-matches your video's ratio — 16:9, 9:16, 4:3, 1:1. Portrait videos (TikTok, Reels) display as portrait frames, always.</div></div>
       <div class="feat"><div class="feat-i">🗜️</div><div class="feat-t">Bulk ZIP Download</div><div class="feat-d">Instantly download all extracted frames as a single ZIP file. The fastest way to convert video to frames for batch processing or archiving.</div></div>
       <div class="feat"><div class="feat-i">✂️</div><div class="feat-t">Time Range Selection</div><div class="feat-d">Extract frames from only the video segment you need. Set precise start and end times in seconds to skip to the right scene.</div></div>
       <div class="feat"><div class="feat-i">🔒</div><div class="feat-t">100% Private & Secure</div><div class="feat-d">Unlike other video extractor tools, your video never leaves your device. No cloud, no server, no data collection. Fully GDPR compliant.</div></div>
@@ -808,6 +869,7 @@ canvas{display:none}
       <div class="rev-card"><div class="rev-hd"><div class="rev-av" style="background:linear-gradient(135deg,#7209b7,#3a0ca3)">L</div><div><div class="rev-nm">Layla H.</div><div class="rev-dt">December 2025 · Animator</div></div></div><div class="rev-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div class="rev-txt">As an animator I need every single frame from reference videos. The "every frame" option is brilliant. Privacy matters a lot to me — knowing nothing is ever uploaded is huge.</div><div class="rev-tag">✅ Verified User</div></div>
       <div class="rev-card"><div class="rev-hd"><div class="rev-av" style="background:linear-gradient(135deg,#ef233c,#d62828)">C</div><div><div class="rev-nm">Carlos V.</div><div class="rev-dt">November 2025 · Film Student</div></div></div><div class="rev-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><div class="rev-txt">Used this to analyze cinematography — extracted frames at 0.5fps to study shot composition. The full-screen lightbox preview is great for detailed inspection. Highly recommend.</div><div class="rev-tag">✅ Verified User</div></div>
     </div>
+    <!-- Rate Widget -->
     <div class="rate-card">
       <div class="rate-t">Rate Your Experience ⭐</div>
       <div class="rate-s">Did FrameGrab help you? Leave a quick rating to help other users discover this free tool.</div>
@@ -892,22 +954,16 @@ canvas{display:none}
   </div>
 </footer>
 
-<!-- hidden extraction video + canvas (not visible) -->
-<video id="vid" preload="metadata" muted playsinline crossorigin="anonymous" style="display:none!important"></video>
-<canvas id="cnv" style="display:none!important"></canvas>
+<!-- Hidden extraction canvas + hidden extraction video -->
+<canvas id="cnv"></canvas>
+<video id="vid" preload="metadata" muted playsinline crossorigin="anonymous" style="display:none"></video>
 
-<div class="lb" id="lb">
-  <button class="lb-x" id="lbx">✕</button>
-  <img class="lb-img" id="lbi" src="" alt="Frame preview">
-  <div class="lb-inf" id="lbi2"></div>
-</div>
+<div class="lb" id="lb"><button class="lb-x" id="lbx">✕</button><img class="lb-img" id="lbi" src="" alt="Frame preview"><div class="lb-inf" id="lbi2"></div></div>
 <div class="toast" id="toast"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
-/* ══════════════════════════════════════════════════════════════
-   LANGUAGES + TRANSLATIONS
-══════════════════════════════════════════════════════════════ */
+// ── LANGUAGES ───────────────────────────────────────────────────────────────
 const LANGS=[
   {c:'en',f:'🇺🇸',n:'English',l:'EN'},{c:'es',f:'🇪🇸',n:'Español',l:'ES'},
   {c:'fr',f:'🇫🇷',n:'Français',l:'FR'},{c:'de',f:'🇩🇪',n:'Deutsch',l:'DE'},
@@ -922,24 +978,27 @@ const LANGS=[
   {c:'sv',f:'🇸🇪',n:'Svenska',l:'SV'},
 ];
 let curLang=LANGS[0];
-const TRANSLATIONS={
-  'hero.badge':{en:'Free · No Signup · 100% Private',es:'Gratis · Sin registro · 100% Privado',fr:'Gratuit · Sans inscription · 100% Privé',de:'Kostenlos · Keine Anmeldung · 100% Privat',hi:'मुफ्त · कोई साइनअप नहीं · 100% निजी'},
-  'hero.title':{en:'Free Online<br><em>Video Frame Extractor</em>',es:'Extractor de Fotogramas Gratuito en Línea<br><em>Extractor de Cuadros</em>',fr:'Extracteur de Frames Vidéo Gratuit en Ligne<br><em>Extracteur de Frames</em>',de:'Kostenloser Online-Video-Frame-Extraktor<br><em>Frame-Extraktor</em>',hi:'मुफ्त ऑनलाइन<br><em>वीडियो फ्रेम एक्सट्रैक्टर</em>'},
-  'hero.sub':{en:'The fastest way to extract frames from video. Our <strong>frame extractor</strong> converts <strong>video to frames</strong> instantly — no upload, no server, runs entirely in your browser.',es:'La forma más rápida de extraer fotogramas de vídeo. Nuestro <strong>extractor de fotogramas</strong> convierte <strong>vídeo a fotogramas</strong> al instante — sin subida, sin servidor.',fr:'La façon la plus rapide d'extraire des frames. Notre <strong>extracteur</strong> convertit la <strong>vidéo en frames</strong> instantanément — aucun upload, aucun serveur.',de:'Der schnellste Weg, Frames aus Videos zu extrahieren. Unser <strong>Frame-Extraktor</strong> wandelt <strong>Video in Frames</strong> sofort um.',hi:'वीडियो से फ्रेम निकालने का सबसे तेज़ तरीका।'},
-  'trust.no-upload':{en:'No Upload Ever',es:'Sin subida nunca',fr:'Aucun upload',de:'Nie hochladen',hi:'कभी अपलोड नहीं'},
-  'trust.instant':{en:'Instant Results',es:'Resultados instantáneos',fr:'Résultats instantanés',de:'Sofortige Ergebnisse',hi:'तुरंत परिणाम'},
-  'trust.users':{en:'50,000+ Monthly Users',es:'50.000+ usuarios mensuales',fr:'Plus de 50 000 utilisateurs',de:'50.000+ Nutzer monatlich',hi:'50,000+ मासिक उपयोगकर्ता'},
-  'trust.free':{en:'Forever Free',es:'Gratis para siempre',fr:'Gratuit pour toujours',de:'Für immer kostenlos',hi:'हमेशा मुफ्त'},
-  'dz.title':{en:'Drop your video to extract frames',es:'Suelta tu vídeo para extraer fotogramas',fr:'Déposez votre vidéo pour extraire des frames',de:'Video hier ablegen zum Extrahieren',hi:'फ्रेम निकालने के लिए अपना वीडियो ड्रॉप करें'},
-  'dz.sub':{en:'MP4, MOV, AVI, MKV, WebM — any format your browser supports',es:'MP4, MOV, AVI, MKV, WebM — cualquier formato',fr:'MP4, MOV, AVI, MKV, WebM — tout format supporté',de:'MP4, MOV, AVI, MKV, WebM — jedes unterstützte Format',hi:'MP4, MOV, AVI, MKV, WebM — कोई भी फॉर्मेट'},
-  'btn.browse':{en:'📁 Browse & Select Video',es:'📁 Examinar y seleccionar vídeo',fr:'📁 Parcourir et sélectionner une vidéo',de:'📁 Video durchsuchen & auswählen',hi:'📁 ब्राउज़ करें और वीडियो चुनें'},
-  'btn.extract':{en:'▶ Extract Frames',es:'▶ Extraer fotogramas',fr:'▶ Extraire les frames',de:'▶ Frames extrahieren',hi:'▶ फ्रेम्स एक्सट्रैक्ट करें'},
-  'btn.reset':{en:'✕ Reset',es:'✕ Reiniciar',fr:'✕ Réinitialiser',de:'✕ Zurücksetzen',hi:'✕ रीसेट'},
-  'res.title':{en:'Extracted Frames',es:'Fotogramas extraídos',fr:'Frames extraits',de:'Extrahierte Frames',hi:'एक्सट्रैक्टेड फ्रेम्स'},
-  'btn.zip':{en:'⬇ Download All (ZIP)',es:'⬇ Descargar todo (ZIP)',fr:'⬇ Tout télécharger (ZIP)',de:'⬇ Alles herunterladen (ZIP)',hi:'⬇ सभी डाउनलोड करें (ZIP)'},
-  'btn.clear':{en:'🗑 Clear',es:'🗑 Limpiar',fr:'🗑 Effacer',de:'🗑 Löschen',hi:'🗑 क्लियर'},
+
+const TRANSLATIONS = {
+  'hero.badge': {en:'Free · No Signup · 100% Private',es:'Gratis · Sin registro · 100% Privado',fr:'Gratuit · Sans inscription · 100% Privé',de:'Kostenlos · Keine Anmeldung · 100% Privat',hi:'मुफ्त · कोई साइनअप नहीं · 100% निजी'},
+  'hero.title': {en:'Free Online<br><em>Video Frame Extractor</em>',es:'Extractor de Fotogramas<br><em>Gratuito en Línea</em>',fr:'Extracteur de Frames Vidéo<br><em>Gratuit en Ligne</em>',de:'Kostenloser Online<br><em>Video-Frame-Extraktor</em>',hi:'मुफ्त ऑनलाइन<br><em>वीडियो फ्रेम एक्सट्रैक्टर</em>'},
+  'hero.sub': {en:'The fastest way to extract frames from video. Our <strong>frame extractor</strong> converts <strong>video to frames</strong> instantly — no upload, no server, runs entirely in your browser.',es:'La forma más rápida de extraer fotogramas de vídeo.',fr:'La façon la plus rapide d\'extraire des frames.',de:'Der schnellste Weg, Frames aus Videos zu extrahieren.',hi:'वीडियो से फ्रेम निकालने का सबसे तेज़ तरीका।'},
+  'trust.no-upload': {en:'No Upload Ever',es:'Sin subida nunca',fr:'Aucun upload',de:'Nie hochladen',hi:'कभी अपलोड नहीं'},
+  'trust.instant': {en:'Instant Results',es:'Resultados instantáneos',fr:'Résultats instantanés',de:'Sofortige Ergebnisse',hi:'तुरंत परिणाम'},
+  'trust.users': {en:'50,000+ Monthly Users',es:'50.000+ usuarios mensuales',fr:'50 000+ utilisateurs/mois',de:'50.000+ Nutzer monatlich',hi:'50,000+ मासिक उपयोगकर्ता'},
+  'trust.free': {en:'Forever Free',es:'Gratis para siempre',fr:'Gratuit pour toujours',de:'Für immer kostenlos',hi:'हमेशा मुफ्त'},
+  'dz.title': {en:'Drop your video to extract frames',es:'Suelta tu vídeo para extraer fotogramas',fr:'Déposez votre vidéo pour extraire des frames',de:'Video hier ablegen zum Extrahieren',hi:'फ्रेम निकालने के लिए अपना वीडियो ड्रॉप करें'},
+  'dz.sub': {en:'MP4, MOV, AVI, MKV, WebM — any format your browser supports',es:'MP4, MOV, AVI, MKV, WebM — cualquier formato',fr:'MP4, MOV, AVI, MKV, WebM — tout format supporté',de:'MP4, MOV, AVI, MKV, WebM — jedes Format',hi:'MP4, MOV, AVI, MKV, WebM — कोई भी फॉर्मेट'},
+  'btn.browse': {en:'📁 Browse & Select Video',es:'📁 Seleccionar vídeo',fr:'📁 Choisir une vidéo',de:'📁 Video auswählen',hi:'📁 वीडियो चुनें'},
+  'btn.extract': {en:'▶ Extract Frames',es:'▶ Extraer fotogramas',fr:'▶ Extraire les frames',de:'▶ Frames extrahieren',hi:'▶ फ्रेम्स एक्सट्रैक्ट करें'},
+  'btn.reset': {en:'✕ Reset',es:'✕ Reiniciar',fr:'✕ Réinitialiser',de:'✕ Zurücksetzen',hi:'✕ रीसेट'},
+  'res.title': {en:'Extracted Frames',es:'Fotogramas extraídos',fr:'Frames extraits',de:'Extrahierte Frames',hi:'एक्सट्रैक्टेड फ्रेम्स'},
+  'btn.zip': {en:'⬇ Download All (ZIP)',es:'⬇ Descargar todo (ZIP)',fr:'⬇ Tout télécharger (ZIP)',de:'⬇ Alles herunterladen (ZIP)',hi:'⬇ सभी डाउनलोड करें (ZIP)'},
+  'btn.clear': {en:'🗑 Clear',es:'🗑 Limpiar',fr:'🗑 Effacer',de:'🗑 Löschen',hi:'🗑 क्लियर'},
 };
-function getT(k){const l=curLang.c;return TRANSLATIONS[k]?(TRANSLATIONS[k][l]||TRANSLATIONS[k].en):k}
+
+function getT(key){const l=curLang.c;return TRANSLATIONS[key]?(TRANSLATIONS[key][l]||TRANSLATIONS[key].en):key}
+
 function translatePage(){
   document.querySelector('.hero-badge').innerHTML=`<span class="pdot"></span> ${getT('hero.badge')}`;
   document.querySelector('h1').innerHTML=getT('hero.title');
@@ -957,37 +1016,28 @@ function translatePage(){
   document.querySelector('.res-title').textContent=getT('res.title');
   document.getElementById('zip-btn').innerHTML=getT('btn.zip');
   document.getElementById('clr-btn').innerHTML=getT('btn.clear');
-  toast2('🌍 Language changed to '+curLang.n,'ok');
+  toast2('🌍 Language changed to ' + curLang.n, 'ok');
 }
+
 function selLang(c){
   curLang=LANGS.find(l=>l.c===c);
   document.getElementById('lflag').textContent=curLang.f;
   document.getElementById('lname').textContent=curLang.l;
   document.getElementById('lang-dd').classList.remove('open');
-  buildDD();translatePage();
+  buildDD(); translatePage();
 }
 function buildDD(){
-  const ldd=document.getElementById('lang-dd');
-  ldd.innerHTML=LANGS.map(l=>`<div class="lang-item ${l.c===curLang.c?'cur':''}" onclick="selLang('${l.c}')"><span>${l.f}</span><span>${l.n}</span></div>`).join('');
+  document.getElementById('lang-dd').innerHTML=LANGS.map(l=>`<div class="lang-item ${l.c===curLang.c?'cur':''}" onclick="selLang('${l.c}')"><span>${l.f}</span><span>${l.n}</span></div>`).join('');
 }
 buildDD();
+
 const langBtn=document.getElementById('lang-btn'),ldd=document.getElementById('lang-dd');
 langBtn.addEventListener('click',e=>{e.stopImmediatePropagation();ldd.classList.toggle('open')});
 document.addEventListener('click',e=>{if(!langBtn.contains(e.target)&&!ldd.contains(e.target))ldd.classList.remove('open')});
-
-/* ══════════════════════════════════════════════════════════════
-   MOBILE NAV
-══════════════════════════════════════════════════════════════ */
 document.getElementById('mob-btn').addEventListener('click',()=>document.getElementById('mob-nav').classList.toggle('open'));
-
-/* ══════════════════════════════════════════════════════════════
-   FAQ
-══════════════════════════════════════════════════════════════ */
 document.querySelectorAll('.fq').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
 
-/* ══════════════════════════════════════════════════════════════
-   RATING
-══════════════════════════════════════════════════════════════ */
+// ── RATING ──────────────────────────────────────────────────────────────────
 const RLABELS=['','Poor 😕','Below Average 😐','Good 🙂','Very Good 😊','Excellent! 🤩'];
 let selR=0;
 const picks=document.querySelectorAll('.sp');
@@ -996,244 +1046,178 @@ picks.forEach(s=>{
   s.addEventListener('mouseleave',()=>picks.forEach(p=>p.classList.toggle('lit',+p.dataset.v<=selR)));
   s.addEventListener('click',()=>{selR=+s.dataset.v;document.getElementById('rlbl').textContent=RLABELS[selR];document.getElementById('rsub').classList.add('sh');picks.forEach(p=>p.classList.toggle('lit',+p.dataset.v<=selR))});
 });
-function submitRating(){
-  document.getElementById('rsub').classList.remove('sh');
-  document.getElementById('spk').style.display='none';
-  document.getElementById('rlbl').style.display='none';
-  document.getElementById('rok').classList.add('sh');
-  toast2('⭐ Rating submitted! Thank you.','ok');
-}
+function submitRating(){document.getElementById('rsub').classList.remove('sh');document.getElementById('spk').style.display='none';document.getElementById('rlbl').style.display='none';document.getElementById('rok').classList.add('sh');toast2('⭐ Rating submitted! Thank you.','ok')}
 
-/* ══════════════════════════════════════════════════════════════
-   CORE STATE
-══════════════════════════════════════════════════════════════ */
-// Extraction video (hidden) + canvas
+// ── STATE ────────────────────────────────────────────────────────────────────
 const vid=document.getElementById('vid');
 const cnv=document.getElementById('cnv');
 const ctx=cnv.getContext('2d');
-// Preview video (visible)
-const vpVid=document.getElementById('vp-vid');
-let AR=16/9, frames=[], fmt='image/png', running=false, burl=null;
+let AR=16/9,frames=[],fmt='image/png',running=false,burl=null;
 
-/* ══════════════════════════════════════════════════════════════
-   DRAG & DROP / FILE INPUT
-══════════════════════════════════════════════════════════════ */
+// ── VIDEO PREVIEW STATE ──────────────────────────────────────────────────────
+const pvid=document.getElementById('vprev-vid');
+let snapCount=0;
+let pvPlaying=false;
+let pvMuted=false;
+
+// ── DRAG DROP + FILE SELECT ──────────────────────────────────────────────────
 const dz=document.getElementById('dz');
 ['dragenter','dragover'].forEach(e=>dz.addEventListener(e,ev=>{ev.preventDefault();dz.classList.add('over')}));
 ['dragleave','drop'].forEach(e=>dz.addEventListener(e,ev=>{ev.preventDefault();dz.classList.remove('over')}));
-dz.addEventListener('drop',ev=>{
-  const f=ev.dataTransfer.files[0];
-  if(f&&f.type.startsWith('video/'))loadV(f);
-  else toast2('Please drop a video file','er');
-});
+dz.addEventListener('drop',ev=>{const f=ev.dataTransfer.files[0];if(f&&f.type.startsWith('video/'))loadV(f);else toast2('Please drop a video file','er')});
 document.getElementById('fi').addEventListener('change',e=>{if(e.target.files[0])loadV(e.target.files[0])});
 
-/* ══════════════════════════════════════════════════════════════
-   LOAD VIDEO — feeds both extraction vid + preview vpVid
-══════════════════════════════════════════════════════════════ */
+// ── LOAD VIDEO ───────────────────────────────────────────────────────────────
 function loadV(file){
   if(burl)URL.revokeObjectURL(burl);
   burl=URL.createObjectURL(file);
 
-  // Hidden extraction video
+  // Set both the hidden extraction video and the preview video
   vid.src=burl;
+  pvid.src=burl;
   vid.load();
-
-  // Preview video
-  vpVid.src=burl;
-  vpVid.load();
+  pvid.load();
+  pvid.volume=0.8;
+  pvid.muted=false;
 
   vid.onloadedmetadata=()=>{
-    const w=vid.videoWidth, h=vid.videoHeight;
+    const w=vid.videoWidth,h=vid.videoHeight;
     AR=w/h;
-    const g=(a,b)=>b?g(b,a%b):a, gv=g(w,h);
+    const g=(a,b)=>b?g(b,a%b):a,gv=g(w,h);
+    const arStr=(w/gv)+':'+(h/gv);
+    const durStr=fmtT(vid.duration);
+    const sizeStr=fmtB(file.size);
+    const resStr=w+'×'+h;
+
+    // Main meta bar
     document.getElementById('m-n').textContent=trunc(file.name,26);
-    document.getElementById('m-d').textContent=fmtT(vid.duration);
-    document.getElementById('m-r').textContent=w+'×'+h;
-    document.getElementById('m-a').textContent=(w/gv)+':'+(h/gv);
-    document.getElementById('m-s').textContent=fmtB(file.size);
+    document.getElementById('m-d').textContent=durStr;
+    document.getElementById('m-r').textContent=resStr;
+    document.getElementById('m-a').textContent=arStr;
+    document.getElementById('m-s').textContent=sizeStr;
     document.getElementById('t1').placeholder=Math.floor(vid.duration)+'s';
     document.getElementById('mb').classList.add('sh');
     document.getElementById('ctrl-card').classList.add('sh');
 
-    // ── Show preview card & set aspect ratio ──────────────────
-    const vpCard=document.getElementById('vp-card');
-    vpCard.classList.remove('collapsed');
-    vpCard.classList.add('sh');
+    // Video preview panel info
+    document.getElementById('vi-dur').textContent=durStr;
+    document.getElementById('vi-res').textContent=resStr;
+    document.getElementById('vi-ar').textContent=arStr;
+    document.getElementById('vi-size').textContent=sizeStr;
 
-    // Set the wrapper's padding-bottom to maintain ratio
-    const pb=(1/AR*100).toFixed(3);
-    document.getElementById('vp-wrap').style.paddingBottom=pb+'%';
+    // Build jump buttons (0%, 25%, 50%, 75%, 100%)
+    const dur=vid.duration;
+    const jumpsEl=document.getElementById('vprev-jumps');
+    jumpsEl.innerHTML=['0%','25%','50%','75%','100%'].map((pct,i)=>{
+      const t=Math.min(dur*(i/4),dur-0.1).toFixed(1);
+      return `<button class="vprev-jb" onclick="pvJump(${t})">${pct}</button>`;
+    }).join('');
 
-    // Init seek bar max
-    document.getElementById('vp-seek').max=1000;
-    document.getElementById('vp-seek').value=0;
-    document.getElementById('vp-dur').textContent=fmtT(vid.duration);
-    document.getElementById('vp-cur').textContent='00:00.00';
+    // Show preview panel
+    document.getElementById('vprev-card').classList.add('sh');
 
-    // Unmute preview so user can hear audio
-    vpVid.muted=false;
-    vpVid.volume=parseFloat(document.getElementById('vp-vol').value);
+    // Reset snap count display
+    snapCount=0;
+    document.getElementById('vi-snaps').textContent='0';
+    document.getElementById('vprev-snaps').innerHTML='';
+    document.getElementById('vprev-snaps-wrap').style.display='none';
 
-    // Update play button state
-    updatePPBtn();
+    // Scroll to preview
+    setTimeout(()=>document.getElementById('vprev-card').scrollIntoView({behavior:'smooth',block:'nearest'}),120);
+
     toast2('✓ Video loaded — preview ready','ok');
+    cnv.width=w; cnv.height=h;
   };
 }
 
-/* ══════════════════════════════════════════════════════════════
-   VIDEO PREVIEW CONTROLS  ← NEW
-══════════════════════════════════════════════════════════════ */
+// ── PREVIEW VIDEO CONTROLS ───────────────────────────────────────────────────
+function pvJump(t){ pvid.currentTime=t; }
 
-// ── collapse / expand ──────────────────────────────────────
-document.getElementById('vp-toggle-btn').addEventListener('click',()=>{
-  const card=document.getElementById('vp-card');
-  const btn=document.getElementById('vp-toggle-btn');
-  const isCollapsed=card.classList.toggle('collapsed');
-  btn.querySelector('span:first-child').textContent=isCollapsed?'Show Preview':'Hide Preview';
-  btn.querySelector('.vp-toggle-arr').textContent=isCollapsed?'▼':'▲';
+// Play/Pause
+document.getElementById('vprev-play').addEventListener('click',()=>{
+  if(pvid.paused){ pvid.play(); pvPlaying=true; document.getElementById('vprev-play').textContent='⏸'; }
+  else{ pvid.pause(); pvPlaying=false; document.getElementById('vprev-play').textContent='▶'; }
 });
 
-// ── play / pause ──────────────────────────────────────────
-function updatePPBtn(){
-  const btn=document.getElementById('vp-pp-btn');
-  const ov=document.getElementById('vp-overlay');
-  const circle=document.getElementById('vp-play-circle');
-  if(vpVid.paused){
-    btn.innerHTML='▶ Play';
-    ov.classList.remove('playing');
-    circle.textContent='▶';
-  } else {
-    btn.innerHTML='⏸ Pause';
-    ov.classList.add('playing');
-    circle.textContent='⏸';
-  }
-}
+// Rewind / forward
+document.getElementById('vprev-rew').addEventListener('click',()=>{ pvid.currentTime=Math.max(0,pvid.currentTime-10); });
+document.getElementById('vprev-fwd').addEventListener('click',()=>{ pvid.currentTime=Math.min(pvid.duration||0,pvid.currentTime+10); });
 
-document.getElementById('vp-pp-btn').addEventListener('click',togglePlay);
-document.getElementById('vp-overlay').addEventListener('click',togglePlay);
-
-function togglePlay(){
-  if(!vpVid.src)return;
-  vpVid.paused ? vpVid.play() : vpVid.pause();
-}
-
-vpVid.addEventListener('play',updatePPBtn);
-vpVid.addEventListener('pause',updatePPBtn);
-vpVid.addEventListener('ended',updatePPBtn);
-
-// ── seek bar ──────────────────────────────────────────────
-vpVid.addEventListener('timeupdate',()=>{
-  if(!vpVid.duration)return;
-  const pct=vpVid.currentTime/vpVid.duration*1000;
-  document.getElementById('vp-seek').value=pct;
-  document.getElementById('vp-cur').textContent=fmtT(vpVid.currentTime);
+// Mute
+document.getElementById('vprev-mute').addEventListener('click',()=>{
+  pvMuted=!pvMuted; pvid.muted=pvMuted;
+  document.getElementById('vprev-mute').textContent=pvMuted?'🔇':'🔊';
 });
 
-document.getElementById('vp-seek').addEventListener('input',function(){
-  if(!vpVid.duration)return;
-  vpVid.currentTime=(this.value/1000)*vpVid.duration;
+// Volume
+document.getElementById('vprev-vol').addEventListener('input',function(){ pvid.volume=parseFloat(this.value); if(pvid.volume>0){pvid.muted=false;pvMuted=false;document.getElementById('vprev-mute').textContent='🔊';} });
+
+// Speed
+document.getElementById('vprev-speed').addEventListener('change',function(){ pvid.playbackRate=parseFloat(this.value); });
+
+// Seek
+const seekInput=document.getElementById('vprev-seek');
+seekInput.addEventListener('input',function(){
+  if(pvid.duration) pvid.currentTime=(this.value/100)*pvid.duration;
 });
 
-// ── rewind 10s ─────────────────────────────────────────────
-document.getElementById('vp-rew').addEventListener('click',()=>{
-  vpVid.currentTime=Math.max(0,vpVid.currentTime-10);
+// Update seekbar & time on timeupdate
+pvid.addEventListener('timeupdate',()=>{
+  if(!pvid.duration) return;
+  const pct=(pvid.currentTime/pvid.duration)*100;
+  document.getElementById('vprev-fill').style.width=pct+'%';
+  document.getElementById('vprev-thumb').style.left=pct+'%';
+  if(!seekInput.matches(':active')) seekInput.value=pct;
+  const curStr=fmtT(pvid.currentTime);
+  const durStr=fmtT(pvid.duration);
+  document.getElementById('vprev-time').textContent=curStr+' / '+durStr;
+  document.getElementById('vi-cur').textContent=curStr;
 });
 
-// ── forward 10s ────────────────────────────────────────────
-document.getElementById('vp-fwd').addEventListener('click',()=>{
-  vpVid.currentTime=Math.min(vpVid.duration||0,vpVid.currentTime+10);
+pvid.addEventListener('ended',()=>{
+  pvPlaying=false;
+  document.getElementById('vprev-play').textContent='▶';
 });
 
-// ── loop ──────────────────────────────────────────────────
-document.getElementById('vp-loop-btn').addEventListener('click',function(){
-  vpVid.loop=!vpVid.loop;
-  this.classList.toggle('act',vpVid.loop);
-  this.textContent=vpVid.loop?'🔁 Loop ON':'🔁 Loop';
-  toast2(vpVid.loop?'🔁 Loop enabled':'🔁 Loop off');
+// Close preview panel
+document.getElementById('vprev-close').addEventListener('click',()=>{
+  document.getElementById('vprev-card').classList.remove('sh');
 });
 
-// ── speed ─────────────────────────────────────────────────
-document.getElementById('vp-speed').addEventListener('change',function(){
-  vpVid.playbackRate=parseFloat(this.value);
+// ── SNAPSHOT ─────────────────────────────────────────────────────────────────
+document.getElementById('vprev-snap-btn').addEventListener('click',()=>{
+  if(!pvid.src||pvid.readyState<2){ toast2('Video not ready yet','er'); return; }
+
+  // Draw current frame to hidden canvas
+  cnv.width=pvid.videoWidth||1280;
+  cnv.height=pvid.videoHeight||720;
+  ctx.drawImage(pvid,0,0,cnv.width,cnv.height);
+  const dataUrl=cnv.toDataURL('image/png',1.0);
+  const ts=fmtT(pvid.currentTime).replace(':','-').replace('.','-');
+  const fname=`snapshot-${ts}.png`;
+
+  // Add to strip
+  snapCount++;
+  document.getElementById('vi-snaps').textContent=snapCount;
+  document.getElementById('vprev-snaps-wrap').style.display='block';
+
+  const item=document.createElement('a');
+  item.className='vprev-snap-item';
+  item.href=dataUrl;
+  item.download=fname;
+  item.title='Download '+fname;
+  item.innerHTML=`<img src="${dataUrl}" alt="Snapshot"><div class="vprev-snap-dl">⬇</div>`;
+  document.getElementById('vprev-snaps').prepend(item);
+
+  toast2(`📷 Snapshot saved — ${fname}`,'ok');
 });
 
-// ── volume ────────────────────────────────────────────────
-document.getElementById('vp-vol').addEventListener('input',function(){
-  vpVid.volume=parseFloat(this.value);
-  vpVid.muted=this.value==0;
-  document.getElementById('vp-mute').textContent=
-    vpVid.muted||vpVid.volume===0 ? '🔇' : vpVid.volume<0.5 ? '🔉' : '🔊';
-});
-
-document.getElementById('vp-mute').addEventListener('click',function(){
-  vpVid.muted=!vpVid.muted;
-  this.textContent=vpVid.muted?'🔇':'🔊';
-  if(!vpVid.muted&&vpVid.volume===0){
-    vpVid.volume=0.8;
-    document.getElementById('vp-vol').value=0.8;
-  }
-});
-
-// ── fullscreen ────────────────────────────────────────────
-document.getElementById('vp-fs').addEventListener('click',()=>{
-  const wrap=document.getElementById('vp-wrap');
-  if(document.fullscreenElement){
-    document.exitFullscreen();
-  } else {
-    (wrap.requestFullscreen||wrap.webkitRequestFullscreen).call(wrap);
-  }
-});
-
-// ── keyboard shortcuts (spacebar = play/pause) ────────────
-document.addEventListener('keydown',e=>{
-  // Don't hijack if user is typing in an input
-  if(['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName))return;
-  if(e.key===' '&&vpVid.src){e.preventDefault();togglePlay();}
-  if(e.key==='ArrowLeft'&&vpVid.src){e.preventDefault();vpVid.currentTime=Math.max(0,vpVid.currentTime-5);}
-  if(e.key==='ArrowRight'&&vpVid.src){e.preventDefault();vpVid.currentTime=Math.min(vpVid.duration||0,vpVid.currentTime+5);}
-  if(e.key==='Escape')document.getElementById('lb').classList.remove('open');
-});
-
-// ── Snap Frame: capture current preview position ──────────
-document.getElementById('vp-snap').addEventListener('click',()=>{
-  if(!vpVid.src||!vpVid.videoWidth)return;
-
-  // Flash animation
-  const fl=document.getElementById('snap-flash');
-  fl.classList.remove('go');
-  void fl.offsetWidth; // reflow
-  fl.classList.add('go');
-
-  // Capture
-  cnv.width=vpVid.videoWidth;
-  cnv.height=vpVid.videoHeight;
-  ctx.drawImage(vpVid,0,0,cnv.width,cnv.height);
-  const q=parseInt(document.getElementById('q-sl').value)/100;
-  const du=cnv.toDataURL(fmt,q);
-  const ext=fmt==='image/png'?'png':fmt==='image/jpeg'?'jpg':'webp';
-
-  const fd={du,t:vpVid.currentTime,i:frames.length,ext};
-  frames.push(fd);
-  addCard(fd);
-  document.getElementById('res-sec').classList.add('sh');
-  document.getElementById('fc').textContent=`(${frames.length} frames)`;
-  toast2(`📷 Frame snapped at ${fmtT(vpVid.currentTime)}`,'ok');
-});
-
-/* ══════════════════════════════════════════════════════════════
-   EXTRACTION SETTINGS CONTROLS
-══════════════════════════════════════════════════════════════ */
+// ── EXTRACTION CONTROLS ──────────────────────────────────────────────────────
 document.getElementById('q-sl').addEventListener('input',function(){document.getElementById('q-lbl').textContent=this.value+'%'});
 document.getElementById('mf-sl').addEventListener('input',function(){document.getElementById('mf-lbl').textContent=this.value});
-document.querySelectorAll('.fmb').forEach(b=>b.addEventListener('click',()=>{
-  document.querySelectorAll('.fmb').forEach(x=>x.classList.remove('act'));
-  b.classList.add('act');fmt=b.dataset.fmt;
-}));
+document.querySelectorAll('.fmb').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.fmb').forEach(x=>x.classList.remove('act'));b.classList.add('act');fmt=b.dataset.fmt}));
 
-/* ══════════════════════════════════════════════════════════════
-   EXTRACT FRAMES
-══════════════════════════════════════════════════════════════ */
+// ── EXTRACT ──────────────────────────────────────────────────────────────────
 document.getElementById('ext-btn').addEventListener('click',doExtract);
 async function doExtract(){
   if(!vid.src||running)return;
@@ -1274,11 +1258,7 @@ async function doExtract(){
 function capAt(time,q){
   return new Promise(r=>{
     vid.currentTime=time;
-    vid.addEventListener('seeked',function h(){
-      ctx.drawImage(vid,0,0,cnv.width,cnv.height);
-      r(cnv.toDataURL(fmt,q));
-      vid.removeEventListener('seeked',h);
-    },{once:true});
+    vid.addEventListener('seeked',function h(){ctx.drawImage(vid,0,0,cnv.width,cnv.height);r(cnv.toDataURL(fmt,q));vid.removeEventListener('seeked',h)},{once:true});
   });
 }
 
@@ -1299,9 +1279,7 @@ function addCard(fd){
   grid.appendChild(c);
 }
 
-/* ══════════════════════════════════════════════════════════════
-   ZIP DOWNLOAD
-══════════════════════════════════════════════════════════════ */
+// ── ZIP ───────────────────────────────────────────────────────────────────────
 document.getElementById('zip-btn').addEventListener('click',async()=>{
   if(!frames.length)return;
   toast2('Building ZIP…');
@@ -1309,64 +1287,44 @@ document.getElementById('zip-btn').addEventListener('click',async()=>{
   frames.forEach(f=>{const b=f.du.split(',')[1];folder.file(`frame-${String(f.i+1).padStart(4,'0')}.${f.ext}`,b,{base64:true})});
   const blob=await zip.generateAsync({type:'blob'});
   const url=URL.createObjectURL(blob);
-  const a=Object.assign(document.createElement('a'),{href:url,download:'frames.zip'});
-  a.click();URL.revokeObjectURL(url);
+  Object.assign(document.createElement('a'),{href:url,download:'frames.zip'}).click();
+  URL.revokeObjectURL(url);
   toast2(`✓ ZIP with ${frames.length} frames downloaded`,'ok');
 });
 
-document.getElementById('clr-btn').addEventListener('click',()=>{
-  frames=[];
-  document.getElementById('fg').innerHTML='';
-  document.getElementById('res-sec').classList.remove('sh');
-  document.getElementById('pc').classList.remove('sh');
-  document.getElementById('fc').textContent='';
-});
+document.getElementById('clr-btn').addEventListener('click',()=>{frames=[];document.getElementById('fg').innerHTML='';document.getElementById('res-sec').classList.remove('sh');document.getElementById('pc').classList.remove('sh');document.getElementById('fc').textContent=''});
 
 document.getElementById('reset-btn').addEventListener('click',()=>{
-  running=false;
-  if(burl)URL.revokeObjectURL(burl);
-  vid.src='';
-  vpVid.src='';
-  vpVid.pause();
-  frames=[];
+  running=false;if(burl)URL.revokeObjectURL(burl);
+  vid.src='';pvid.src='';frames=[];
   document.getElementById('fg').innerHTML='';
   document.getElementById('mb').classList.remove('sh');
   document.getElementById('ctrl-card').classList.remove('sh');
-  document.getElementById('vp-card').classList.remove('sh');
   document.getElementById('res-sec').classList.remove('sh');
   document.getElementById('pc').classList.remove('sh');
+  document.getElementById('vprev-card').classList.remove('sh');
   document.getElementById('fi').value='';
-  updatePPBtn();
+  pvPlaying=false;
+  document.getElementById('vprev-play').textContent='▶';
+  document.getElementById('vprev-fill').style.width='0%';
+  document.getElementById('vprev-thumb').style.left='0%';
+  document.getElementById('vprev-time').textContent='00:00.00 / 00:00.00';
+  document.getElementById('vprev-snaps').innerHTML='';
+  document.getElementById('vprev-snaps-wrap').style.display='none';
+  snapCount=0; document.getElementById('vi-snaps').textContent='0';
 });
 
-/* ══════════════════════════════════════════════════════════════
-   LIGHTBOX
-══════════════════════════════════════════════════════════════ */
-function openLB(fd){
-  document.getElementById('lbi').src=fd.du;
-  document.getElementById('lbi2').textContent=`Frame #${fd.i+1} · ${fmtT(fd.t)} · ${cnv.width}×${cnv.height}`;
-  document.getElementById('lb').classList.add('open');
-}
+// ── LIGHTBOX ──────────────────────────────────────────────────────────────────
+function openLB(fd){document.getElementById('lbi').src=fd.du;document.getElementById('lbi2').textContent=`Frame #${fd.i+1} · ${fmtT(fd.t)} · ${cnv.width}×${cnv.height}`;document.getElementById('lb').classList.add('open')}
 document.getElementById('lbx').onclick=()=>document.getElementById('lb').classList.remove('open');
-document.getElementById('lb').addEventListener('click',e=>{
-  if(e.target===document.getElementById('lb'))document.getElementById('lb').classList.remove('open');
-});
+document.getElementById('lb').addEventListener('click',e=>{if(e.target===document.getElementById('lb'))document.getElementById('lb').classList.remove('open')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lb').classList.remove('open')});
 
-/* ══════════════════════════════════════════════════════════════
-   TOAST
-══════════════════════════════════════════════════════════════ */
+// ── TOAST ─────────────────────────────────────────────────────────────────────
 let tt;
-function toast2(msg,type=''){
-  const t=document.getElementById('toast');
-  t.textContent=msg;
-  t.className='toast sh '+(type==='ok'?'ok':type==='er'?'er':'');
-  clearTimeout(tt);
-  tt=setTimeout(()=>t.className='toast',3000);
-}
+function toast2(msg,type=''){const t=document.getElementById('toast');t.textContent=msg;t.className='toast sh '+(type==='ok'?'ok':type==='er'?'er':'');clearTimeout(tt);tt=setTimeout(()=>t.className='toast',3000)}
 
-/* ══════════════════════════════════════════════════════════════
-   HELPERS
-══════════════════════════════════════════════════════════════ */
+// ── HELPERS ───────────────────────────────────────────────────────────────────
 function fmtT(s){const m=Math.floor(s/60),sc=(s%60).toFixed(2).padStart(5,'0');return String(m).padStart(2,'0')+':'+sc}
 function fmtB(b){if(b<1024)return b+' B';if(b<1048576)return(b/1024).toFixed(1)+' KB';return(b/1048576).toFixed(1)+' MB'}
 function trunc(s,n){return s.length>n?s.slice(0,n)+'…':s}
